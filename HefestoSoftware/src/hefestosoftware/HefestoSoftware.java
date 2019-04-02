@@ -13,6 +13,7 @@ import javax.persistence.Persistence;
 /**
  *
  * @author Antonio Manuel
+ * @author Iván García Aguilar
  */
 public class HefestoSoftware {
 
@@ -22,13 +23,24 @@ public class HefestoSoftware {
     public static void main(String[] args) {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("HefestoSoftwarePU");
         EntityManager em = emf.createEntityManager();
-        
+
+        //Creamos un nuevo niño vacio con los campos obligatorios definidos y forzamos para que se
+        //genere el esquema.
+
+        Nino a = new Nino();
         EntityTransaction tx = em.getTransaction();
         tx.begin();
-        
-        
+
+        a.setNombre("Jose");
+        a.setApellidos("Antonio");
+        a.setDireccion("Avenida Plaza");
+        a.setPoblacion("Colombia");
+        a.setFechaNacimiento("01/10/99");
+        a.setFechaAlta("06/11/2014");
+
+
+        em.persist(a);
         tx.commit();
-        
         em.close();
         emf.close();
     }
