@@ -30,9 +30,9 @@ public class Paquete implements Serializable {
     private byte[] adjunto;
     @Column(length = 500, nullable = false)
     private String descripcion;
-    @Column(nullable = false)
+    @Column(length = 100, nullable = false)
     private String origen;
-    @Column(nullable = false)
+    @Column(length = 100, nullable = false)
     private String destino;
     @ManyToOne
     @JoinColumn(nullable = false)

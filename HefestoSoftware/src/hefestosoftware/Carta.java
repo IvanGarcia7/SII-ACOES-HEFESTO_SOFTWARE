@@ -26,9 +26,9 @@ public class Carta implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @Column(nullable = false)
+    @Column(length = 50, nullable = false)
     private String asunto;
-    @Column(nullable = false)
+    @Column(length = 1000, nullable = false)
     private String mensaje;
     @Lob
     private byte[] adjunto;
