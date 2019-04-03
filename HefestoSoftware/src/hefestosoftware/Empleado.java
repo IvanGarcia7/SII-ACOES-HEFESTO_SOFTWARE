@@ -52,9 +52,8 @@ public class Empleado implements Serializable {
     private Date fechaAlta;
     @Column(name = "fecha_baja")
     private Date fechaBaja;
-    @ManyToOne
-    @JoinColumn(nullable = false)
-    private Paquete paquetes;
+
+   
 
     public String getUsuario() {
         return usuario;

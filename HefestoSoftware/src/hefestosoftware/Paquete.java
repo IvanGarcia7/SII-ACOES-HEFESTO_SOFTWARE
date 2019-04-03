@@ -40,7 +40,7 @@ public class Paquete implements Serializable {
     private HistorialPaquetes historial;
     @OneToOne
     @JoinColumn(nullable = false)
-    private Usuario usuario;
+    private Empleado empleado;
 
     public byte[] getAdjunto() {
         return adjunto;
