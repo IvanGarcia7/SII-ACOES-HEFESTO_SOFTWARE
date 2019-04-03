@@ -1,11 +1,12 @@
 package hefestosoftware;
 
+import hefestosoftware.Paquete;
 import java.sql.Date;
 import javax.annotation.Generated;
 import javax.persistence.metamodel.SingularAttribute;
 import javax.persistence.metamodel.StaticMetamodel;
 
-@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2019-04-02T16:36:37")
+@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2019-04-03T14:12:32")
 @StaticMetamodel(Empleado.class)
 public class Empleado_ { 
 
@@ -14,6 +15,7 @@ public class Empleado_ {
     public static volatile SingularAttribute<Empleado, Integer> numeroEmpleado;
     public static volatile SingularAttribute<Empleado, Integer> codigoPostal;
     public static volatile SingularAttribute<Empleado, Date> fechaAlta;
+    public static volatile SingularAttribute<Empleado, Paquete> paquetes;
     public static volatile SingularAttribute<Empleado, String> direccion;
     public static volatile SingularAttribute<Empleado, String> provincia;
     public static volatile SingularAttribute<Empleado, String> nombre;
