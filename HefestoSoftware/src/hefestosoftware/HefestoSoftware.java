@@ -5,10 +5,12 @@
  */
 package hefestosoftware;
 
+import java.util.Calendar;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+import java.util.Date;
 
 /**
  *
@@ -27,22 +29,26 @@ public class HefestoSoftware {
         //Creamos un nuevo niño vacio con los campos obligatorios definidos y forzamos para que se
         //genere el esquema.
 
-        Nino a = new Nino();
+         HistorialPaquetes h = new HistorialPaquetes();
         EntityTransaction tx = em.getTransaction();
         tx.begin();
 
-        a.setNombre("Jose");
-        a.setApellidos("Antonio");
-        a.setDireccion("Avenida Plaza");
-        a.setPoblacion("Colombia");
-        a.setFechaNacimiento("01/10/99");
-        a.setFechaAlta("06/11/2014");
+        java.sql.Date date = new java.sql.Date(Calendar.getInstance().getTime().getTime());
+        
+        h.setFechaEnvio(date);
+       
 
-
-        em.persist(a);
+        em.persist(h);
         tx.commit();
         em.close();
         emf.close();
+
+        
+       
+      
+        
+
+
     }
     
 }
