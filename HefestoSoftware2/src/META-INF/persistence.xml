@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+  <persistence-unit name="HefestoSoftwarePU" transaction-type="RESOURCE_LOCAL">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>hefestosoftware.Usuario</class>
+    <class>hefestosoftware.Registro</class>
+    <class>hefestosoftware.Peticion</class>
+    <class>hefestosoftware.Empleado</class>
+    <class>hefestosoftware.Carta</class>
+    <class>hefestosoftware.HistorialCartas</class>
+    <class>hefestosoftware.HistorialPadrinos</class>
+    <class>hefestosoftware.Niño</class>
+    <class>hefestosoftware.Paquete</class>
+    <class>hefestosoftware.HistorialPaquetes</class>
+    <properties>
+      <property name="javax.persistence.jdbc.url" value="jdbc:derby://localhost:1527/HefestoBD;characterEncoding=UTF-8"/>
+      <property name="javax.persistence.jdbc.user" value="bd"/>
+      <property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.ClientDriver"/>
+      <property name="javax.persistence.jdbc.password" value="bd"/>
+      <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
+      <property name="javax.persistence.schema-generation.scripts.action" value="create"/>
+      <property name="javax.persistence.schema-generation.scripts.create-target" value="/Users/yo/Downloads/create.sql"/>
+    </properties>
+  </persistence-unit>
+</persistence>
