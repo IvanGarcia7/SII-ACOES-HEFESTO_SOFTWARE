@@ -26,7 +26,6 @@ public class HefestoSoftware {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("HefestoSoftwarePU");
         EntityManager em = emf.createEntityManager();
 
-        
         //Creamos un nuevo niño vacio con los campos obligatorios definidos y forzamos para que se
         //genere el esquema.
 
