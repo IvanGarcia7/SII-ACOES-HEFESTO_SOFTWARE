@@ -14,6 +14,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import java.util.Set;
 
 /**
  *
@@ -34,6 +35,8 @@ public class HistorialPadrinos implements Serializable {
     private String descripcion;
     @OneToOne
     private Usuario usuario;
+    @OneToMany(mappedBy = "historial", cascade = CascadeType.ALL)
+    private Set<Niño> niños;
 
     public Long getId() {
         return id;
@@ -73,6 +76,14 @@ public class HistorialPadrinos implements Serializable {
 
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
+    }
+    
+    public Set<Niño> getNiños() {
+        return niños;
+    }
+
+    public void setNiños(Set<Niño> niños) {
+        this.niños = niños;
     }
     
     @Override
