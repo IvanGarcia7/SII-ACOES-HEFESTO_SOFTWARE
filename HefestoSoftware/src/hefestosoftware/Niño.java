@@ -10,9 +10,7 @@ import java.sql.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
-import javax.persistence.ManyToOne;
 
 /**
  *
@@ -40,9 +38,6 @@ public class Niño implements Serializable {
     private Date fechaAlta;
     @Column(name = "fecha_baja")
     private Date fechaBaja;
-    @ManyToOne
-    @JoinColumn(nullable = false)
-    private HistorialPadrinos historial;
 
     public String getNombre() {
         return nombre;
@@ -114,14 +109,6 @@ public class Niño implements Serializable {
 
     public void setFechaNacimiento(Date fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
-    }
-
-    public HistorialPadrinos getHistorial() {
-        return historial;
-    }
-
-    public void setHistorial(HistorialPadrinos historial) {
-        this.historial = historial;
     }
     
     @Override
