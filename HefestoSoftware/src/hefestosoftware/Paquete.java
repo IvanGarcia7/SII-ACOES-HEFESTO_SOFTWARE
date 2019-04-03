@@ -37,6 +37,9 @@ public class Paquete implements Serializable {
     @ManyToOne
     @JoinColumn(nullable = false)
     private HistorialPaquetes historial;
+    @OneToOne
+    @JoinColumn(nullable = false)
+    private Usuario usuario;
 
     public byte[] getAdjunto() {
         return adjunto;
