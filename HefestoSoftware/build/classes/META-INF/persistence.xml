@@ -19,7 +19,7 @@
       <property name="javax.persistence.jdbc.password" value="bd"/>
       <property name="javax.persistence.schema-generation.database.action" value="create"/>
       <property name="javax.persistence.schema-generation.scripts.action" value="create"/>
-      <property name="javax.persistence.schema-generation.scripts.create-target" value="/Users/ivan/Pictures/create.sql"/>
+      <property name="javax.persistence.schema-generation.scripts.create-target" value="/Users/ivan/Desktop/create.sql"/>
     </properties>
   </persistence-unit>
 </persistence>

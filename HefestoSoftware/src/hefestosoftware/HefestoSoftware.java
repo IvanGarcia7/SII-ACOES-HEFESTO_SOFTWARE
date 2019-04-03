@@ -29,16 +29,27 @@ public class HefestoSoftware {
         //Creamos un nuevo niño vacio con los campos obligatorios definidos y forzamos para que se
         //genere el esquema.
 
-         HistorialPaquetes h = new HistorialPaquetes();
+        Usuario test = new Usuario();
         EntityTransaction tx = em.getTransaction();
         tx.begin();
 
-        java.sql.Date date = new java.sql.Date(Calendar.getInstance().getTime().getTime());
         
-        h.setFechaEnvio(date);
-       
-
-        em.persist(h);
+        test.setUsuario("Andrea_99");
+        test.setContraseña("Contraseña123");
+        test.setNombre("Andrea");
+        test.setApellidos("Galvez");
+        test.setDni("65667687g");
+        test.setDireccion("Callejon 4");
+        test.setPoblacion("Cuevas");
+        test.setCodigoPostal(29837);
+        test.setProvincia("Malaga");
+        test.setTelefono("656767872");
+        test.setCorreoElectronico("aa6@hotmail.com");
+        java.sql.Date date = new java.sql.Date(Calendar.getInstance().getTime().getTime());
+        test.setFechaAlta(date);
+        
+        
+        em.persist(test);
         tx.commit();
         em.close();
         emf.close();

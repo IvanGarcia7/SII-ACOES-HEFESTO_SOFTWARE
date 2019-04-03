@@ -12,10 +12,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import java.util.Set;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 
 /**
  *
@@ -34,10 +32,10 @@ public class HistorialPadrinos implements Serializable {
     @Column(name = "fecha_cancelacion")
     private Date fechaCancelacion;
     private String descripcion;
-    @OneToOne
+    @ManyToOne
+    private Niño niño;
+    @ManyToOne
     private Usuario usuario;
-    @OneToMany
-    private Set<Niño> niños;
 
     public Long getId() {
         return id;
@@ -78,13 +76,13 @@ public class HistorialPadrinos implements Serializable {
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
-    
-    public Set<Niño> getNiños() {
-        return niños;
+
+    public Niño getNiño() {
+        return niño;
     }
 
-    public void setNiños(Set<Niño> niños) {
-        this.niños = niños;
+    public void setNiño(Niño niño) {
+        this.niño = niño;
     }
     
     @Override

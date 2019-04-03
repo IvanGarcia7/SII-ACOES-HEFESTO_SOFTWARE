@@ -12,6 +12,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
@@ -33,6 +35,9 @@ public class HistorialPaquetes implements Serializable {
     private Boolean estado;
     @Column(length = 500)
     private String descripcion;
+    @ManyToOne
+    @JoinColumn(nullable = true)
+    private Paquete paquete;
 
     public Long getId() {
         return id;

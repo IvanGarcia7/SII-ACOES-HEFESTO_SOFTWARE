@@ -13,7 +13,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
 /**
@@ -35,9 +34,6 @@ public class Paquete implements Serializable {
     private String origen;
     @Column(length = 100, nullable = false)
     private String destino;
-    @ManyToOne
-    @JoinColumn(nullable = false)
-    private HistorialPaquetes historial;
     @OneToOne
     @JoinColumn(nullable = false)
     private Empleado empleado;
@@ -74,14 +70,7 @@ public class Paquete implements Serializable {
         this.destino = destino;
     }
 
-    public HistorialPaquetes getHistorial() {
-        return historial;
-    }
-
-    public void setHistorial(HistorialPaquetes historial) {
-        this.historial = historial;
-    }
-
+    
     public Long getId() {
         return id;
     }
