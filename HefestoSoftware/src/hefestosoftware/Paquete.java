@@ -13,7 +13,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 
 /**
  *
@@ -34,7 +34,7 @@ public class Paquete implements Serializable {
     private String origen;
     @Column(length = 100, nullable = false)
     private String destino;
-    @OneToOne
+    @ManyToOne
     @JoinColumn(nullable = false)
     private Empleado empleado;
 
@@ -79,6 +79,14 @@ public class Paquete implements Serializable {
         this.id = id;
     }
 
+    public Empleado getEmpleado() {
+        return empleado;
+    }
+
+    public void setEmpleado(Empleado empleado) {
+        this.empleado = empleado;
+    }
+    
     @Override
     public int hashCode() {
         int hash = 0;

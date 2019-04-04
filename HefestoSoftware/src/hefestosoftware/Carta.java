@@ -32,7 +32,6 @@ public class Carta implements Serializable {
     private String mensaje;
     @Lob
     private byte[] adjunto;
-    
     @ManyToOne
     @JoinColumn(nullable = false)
     private Niño niño;
@@ -55,8 +54,6 @@ public class Carta implements Serializable {
     public void setMensaje(String mensaje) {
         this.mensaje = mensaje;
     }
-
-    
 
     public Niño getNiño() {
         return niño;

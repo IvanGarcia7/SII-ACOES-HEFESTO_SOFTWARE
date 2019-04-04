@@ -173,8 +173,6 @@ public class Usuario implements Serializable {
         this.descripcion = descripcion;
     }
     
-    
-    
     @Override
     public int hashCode() {
         int hash = 0;

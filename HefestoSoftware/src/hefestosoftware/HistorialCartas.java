@@ -37,6 +37,14 @@ public class HistorialCartas implements Serializable {
     private Usuario usuario;
     @ManyToOne
     private Carta carta;
+
+    public Carta getCarta() {
+        return carta;
+    }
+
+    public void setCarta(Carta carta) {
+        this.carta = carta;
+    }
     
     public Long getId() {
         return id;
@@ -70,8 +78,6 @@ public class HistorialCartas implements Serializable {
         this.usuario = usuario;
     }
 
-    
-    
     @Override
     public int hashCode() {
         int hash = 0;

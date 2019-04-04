@@ -10,8 +10,6 @@ import java.sql.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 
 /**
  *
@@ -52,8 +50,6 @@ public class Empleado implements Serializable {
     private Date fechaAlta;
     @Column(name = "fecha_baja")
     private Date fechaBaja;
-
-   
 
     public String getUsuario() {
         return usuario;
