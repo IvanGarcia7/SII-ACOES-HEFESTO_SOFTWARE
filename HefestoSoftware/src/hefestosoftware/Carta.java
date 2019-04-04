@@ -32,9 +32,7 @@ public class Carta implements Serializable {
     private String mensaje;
     @Lob
     private byte[] adjunto;
-    @ManyToOne
-    @JoinColumn(nullable = false)
-    private HistorialCartas historial;
+    
     @ManyToOne
     @JoinColumn(nullable = false)
     private Niño niño;
@@ -58,13 +56,7 @@ public class Carta implements Serializable {
         this.mensaje = mensaje;
     }
 
-    public HistorialCartas getHistorial() {
-        return historial;
-    }
-
-    public void setHistorial(HistorialCartas historial) {
-        this.historial = historial;
-    }
+    
 
     public Niño getNiño() {
         return niño;
