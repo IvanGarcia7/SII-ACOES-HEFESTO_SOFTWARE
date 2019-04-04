@@ -13,7 +13,7 @@ Para poder generar el código encargado de definir el esquema. Es decir, el arch
 
 	Modificando la línea que aparece a continuación:
 
- "<property name="javax.persistence.schema-generation.scripts.create-target" value="/Users/ivan/Desktop/create.sql"/>""
+ property name="javax.persistence.schema-generation.scripts.create-target" value="/Users/ivan/Desktop/create.sql"/
 
  Estableciendo en value la ruta o directorio donde desea almacenar el fichero generado.
 
