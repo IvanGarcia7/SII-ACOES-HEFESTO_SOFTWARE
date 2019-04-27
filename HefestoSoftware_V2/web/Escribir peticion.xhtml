@@ -1,0 +1,39 @@
+<ui:composition template="/WEB-INF/templates/plantilla.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+>
+    
+    <ui:define name="title">Escribir Petición</ui:define>
+    
+    <ui:define name="content">
+        <c:choose>
+            <c:when test="#{controlAutorizacion.usuario.rol == 'PADRINO'}">
+                
+            <h1>Solicita un nuevo Apadrinamiento: <h:outputText value="#{controlAutorizacion.usuario.usuario}"/></h1>
+                 
+            <form action=" http://www.acoes.es/solicitud" method="post" enctype="text/plain" name="Solicitud">
+                <p>Introduzca el tipo de petición que desee realizar:</p>
+                <input type="radio" name="solicitudT" value="Solicitar_Apadrinamientos" checked="checked"></input>Solicitar Apadrinamientos
+                <input type="radio" name="cancelarT" value="Cancelar_Apadrinamientos"></input>Cancelar Apadrinamientos   
+                <hr></hr>
+                <br></br>
+                Seleccione el número de niños:
+                <input type="number" name="cantidad" value="Cantidad_Nino"></input>
+                Introduzca si desee algún comentario adicional:
+                <textarea name="comentario" cols="20" rows="10">Comentario</textarea>
+                <input type="submit" value="Confirmar"> 
+            </form>
+            
+            </c:when>
+            
+            <c:otherwise>
+                <ui:include src="/WEB-INF/templates/errorAutorizacion.xhtml"/>
+            
+            </c:otherwise>
+        </c:choose>
+    </ui:define>
+</ui:composition>
+
+
