@@ -1,15 +1,7 @@
 
-#especial {
-    background-color: #036fab;
-    border-right: 504px solid #036fab;
-    border-top: 20px solid #036fab;
-    border-bottom: 19px solid #036fab;
-}
-
 #top {
-    border: #036fab 5px solid;
     position: relative;
-    background-color: white;
+    background-color: #036fab;
     color: white;
     padding: 5px;
     height: 3em;
@@ -39,7 +31,7 @@
 
 .center_content {
     position: relative;
-    background-color: #036fab;
+    background-color: #dddddd;
     padding: 5px;
 }
 
@@ -56,24 +48,17 @@
 }
 
 #top a:link, #top a:visited {
- 
-  padding: 17px;
-  border-right: 5px solid #036fab;
-  color: black;
+  color: white;
   font-weight : bold;
   text-decoration: none;
 }
 
 #top a:hover {
-    color: #036fab;
-}
-
-ul.menulist {
-    padding-inline-start: 0.1px; 
+    color: #c2dfef;
 }
 
 ul.menulist li {
     list-style: none;
     display:inline;
-    
+    margin: 1em;
 }
