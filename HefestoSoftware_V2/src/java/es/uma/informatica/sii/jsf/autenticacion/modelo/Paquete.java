@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package hefestosoftware;
+package es.uma.informatica.sii.jsf.autenticacion.modelo;
 
 import java.io.Serializable;
 import javax.persistence.Column;
@@ -20,57 +20,57 @@ import javax.persistence.ManyToOne;
  * @author Miguel
  */
 @Entity
-public class Carta implements Serializable {
+public class Paquete implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @Column(length = 50, nullable = false)
-    private String asunto;
-    @Column(length = 1000, nullable = false)
-    private String mensaje;
     @Lob
     private byte[] adjunto;
-    @ManyToOne
-    @JoinColumn(nullable = false)
-    private Niño niño;
+    @Column(length = 500, nullable = false)
+    private String descripcion;
+    @Column(length = 100, nullable = false)
+    private String origen;
+    @Column(length = 100, nullable = false)
+    private String destino;
     @ManyToOne
     @JoinColumn(nullable = false)
     private Empleado empleado;
 
-    public String getAsunto() {
-        return asunto;
+    public byte[] getAdjunto() {
+        return adjunto;
     }
 
-    public void setAsunto(String asunto) {
-        this.asunto = asunto;
+    public void setAdjunto(byte[] adjunto) {
+        this.adjunto = adjunto;
     }
 
-    public String getMensaje() {
-        return mensaje;
+    public String getDescripcion() {
+        return descripcion;
     }
 
-    public void setMensaje(String mensaje) {
-        this.mensaje = mensaje;
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 
-    public Niño getNiño() {
-        return niño;
+    public String getOrigen() {
+        return origen;
     }
 
-    public void setNiño(Niño niño) {
-        this.niño = niño;
+    public void setOrigen(String origen) {
+        this.origen = origen;
     }
 
-    public Empleado getEmpleado() {
-        return empleado;
+    public String getDestino() {
+        return destino;
     }
 
-    public void setEmpleado(Empleado empleado) {
-        this.empleado = empleado;
+    public void setDestino(String destino) {
+        this.destino = destino;
     }
 
+    
     public Long getId() {
         return id;
     }
@@ -79,12 +79,12 @@ public class Carta implements Serializable {
         this.id = id;
     }
 
-    public byte[] getAdjunto() {
-        return adjunto;
+    public Empleado getEmpleado() {
+        return empleado;
     }
 
-    public void setAdjunto(byte[] adjunto) {
-        this.adjunto = adjunto;
+    public void setEmpleado(Empleado empleado) {
+        this.empleado = empleado;
     }
     
     @Override
@@ -96,10 +96,10 @@ public class Carta implements Serializable {
 
     @Override
     public boolean equals(Object object) {
-        if (!(object instanceof Carta)) {
+        if (!(object instanceof Paquete)) {
             return false;
         }
-        Carta other = (Carta) object;
+        Paquete other = (Paquete) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -108,7 +108,7 @@ public class Carta implements Serializable {
 
     @Override
     public String toString() {
-        return "hefestosoftware.Carta[ id=" + id + " ]";
+        return "hefestosoftware.Paquete[ id=" + id + " ]";
     }
     
 }

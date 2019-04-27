@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package hefestosoftware;
+package es.uma.informatica.sii.jsf.autenticacion.modelo;
 
+import es.uma.informatica.sii.jsf.autenticacion.modelo.Usuario;
 import java.io.Serializable;
 import java.sql.Date;
 import javax.persistence.Column;
@@ -14,6 +15,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
@@ -21,8 +23,8 @@ import javax.persistence.Table;
  * @author Miguel
  */
 @Entity
-@Table(name = "historial_paquetes")
-public class HistorialPaquetes implements Serializable {
+@Table(name = "historial_cartas")
+public class HistorialCartas implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -30,15 +32,21 @@ public class HistorialPaquetes implements Serializable {
     private Long id;
     @Column(name = "fecha_envio", nullable = false)
     private Date fechaEnvio;
-    @Column(name = "fecha_recepcion")
-    private Date fechaRecepcion;
     private Boolean estado;
-    @Column(length = 500)
-    private String descripcion;
+    @OneToOne
+    @JoinColumn(nullable = false)
+    private Usuario usuario;
     @ManyToOne
-    @JoinColumn(nullable = true)
-    private Paquete paquete;
+    private Carta carta;
 
+    public Carta getCarta() {
+        return carta;
+    }
+
+    public void setCarta(Carta carta) {
+        this.carta = carta;
+    }
+    
     public Long getId() {
         return id;
     }
@@ -55,14 +63,6 @@ public class HistorialPaquetes implements Serializable {
         this.fechaEnvio = fechaEnvio;
     }
 
-    public Date getFechaRecepcion() {
-        return fechaRecepcion;
-    }
-
-    public void setFechaRecepcion(Date fechaRecepcion) {
-        this.fechaRecepcion = fechaRecepcion;
-    }
-
     public Boolean getEstado() {
         return estado;
     }
@@ -71,20 +71,12 @@ public class HistorialPaquetes implements Serializable {
         this.estado = estado;
     }
 
-    public String getDescripcion() {
-        return descripcion;
+    public Usuario getUsuario() {
+        return usuario;
     }
 
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }
-
-    public Paquete getPaquete() {
-        return paquete;
-    }
-
-    public void setPaquete(Paquete paquete) {
-        this.paquete = paquete;
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 
     @Override
@@ -96,10 +88,10 @@ public class HistorialPaquetes implements Serializable {
 
     @Override
     public boolean equals(Object object) {
-        if (!(object instanceof HistorialPaquetes)) {
+        if (!(object instanceof HistorialCartas)) {
             return false;
         }
-        HistorialPaquetes other = (HistorialPaquetes) object;
+        HistorialCartas other = (HistorialCartas) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -108,7 +100,7 @@ public class HistorialPaquetes implements Serializable {
 
     @Override
     public String toString() {
-        return "hefestosoftware.HistorialPaquetes[ id=" + id + " ]";
+        return "hefestosoftware.HistorialCartas[ id=" + id + " ]";
     }
     
 }

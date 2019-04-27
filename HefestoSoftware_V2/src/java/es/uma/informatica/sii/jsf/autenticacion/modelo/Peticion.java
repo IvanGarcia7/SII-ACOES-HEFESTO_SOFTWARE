@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package hefestosoftware;
+package es.uma.informatica.sii.jsf.autenticacion.modelo;
 
+import es.uma.informatica.sii.jsf.autenticacion.modelo.Usuario;
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;

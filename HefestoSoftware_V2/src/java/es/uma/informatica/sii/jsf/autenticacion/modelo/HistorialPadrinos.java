@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package hefestosoftware;
+package es.uma.informatica.sii.jsf.autenticacion.modelo;
 
+import es.uma.informatica.sii.jsf.autenticacion.modelo.Usuario;
 import java.io.Serializable;
 import java.sql.Date;
 import javax.persistence.Column;
@@ -12,40 +13,31 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.ManyToOne;
 
 /**
  *
  * @author Miguel
  */
 @Entity
-@Table(name = "historial_cartas")
-public class HistorialCartas implements Serializable {
+@Table(name = "historial_padrinos")
+public class HistorialPadrinos implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @Column(name = "fecha_envio", nullable = false)
-    private Date fechaEnvio;
-    private Boolean estado;
-    @OneToOne
-    @JoinColumn(nullable = false)
-    private Usuario usuario;
+    @Column(name = "fecha_apadrinamiento", nullable = false)
+    private Date fechaApadrinamiento;
+    @Column(name = "fecha_cancelacion")
+    private Date fechaCancelacion;
+    private String descripcion;
     @ManyToOne
-    private Carta carta;
+    private Niño niño;
+    @ManyToOne
+    private Usuario usuario;
 
-    public Carta getCarta() {
-        return carta;
-    }
-
-    public void setCarta(Carta carta) {
-        this.carta = carta;
-    }
-    
     public Long getId() {
         return id;
     }
@@ -54,20 +46,28 @@ public class HistorialCartas implements Serializable {
         this.id = id;
     }
 
-    public Date getFechaEnvio() {
-        return fechaEnvio;
+    public Date getFechaApadrinamiento() {
+        return fechaApadrinamiento;
     }
 
-    public void setFechaEnvio(Date fechaEnvio) {
-        this.fechaEnvio = fechaEnvio;
+    public void setFechaApadrinamiento(Date fechaApadrinamiento) {
+        this.fechaApadrinamiento = fechaApadrinamiento;
     }
 
-    public Boolean getEstado() {
-        return estado;
+    public Date getFechaCancelacion() {
+        return fechaCancelacion;
     }
 
-    public void setEstado(Boolean estado) {
-        this.estado = estado;
+    public void setFechaCancelacion(Date fechaCancelacion) {
+        this.fechaCancelacion = fechaCancelacion;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 
     public Usuario getUsuario() {
@@ -78,6 +78,14 @@ public class HistorialCartas implements Serializable {
         this.usuario = usuario;
     }
 
+    public Niño getNiño() {
+        return niño;
+    }
+
+    public void setNiño(Niño niño) {
+        this.niño = niño;
+    }
+    
     @Override
     public int hashCode() {
         int hash = 0;
@@ -87,10 +95,10 @@ public class HistorialCartas implements Serializable {
 
     @Override
     public boolean equals(Object object) {
-        if (!(object instanceof HistorialCartas)) {
+        if (!(object instanceof HistorialPadrinos)) {
             return false;
         }
-        HistorialCartas other = (HistorialCartas) object;
+        HistorialPadrinos other = (HistorialPadrinos) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -99,7 +107,7 @@ public class HistorialCartas implements Serializable {
 
     @Override
     public String toString() {
-        return "hefestosoftware.HistorialCartas[ id=" + id + " ]";
+        return "hefestosoftware.HistorialPadrinos[ id=" + id + " ]";
     }
     
 }

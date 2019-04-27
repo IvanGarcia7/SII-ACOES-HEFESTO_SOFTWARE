@@ -1,23 +1,35 @@
 /*
- * To change this template, choose Tools | Templates
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 package es.uma.informatica.sii.jsf.autenticacion.modelo;
 
+import es.uma.informatica.sii.jsf.autenticacion.modelo.Peticion;
 import java.io.Serializable;
+import java.sql.Date;
+import java.util.Set;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 /**
  *
- * @author francis
+ * @author Antonio Manuel
  */
 @Entity
 public class Usuario implements Serializable {
+
+    public Usuario (String usuario, String contrasenia, Rol rol)
+    {
+        setUsuario(usuario);
+        setContrasenia(contrasenia);
+        setRol(rol);
+    }
     
     public enum Rol {
       ADMINISTRADOR,
@@ -26,25 +38,40 @@ public class Usuario implements Serializable {
     
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    @Column(length = 30)
     private String usuario;
-    private String contrasenia;
+    @Column(length = 30, nullable = false)
+    private String contraseña;
+    @Column(length = 30, nullable = false)
+    private String nombre;
+    @Column(length = 60, nullable = false)
+    private String apellidos;
+    @Column(length = 9, unique = true, nullable = false)
+    private String dni;
+    @Column(length = 150, nullable = false)
+    private String direccion;
+    @Column(length = 200, nullable = false)
+    private String poblacion;
+    @Column(name = "codigo_postal",length = 5,nullable = false)
+    private Integer codigoPostal;
+    @Column(length = 30, nullable = false)
+    private String provincia;
+    @Column(length = 15, nullable = false)
+    private String telefono;
+    @Column(name = "correo_electronico",length = 60, nullable = false, unique = true)
+    private String correoElectronico;
+    @Column(name = "fecha_alta",nullable = false)
+    private Date fechaAlta;
+    @Column(name = "fecha_baja")
+    private Date fechaBaja;
+    @Column(length = 500)
+    private String descripcion;
+    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
+    private Set<Peticion> Peticiones;
     @Enumerated(EnumType.STRING)
     private Rol rol;
-    
-    public Usuario()
-    {
-        
-    }
-    
-    public Usuario (String usuario, String contrasenia, Rol rol)
-    {
-        setUsuario(usuario);
-        setContrasenia(contrasenia);
-        setRol(rol);
-    }
 
+    
     public void setRol(Rol rol) {
         this.rol = rol;
     }
@@ -52,55 +79,146 @@ public class Usuario implements Serializable {
     public Rol getRol() {
         return rol;
     }
-
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
+    
+    public String getDni() {
+        return dni;
     }
 
-    public void setContrasenia(String contrasenia) {
-        this.contrasenia = contrasenia;
+    public void setDni(String dni) {
+        this.dni = dni;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getApellidos() {
+        return apellidos;
+    }
+
+    public void setApellidos(String apellidos) {
+        this.apellidos = apellidos;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+
+    public String getPoblacion() {
+        return poblacion;
+    }
+
+    public void setPoblacion(String poblacion) {
+        this.poblacion = poblacion;
+    }
+
+    public String getProvincia() {
+        return provincia;
+    }
+
+    public void setProvincia(String provincia) {
+        this.provincia = provincia;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+    }
+
+    public Date getFechaAlta() {
+        return fechaAlta;
+    }
+
+    public void setFechaAlta(Date fechaAlta) {
+        this.fechaAlta = fechaAlta;
+    }
+
+    public Date getFechaBaja() {
+        return fechaBaja;
+    }
+
+    public void setFechaBaja(Date fechaBaja) {
+        this.fechaBaja = fechaBaja;
+    }
+
+    public Set<Peticion> getPeticiones() {
+        return Peticiones;
+    }
+
+    public void setPeticiones(Set<Peticion> Peticiones) {
+        this.Peticiones = Peticiones;
     }
 
     public String getUsuario() {
         return usuario;
     }
 
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
+    }
+
     public String getContrasenia() {
-        return contrasenia;
+        return contraseña;
+    }
+
+    public void setContrasenia(String contraseña) {
+        this.contraseña = contraseña;
+    }
+
+    public Integer getCodigoPostal() {
+        return codigoPostal;
+    }
+
+    public void setCodigoPostal(Integer codigoPostal) {
+        this.codigoPostal = codigoPostal;
+    }
+
+    public String getCorreoElectronico() {
+        return correoElectronico;
+    }
+
+    public void setCorreoElectronico(String correoElectronico) {
+        this.correoElectronico = correoElectronico;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
     
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
+        hash += (usuario != null ? usuario.hashCode() : 0);
         return hash;
     }
 
     @Override
     public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
         if (!(object instanceof Usuario)) {
             return false;
         }
         Usuario other = (Usuario) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
-            return false;
-        }
-        return true;
+        return this.usuario != null && other.usuario != null && this.usuario.equals(other.usuario);
     }
 
     @Override
     public String toString() {
-        return "es.uma.informatica.sii.jsf.autenticacion.modelo.Usuario[ id=" + id + " ]";
+        return "hefestosoftware.Usuario[ usuario=" + usuario + " ]";
     }
     
 }

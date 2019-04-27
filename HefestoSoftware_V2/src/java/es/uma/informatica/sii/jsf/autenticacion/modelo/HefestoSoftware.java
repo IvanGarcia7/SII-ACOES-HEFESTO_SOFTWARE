@@ -3,8 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package hefestosoftware;
+package es.uma.informatica.sii.jsf.autenticacion.modelo;
 
+import es.uma.informatica.sii.jsf.autenticacion.modelo.Usuario;
+import es.uma.informatica.sii.jsf.autenticacion.modelo.Usuario.Rol;
 import java.util.Calendar;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -29,14 +31,11 @@ public class HefestoSoftware {
         //Creamos un nuevo niño vacio con los campos obligatorios definidos y forzamos para que se
         //genere el esquema.
 
-        Usuario test = new Usuario();
+        Usuario test = new Usuario("pepe", "asdf",Rol.NORMAL);
         EntityTransaction tx = em.getTransaction();
         tx.begin();
-
-        
-        
         test.setUsuario("Andrea_99");
-        test.setContraseña("Contraseña123");
+        test.setContrasenia("Contraseña123");
         test.setNombre("Andrea");
         test.setApellidos("Galvez");
         test.setDni("65667687g");
