@@ -2,7 +2,8 @@
                 xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:h="http://xmlns.jcp.org/jsf/html"
                 xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
     <ui:define name="title">Autenticando</ui:define>
     <ui:define name="content">
         <c:choose>
@@ -20,8 +21,9 @@
                 <label>Correo:</label>
                 <div class="group">
                     <i class="usuarioinicio"></i>
-                    <h:inputText value="#{registro.correoele}" class="form-control" required="required" />
-                     
+                    <h:inputText value="#{registro.correoele}" class="form-control" required="required">
+                    <f:validateRegex pattern="[0-9a-zA-Z._-]+@[0-9a-zA-Z._-]+(\.[0-9a-zA-Z._-]+)+"/>
+                    </h:inputText>
                 </div>
             </div>
             
@@ -61,7 +63,9 @@
                 <label>Teléfono de contacto:</label>
                 <div class="group">
                     <i class="contrasenaregistro"></i>
-                    <h:inputText value="#{registro.telefono}" class="form-control" required="required" />
+                    <h:inputText value="#{registro.telefono}" class="form-control" required="required" >
+                    <f:validateRegex pattern="[0-9]+"/>
+                    </h:inputText>
                 </div>
             </div>
             
@@ -70,7 +74,9 @@
                 <label>Contraseña:</label>
                 <div class="group">
                     <i class="contrasenaregistro"></i>
-                    <h:inputSecret value="#{registro.contrasenia}" class="form-control" required="required" />
+                    <h:inputSecret value="#{registro.contrasenia}" class="form-control" required="required" >
+                    <f:validateLength minimum="8" maximum="40"/>
+                    </h:inputSecret>
                 </div>
             </div>
             
@@ -78,7 +84,9 @@
                 <label>Repita su Contraseña:</label>
                 <div class="group">
                     <i class="contrasenaregistro"></i>
-                    <h:inputSecret value="#{registro.contrasenia2}" class="form-control" required="required" />
+                    <h:inputSecret value="#{registro.contrasenia2}" class="form-control" required="required" >
+                    <f:validateLength minimum="8" maximum="40"/>
+                    </h:inputSecret>
                 </div>
             </div>
             
