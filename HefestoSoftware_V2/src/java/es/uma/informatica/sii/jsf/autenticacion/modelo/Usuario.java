@@ -30,6 +30,13 @@ public class Usuario implements Serializable {
         setContrasenia(contrasenia);
         setRol(rol);
     }
+
+    public Usuario(String usuario, String contrasenia, String correo, Rol rol) {
+        setUsuario(usuario);
+        setContrasenia(contrasenia);
+        setRol(rol);
+        setCorreoElectronico(correo);
+    }
     
     public enum Rol {
       ADMINISTRADOR,
