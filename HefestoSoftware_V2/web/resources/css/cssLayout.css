@@ -1,3 +1,27 @@
+
+.logo {
+    border: 3px solid black;
+    position: relative;          
+    display: inline-block;      
+    left: 50%;                  
+    transform: translate(-50%);
+}
+
+.botonautenticar {
+    position: relative;
+    display: inline-block;
+    left: 50%;
+    transform: translate(-50%);
+    font-size: 15px;
+    font-family: Verdana,Helvetica;
+    font-weight: bold;
+    color: white;
+    background: #026fab;
+    border: 0px;
+    width: 100px;
+    height: 30px;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -19,7 +43,7 @@ h1 {
 
 h2 {
     margin: 0;
-    color: #fc3955;
+    color: white;
     font-size: 25px;
     font-weight: 400;
     text-align: center;
@@ -27,14 +51,23 @@ h2 {
     padding-bottom: 30px;
 }
 
-p.w3l-register-p {
+h3 {
+    margin: 0;
+    color: red;
+    font-size: 25px;
+    text-align: center;
+    letter-spacing: 1px;
+    padding-bottom: 30px;
+}
+
+p.registro {
     color: #eee;
     font-size: 13px;
     text-align: center;
     margin-top: 2em;
 }
 
-.w3l-login-form {
+.formularioiniciosesion {
     background: rgba(0, 0, 0, 0.4117647058823529);
     max-width: 500px;
     margin: 0 auto;
@@ -55,11 +88,11 @@ p.w3l-register-p {
     padding: 0 10px;
 }
 
-.w3l-form-group {
+.cabeceraformularioregistro {
     margin: 20px 0;
 }
 
-.w3l-form-group label {
+.cabeceraformularioregistro label {
     display: block;
     text-transform: uppercase;
     font-size: 13px;
@@ -101,11 +134,7 @@ button:hover {
     transition-duration: 5s;
 }
 
-.forgot {
-    display: flex;
-    justify-content: space-between;
-    margin: 20px 0;
-}
+
 
 a {
     color: #eee;
@@ -113,123 +142,11 @@ a {
     text-decoration: none;
 }
 
-.forgot p {
-    color: #ffffff;
-    text-align: center;
-    margin: 0px;
-	font-size: 13px;
-}
+
 
 .register {
-    color: #00BCD4;
+    color: white;
     text-decoration: none;
-}
-
-/*--footer--*/
-
-p.copyright-agileinfo {
-    font-size: 15px;
-    letter-spacing: 2px;
-    color: #fff;
-    font-weight: 300;
-}
-
-footer p a {
-    display: inline-block;
-    color: #fff;
-    text-decoration: underline;
-}
-
-footer p a:hover {
-    color: #fff;
-    text-decoration: none;
-    -webkit-transition: 0.5s all;
-    -o-transition: 0.5s all;
-    -moz-transition: 0.5s all;
-    -ms-transition: 0.5s all;
-    transition: 0.5s all;
-}
-
-footer {
-    padding: 4em 0;
-    text-align: center;
-}
-/*--//footer--*/
-
-/*-- /responsive design --*/
-
-@media(max-width:768px) {
-    h1 {
-        font-size: 47px;
-    }
-}
-
-@media(max-width:667px) {
-    h1 {
-        font-size: 45px;
-    }
-}
-
-@media(max-width:640px) {
-    p.copyright-agileinfo {
-        letter-spacing: 1px;
-    }
-    h1 {
-        font-size: 43px;
-    }
-}
-
-@media(max-width:568px) {
-    h1 {
-        font-size: 40px;
-    }
-    p.copyright-agileinfo {
-        font-size: 14px;
-    }
-}
-
-@media(max-width:480px) {
-    .w3l-login-form {
-    margin: 0 3vw;
-}
-    h1 {
-        font-size: 38px;
-    }
-    p.copyright-agileinfo {
-        line-height: 1.8em;
-    }
-}
-
-@media(max-width:414px) {
-    h1 {
-        font-size: 34px;
-    }
-}
-
-@media(max-width:384px) {
-    h1 {
-        font-size: 30px;
-    }
-}
-
-@media(max-width:320px) {
-    h1 {
-        font-size: 25px;
-    }
-    .forgot p {
-        text-align: left;
-    }
-    .forgot {
-        display: block;
-    }
-}
-
-#tablaregistro {
-    margin: auto;
-}
-
-#tablaregistro td {
-    font-size: 20px;
 }
 
 #top {
@@ -265,7 +182,7 @@ footer {
 .center_content {
     position: relative;
     background-color: #036fab;
-    padding: 50px;
+    padding: 10px;
     
 }
 

@@ -69,12 +69,17 @@ public class Login {
             i++;
         }
         
-        
-        
         if(encontrado){
             ctrl.setUsuario(actual);
             return ctrl.home();
+        }else{
+            return "error.xhtml";
         }
-        return null;
+        
+    }
+    
+    public String reinicio()
+    {
+        return "login.xhtml";
     }
 }

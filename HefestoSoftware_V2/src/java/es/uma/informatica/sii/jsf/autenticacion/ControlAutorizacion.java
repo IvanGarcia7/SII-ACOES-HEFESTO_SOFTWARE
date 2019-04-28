@@ -12,10 +12,7 @@ import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
 import javax.faces.context.FacesContext;
 
-/**
- *
- * @author francis
- */
+
 @Named(value = "controlAutorizacion")
 @SessionScoped
 public class ControlAutorizacion implements Serializable {
@@ -31,12 +28,7 @@ public class ControlAutorizacion implements Serializable {
     }
 
     public String home() {
-        // Implementar el método
-        // Devuelve la página Home dependiendo del rol del usuario
-        // Si no hay usuario debe devolver la página de login
-        // Si el usuario es el administrador debe devolver la página admin.xhtml
-        // Si el usuario es un usuario normal debe devolver la página normal.xhtml
-        String paginaAdireccionar="login.xhtml";
+        String paginaAdireccionar="errorAutorizacion.xhtml";
         if(usuario==null){
             paginaAdireccionar = "login.xhtml";
         }else if(usuario.getRol()==Usuario.Rol.ADMINISTRADOR){
@@ -55,6 +47,21 @@ public class ControlAutorizacion implements Serializable {
         usuario = null;
         return "login.xhtml";
     }
+    
+    
+    public String registro()
+    {
+        return "Registro.xhtml";
+    }
+    
+    
+    
+    public String error()
+    {
+        return "errorAutorizacion.xhtml";
+    }
+    
+    
 
     /**
      * Creates a new instance of ControlAutorizacion
