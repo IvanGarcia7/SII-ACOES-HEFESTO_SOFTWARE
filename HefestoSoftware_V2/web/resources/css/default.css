@@ -29,3 +29,34 @@ a:link:hover, a:visited:hover  {
   
 }
 
+.tabla-datos {   
+    border-collapse: collapse;
+    text-align: left;
+    border: 1px solid black;
+}
+
+.tabla-datos-cabecera {
+    background-color: gray;
+    border-right: 1px solid black;
+    padding-left: 5px;
+}
+
+.tabla-datos-col-par {
+    background-color: white;
+}
+
+.tabla-datos-col-impar {
+    background-color: lightgray;
+}
+
+.tabla-datos-col-impar > td,.tabla-datos-col-par > td {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 5px;
+    border-right: 1px solid black;
+}
+
+#lista-cartas {
+    margin: auto;
+    width: 70%;
+}
