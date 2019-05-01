@@ -9,7 +9,7 @@
     
     <ui:define name="content">
         <c:choose>
-            <c:when test="#{controlAutorizacion.usuario.rol == 'PADRINO'}">
+            <c:when test="#{controlAutorizacion.usuario.rol == 'NORMAL'}">
                 
             <h1>Solicita un nuevo Apadrinamiento: <h:outputText value="#{controlAutorizacion.usuario.usuario}"/></h1>
                  
@@ -23,7 +23,7 @@
                 <input type="number" name="cantidad" value="Cantidad_Nino"></input>
                 Introduzca si desee algún comentario adicional:
                 <textarea name="comentario" cols="20" rows="10">Comentario</textarea>
-                <input type="submit" value="Confirmar"> 
+                <input type="submit" value="Confirmar"/> 
             </form>
             
             </c:when>
