@@ -39,6 +39,11 @@ public class Niño implements Serializable {
     @Column(name = "fecha_baja")
     private Date fechaBaja;
 
+    public Niño(String nombre,String apellidos){
+        this.nombre = nombre;
+        this.apellidos = apellidos;
+    }
+    
     public String getNombre() {
         return nombre;
     }

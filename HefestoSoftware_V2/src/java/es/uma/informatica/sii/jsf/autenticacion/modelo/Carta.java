@@ -6,6 +6,8 @@
 package es.uma.informatica.sii.jsf.autenticacion.modelo;
 
 import java.io.Serializable;
+import java.sql.Date;
+import java.time.LocalDate;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -38,6 +40,35 @@ public class Carta implements Serializable {
     @ManyToOne
     @JoinColumn(nullable = false)
     private Empleado empleado;
+    @ManyToOne
+    private Usuario usuario;
+    @Column(nullable = false, name = "fecha_envio")
+    private Date fechaEnvio;
+    @Column(name = "fecha_entrega")
+    private Date fechaEntrega;
+    @Column(nullable = false)
+    private Boolean emisor;
+
+    public Carta() {
+        
+    }
+    
+    public Carta(Niño niño,Usuario usuario,String asunto,String mensaje,String fechaEnvio,int id) {
+        this.asunto = asunto;
+        this.niño = niño;
+        this.mensaje = mensaje;
+        this.usuario = usuario;
+        this.fechaEnvio = Date.valueOf(fechaEnvio);
+        this.id = new Long(id);
+    }
+    
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getAsunto() {
         return asunto;
@@ -53,6 +84,14 @@ public class Carta implements Serializable {
 
     public void setMensaje(String mensaje) {
         this.mensaje = mensaje;
+    }
+
+    public byte[] getAdjunto() {
+        return adjunto;
+    }
+
+    public void setAdjunto(byte[] adjunto) {
+        this.adjunto = adjunto;
     }
 
     public Niño getNiño() {
@@ -71,20 +110,36 @@ public class Carta implements Serializable {
         this.empleado = empleado;
     }
 
-    public Long getId() {
-        return id;
+    public Usuario getUsuario() {
+        return usuario;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 
-    public byte[] getAdjunto() {
-        return adjunto;
+    public Date getFechaEnvio() {
+        return fechaEnvio;
     }
 
-    public void setAdjunto(byte[] adjunto) {
-        this.adjunto = adjunto;
+    public void setFechaEnvio(Date fechaEnvio) {
+        this.fechaEnvio = fechaEnvio;
+    }
+
+    public Date getFechaEntrega() {
+        return fechaEntrega;
+    }
+
+    public void setFechaEntrega(Date fechaEntrega) {
+        this.fechaEntrega = fechaEntrega;
+    }
+
+    public Boolean getEmisor() {
+        return emisor;
+    }
+
+    public void setEmisor(Boolean emisor) {
+        this.emisor = emisor;
     }
     
     @Override
@@ -93,7 +148,7 @@ public class Carta implements Serializable {
         hash += (id != null ? id.hashCode() : 0);
         return hash;
     }
-
+    
     @Override
     public boolean equals(Object object) {
         if (!(object instanceof Carta)) {
