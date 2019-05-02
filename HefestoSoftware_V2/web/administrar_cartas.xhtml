@@ -15,9 +15,8 @@
                 <h:form id="form">
                     <table>
                         <tr>
-                            <td style="width:300px;border:solid 1px gray;">
-                                <p:dataTable id="lista-cartas" 
-                                             value="#{vistaCartas.cartas}" 
+                            <td style="width: 50%;">
+                                <p:dataTable value="#{vistaCartas.cartas}" 
                                              var="carta"
                                              selectionMode="single" 
                                              selection="#{vistaCartas.cartaSeleccionada}" 
@@ -35,40 +34,48 @@
                                     </p:column>
                                 </p:dataTable>
                             </td>
-                            <td style="vertical-align:top;padding: 50px; ">
-                                <div id="vista-mensaje">
-                                    <p:outputPanel id="mostrar-mensaje" style="display:block">
-                                        <table>
+                            <td>
+                                <p:outputPanel id="mostrar-mensaje">
+                                    <p:outputPanel rendered="#{vistaCartas.cartaSeleccionada!=null}">
+                                        <table style="background-color: lightgray;border:1px solid black;">
                                             <tr>
                                                 <td>
                                                     De:
-                                                    <h:outputText value="#{vistaCartas.cartaSeleccionada.usuario.usuario}"/>
+                                                    <h:outputText value="#{vistaCartas.cartaSeleccionada.usuario.usuario}" rendered="#{vistaCartas.cartaSeleccionada.emisor}"/>
+                                                    <h:outputText value="#{vistaCartas.cartaSeleccionada.niño.apellidos}, #{vistaCartas.cartaSeleccionada.niño.nombre}" rendered="#{!vistaCartas.cartaSeleccionada.emisor}"/>
                                                 </td>
                                                 <td>
                                                     <h:outputText value="#{vistaCartas.cartaSeleccionada.fechaEnvio}"/>  
+                                                </td>
+                                                <td>
+                                                    <h:commandButton value="cerrar" action="#{vistaCartas.setCartaSeleccionada(null)}"/>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td>
                                                     Para:
-                                                    <h:outputText value="#{vistaCartas.cartaSeleccionada.niño.nombre}"/>
+                                                    <h:outputText value="#{vistaCartas.cartaSeleccionada.niño.apellidos}, #{vistaCartas.cartaSeleccionada.niño.nombre}" rendered="#{vistaCartas.cartaSeleccionada.emisor}"/>
+                                                    <h:outputText value="#{vistaCartas.cartaSeleccionada.usuario.usuario}" rendered="#{!vistaCartas.cartaSeleccionada.emisor}"/>
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td>
-                                                    Asunto
-                                                    <h:outputText value="#{vistaCartas.cartaSeleccionada.asunto}"/>
+                                                <td colspan="3">
+                                                    <h:outputText value="Asunto: #{vistaCartas.cartaSeleccionada.asunto}"/>
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td>
+                                                <td colspan="3">
                                                     <h:outputText value="#{vistaCartas.cartaSeleccionada.mensaje}"/> 
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="3">
+                                                    <h:commandButton value="Autorizar" action="#{vistaCartas.autorizarCartaActual()}"/>
                                                 </td>
                                             </tr>
                                         </table>
                                     </p:outputPanel>
-                                    <h:commandButton value="Autorizar"/>
-                                </div>
+                                </p:outputPanel>
                             </td>
                         </tr>
                     </table>

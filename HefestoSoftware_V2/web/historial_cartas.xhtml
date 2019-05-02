@@ -35,30 +35,31 @@
                             <h:outputText value="#{carta.fechaEnvio}"/>
                         </p:column>
                     </p:dataTable>
-                    <div id="vista-mensaje">
-                        <p:outputPanel id="mostrar-mensaje">
-                            <table>
+                    <p:outputPanel id="mostrar-mensaje">
+                        <p:outputPanel rendered="#{vistaCartas.cartaSeleccionada!=null}">
+                            <table style="background-color: white;border: 1px solid black;">
                                 <tr>
                                     <td>
-                                        <h:outputText value="#{vistaCartas.cartaSeleccionada.niño.nombre}"/>
+                                        <h:outputText value="#{ (vistaCartas.cartaSeleccionada.emisor) ? 'Para' : 'De' }"/>
+                                        <h:outputText value=": #{vistaCartas.cartaSeleccionada.niño.apellidos}, #{vistaCartas.cartaSeleccionada.niño.nombre}"/>
                                     </td>
                                     <td>
                                         <h:outputText value="#{vistaCartas.cartaSeleccionada.fechaEnvio}"/>  
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>
+                                    <td colspan="2">
                                         <h:outputText value="#{vistaCartas.cartaSeleccionada.asunto}"/>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>
+                                    <td colspan="2">
                                         <h:outputText value="#{vistaCartas.cartaSeleccionada.mensaje}"/> 
                                     </td>
                                 </tr>
                             </table>
                         </p:outputPanel>
-                    </div>
+                    </p:outputPanel>
                 </h:form>
             </c:when>
             <c:otherwise>

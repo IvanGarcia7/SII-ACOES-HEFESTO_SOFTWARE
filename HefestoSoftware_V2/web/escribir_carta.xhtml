@@ -11,27 +11,27 @@
         <c:choose>
             <c:when test="#{controlAutorizacion.usuario.rol == 'NORMAL'}">
                 <h:graphicImage styleClass="logo" height="200px" value = "./resources/Imagenes/logo1.png"/> 
-                <h:form>
+                <h:form enctype='multipart/form-data'>
                     <table style="width: 100%;align-content: center;align-self: center; margin-left: 10%; margin-top: 20px;">
                         <tr>
                             <td>
                                 <table style="width: 90%;align-self: center;">
-                                    <tr><td>Asunto:</td></tr>
-                                    <tr><td><h:inputText style="background: white; border: 1px black; border-radius: 3px;" value="#{nuevaCarta.carta.asunto}" required="true"/></td></tr>
-                                    <tr><td>Mensaje:</td></tr>
-                                    <tr><td><h:inputText style="background: white; min-height: 100px; border: 1px black; border-radius: 3px; vertical-align: top;" value="#{nuevaCarta.carta.mensaje}" required="true"/></td></tr>
+                                    <tr><td><h:message for="asunto" style="color: darkred;"/>Asunto:</td></tr>
+                                    <tr><td><h:inputText id="asunto" style="background: white; border: 1px solid black; border-radius: 3px;" value="#{nuevaCarta.carta.asunto}" required="true" requiredMessage="(*)"/></td></tr>
+                                    <tr><td><h:message for="mensaje" style="color: darkred;"/>Mensaje:</td></tr>
+                                    <tr><td><h:inputText id="mensaje" style="background: white; min-height: 100px; border: 1px solid black; border-radius: 3px;" value="#{nuevaCarta.carta.mensaje}" required="true" requiredMessage="(*)"/></td></tr>
                                 </table>
                             </td>
                             <td>
                                 <table style="width: 90%;">
-                                    <tr><td>Escoge al niño destinatario</td></tr>
+                                    <tr><td><h:message for="destinatario" style="color: darkred;"/>Escoge al niño destinatario</td></tr>
                                     <tr><td>
-                                            <h:selectOneMenu value="#{nuevaCarta.carta.niño}" required="true">
-                                                <f:selectItem itemLabel="Pepe"/>
+                                            <h:selectOneMenu id="destinatario" value="#{nuevaCarta.carta.niño}" converter="#{niñoConverter}" required="true" requiredMessage="(*)">
+                                                <f:selectItems value="#{vistaDestinatarios.destinatarios}" var="niño" itemValue="#{niño}" itemLabel="#{niño.nombre} #{niño.apellidos}"/>
                                             </h:selectOneMenu>
                                     </td></tr>
-                                <tr><td><h:inputFile value="#{nuevaCarta.carta.adjunto}"/></td></tr>
-                                <tr><td><h:commandButton value="Enviar carta" action="#{nuevaCarta.enviarCarta()}"/></td></tr>
+                                    <tr><td><h:inputFile value="#{nuevaCarta.carta.adjunto}" label="Adjuntar imagen"/></td></tr>
+                                    <tr><td><h:commandButton value="Enviar carta" action="#{nuevaCarta.enviarCarta()}"/></td></tr>
                                 </table>
                             </td>
                         </tr>
