@@ -148,6 +148,8 @@ a {
 #formularioespecial {
     background: #afbdc5;
     border-radius: 50px 10px 10px 10px;
+    font-family: unset;
+    font-size: 16px;
 }
 
 .register {
