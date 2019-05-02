@@ -39,6 +39,7 @@ h1 {
     font-weight: 500;
     letter-spacing: 2px;
     padding: 25px ;
+    font-family: unset;
 }
 
 h2 {
@@ -134,7 +135,9 @@ button:hover {
     transition-duration: 5s;
 }
 
-
+#confirmacion{
+    padding-top: 70px;
+}
 
 a {
     color: #eee;

@@ -12,30 +12,54 @@
         <c:choose>
             <c:when test="#{controlAutorizacion.usuario.rol == 'NORMAL'}">
                 <h:graphicImage styleClass="logo" height="200px" value = "./resources/Imagenes/logo1.png"/> 
-                <p:dataTable id="lista-cartas" 
-                             value="#{vistaCartas.cartas}" 
-                             var="carta"
-                             selectionMode="single" 
-                             selection="#{vistaCartas.cartaSeleccionada}" 
-                             rowKey="#{carta.id}"
-                             rows="10"
-                             paginator="true"
-                             paginatorPosition="top"
-                             paginatorTemplate="{FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
-                             rowsPerPageTemplate="5,10,15">
-                    <p:column headerText="Nombre del niño" sortBy="#{carta.niño.nombre}">
-                        <h:outputText value="#{carta.niño.nombre}"/>
-                    </p:column>
-                    <p:column headerText="Asunto" sortBy="#{carta.asunto}">
-                        <h:outputText value="#{carta.asunto}"/>
-                    </p:column>
-                    <p:column headerText="Fecha de envio" sortBy="#{carta.fechaEnvio}">
-                        <h:outputText value="#{carta.fechaEnvio}"/>
-                    </p:column>
-                </p:dataTable>
-                <p id="vista-mensaje">
-                    <h:outputText value="Cada vez que se pulsa en una de las filas, se muestra la carta de dicho niño en esta area."/>
-                </p>
+                <h:form id="form">
+                    <p:dataTable id="lista-cartas" 
+                                 value="#{vistaCartas.cartas}" 
+                                 var="carta"
+                                 selectionMode="single" 
+                                 selection="#{vistaCartas.cartaSeleccionada}" 
+                                 rowKey="#{carta.id}"
+                                 rows="10"
+                                 paginator="true"
+                                 paginatorPosition="top"
+                                 paginatorTemplate="{FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                                 rowsPerPageTemplate="5,10,15">
+                        <p:ajax event="rowSelect"  update="form:mostrar-mensaje"/>
+                        <p:column headerText="Nombre del niño" sortBy="#{carta.niño.nombre}">
+                            <h:outputText value="#{carta.niño.nombre}"/>
+                        </p:column>
+                        <p:column headerText="Asunto" sortBy="#{carta.asunto}">
+                            <h:outputText value="#{carta.asunto}"/>
+                        </p:column>
+                        <p:column headerText="Fecha de envio" sortBy="#{carta.fechaEnvio}">
+                            <h:outputText value="#{carta.fechaEnvio}"/>
+                        </p:column>
+                    </p:dataTable>
+                    <div id="vista-mensaje">
+                        <p:outputPanel id="mostrar-mensaje">
+                            <table>
+                                <tr>
+                                    <td>
+                                        <h:outputText value="#{vistaCartas.cartaSeleccionada.niño.nombre}"/>
+                                    </td>
+                                    <td>
+                                        <h:outputText value="#{vistaCartas.cartaSeleccionada.fechaEnvio}"/>  
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h:outputText value="#{vistaCartas.cartaSeleccionada.asunto}"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h:outputText value="#{vistaCartas.cartaSeleccionada.mensaje}"/> 
+                                    </td>
+                                </tr>
+                            </table>
+                        </p:outputPanel>
+                    </div>
+                </h:form>
             </c:when>
             <c:otherwise>
                 <ui:include src="/WEB-INF/templates/errorAutorizacion.xhtml"/>
