@@ -6,6 +6,7 @@
 package es.uma.informatica.sii.jsf.autenticacion.modelo;
 
 import java.io.Serializable;
+import java.sql.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -34,10 +35,24 @@ public class Paquete implements Serializable {
     private String origen;
     @Column(length = 100, nullable = false)
     private String destino;
+    @Column(nullable = false, name = "fecha_envio")
+    private String fechaEnvio;
+    @Column(name = "fecha_entrega")
+    private Date fechaEntrega;
+    private String estado;
     @ManyToOne
     @JoinColumn(nullable = false)
-    private Empleado empleado;
+    private Usuario empleado;
 
+    public Paquete(Long id, String descripcion, String fechaEnvio, String estado){
+        this.id = id;
+        this.descripcion = descripcion;
+        this.fechaEnvio = fechaEnvio;
+        this.estado = estado;
+        
+    }
+    
+    
     public byte[] getAdjunto() {
         return adjunto;
     }
@@ -79,12 +94,28 @@ public class Paquete implements Serializable {
         this.id = id;
     }
 
-    public Empleado getEmpleado() {
+    public Usuario getEmpleado() {
         return empleado;
     }
 
-    public void setEmpleado(Empleado empleado) {
+    public void setEmpleado(Usuario empleado) {
         this.empleado = empleado;
+    }
+    
+    public String getFechaEnvio() {
+        return fechaEnvio;
+    }
+
+    public void setFechaEnvio(String fechaEnvio) {
+        this.fechaEnvio = fechaEnvio;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
     }
     
     @Override
