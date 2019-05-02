@@ -12,26 +12,67 @@
         <c:choose>
             <c:when test="#{controlAutorizacion.usuario.rol == 'ADMINISTRADOR'}">
                 <h:graphicImage styleClass="logo" height="200px" value = "./resources/Imagenes/logo1.png"/> 
-                <p:dataTable id="lista-cartas" 
-                             value="#{vistaCartas.cartas}" 
-                             var="carta"
-                             selectionMode="single" 
-                             selection="#{vistaCartas.cartaSeleccionada}" 
-                             rowKey="#{carta.id}"
-                             rows="10">
-                    <p:column headerText="Autor" sortBy="#{carta.usuario.nombre}">
-                        <h:outputText value="#{carta.usuario.nombre}"/>
-                    </p:column>
-                    <p:column headerText="Asunto" sortBy="#{carta.asunto}">
-                        <h:outputText value="#{carta.asunto}"/>
-                    </p:column>
-                    <p:column headerText="Destinatario" sortBy="#{carta.niño.nombre}">
-                        <h:outputText value="#{carta.niño.nombre}"/>
-                    </p:column>
-                </p:dataTable>
-                <p id="vista-mensaje">
-                    <h:outputText value="Cada vez que se pulsa en una de las filas, se muestra la carta de dicho niño en esta area."/>
-                </p>
+                <h:form id="form">
+                    <table>
+                        <tr>
+                            <td style="width:300px;border:solid 1px gray;">
+                                <p:dataTable id="lista-cartas" 
+                                             value="#{vistaCartas.cartas}" 
+                                             var="carta"
+                                             selectionMode="single" 
+                                             selection="#{vistaCartas.cartaSeleccionada}" 
+                                             rowKey="#{carta.id}"
+                                             rows="10">
+                                    <p:ajax event="rowSelect"  update="form:mostrar-mensaje"/>
+                                    <p:column headerText="Autor">
+                                        <h:outputText value="#{carta.usuario.usuario}"/>
+                                    </p:column>
+                                    <p:column headerText="Asunto">
+                                        <h:outputText value="#{carta.asunto}"/>
+                                    </p:column>
+                                    <p:column headerText="Destinatario">
+                                        <h:outputText value="#{carta.niño.nombre}"/>
+                                    </p:column>
+                                </p:dataTable>
+                            </td>
+                            <td style="vertical-align:top;padding: 50px; ">
+                                <div id="vista-mensaje">
+                                    <p:outputPanel id="mostrar-mensaje" style="display:block">
+                                        <table>
+                                            <tr>
+                                                <td>
+                                                    De:
+                                                    <h:outputText value="#{vistaCartas.cartaSeleccionada.usuario.usuario}"/>
+                                                </td>
+                                                <td>
+                                                    <h:outputText value="#{vistaCartas.cartaSeleccionada.fechaEnvio}"/>  
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    Para:
+                                                    <h:outputText value="#{vistaCartas.cartaSeleccionada.niño.nombre}"/>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    Asunto
+                                                    <h:outputText value="#{vistaCartas.cartaSeleccionada.asunto}"/>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <h:outputText value="#{vistaCartas.cartaSeleccionada.mensaje}"/> 
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </p:outputPanel>
+                                    <h:commandButton value="Autorizar"/>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </h:form>
             </c:when>
             <c:otherwise>
                 <ui:include src="/WEB-INF/templates/errorAutorizacion.xhtml"/>
