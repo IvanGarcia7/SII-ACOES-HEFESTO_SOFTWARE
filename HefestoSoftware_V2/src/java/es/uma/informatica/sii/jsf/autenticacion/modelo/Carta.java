@@ -15,6 +15,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
+import javax.persistence.Transient;
 
 /**
  *
@@ -47,18 +48,25 @@ public class Carta implements Serializable {
     private Date fechaEntrega;
     @Column(nullable = false)
     private Boolean emisor;
+    @Column(nullable = false)
+    private Boolean autorizado;
+    @Transient
+    private static int numeroCartas = 0;
 
     public Carta() {
-        
+        autorizado = false;
+        id = new Long(++numeroCartas);
     }
     
-    public Carta(Niño niño,Usuario usuario,String asunto,String mensaje,String fechaEnvio,int id) {
+    public Carta(Niño niño,Usuario usuario,String asunto,String mensaje,String fechaEnvio,Boolean emisor) {
         this.asunto = asunto;
         this.niño = niño;
         this.mensaje = mensaje;
         this.usuario = usuario;
         this.fechaEnvio = Date.valueOf(fechaEnvio);
-        this.id = new Long(id);
+        this.id = new Long(++numeroCartas);
+        this.emisor = emisor;
+        autorizado = false;
     }
     
     public Long getId() {
@@ -139,6 +147,14 @@ public class Carta implements Serializable {
 
     public void setEmisor(Boolean emisor) {
         this.emisor = emisor;
+    }
+
+    public Boolean getAutorizado() {
+        return autorizado;
+    }
+
+    public void setAutorizado(Boolean autorizado) {
+        this.autorizado = autorizado;
     }
     
     @Override

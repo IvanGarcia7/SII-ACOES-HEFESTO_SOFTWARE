@@ -37,7 +37,16 @@ public class HistorialPadrinos implements Serializable {
     private Niño niño;
     @ManyToOne
     private Usuario usuario;
-
+    
+    public HistorialPadrinos(){
+        
+    }
+    
+    public HistorialPadrinos(Niño niño,Usuario usuario){
+        this.niño = niño;
+        this.usuario = usuario;
+    }
+    
     public Long getId() {
         return id;
     }

@@ -39,7 +39,12 @@ public class Niño implements Serializable {
     @Column(name = "fecha_baja")
     private Date fechaBaja;
 
-    public Niño(String nombre,String apellidos){
+    public Niño(){
+        
+    }
+    
+    public Niño(String usuario,String nombre,String apellidos){
+        this.usuario = usuario;
         this.nombre = nombre;
         this.apellidos = apellidos;
     }
@@ -134,7 +139,7 @@ public class Niño implements Serializable {
 
     @Override
     public String toString() {
-        return "hefestosoftware.Nino[ usuario=" + usuario + " ]";
+        return usuario;
     }
     
 }

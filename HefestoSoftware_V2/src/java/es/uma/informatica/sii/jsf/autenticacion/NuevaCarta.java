@@ -9,6 +9,7 @@ import es.uma.informatica.sii.jsf.autenticacion.modelo.Carta;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
+import java.sql.Date;
 
 /**
  *
@@ -24,8 +25,14 @@ public class NuevaCarta {
     @Inject
     private ControlAutorizacion ctrl;
     
+    public NuevaCarta(){
+        carta = new Carta();
+    }
+    
     public void enviarCarta(){
         carta.setUsuario(ctrl.getUsuario());
+        carta.setEmisor(true);
+        carta.setFechaEnvio(new Date(System.currentTimeMillis()));
         servicio.añadirCarta(carta);
     }
 

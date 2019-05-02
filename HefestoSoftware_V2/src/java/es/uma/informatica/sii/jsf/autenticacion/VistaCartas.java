@@ -13,7 +13,6 @@ import javax.annotation.PostConstruct;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
-import org.primefaces.event.SelectEvent;
 
 /**
  *
@@ -35,7 +34,7 @@ public class VistaCartas implements Serializable{
         if(ctrl.getUsuario().getRol()==Rol.NORMAL){
             cartas = servicio.obtenerHistorial(ctrl.getUsuario().getUsuario());
         }else if(ctrl.getUsuario().getRol()==Rol.ADMINISTRADOR){
-            cartas = servicio.getCartas();
+            cartas = servicio.cartasPorAutorizar();
         }
     }
 
@@ -71,12 +70,10 @@ public class VistaCartas implements Serializable{
         this.ctrl = ctrl;
     }
     
-    public String mostrarCartaActual(){
-        if(cartaSeleccionada==null){
-            return "Cada vez que se pulsa en una de las filas, se muestra la carta de dicho niño en esta area.";
-        }else{
-            return cartaSeleccionada.getMensaje();
-        }
+    public void autorizarCartaActual(){
+        cartaSeleccionada.setAutorizado(true);
+        cartaSeleccionada = null;
+        cartas = servicio.cartasPorAutorizar();
     }
     
 }
