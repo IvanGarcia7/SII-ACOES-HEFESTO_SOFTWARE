@@ -6,12 +6,14 @@
 package es.uma.informatica.sii.jsf.autenticacion;
 
 import es.uma.informatica.sii.jsf.autenticacion.modelo.Carta;
+import es.uma.informatica.sii.jsf.autenticacion.modelo.Usuario.Rol;
 import java.io.Serializable;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
+import org.primefaces.event.SelectEvent;
 
 /**
  *
@@ -30,7 +32,11 @@ public class VistaCartas implements Serializable{
     
     @PostConstruct
     public void init(){
-        cartas = servicio.obtenerHistorial(ctrl.getUsuario().getUsuario());
+        if(ctrl.getUsuario().getRol()==Rol.NORMAL){
+            cartas = servicio.obtenerHistorial(ctrl.getUsuario().getUsuario());
+        }else if(ctrl.getUsuario().getRol()==Rol.ADMINISTRADOR){
+            cartas = servicio.getCartas();
+        }
     }
 
     public List<Carta> getCartas() {
