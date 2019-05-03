@@ -13,29 +13,55 @@
             <c:when test="#{controlAutorizacion.usuario.rol == 'NORMAL'}">
                 <h:graphicImage styleClass="logo" height="200px" value = "./resources/Imagenes/logo1.png"/> 
                 <h:form id="form" class="historial">
-                    <p:dataTable class="table1"
-                                 id="lista-cartas" 
-                                 value="#{vistaCartas.cartas}" 
-                                 var="carta"
-                                 selectionMode="single" 
-                                 selection="#{vistaCartas.cartaSeleccionada}" 
-                                 rowKey="#{carta.id}"
-                                 rows="10"
-                                 paginator="true"
-                                 paginatorPosition="top"
-                                 paginatorTemplate="{FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
-                                 rowsPerPageTemplate="5,10,15">
-                        <p:ajax event="rowSelect"  update="form:mostrar-mensaje"/>
-                        <p:column headerText="Nombre del niño" sortBy="#{carta.niño.nombre}">
-                            <h:outputText value="#{carta.niño.nombre}"/>
-                        </p:column>
-                        <p:column headerText="Asunto" sortBy="#{carta.asunto}">
-                            <h:outputText value="#{carta.asunto}"/>
-                        </p:column>
-                        <p:column headerText="Fecha de envio" sortBy="#{carta.fechaEnvio}">
-                            <h:outputText value="#{carta.fechaEnvio}"/>
-                        </p:column>
-                    </p:dataTable>
+                    <p:tabView>
+                        <p:tab title="Recibido">
+                            <p:dataTable value="#{vistaCartas.recibidas}" 
+                                         var="carta"
+                                         selectionMode="single" 
+                                         selection="#{vistaCartas.cartaSeleccionada}" 
+                                         rowKey="#{carta.id}"
+                                         rows="10"
+                                         paginator="true"
+                                         paginatorPosition="bottom"
+                                         paginatorTemplate="{FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}">
+                                <p:ajax event="rowSelect"  update="form:mostrar-mensaje"/>
+                                <p:column headerText="Autor" sortBy="#{carta.niño.nombre}">
+                                    <h:outputText value="#{carta.niño.nombre}"/>
+                                </p:column>
+                                <p:column headerText="Asunto" sortBy="#{carta.asunto}">
+                                    <h:outputText value="#{carta.asunto}"/>
+                                </p:column>
+                                <p:column headerText="Fecha de envio" sortBy="#{carta.fechaEnvio}">
+                                    <h:outputText value="#{carta.fechaEnvio}"/>
+                                </p:column>
+                            </p:dataTable>
+                        </p:tab>
+                        <p:tab title="Enviado">
+                            <p:dataTable value="#{vistaCartas.enviadas}" 
+                                         var="carta"
+                                         selectionMode="single" 
+                                         selection="#{vistaCartas.cartaSeleccionada}" 
+                                         rowKey="#{carta.id}"
+                                         rows="10"
+                                         paginator="true"
+                                         paginatorPosition="bottom"
+                                         paginatorTemplate="{FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}">
+                                <p:ajax event="rowSelect"  update="form:mostrar-mensaje"/>
+                                <p:column headerText="Destinatario" sortBy="#{carta.niño.nombre}">
+                                    <h:outputText value="#{carta.niño.nombre}"/>
+                                </p:column>
+                                <p:column headerText="Asunto" sortBy="#{carta.asunto}">
+                                    <h:outputText value="#{carta.asunto}"/>
+                                </p:column>
+                                <p:column headerText="Fecha de envio" sortBy="#{carta.fechaEnvio}">
+                                    <h:outputText value="#{carta.fechaEnvio}"/>
+                                </p:column>
+                                <p:column headerText="Estado" sortBy="#{carta.autorizado}">
+                                    <h:outputText value="#{ (carta.autorizado) ? 'Enviado' : 'Pendiente' }"/>
+                                </p:column>
+                            </p:dataTable>
+                        </p:tab>
+                    </p:tabView>
                     <p:outputPanel id="mostrar-mensaje" class="muestramensaje">
                         <p:outputPanel rendered="#{vistaCartas.cartaSeleccionada!=null}">
                             <table class="mostrarmensaje" style="background-color: white;border: 1px solid black;">
@@ -44,7 +70,7 @@
                                         <h:outputText value="#{ (vistaCartas.cartaSeleccionada.emisor) ? 'Para' : 'De' }"/>
                                         <h:outputText value=": #{vistaCartas.cartaSeleccionada.niño.apellidos}, #{vistaCartas.cartaSeleccionada.niño.nombre}"/>
                                     </td>
-                                    <td>
+                                    <td style="text-align: right;">
                                         <h:outputText value="#{vistaCartas.cartaSeleccionada.fechaEnvio}"/>  
                                     </td>
                                 </tr>

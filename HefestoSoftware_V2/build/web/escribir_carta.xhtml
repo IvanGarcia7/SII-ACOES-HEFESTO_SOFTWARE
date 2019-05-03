@@ -12,7 +12,7 @@
             <c:when test="#{controlAutorizacion.usuario.rol == 'NORMAL'}">
                 <h:graphicImage styleClass="logo" height="200px" value = "./resources/Imagenes/logo1.png"/> 
                 <h1>Escriba una nueva Carta:</h1>
-              
+
                 <h:form enctype='multipart/form-data' id="formularioespecial">
                     <table style="width: 100%;align-content: center;align-self: center; margin-left: 10%; margin-top: 20px;">
                         <tr>
@@ -32,16 +32,16 @@
                                                 <f:selectItems value="#{vistaDestinatarios.destinatarios}" var="niño" itemValue="#{niño}" itemLabel="#{niño.nombre} #{niño.apellidos}"/>
                                             </h:selectOneMenu>
                                     </td></tr>
-                                    <tr><td><h:inputFile value="#{nuevaCarta.carta.adjunto}" label="Adjuntar imagen"/></td></tr>
+                                    <tr><td><h:inputFile value="#{nuevaCarta.carta.adjunto}"/></td></tr>
                                     <tr><td><h:commandButton value="Enviar carta" action="#{nuevaCarta.enviarCarta()}"/></td></tr>
                                 </table>
                             </td>
                         </tr>
                         <td>
                             <pre>
-                                
+
                             </pre>
-    
+
                         </td>
                     </table>
                 </h:form>
