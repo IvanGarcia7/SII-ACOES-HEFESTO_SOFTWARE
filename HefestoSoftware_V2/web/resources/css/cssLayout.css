@@ -1,4 +1,27 @@
 
+.textoinput1 {
+    margin-bottom: 50px;
+    font-size: 20px;
+}
+
+.textoinput2 {
+    font-size: 20px;
+}
+
+
+
+.areaninos {
+    font-size: 20px;
+    margin-left: 70px;
+}
+
+
+.enviarsolicitud {
+    font-size: 20px;
+    margin-left: 100px;
+}
+
+
 .mostrarmensaje{
     width: 100%;
     text-align: inherit;
@@ -262,7 +285,7 @@ a {
 
 
 #formularioespecial {
-    background:  rgb(123,192,67);
+    background:  #e3e3e3;
     border-radius: 50px 10px 10px 10px;
     font-family: unset;
     font-size: 16px;

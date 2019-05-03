@@ -15,7 +15,8 @@
                 <h:form id="form" class="historial">
                     <p:tabView>
                         <p:tab title="Recibido">
-                            <p:dataTable value="#{vistaCartas.recibidas}" 
+                            <p:dataTable class="table1"
+                                         value="#{vistaCartas.recibidas}" 
                                          var="carta"
                                          selectionMode="single" 
                                          selection="#{vistaCartas.cartaSeleccionada}" 
@@ -37,7 +38,8 @@
                             </p:dataTable>
                         </p:tab>
                         <p:tab title="Enviado">
-                            <p:dataTable value="#{vistaCartas.enviadas}" 
+                            <p:dataTable class="table1"
+                                         value="#{vistaCartas.enviadas}" 
                                          var="carta"
                                          selectionMode="single" 
                                          selection="#{vistaCartas.cartaSeleccionada}" 

@@ -17,6 +17,14 @@
                     <table style="width: 100%;align-content: center;align-self: center; margin-left: 10%; margin-top: 20px;">
                         <tr>
                             <td>
+                                <pre>
+                                    
+                                </pre>
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <td>
                                 <table style="width: 90%;align-self: center;">
                                     <tr><td><h:message for="asunto" style="color: darkred;"/>Asunto:</td></tr>
                                     <tr><td><h:inputText id="asunto" style="background: white; border: 1px solid black; border-radius: 3px;" value="#{nuevaCarta.carta.asunto}" required="true" requiredMessage="(*)"/></td></tr>
@@ -28,12 +36,12 @@
                                 <table style="width: 90%;">
                                     <tr><td><h:message for="destinatario" style="color: darkred;"/>Escoge al niño destinatario</td></tr>
                                     <tr><td>
-                                            <h:selectOneMenu id="destinatario" value="#{nuevaCarta.carta.niño}" converter="#{niñoConverter}" required="true" requiredMessage="(*)">
+                                            <h:selectOneMenu class="textoinput1" id="destinatario" value="#{nuevaCarta.carta.niño}" converter="#{niñoConverter}" required="true" requiredMessage="(*)">
                                                 <f:selectItems value="#{vistaDestinatarios.destinatarios}" var="niño" itemValue="#{niño}" itemLabel="#{niño.nombre} #{niño.apellidos}"/>
                                             </h:selectOneMenu>
                                     </td></tr>
-                                    <tr><td><h:inputFile value="#{nuevaCarta.carta.adjunto}"/></td></tr>
-                                    <tr><td><h:commandButton value="Enviar carta" action="#{nuevaCarta.enviarCarta()}"/></td></tr>
+                                    <tr><td><h:inputFile class="textoinput2" value="#{nuevaCarta.carta.adjunto}"/></td></tr>
+                                    <tr><td><h:commandButton class="textoinput2" value="Enviar carta" action="#{nuevaCarta.enviarCarta()}"/></td></tr>
                                 </table>
                             </td>
                         </tr>
