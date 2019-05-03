@@ -27,6 +27,7 @@ public class ServicioNiños implements Serializable {
         niños.add(new Niño("n2","Ana Maria","Jimenez"));
         niños.add(new Niño("n3","Jose Alberto","Victoria"));
         niños.add(new Niño("n4","Patricia","Rodriguez"));
+        niños.add(new Niño("n5","Alberto","Macias"));
     }
     
     public Niño obtenerNiño(String usuario){
