@@ -69,6 +69,17 @@ public class Carta implements Serializable {
         autorizado = false;
     }
     
+    public Carta(Niño niño,Usuario usuario,String asunto,String mensaje,String fechaEnvio,Boolean emisor,Boolean autorizado) {
+        this.asunto = asunto;
+        this.niño = niño;
+        this.mensaje = mensaje;
+        this.usuario = usuario;
+        this.fechaEnvio = Date.valueOf(fechaEnvio);
+        this.id = new Long(++numeroCartas);
+        this.emisor = emisor;
+        this.autorizado = true;
+    }
+    
     public Long getId() {
         return id;
     }
