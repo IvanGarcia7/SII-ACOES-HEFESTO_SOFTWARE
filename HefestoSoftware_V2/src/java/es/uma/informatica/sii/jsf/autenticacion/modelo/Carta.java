@@ -77,7 +77,7 @@ public class Carta implements Serializable {
         this.fechaEnvio = Date.valueOf(fechaEnvio);
         this.id = new Long(++numeroCartas);
         this.emisor = emisor;
-        this.autorizado = true;
+        this.autorizado = autorizado;
     }
     
     public Long getId() {
