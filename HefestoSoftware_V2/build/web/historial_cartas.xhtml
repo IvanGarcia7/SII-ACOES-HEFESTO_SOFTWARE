@@ -12,7 +12,7 @@
         <c:choose>
             <c:when test="#{controlAutorizacion.usuario.rol == 'NORMAL'}">
                 <h:graphicImage styleClass="logo" height="200px" value = "./resources/Imagenes/logo1.png"/> 
-                <h:form id="form">
+                <h:form id="form" class="historial">
                     <p:dataTable class="table1"
                                  id="lista-cartas" 
                                  value="#{vistaCartas.cartas}" 
@@ -36,9 +36,9 @@
                             <h:outputText value="#{carta.fechaEnvio}"/>
                         </p:column>
                     </p:dataTable>
-                    <p:outputPanel id="mostrar-mensaje">
+                    <p:outputPanel id="mostrar-mensaje" class="muestramensaje">
                         <p:outputPanel rendered="#{vistaCartas.cartaSeleccionada!=null}">
-                            <table style="background-color: white;border: 1px solid black;">
+                            <table class="mostrarmensaje" style="background-color: white;border: 1px solid black;">
                                 <tr>
                                     <td>
                                         <h:outputText value="#{ (vistaCartas.cartaSeleccionada.emisor) ? 'Para' : 'De' }"/>

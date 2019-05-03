@@ -1,4 +1,19 @@
 
+.mostrarmensaje{
+    width: 100%;
+    text-align: inherit;
+    margin-top: 50px;
+}
+
+.historial{
+        margin-top: 30px;
+        margin-right: 40px;
+}
+
+.muestramensaje{
+    font-size: 20px;
+}
+
 /* Table 1 Style */
 table.table1{
     font-family: "Trebuchet MS", sans-serif;
@@ -103,6 +118,7 @@ table.table1{
     display: inline-block;      
     left: 50%;                  
     transform: translate(-50%);
+    background-color: aliceblue;
 }
 
 .botonautenticar {
@@ -246,7 +262,7 @@ a {
 
 
 #formularioespecial {
-    background: #afbdc5;
+    background:  rgb(123,192,67);
     border-radius: 50px 10px 10px 10px;
     font-family: unset;
     font-size: 16px;
@@ -288,10 +304,18 @@ a {
 }
 
 .center_content {
-    position: relative;
     background-color: #036fab;
     padding: 10px;
     border-bottom: 100px solid #036fab;
+    border-bottom: 100px;
+    height: 100%;
+    width: 100%;
+    /* width: 100%; */
+    /* min-height: 100%; */
+    /* height: auto !important; */
+    position: fixed;
+    /* top: 0; */
+    left: 0;
 }
 
 .left_content {
