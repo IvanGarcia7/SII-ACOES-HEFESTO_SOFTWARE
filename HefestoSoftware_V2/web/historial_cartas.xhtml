@@ -13,7 +13,8 @@
             <c:when test="#{controlAutorizacion.usuario.rol == 'NORMAL'}">
                 <h:graphicImage styleClass="logo" height="200px" value = "./resources/Imagenes/logo1.png"/> 
                 <h:form id="form">
-                    <p:dataTable id="lista-cartas" 
+                    <p:dataTable class="table1"
+                                 id="lista-cartas" 
                                  value="#{vistaCartas.cartas}" 
                                  var="carta"
                                  selectionMode="single" 
