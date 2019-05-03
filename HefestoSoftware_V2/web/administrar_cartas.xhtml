@@ -12,30 +12,30 @@
         <c:choose>
             <c:when test="#{controlAutorizacion.usuario.rol == 'ADMINISTRADOR'}">
                 <h:graphicImage styleClass="logo" height="200px" value = "./resources/Imagenes/logo1.png"/> 
-                <h:form id="form">
+                <h:form id="form" style="margin-top: 20px;margin-left: 3%;margin-right: 3%;">
                     <table>
                         <tr>
-                            <td style="width: 50%;">
-                                <p:dataTable class="table1"
-                                             value="#{vistaCartas.cartas}" 
+                            <td width="50%">
+                                <p:dataTable value="#{vistaCartas.cartas}" 
                                              var="carta"
                                              selectionMode="single" 
                                              selection="#{vistaCartas.cartaSeleccionada}" 
                                              rowKey="#{carta.id}"
-                                             rows="10">
+                                             scrollable="true"
+                                             scrollHeight="300">
                                     <p:ajax event="rowSelect"  update="form:mostrar-mensaje"/>
                                     <p:column headerText="Autor">
-                                        <h:outputText value="#{carta.usuario.usuario}"/>
+                                        <h:outputText value="#{ (carta.emisor) ? carta.usuario.usuario : carta.niño.nombre }"/>
                                     </p:column>
                                     <p:column headerText="Asunto">
                                         <h:outputText value="#{carta.asunto}"/>
                                     </p:column>
                                     <p:column headerText="Destinatario">
-                                        <h:outputText value="#{carta.niño.nombre}"/>
+                                        <h:outputText value="#{ (carta.emisor) ? carta.niño.nombre : carta.usuario.usuario }"/>
                                     </p:column>
                                 </p:dataTable>
                             </td>
-                            <td>
+                            <td align="center">
                                 <p:outputPanel id="mostrar-mensaje">
                                     <p:outputPanel rendered="#{vistaCartas.cartaSeleccionada!=null}">
                                         <table style="background-color: lightgray;border:1px solid black;">
@@ -70,7 +70,7 @@
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td colspan="3">
+                                                <td colspan="3" align="center">
                                                     <h:commandButton value="Autorizar" action="#{vistaCartas.autorizarCartaActual()}"/>
                                                 </td>
                                             </tr>
