@@ -16,10 +16,10 @@
                     <p:tabView>
                         <p:tab title="Recibido">
                             <p:dataTable class="table1"
-                                         value="#{vistaCartas.recibidas}" 
+                                         value="#{historialCartas.recibidas}" 
                                          var="carta"
                                          selectionMode="single" 
-                                         selection="#{vistaCartas.cartaSeleccionada}" 
+                                         selection="#{historialCartas.seleccionada}" 
                                          rowKey="#{carta.id}"
                                          rows="10"
                                          paginator="true"
@@ -39,10 +39,10 @@
                         </p:tab>
                         <p:tab title="Enviado">
                             <p:dataTable class="table1"
-                                         value="#{vistaCartas.enviadas}" 
+                                         value="#{historialCartas.enviadas}" 
                                          var="carta"
                                          selectionMode="single" 
-                                         selection="#{vistaCartas.cartaSeleccionada}" 
+                                         selection="#{historialCartas.seleccionada}" 
                                          rowKey="#{carta.id}"
                                          rows="10"
                                          paginator="true"
@@ -65,25 +65,25 @@
                         </p:tab>
                     </p:tabView>
                     <p:outputPanel id="mostrar-mensaje" class="muestramensaje">
-                        <p:outputPanel rendered="#{vistaCartas.cartaSeleccionada!=null}">
-                            <table class="mostrarmensaje" style="background-color: white;border: 1px solid black;">
+                        <p:outputPanel rendered="#{historialCartas.seleccionada!=null}">
+                            <table class="mostrarmensaje" style="background-color: white;border: 1px solid black">
                                 <tr>
                                     <td>
-                                        <h:outputText value="#{ (vistaCartas.cartaSeleccionada.emisor) ? 'Para' : 'De' }"/>
-                                        <h:outputText value=": #{vistaCartas.cartaSeleccionada.niño.apellidos}, #{vistaCartas.cartaSeleccionada.niño.nombre}"/>
+                                        <h:outputText value="#{ (historialCartas.seleccionada.emisor) ? 'Para' : 'De' }"/>
+                                        <h:outputText value=": #{historialCartas.seleccionada.niño.apellidos}, #{historialCartas.seleccionada.niño.nombre}"/>
                                     </td>
-                                    <td style="text-align: right;">
-                                        <h:outputText value="#{vistaCartas.cartaSeleccionada.fechaEnvio}"/>  
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td colspan="2">
-                                        <h:outputText value="#{vistaCartas.cartaSeleccionada.asunto}"/>
+                                    <td style="text-align: right">
+                                        <h:outputText value="#{historialCartas.seleccionada.fechaEnvio}"/>  
                                     </td>
                                 </tr>
                                 <tr>
                                     <td colspan="2">
-                                        <h:outputText value="#{vistaCartas.cartaSeleccionada.mensaje}"/> 
+                                        <h:outputText value="#{historialCartas.seleccionada.asunto}"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                                        <h:outputText value="#{historialCartas.seleccionada.mensaje}"/> 
                                     </td>
                                 </tr>
                             </table>
