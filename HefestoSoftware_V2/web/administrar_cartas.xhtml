@@ -11,13 +11,21 @@
     <ui:define name="content">
         <c:choose>
             <c:when test="#{controlAutorizacion.usuario.rol == 'ADMINISTRADOR'}">
-                <h:graphicImage styleClass="logo" height="200px" value = "./resources/Imagenes/logo1.png"/> 
+                <h:form style="float: left">
+                    <p:inputText style="background-color: white" value="#{vistaCartas.filtroAutor}" placeholder="Filtrar autor"/>
+                    <p:inputText style="background-color: white;margin-top: 20px" value="#{vistaCartas.filtroAsunto}" placeholder="Filtrar asunto"/>
+                    <p:inputText style="background-color: white;margin-top: 20px" value="#{vistaCartas.filtroDestinatario}" placeholder="Filtrar destinatario"/>
+                    <p:commandButton style="width: 50%;margin-top: 20px" value="Aplicar filtros" action="#{vistaCartas.aplicarFiltros()}" update=":form:vista-cartas-admin"/>
+                    <p:commandButton style="width: 50%;margin-top: 20px" value="Quitar filtros" action="#{vistaCartas.quitarFiltros()}" update=":form:vista-cartas-admin @form"/>
+                </h:form>
+                <h:graphicImage style="float: center" height="200px" value = "./resources/Imagenes/logo1.png"/> 
                 <h:form id="form" style="margin-top: 20px;margin-left: 3%;margin-right: 3%;">
                     <table>
                         <tr>
                             <td width="50%">
-                                <p:dataTable class="table1"
-                                             value="#{vistaCartas.cartas}" 
+                                <p:dataTable id="vista-cartas-admin"
+                                             class="table1"
+                                             value="#{vistaCartas.cartasMostradas}" 
                                              var="carta"
                                              selectionMode="single" 
                                              selection="#{vistaCartas.cartaSeleccionada}" 
