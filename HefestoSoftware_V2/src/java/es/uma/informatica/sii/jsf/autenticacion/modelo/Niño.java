@@ -51,6 +51,16 @@ public class Niño implements Serializable {
         this.nombre = nombre;
         this.apellidos = apellidos;
     }
+
+    public Niño(String usuario, String nombre, String apellidos, String direccion, String poblacion, Date fechaNacimiento, Date fechaAlta) {
+        this.usuario = usuario;
+        this.nombre = nombre;
+        this.apellidos = apellidos;
+        this.direccion = direccion;
+        this.poblacion = poblacion;
+        this.fechaNacimiento = fechaNacimiento;
+        this.fechaAlta = fechaAlta;
+    }
     
     public String getNombre() {
         return nombre;
