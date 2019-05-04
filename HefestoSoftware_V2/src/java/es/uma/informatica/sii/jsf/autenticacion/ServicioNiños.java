@@ -16,24 +16,23 @@ import javax.inject.Named;
  *
  * @author Miguel
  */
-@Named
+@Named(value="servicioNiños")
 @SessionScoped
 public class ServicioNiños implements Serializable {
-
     private List<Niño> niños;
-
-    public ServicioNiños() {
+    
+    public ServicioNiños(){
         niños = new ArrayList<>();
-        niños.add(new Niño("n1", "Jose Manuel", "Perez"));
-        niños.add(new Niño("n2", "Ana Maria", "Jimenez"));
-        niños.add(new Niño("n3", "Jose Alberto", "Victoria"));
-        niños.add(new Niño("n4", "Patricia", "Rodriguez"));
-        niños.add(new Niño("n5", "Alberto", "Macias"));
+        niños.add(new Niño("n1","Jose Manuel","Perez"));
+        niños.add(new Niño("n2","Ana Maria","Jimenez"));
+        niños.add(new Niño("n3","Jose Alberto","Victoria"));
+        niños.add(new Niño("n4","Patricia","Rodriguez"));
+        niños.add(new Niño("n5","Alberto","Macias"));
     }
-
-    public Niño obtenerNiño(String usuario) {
-        for (Niño n : niños) {
-            if (usuario.equals(n.getUsuario())) {
+    
+    public Niño obtenerNiño(String usuario){
+        for(Niño n : niños){
+            if(usuario.equals(n.getUsuario())){
                 return n;
             }
         }
@@ -47,5 +46,5 @@ public class ServicioNiños implements Serializable {
     public void setNiños(List<Niño> niños) {
         this.niños = niños;
     }
-
+    
 }

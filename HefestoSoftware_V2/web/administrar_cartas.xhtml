@@ -12,26 +12,23 @@
         <c:choose>
             <c:when test="#{controlAutorizacion.usuario.rol == 'ADMINISTRADOR'}">
                 <h:form style="float: left">
-                    <p:inputText style="background-color: white" value="#{autorizarCartas.filtroAutor}" placeholder="Filtrar autor"/>
-                    <p:inputText style="background-color: white;margin-top: 20px" value="#{autorizarCartas.filtroAsunto}" placeholder="Filtrar asunto"/>
-                    <p:inputText style="background-color: white;margin-top: 20px" value="#{autorizarCartas.filtroDestinatario}" placeholder="Filtrar destinatario"/>
-                    <p:commandButton style="width: 50%;margin-top: 20px" value="Aplicar filtros" action="#{autorizarCartas.aplicarFiltros()}" update=":form:vista-cartas-admin"/>
-                    <p:commandButton style="width: 50%;margin-top: 20px" value="Quitar filtros" action="#{autorizarCartas.quitarFiltros()}" update=":form:vista-cartas-admin @form"/>
+                    <p:inputText style="background-color: white" value="#{vistaCartas.filtroAutor}" placeholder="Filtrar autor"/>
+                    <p:inputText style="background-color: white;margin-top: 20px" value="#{vistaCartas.filtroAsunto}" placeholder="Filtrar asunto"/>
+                    <p:inputText style="background-color: white;margin-top: 20px" value="#{vistaCartas.filtroDestinatario}" placeholder="Filtrar destinatario"/>
+                    <p:commandButton style="width: 50%;margin-top: 20px" value="Aplicar filtros" action="#{vistaCartas.aplicarFiltros()}" update=":form:vista-cartas-admin"/>
+                    <p:commandButton style="width: 50%;margin-top: 20px" value="Quitar filtros" action="#{vistaCartas.quitarFiltros()}" update=":form:vista-cartas-admin @form"/>
                 </h:form>
-
-                <h:graphicImage styleClass="logo1"  height="200px" value = "./resources/Imagenes/logo1.png"/> 
+                <h:graphicImage style="float: center" height="200px" value = "./resources/Imagenes/logo1.png"/> 
                 <h:form id="form" style="margin-top: 20px;margin-left: 3%;margin-right: 3%;">
-
- 
                     <table>
                         <tr>
                             <td width="50%">
                                 <p:dataTable id="vista-cartas-admin"
                                              class="table1"
-                                             value="#{autorizarCartas.cartas}" 
+                                             value="#{vistaCartas.cartasMostradas}" 
                                              var="carta"
                                              selectionMode="single" 
-                                             selection="#{autorizarCartas.seleccionada}" 
+                                             selection="#{vistaCartas.cartaSeleccionada}" 
                                              rowKey="#{carta.id}"
                                              scrollable="true"
                                              scrollHeight="300">
@@ -49,41 +46,41 @@
                             </td>
                             <td align="center">
                                 <p:outputPanel id="mostrar-mensaje">
-                                    <p:outputPanel rendered="#{autorizarCartas.seleccionada!=null}">
-                                        <table style="background-color: lightgray;border:1px solid black">
+                                    <p:outputPanel rendered="#{vistaCartas.cartaSeleccionada!=null}">
+                                        <table style="background-color: lightgray;border:1px solid black;">
                                             <tr>
                                                 <td>
                                                     De:
-                                                    <h:outputText value="#{autorizarCartas.seleccionada.usuario.usuario}" rendered="#{autorizarCartas.seleccionada.emisor}"/>
-                                                    <h:outputText value="#{autorizarCartas.seleccionada.niño.apellidos}, #{autorizarCartas.seleccionada.niño.nombre}" rendered="#{!autorizarCartas.seleccionada.emisor}"/>
+                                                    <h:outputText value="#{vistaCartas.cartaSeleccionada.usuario.usuario}" rendered="#{vistaCartas.cartaSeleccionada.emisor}"/>
+                                                    <h:outputText value="#{vistaCartas.cartaSeleccionada.niño.apellidos}, #{vistaCartas.cartaSeleccionada.niño.nombre}" rendered="#{!vistaCartas.cartaSeleccionada.emisor}"/>
                                                 </td>
                                                 <td>
-                                                    <h:outputText value="#{autorizarCartas.seleccionada.fechaEnvio}"/>  
+                                                    <h:outputText value="#{vistaCartas.cartaSeleccionada.fechaEnvio}"/>  
                                                 </td>
                                                 <td>
-                                                    <h:commandButton value="cerrar" action="#{autorizarCartas.setSeleccionada(null)}"/>
+                                                    <h:commandButton value="cerrar" action="#{vistaCartas.setCartaSeleccionada(null)}"/>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td>
                                                     Para:
-                                                    <h:outputText value="#{autorizarCartas.seleccionada.niño.apellidos}, #{autorizarCartas.seleccionada.niño.nombre}" rendered="#{autorizarCartas.seleccionada.emisor}"/>
-                                                    <h:outputText value="#{autorizarCartas.seleccionada.usuario.usuario}" rendered="#{!autorizarCartas.seleccionada.emisor}"/>
+                                                    <h:outputText value="#{vistaCartas.cartaSeleccionada.niño.apellidos}, #{vistaCartas.cartaSeleccionada.niño.nombre}" rendered="#{vistaCartas.cartaSeleccionada.emisor}"/>
+                                                    <h:outputText value="#{vistaCartas.cartaSeleccionada.usuario.usuario}" rendered="#{!vistaCartas.cartaSeleccionada.emisor}"/>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td colspan="3">
-                                                    <h:outputText value="Asunto: #{autorizarCartas.seleccionada.asunto}"/>
+                                                    <h:outputText value="Asunto: #{vistaCartas.cartaSeleccionada.asunto}"/>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td colspan="3">
-                                                    <h:outputText value="#{autorizarCartas.seleccionada.mensaje}"/> 
+                                                    <h:outputText value="#{vistaCartas.cartaSeleccionada.mensaje}"/> 
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td colspan="3" align="center">
-                                                    <h:commandButton value="Autorizar" action="#{autorizarCartas.autorizarCarta()}"/>
+                                                    <h:commandButton value="Autorizar" action="#{vistaCartas.autorizarCartaActual()}"/>
                                                 </td>
                                             </tr>
                                         </table>

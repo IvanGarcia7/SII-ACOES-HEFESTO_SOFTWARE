@@ -25,8 +25,6 @@ public class ServicioUsuarios implements Serializable {
 
     public ServicioUsuarios() {
         usuarios = new ArrayList<>();
-        usuarios.add(new Usuario("Adela Ramírez Rueda", "qwer", Usuario.Rol.NORMAL));
-        usuarios.add(new Usuario("Alfonso Pérez Romero", "qwer", Usuario.Rol.NORMAL));
         usuarios.add(new Usuario("manolo", "qwer", "manolopicacabras@yahoo.com", Rol.ADMINISTRADOR));
         usuarios.add(new Usuario("pepe", "asdf", "pepe@yahoo.com", Rol.NORMAL));
         usuarios.add(new Usuario("angel", "qwer", "angelysaras@yahoo.com", Rol.NORMAL));
