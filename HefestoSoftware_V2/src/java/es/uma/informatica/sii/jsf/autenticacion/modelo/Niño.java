@@ -19,8 +19,6 @@ import javax.persistence.Lob;
  * @author Antonio Manuel
  */
 
-@Named(value = "niño")
-@RequestScoped
 @Entity
 public class Niño implements Serializable {
     private static final long serialVersionUID = 1L;
@@ -140,10 +138,6 @@ public class Niño implements Serializable {
         }
         Niño other = (Niño) object;
         return this.usuario != null && other.usuario != null && this.usuario != null && this.usuario.equals(other.usuario);
-    }
-    
-    public String valido() {
-        return "crudninos.xhtml";
     }
 
     @Override
