@@ -6,6 +6,7 @@
 package es.uma.informatica.sii.jsf.autenticacion;
 
 import es.uma.informatica.sii.jsf.autenticacion.modelo.Carta;
+import java.io.Serializable;
 import java.util.LinkedList;
 import javax.annotation.PostConstruct;
 import javax.faces.view.ViewScoped;
@@ -18,7 +19,7 @@ import javax.inject.Named;
  */
 @Named
 @ViewScoped
-public class AutorizarCartas {
+public class AutorizarCartas implements Serializable {
 
     private LinkedList<Carta> todas;
     private LinkedList<Carta> cartas;

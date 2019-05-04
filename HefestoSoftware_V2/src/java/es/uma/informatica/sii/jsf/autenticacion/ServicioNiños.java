@@ -39,6 +39,14 @@ public class ServicioNiños implements Serializable {
         }
         return null;
     }
+    
+    public void delete(String id){
+        
+    }
+    
+    public void edit(String id){
+        
+    }
 
     public List<Niño> getNiños() {
         return niños;

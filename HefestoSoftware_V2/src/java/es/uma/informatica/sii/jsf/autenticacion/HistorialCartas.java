@@ -6,6 +6,7 @@
 package es.uma.informatica.sii.jsf.autenticacion;
 
 import es.uma.informatica.sii.jsf.autenticacion.modelo.Carta;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.PostConstruct;
@@ -19,7 +20,7 @@ import javax.inject.Named;
  */
 @Named
 @ViewScoped
-public class HistorialCartas {
+public class HistorialCartas implements Serializable {
 
     private List<Carta> enviadas;
     private List<Carta> recibidas;
