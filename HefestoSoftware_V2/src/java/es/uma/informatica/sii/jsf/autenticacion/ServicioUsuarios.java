@@ -25,9 +25,13 @@ public class ServicioUsuarios implements Serializable {
 
     public ServicioUsuarios() {
         usuarios = new ArrayList<>();
-        usuarios.add(new Usuario("manolo", "qwer", "manolopicacabras@yahoo.com", Rol.ADMINISTRADOR));
-        usuarios.add(new Usuario("pepe", "asdf", "pepe@yahoo.com", Rol.NORMAL));
-        usuarios.add(new Usuario("angel", "qwer", "angelysaras@yahoo.com", Rol.NORMAL));
+
+        usuarios.add(new Usuario("adela", "qwer", "Adela", "Ramírez Rueda", "adelarr@gmail.com", Usuario.Rol.NORMAL));
+        usuarios.add(new Usuario("alfonso", "qwer", "Alfonso", "Pérez Romero", "alfonsopr@gmail.com", Usuario.Rol.NORMAL));
+        usuarios.add(new Usuario("manolo", "qwer", "Manolo", "Bonilla", "manolopicacabras@yahoo.com", Rol.ADMINISTRADOR));
+        usuarios.add(new Usuario("pepe", "asdf", "Pepe", "Molina", "pepe@yahoo.com", Rol.NORMAL));
+        usuarios.add(new Usuario("angel", "qwer", "Angel", "Villalobos", "angelysaras@yahoo.com", Rol.NORMAL));
+
     }
 
     public Usuario obtenerUsuario(String usuario) {

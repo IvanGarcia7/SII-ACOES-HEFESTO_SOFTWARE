@@ -10,7 +10,9 @@ import es.uma.informatica.sii.jsf.autenticacion.modelo.Usuario;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import javax.annotation.PostConstruct;
 import javax.enterprise.context.SessionScoped;
+import javax.inject.Inject;
 import javax.inject.Named;
 
 /**
@@ -23,20 +25,18 @@ public class ServicioSolicitudes implements Serializable {
 
     private List<HistorialPadrinos> solicitudes;
 
-    public ServicioSolicitudes() {
+    @Inject
+    private ServicioUsuarios su;
+    
+    @PostConstruct
+    public void init() {
         solicitudes = new ArrayList<>();
-        Usuario u1 = new Usuario("pepe", "asdf", Usuario.Rol.NORMAL);
-        Usuario u2 = new Usuario("manolo", "qwer", Usuario.Rol.ADMINISTRADOR);
-        Usuario u3 = new Usuario("Adela Ramírez Rueda", "qwer", Usuario.Rol.NORMAL);
-        Usuario u4 = new Usuario("Alfonso Pérez Romero", "qwer", Usuario.Rol.NORMAL);
-        HistorialPadrinos p1 = new HistorialPadrinos(u3, new Long(1), "01/02/2018");
-        HistorialPadrinos p2 = new HistorialPadrinos(u3, new Long(2), "11/03/2018");
-        HistorialPadrinos p3 = new HistorialPadrinos(u4, new Long(3), "23/05/2018");
-        HistorialPadrinos p4 = new HistorialPadrinos(u4, new Long(4), "24/08/2018");
-        solicitudes.add(p1);
-        solicitudes.add(p2);
-        solicitudes.add(p3);
-        solicitudes.add(p4);
+        Usuario u1 = su.obtenerUsuario("adela");
+        Usuario u2 = su.obtenerUsuario("alfonso");
+        solicitudes.add(new HistorialPadrinos(u1, new Long(1), "2018-02-01"));
+        solicitudes.add(new HistorialPadrinos(u1, new Long(2), "2018-03-11"));
+        solicitudes.add(new HistorialPadrinos(u2, new Long(3), "2018-05-23"));
+        solicitudes.add(new HistorialPadrinos(u2, new Long(4), "2018-08-24"));
     }
 
     public List<HistorialPadrinos> obtenerHistorial(String usuario) {
@@ -60,4 +60,13 @@ public class ServicioSolicitudes implements Serializable {
     public void setSolicitudes(List<HistorialPadrinos> solicitudes) {
         this.solicitudes = solicitudes;
     }
+
+    public ServicioUsuarios getSu() {
+        return su;
+    }
+
+    public void setSu(ServicioUsuarios su) {
+        this.su = su;
+    }
+    
 }
