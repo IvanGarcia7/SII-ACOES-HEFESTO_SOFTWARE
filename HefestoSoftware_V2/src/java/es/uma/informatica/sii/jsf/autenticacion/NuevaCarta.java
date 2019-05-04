@@ -15,21 +15,22 @@ import java.sql.Date;
  *
  * @author Miguel
  */
-@Named(value="nuevaCarta")
+@Named
 @RequestScoped
 public class NuevaCarta {
+
     private Carta carta;
-    
+
     @Inject
     private ServicioCartas servicio;
     @Inject
     private ControlAutorizacion ctrl;
-    
-    public NuevaCarta(){
+
+    public NuevaCarta() {
         carta = new Carta();
     }
-    
-    public void enviarCarta(){
+
+    public void enviarCarta() {
         carta.setUsuario(ctrl.getUsuario());
         carta.setEmisor(true);
         carta.setFechaEnvio(new Date(System.currentTimeMillis()));
@@ -59,5 +60,5 @@ public class NuevaCarta {
     public void setCtrl(ControlAutorizacion ctrl) {
         this.ctrl = ctrl;
     }
-    
+
 }
