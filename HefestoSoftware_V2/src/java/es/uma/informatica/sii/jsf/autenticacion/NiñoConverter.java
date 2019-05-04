@@ -16,13 +16,13 @@ import javax.inject.Named;
  *
  * @author Miguel
  */
-@Named(value="niñoConverter")
+@Named
 @RequestScoped
 public class NiñoConverter implements Converter {
-    
+
     @Inject
     private ServicioNiños servicio;
-    
+
     @Override
     public Object getAsObject(FacesContext context, UIComponent component, String value) {
         if (value == null || value.isEmpty()) {
