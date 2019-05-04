@@ -10,6 +10,7 @@ import es.uma.informatica.sii.jsf.autenticacion.modelo.Niño;
 import es.uma.informatica.sii.jsf.autenticacion.modelo.Usuario;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.SessionScoped;
@@ -59,8 +60,8 @@ public class ServicioCartas implements Serializable {
         cartas.add(new Carta(n5, u2, "Feliz navidad", "Feliz navidad", "2018-12-24", false));
     }
 
-    public List<Carta> obtenerHistorial(String usuario) {
-        List<Carta> historial = new ArrayList<>();
+    public LinkedList<Carta> obtenerHistorial(String usuario) {
+        LinkedList<Carta> historial = new LinkedList<>();
         for (Carta c : cartas) {
             if (usuario.equals(c.getUsuario().getUsuario())) {
                 if (c.getAutorizado()) {
@@ -75,8 +76,8 @@ public class ServicioCartas implements Serializable {
         return historial;
     }
 
-    public List<Carta> cartasPorAutorizar() {
-        List<Carta> pendientes = new ArrayList<Carta>();
+    public LinkedList<Carta> cartasPorAutorizar() {
+        LinkedList<Carta> pendientes = new LinkedList<>();
         for (Carta c : cartas) {
             if (!c.getAutorizado()) {
                 pendientes.add(c);
