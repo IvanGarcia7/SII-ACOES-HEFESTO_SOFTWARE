@@ -7,6 +7,7 @@ package es.uma.informatica.sii.jsf.autenticacion;
 
 import es.uma.informatica.sii.jsf.autenticacion.modelo.Niño;
 import java.io.Serializable;
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 import javax.enterprise.context.SessionScoped;
@@ -16,35 +17,41 @@ import javax.inject.Named;
  *
  * @author Miguel
  */
-@Named(value="servicioNiños")
+@Named
 @SessionScoped
 public class ServicioNiños implements Serializable {
+
     private List<Niño> niños;
-    
-    public ServicioNiños(){
+    private int numeroNiños = 0;
+
+    public ServicioNiños() {
         niños = new ArrayList<>();
-        niños.add(new Niño("n1","Jose Manuel","Perez"));
-        niños.add(new Niño("n2","Ana Maria","Jimenez"));
-        niños.add(new Niño("n3","Jose Alberto","Victoria"));
-        niños.add(new Niño("n4","Patricia","Rodriguez"));
-        niños.add(new Niño("n5","Alberto","Macias"));
+        añadirNiño("Jose Manuel", "Perez");
+        añadirNiño("Ana Maria", "Jimenez");
+        añadirNiño("Jose Alberto", "Victoria");
+        añadirNiño("Patricia", "Rodriguez");
+        añadirNiño("Alberto", "Macias");
     }
-    
-    public Niño obtenerNiño(String usuario){
-        for(Niño n : niños){
-            if(usuario.equals(n.getUsuario())){
+
+    public Niño obtenerNiño(String usuario) {
+        for (Niño n : niños) {
+            if (usuario.equals(n.getUsuario())) {
                 return n;
             }
         }
         return null;
     }
     
-    public void delete(String id){
-        
+    private void añadirNiño(String nombre,String apellidos){
+        niños.add(new Niño("n"+(++numeroNiños),nombre,apellidos));
     }
     
-    public void edit(String id){
-        
+    public void añadirNiño(String nombre,String apellidos,String direccion,String poblacion,Date fechaNacimiento) {
+        niños.add(new Niño("n"+(++numeroNiños),nombre,apellidos,direccion,poblacion,fechaNacimiento,new Date(System.currentTimeMillis())));
+    }
+    
+    public void delete(String usuario){
+        niños.removeIf(n -> n.getUsuario().equals(usuario));
     }
 
     public List<Niño> getNiños() {
@@ -54,5 +61,13 @@ public class ServicioNiños implements Serializable {
     public void setNiños(List<Niño> niños) {
         this.niños = niños;
     }
-    
+
+    public int getNumeroNiños() {
+        return numeroNiños;
+    }
+
+    public void setNumeroNiños(int numeroNiños) {
+        this.numeroNiños = numeroNiños;
+    }
+
 }
