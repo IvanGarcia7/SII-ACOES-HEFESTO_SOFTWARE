@@ -7,6 +7,8 @@ package es.uma.informatica.sii.jsf.autenticacion.modelo;
 
 import java.io.Serializable;
 import java.sql.Date;
+import javax.enterprise.context.RequestScoped;
+import javax.inject.Named;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -16,6 +18,9 @@ import javax.persistence.Lob;
  *
  * @author Antonio Manuel
  */
+
+@Named(value = "niño")
+@RequestScoped
 @Entity
 public class Niño implements Serializable {
     private static final long serialVersionUID = 1L;
@@ -135,6 +140,10 @@ public class Niño implements Serializable {
         }
         Niño other = (Niño) object;
         return this.usuario != null && other.usuario != null && this.usuario != null && this.usuario.equals(other.usuario);
+    }
+    
+    public String valido() {
+        return "crudninos.xhtml";
     }
 
     @Override
