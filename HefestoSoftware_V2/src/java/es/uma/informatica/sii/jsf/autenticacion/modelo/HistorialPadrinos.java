@@ -29,7 +29,7 @@ public class HistorialPadrinos implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @Column(name = "fecha_apadrinamiento", nullable = false)
-    private Date fechaApadrinamiento;
+    private String fechaApadrinamiento;
     @Column(name = "fecha_cancelacion")
     private Date fechaCancelacion;
     private String descripcion;
@@ -41,6 +41,13 @@ public class HistorialPadrinos implements Serializable {
     public HistorialPadrinos(){
         
     }
+    
+    public HistorialPadrinos(Usuario usuario, Long id, String fechaApadrinamiento){
+        this.usuario = usuario;
+        this.id = id;
+        this.fechaApadrinamiento = fechaApadrinamiento;
+    }
+    
     
     public HistorialPadrinos(Niño niño,Usuario usuario){
         this.niño = niño;
@@ -55,11 +62,11 @@ public class HistorialPadrinos implements Serializable {
         this.id = id;
     }
 
-    public Date getFechaApadrinamiento() {
+    public String getFechaApadrinamiento() {
         return fechaApadrinamiento;
     }
 
-    public void setFechaApadrinamiento(Date fechaApadrinamiento) {
+    public void setFechaApadrinamiento(String fechaApadrinamiento) {
         this.fechaApadrinamiento = fechaApadrinamiento;
     }
 
