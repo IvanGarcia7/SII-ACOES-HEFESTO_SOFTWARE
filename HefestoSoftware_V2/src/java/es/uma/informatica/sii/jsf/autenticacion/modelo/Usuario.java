@@ -24,8 +24,7 @@ import javax.persistence.OneToMany;
 @Entity
 public class Usuario implements Serializable {
 
-    public Usuario (String usuario, String contrasenia, Rol rol)
-    {
+    public Usuario(String usuario, String contrasenia, Rol rol) {
         setUsuario(usuario);
         setContrasenia(contrasenia);
         setRol(rol);
@@ -36,6 +35,17 @@ public class Usuario implements Serializable {
         setContrasenia(contrasenia);
         setRol(rol);
         setCorreoElectronico(correo);
+    }
+
+    public Usuario(String usuario, String contraseña, String nombre, String apellidos, String correo, String direccion, String telefono, Rol rol) {
+        this.usuario = usuario;
+        this.contraseña = contraseña;
+        this.nombre = nombre;
+        this.apellidos = apellidos;
+        this.correoElectronico = correo;
+        this.direccion = direccion;
+        this.telefono = telefono;
+        this.rol = rol;
     }
     
     public enum Rol {

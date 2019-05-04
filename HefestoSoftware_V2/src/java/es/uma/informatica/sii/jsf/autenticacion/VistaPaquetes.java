@@ -13,29 +13,27 @@ import javax.annotation.PostConstruct;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
-import org.primefaces.event.SelectEvent;
-
 
 /**
  *
  * @author Antonio Manuel
  */
-@Named(value="vistaPaquetes")
+@Named(value = "vistaPaquetes")
 @ViewScoped
-public class VistaPaquetes implements Serializable{
+public class VistaPaquetes implements Serializable {
+
     private List<Paquete> paquetes;
-    
+
     @Inject
     private ServicioPaquetes servicio;
     @Inject
     private ControlAutorizacion ctrl;
-    
-    
+
     @PostConstruct
-    public void init(){
-        if(ctrl.getUsuario().getRol()==Rol.NORMAL){
+    public void init() {
+        if (ctrl.getUsuario().getRol() == Rol.NORMAL) {
             paquetes = servicio.obtenerHistorial(ctrl.getUsuario().getUsuario());
-        }else if(ctrl.getUsuario().getRol()==Rol.ADMINISTRADOR){
+        } else if (ctrl.getUsuario().getRol() == Rol.ADMINISTRADOR) {
             paquetes = servicio.getPaquetes();
         }
     }

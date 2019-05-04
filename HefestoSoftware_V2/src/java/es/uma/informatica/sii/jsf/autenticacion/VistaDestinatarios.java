@@ -17,18 +17,19 @@ import javax.inject.Named;
  *
  * @author Miguel
  */
-@Named(value="vistaDestinatarios")
+@Named(value = "vistaDestinatarios")
 @ViewScoped
 public class VistaDestinatarios implements Serializable {
+
     private List<Niño> destinatarios;
-    
+
     @Inject
     private ServicioPadrinos servicio;
     @Inject
     private ControlAutorizacion ctrl;
-    
+
     @PostConstruct
-    public void init(){
+    public void init() {
         destinatarios = servicio.obtenerNiñosApadrinados(ctrl.getUsuario());
     }
 
@@ -55,5 +56,5 @@ public class VistaDestinatarios implements Serializable {
     public void setCtrl(ControlAutorizacion ctrl) {
         this.ctrl = ctrl;
     }
-   
+
 }

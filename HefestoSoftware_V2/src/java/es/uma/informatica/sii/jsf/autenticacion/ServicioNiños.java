@@ -22,7 +22,7 @@ public class ServicioNiños implements Serializable {
     private List<Niño> niños;
     
     public ServicioNiños(){
-        niños = new ArrayList<Niño>();
+        niños = new ArrayList<>();
         niños.add(new Niño("n1","Jose Manuel","Perez"));
         niños.add(new Niño("n2","Ana Maria","Jimenez"));
         niños.add(new Niño("n3","Jose Alberto","Victoria"));

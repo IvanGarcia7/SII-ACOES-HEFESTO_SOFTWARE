@@ -20,40 +20,43 @@ import javax.inject.Named;
  *
  * @author Miguel
  */
-@Named(value="servicioPadrinos")
+@Named(value = "servicioPadrinos")
 @SessionScoped
-public class ServicioPadrinos implements Serializable{
+public class ServicioPadrinos implements Serializable {
+
     private List<HistorialPadrinos> apadrinamientos;
-    
+
     @Inject
     private ServicioNiños sn;
-    
+    @Inject
+    private ServicioUsuarios su;
+
     @PostConstruct
-    public void init(){
-        apadrinamientos = new ArrayList<HistorialPadrinos>();
+    public void init() {
+        apadrinamientos = new ArrayList<>();
         Niño n1 = sn.obtenerNiño("n1");
         Niño n2 = sn.obtenerNiño("n2");
         Niño n3 = sn.obtenerNiño("n3");
         Niño n4 = sn.obtenerNiño("n4");
-        Usuario u1 = new Usuario("pepe","asdf",Usuario.Rol.NORMAL);
-        Usuario u2 = new Usuario("antonio","asdf",Usuario.Rol.NORMAL);
-        apadrinamientos.add(new HistorialPadrinos(n1,u1));
-        apadrinamientos.add(new HistorialPadrinos(n2,u1));
-        apadrinamientos.add(new HistorialPadrinos(n3,u1));
-        apadrinamientos.add(new HistorialPadrinos(n4,u1));
-        apadrinamientos.add(new HistorialPadrinos(n4,u2));
+        Usuario u1 = su.obtenerUsuario("pepe");
+        Usuario u2 = su.obtenerUsuario("angel");
+        apadrinamientos.add(new HistorialPadrinos(n1, u1));
+        apadrinamientos.add(new HistorialPadrinos(n2, u1));
+        apadrinamientos.add(new HistorialPadrinos(n3, u1));
+        apadrinamientos.add(new HistorialPadrinos(n4, u1));
+        apadrinamientos.add(new HistorialPadrinos(n4, u2));
     }
 
-    public List<Niño> obtenerNiñosApadrinados(Usuario usuario){
-        List<Niño> apadrinados = new ArrayList<Niño>();
-        for(HistorialPadrinos hp : apadrinamientos){
-            if(hp.getUsuario().getUsuario().equals(usuario.getUsuario())&&hp.getFechaCancelacion()==null){
+    public List<Niño> obtenerNiñosApadrinados(Usuario usuario) {
+        List<Niño> apadrinados = new ArrayList<>();
+        for (HistorialPadrinos hp : apadrinamientos) {
+            if (hp.getUsuario().getUsuario().equals(usuario.getUsuario()) && hp.getFechaCancelacion() == null) {
                 apadrinados.add(hp.getNiño());
             }
         }
         return apadrinados;
     }
-    
+
     public List<HistorialPadrinos> getApadrinamientos() {
         return apadrinamientos;
     }
@@ -69,5 +72,13 @@ public class ServicioPadrinos implements Serializable{
     public void setSn(ServicioNiños sn) {
         this.sn = sn;
     }
-    
+
+    public ServicioUsuarios getSu() {
+        return su;
+    }
+
+    public void setSu(ServicioUsuarios su) {
+        this.su = su;
+    }
+
 }

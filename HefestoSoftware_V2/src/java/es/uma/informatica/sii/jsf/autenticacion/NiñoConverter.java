@@ -5,7 +5,6 @@
  */
 package es.uma.informatica.sii.jsf.autenticacion;
 
-import es.uma.informatica.sii.jsf.autenticacion.modelo.Niño;
 import javax.enterprise.context.RequestScoped;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;

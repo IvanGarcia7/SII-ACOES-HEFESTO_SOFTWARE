@@ -5,15 +5,9 @@
 package es.uma.informatica.sii.jsf.autenticacion;
 
 import es.uma.informatica.sii.jsf.autenticacion.modelo.Usuario;
-import es.uma.informatica.sii.jsf.autenticacion.modelo.Usuario.Rol;
-import java.util.ArrayList;
-import java.util.List;
 import javax.inject.Named;
 import javax.enterprise.context.RequestScoped;
-import javax.faces.application.FacesMessage;
-import javax.faces.context.FacesContext;
 import javax.inject.Inject;
-
 
 @Named(value = "login")
 @RequestScoped
@@ -21,62 +15,62 @@ public class Login {
 
     private String usuario;
     private String contrasenia;
-    private List<Usuario> usuarios;
-    private Usuario actual;
-    
+
     @Inject
     private ControlAutorizacion ctrl;
+    @Inject
+    private ServicioUsuarios servicio;
 
     /**
      * Creates a new instance of Login
      */
     public Login() {
-        usuarios = new ArrayList<Usuario>();
-        usuarios.add(new Usuario("pepe", "asdf", Rol.NORMAL));
-        usuarios.add(new Usuario("manolo", "qwer", Rol.ADMINISTRADOR));
+
     }
 
     public String getUsuario() {
         return usuario;
     }
 
-    public String getContrasenia() {
-        return contrasenia;
-    }
-
     public void setUsuario(String usuario) {
         this.usuario = usuario;
+    }
+
+    public String getContrasenia() {
+        return contrasenia;
     }
 
     public void setContrasenia(String contrasenia) {
         this.contrasenia = contrasenia;
     }
 
+    public ControlAutorizacion getCtrl() {
+        return ctrl;
+    }
+
+    public void setCtrl(ControlAutorizacion ctrl) {
+        this.ctrl = ctrl;
+    }
+
+    public ServicioUsuarios getServicio() {
+        return servicio;
+    }
+
+    public void setServicio(ServicioUsuarios servicio) {
+        this.servicio = servicio;
+    }
+
     public String autenticar() {
-        boolean encontrado = false;
-        int i=0;
-        
-        //Mientras no encuentre al usuario, sigo recorriendo la lista.
-        
-        while(i<usuarios.size() && encontrado==false){
-            actual = usuarios.get(i);
-            if(actual.getUsuario().equals(usuario) && actual.getContrasenia().equals(contrasenia)){
-                encontrado=true;
-            }
-            i++;
-        }
-        
-        if(encontrado){
-            ctrl.setUsuario(actual);
+        Usuario u = servicio.obtenerUsuario(usuario);
+        if (u != null && u.getContrasenia().equals(contrasenia)) {
+            ctrl.setUsuario(u);
             return ctrl.home();
-        }else{
+        } else {
             return "error.xhtml";
         }
-        
     }
-    
-    public String reinicio()
-    {
+
+    public String reinicio() {
         return "login.xhtml";
     }
 }

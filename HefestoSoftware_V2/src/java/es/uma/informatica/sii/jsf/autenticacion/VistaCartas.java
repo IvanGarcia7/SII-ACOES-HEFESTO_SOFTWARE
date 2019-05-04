@@ -20,9 +20,10 @@ import javax.inject.Named;
  *
  * @author Miguel
  */
-@Named(value="vistaCartas")
+@Named(value = "vistaCartas")
 @ViewScoped
-public class VistaCartas implements Serializable{
+public class VistaCartas implements Serializable {
+
     private LinkedList<Carta> cartas;
     private List<Carta> enviadas;
     private List<Carta> recibidas;
@@ -31,20 +32,19 @@ public class VistaCartas implements Serializable{
     private String filtroAutor;
     private String filtroDestinatario;
     private String filtroAsunto;
-    
-    
+
     @Inject
     private ServicioCartas servicio;
     @Inject
     private ControlAutorizacion ctrl;
-    
+
     @PostConstruct
-    public void init(){
-        if(ctrl.getUsuario().getRol()==Rol.NORMAL){
+    public void init() {
+        if (ctrl.getUsuario().getRol() == Rol.NORMAL) {
             cartas = servicio.obtenerHistorial(ctrl.getUsuario().getUsuario());
             obtenerCartasRecibidas();
             obtenerCartasEnviadas();
-        }else if(ctrl.getUsuario().getRol()==Rol.ADMINISTRADOR){
+        } else if (ctrl.getUsuario().getRol() == Rol.ADMINISTRADOR) {
             cartas = servicio.cartasPorAutorizar();
             cartasMostradas = (LinkedList<Carta>) cartas.clone();
         }
@@ -129,34 +129,32 @@ public class VistaCartas implements Serializable{
     public void setRecibidas(List<Carta> recibidas) {
         this.recibidas = recibidas;
     }
-    
-    
-    
-    public void autorizarCartaActual(){
+
+    public void autorizarCartaActual() {
         cartaSeleccionada.setAutorizado(true);
         cartaSeleccionada = null;
         cartas = servicio.cartasPorAutorizar();
     }
-    
+
     private void obtenerCartasEnviadas() {
         enviadas = new ArrayList<>();
-        for(Carta c : cartas){
-            if(c.getEmisor()){
+        for (Carta c : cartas) {
+            if (c.getEmisor()) {
                 enviadas.add(c);
             }
         }
     }
-    
+
     private void obtenerCartasRecibidas() {
         recibidas = new ArrayList<>();
-        for(Carta c : cartas){
-            if(!c.getEmisor()){
+        for (Carta c : cartas) {
+            if (!c.getEmisor()) {
                 recibidas.add(c);
             }
         }
     }
-    
-    public void aplicarFiltros(){
+
+    public void aplicarFiltros() {
         cartasMostradas = (LinkedList<Carta>) cartas.clone();
         if (filtroAutor != null) {
             cartasMostradas.removeIf(c -> (!c.getEmisor() && !c.getNiño().getNombre().contains(filtroAutor))
@@ -170,13 +168,12 @@ public class VistaCartas implements Serializable{
                     || (!c.getEmisor() && !c.getUsuario().getUsuario().contains(filtroDestinatario)));
         }
     }
-    
-    public void quitarFiltros(){
-        cartasMostradas= (LinkedList<Carta>) cartas.clone();
-        filtroAutor=null;
-        filtroDestinatario=null;
-        filtroAsunto=null;
+
+    public void quitarFiltros() {
+        cartasMostradas = (LinkedList<Carta>) cartas.clone();
+        filtroAutor = null;
+        filtroDestinatario = null;
+        filtroAsunto = null;
     }
-    
-    
+
 }

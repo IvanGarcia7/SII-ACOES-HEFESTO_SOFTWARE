@@ -13,29 +13,27 @@ import javax.annotation.PostConstruct;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
-import org.primefaces.event.SelectEvent;
-
 
 /**
  *
  * @author Antonio Manuel
  */
-@Named(value="vistaSolicitudes")
+@Named(value = "vistaSolicitudes")
 @ViewScoped
-public class VistaSolicitudes implements Serializable{
+public class VistaSolicitudes implements Serializable {
+
     private List<HistorialPadrinos> solicitudes;
-    
+
     @Inject
     private ServicioSolicitudes servicio;
     @Inject
     private ControlAutorizacion ctrl;
-    
-    
+
     @PostConstruct
-    public void init(){
-        if(ctrl.getUsuario().getRol()==Rol.NORMAL){
+    public void init() {
+        if (ctrl.getUsuario().getRol() == Rol.NORMAL) {
             solicitudes = servicio.obtenerHistorial(ctrl.getUsuario().getUsuario());
-        }else if(ctrl.getUsuario().getRol()==Rol.ADMINISTRADOR){
+        } else if (ctrl.getUsuario().getRol() == Rol.ADMINISTRADOR) {
             solicitudes = servicio.getSolicitudes();
         }
     }

@@ -29,17 +29,19 @@ public class ServicioCartas implements Serializable {
 
     @Inject
     private ServicioNiños sn;
+    @Inject
+    private ServicioUsuarios su;
 
     @PostConstruct
     public void init() {
-        cartas = new ArrayList<Carta>();
+        cartas = new ArrayList<>();
         Niño n1 = sn.obtenerNiño("n1");
         Niño n2 = sn.obtenerNiño("n2");
         Niño n3 = sn.obtenerNiño("n3");
         Niño n4 = sn.obtenerNiño("n4");
         Niño n5 = sn.obtenerNiño("n5");
-        Usuario u1 = new Usuario("pepe", "asdf", Usuario.Rol.NORMAL);
-        Usuario u2 = new Usuario("antonio", "asdf", Usuario.Rol.NORMAL);
+        Usuario u1 = su.obtenerUsuario("pepe");
+        Usuario u2 = su.obtenerUsuario("angel");
         cartas.add(new Carta(n1, u1, "Hola", "Soy tu nuevo padrino", "2018-01-01", true,true));
         cartas.add(new Carta(n1, u1, "Gracias por adoptarme", "Es un placer", "2018-02-01", false,true));
         cartas.add(new Carta(n1, u1, "Mis ultimas notas", "He sacado todo 10", "2018-03-01", false));
@@ -104,6 +106,14 @@ public class ServicioCartas implements Serializable {
 
     public void setSn(ServicioNiños sn) {
         this.sn = sn;
+    }
+
+    public ServicioUsuarios getSu() {
+        return su;
+    }
+
+    public void setSu(ServicioUsuarios su) {
+        this.su = su;
     }
     
 }
