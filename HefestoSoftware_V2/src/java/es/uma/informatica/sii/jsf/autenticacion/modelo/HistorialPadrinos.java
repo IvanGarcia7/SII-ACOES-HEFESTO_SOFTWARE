@@ -5,7 +5,6 @@
  */
 package es.uma.informatica.sii.jsf.autenticacion.modelo;
 
-import es.uma.informatica.sii.jsf.autenticacion.modelo.Usuario;
 import java.io.Serializable;
 import java.sql.Date;
 import javax.persistence.Column;
@@ -29,7 +28,7 @@ public class HistorialPadrinos implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @Column(name = "fecha_apadrinamiento", nullable = false)
-    private String fechaApadrinamiento;
+    private Date fechaApadrinamiento;
     @Column(name = "fecha_cancelacion")
     private Date fechaCancelacion;
     private String descripcion;
@@ -45,7 +44,7 @@ public class HistorialPadrinos implements Serializable {
     public HistorialPadrinos(Usuario usuario, Long id, String fechaApadrinamiento){
         this.usuario = usuario;
         this.id = id;
-        this.fechaApadrinamiento = fechaApadrinamiento;
+        this.fechaApadrinamiento = Date.valueOf(fechaApadrinamiento);
     }
     
     
@@ -62,11 +61,11 @@ public class HistorialPadrinos implements Serializable {
         this.id = id;
     }
 
-    public String getFechaApadrinamiento() {
+    public Date getFechaApadrinamiento() {
         return fechaApadrinamiento;
     }
 
-    public void setFechaApadrinamiento(String fechaApadrinamiento) {
+    public void setFechaApadrinamiento(Date fechaApadrinamiento) {
         this.fechaApadrinamiento = fechaApadrinamiento;
     }
 

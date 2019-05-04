@@ -5,7 +5,6 @@
  */
 package es.uma.informatica.sii.jsf.autenticacion.modelo;
 
-import es.uma.informatica.sii.jsf.autenticacion.modelo.Peticion;
 import java.io.Serializable;
 import java.sql.Date;
 import java.util.Set;
@@ -35,6 +34,15 @@ public class Usuario implements Serializable {
         setContrasenia(contrasenia);
         setRol(rol);
         setCorreoElectronico(correo);
+    }
+    
+    public Usuario(String usuario, String contraseña, String nombre, String apellidos, String correo, Rol rol) {
+        this.usuario = usuario;
+        this.contraseña = contraseña;
+        this.nombre = nombre;
+        this.apellidos = apellidos;
+        this.correoElectronico = correo;
+        this.rol = rol;
     }
 
     public Usuario(String usuario, String contraseña, String nombre, String apellidos, String correo, String direccion, String telefono, Rol rol) {
