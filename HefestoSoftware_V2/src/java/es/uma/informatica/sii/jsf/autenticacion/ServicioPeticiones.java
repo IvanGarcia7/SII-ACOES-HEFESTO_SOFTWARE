@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
+import javax.inject.Inject;
 
 /**
  *
@@ -21,6 +22,9 @@ import javax.inject.Named;
 @SessionScoped
 public class ServicioPeticiones implements Serializable {
 
+    @Inject
+    private ServicioUsuarios su;
+    
     private List<Peticion> peticiones;
 
     public ServicioPeticiones() {
