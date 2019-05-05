@@ -10,6 +10,7 @@ import es.uma.informatica.sii.jsf.autenticacion.modelo.Usuario;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import javax.annotation.PostConstruct;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
 import javax.inject.Inject;
@@ -23,18 +24,19 @@ import javax.inject.Inject;
 public class ServicioPeticiones implements Serializable {
 
     @Inject
-    private ServicioUsuarios su;
-    
+    private ServicioUsuarios servicio;
+
     private List<Peticion> peticiones;
 
-    public ServicioPeticiones() {
+    @PostConstruct
+    public void init() {
         peticiones = new ArrayList<>();
-        Usuario u1 = su.obtenerUsuario("adela");
-        Usuario u2 = su.obtenerUsuario("alfonso");
-        Peticion p1 = new Peticion(u1,new Integer(1),new Long(1),"2018-03-23");
-        Peticion p2 = new Peticion(u2,new Integer(1),new Long(2),"2018-06-01");
-        Peticion p3 = new Peticion(u1,new Integer(1),new Long(3),"2018-01-12");
-        Peticion p4 = new Peticion(u1,new Integer(2),new Long(4),"2018-11-26");
+        Usuario u1 = servicio.obtenerUsuario("adela");
+        Usuario u2 = servicio.obtenerUsuario("alfonso");
+        Peticion p1 = new Peticion(u1, 1, new Long(1), "2018-03-23");
+        Peticion p2 = new Peticion(u2, 1, new Long(2), "2018-06-01");
+        Peticion p3 = new Peticion(u1, 1, new Long(3), "2018-01-12");
+        Peticion p4 = new Peticion(u1, 2, new Long(4), "2018-11-26");
         peticiones.add(p1);
         peticiones.add(p2);
         peticiones.add(p3);
@@ -62,4 +64,13 @@ public class ServicioPeticiones implements Serializable {
     public void setPeticiones(List<Peticion> peticiones) {
         this.peticiones = peticiones;
     }
+
+    public ServicioUsuarios getServicio() {
+        return servicio;
+    }
+
+    public void setServicio(ServicioUsuarios servicio) {
+        this.servicio = servicio;
+    }
+
 }

@@ -9,6 +9,7 @@ import es.uma.informatica.sii.jsf.autenticacion.modelo.HistorialPadrinos;
 import es.uma.informatica.sii.jsf.autenticacion.modelo.Niño;
 import es.uma.informatica.sii.jsf.autenticacion.modelo.Usuario;
 import java.io.Serializable;
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.PostConstruct;
@@ -40,11 +41,11 @@ public class ServicioPadrinos implements Serializable {
         Niño n4 = sn.obtenerNiño("n4");
         Usuario u1 = su.obtenerUsuario("pepe");
         Usuario u2 = su.obtenerUsuario("angel");
-        apadrinamientos.add(new HistorialPadrinos(n1, u1));
-        apadrinamientos.add(new HistorialPadrinos(n2, u1));
-        apadrinamientos.add(new HistorialPadrinos(n3, u1));
-        apadrinamientos.add(new HistorialPadrinos(n4, u1));
-        apadrinamientos.add(new HistorialPadrinos(n4, u2));
+        apadrinamientos.add(new HistorialPadrinos(new Long(1),n1, u1,"2018-02-01"));
+        apadrinamientos.add(new HistorialPadrinos(new Long(2),n2, u1,"2018-03-11"));
+        apadrinamientos.add(new HistorialPadrinos(new Long(3),n3, u1,"2018-05-23"));
+        apadrinamientos.add(new HistorialPadrinos(new Long(4),n4, u1,"2018-08-24"));
+        apadrinamientos.add(new HistorialPadrinos(new Long(5),n4, u2,"2018-08-27"));
     }
 
     public List<Niño> obtenerNiñosApadrinados(Usuario usuario) {
@@ -57,6 +58,16 @@ public class ServicioPadrinos implements Serializable {
         return apadrinados;
     }
 
+    public List<HistorialPadrinos> obtenerHistorial(String usuario) {
+        List<HistorialPadrinos> historial = new ArrayList<>();
+        for (HistorialPadrinos a : apadrinamientos) {
+            if (usuario.equals(a.getUsuario().getUsuario())) {
+                historial.add(a);
+            }
+        }
+        return historial;
+    }
+    
     public List<HistorialPadrinos> getApadrinamientos() {
         return apadrinamientos;
     }

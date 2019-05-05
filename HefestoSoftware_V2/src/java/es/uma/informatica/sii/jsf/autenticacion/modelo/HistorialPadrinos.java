@@ -41,9 +41,10 @@ public class HistorialPadrinos implements Serializable {
         
     }
     
-    public HistorialPadrinos(Usuario usuario, Long id, String fechaApadrinamiento){
+    public HistorialPadrinos(Long id,Niño niño,Usuario usuario,String fechaApadrinamiento){
         this.usuario = usuario;
         this.id = id;
+        this.niño = niño;
         this.fechaApadrinamiento = Date.valueOf(fechaApadrinamiento);
     }
     
