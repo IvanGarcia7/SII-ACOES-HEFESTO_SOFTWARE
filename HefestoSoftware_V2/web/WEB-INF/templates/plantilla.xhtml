@@ -27,12 +27,12 @@
                     <c:if test="#{not empty controlAutorizacion.empleado}">
                         <li><h:commandLink action="administrar_cartas.xhtml" value="Administrar cartas"/></li>
                         <li><h:commandLink action="Historial Peticiones.xhtml" value="Historial de solicitudes"/></li>
-
                         <li><h:commandLink action="HistorialPaquetes.xhtml" value="Historial de paquetes"/></li>
                         <li><h:commandLink action="escribirpaquete.xhtml" value="Escribir paquete"/></li>
                         <li><h:commandLink action="HistorialNinos.xhtml" value="Historial de niños"/></li>
                         <li><h:commandLink action="digitalizar_carta.xhtml" value="Digitalizar carta"/></li>
                         <li><h:commandLink action="crudninos.xhtml" value="CRUD niños"/></li>
+                        <li><h:commandLink action="crudusuarios.xhtml" value="CRUD usuarios"/></li>
                     </c:if>
                     <li id="especial"><h:commandLink action="#{controlAutorizacion.home()}" value=""/></li>
 
