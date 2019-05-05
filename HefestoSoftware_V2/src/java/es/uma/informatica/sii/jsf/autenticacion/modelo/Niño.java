@@ -7,8 +7,6 @@ package es.uma.informatica.sii.jsf.autenticacion.modelo;
 
 import java.io.Serializable;
 import java.sql.Date;
-import javax.enterprise.context.RequestScoped;
-import javax.inject.Named;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;

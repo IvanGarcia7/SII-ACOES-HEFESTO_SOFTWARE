@@ -21,17 +21,17 @@ import javax.persistence.OneToMany;
 @Entity
 public class Usuario implements Serializable {
 
-    public Usuario(String usuario, String contrasenia) {
+    public Usuario(String usuario, String contraseña) {
         setUsuario(usuario);
-        setContrasenia(contrasenia);
+        setContraseña(contraseña);
     }
 
-    public Usuario(String usuario, String contrasenia, String correo) {
+    public Usuario(String usuario, String contraseña, String correo) {
         setUsuario(usuario);
-        setContrasenia(contrasenia);
+        setContraseña(contraseña);
         setCorreoElectronico(correo);
     }
-    
+
     public Usuario(String usuario, String contraseña, String nombre, String apellidos, String correo) {
         this.usuario = usuario;
         this.contraseña = contraseña;
@@ -49,7 +49,7 @@ public class Usuario implements Serializable {
         this.direccion = direccion;
         this.telefono = telefono;
     }
-    
+
     private static final long serialVersionUID = 1L;
     @Id
     @Column(length = 30)
@@ -66,15 +66,15 @@ public class Usuario implements Serializable {
     private String direccion;
     @Column(length = 200, nullable = false)
     private String poblacion;
-    @Column(name = "codigo_postal",length = 5,nullable = false)
+    @Column(name = "codigo_postal", length = 5, nullable = false)
     private Integer codigoPostal;
     @Column(length = 30, nullable = false)
     private String provincia;
     @Column(length = 15, nullable = false)
     private String telefono;
-    @Column(name = "correo_electronico",length = 60, nullable = false, unique = true)
+    @Column(name = "correo_electronico", length = 60, nullable = false, unique = true)
     private String correoElectronico;
-    @Column(name = "fecha_alta",nullable = false)
+    @Column(name = "fecha_alta", nullable = false)
     private Date fechaAlta;
     @Column(name = "fecha_baja")
     private Date fechaBaja;
@@ -82,7 +82,7 @@ public class Usuario implements Serializable {
     private String descripcion;
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
     private Set<Peticion> Peticiones;
-    
+
     public String getDni() {
         return dni;
     }
@@ -171,11 +171,11 @@ public class Usuario implements Serializable {
         this.usuario = usuario;
     }
 
-    public String getContrasenia() {
+    public String getContraseña() {
         return contraseña;
     }
 
-    public void setContrasenia(String contraseña) {
+    public void setContraseña(String contraseña) {
         this.contraseña = contraseña;
     }
 
@@ -202,7 +202,7 @@ public class Usuario implements Serializable {
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
-    
+
     @Override
     public int hashCode() {
         int hash = 0;
@@ -223,5 +223,5 @@ public class Usuario implements Serializable {
     public String toString() {
         return "hefestosoftware.Usuario[ usuario=" + usuario + " ]";
     }
-    
+
 }

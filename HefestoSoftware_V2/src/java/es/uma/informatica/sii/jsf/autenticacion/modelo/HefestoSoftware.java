@@ -32,7 +32,7 @@ public class HefestoSoftware {
         EntityTransaction tx = em.getTransaction();
         tx.begin();
         test.setUsuario("Andrea_99");
-        test.setContrasenia("Contraseña123");
+        test.setContraseña("Contraseña123");
         test.setNombre("Andrea");
         test.setApellidos("Galvez");
         test.setDni("65667687g");

@@ -62,7 +62,7 @@ public class Login {
 
     public String autenticar() {
         Usuario u = servicio.obtenerUsuario(usuario);
-        if (u != null && u.getContrasenia().equals(contrasenia)) {
+        if (u != null && u.getContraseña().equals(contrasenia)) {
             ctrl.setUsuario(u);
             return ctrl.home();
         } else {
