@@ -7,33 +7,33 @@
     <ui:define name="content">
         <c:choose>
             <c:when test="#{empty controlAutorizacion.usuario}">
-                
-                <h:body>
-                   
-    
-    <h:graphicImage styleClass="logo" height="200px" value = "./resources/Imagenes/logo.jpg"/> 
-    <div class=" formularioiniciosesion">
-        <h3>Error al Iniciar Sesión</h3>
-        <h:form>
-            <h3>Usuario o contraseña erróneos.</h3>
-            <div class="cabeceraformularioregistro">
-                
-            </div>
-            <div class="cabeceraformularioregistro">
-                
-            </div>
-            
-            <h:commandButton styleClass="botonautenticar" value="Reintentar" action="#{login.reinicio()}"/>
-            
-        </h:form>
-        <br></br>
-        
-        <hr></hr>
-        <p class="registro">¿No tiene cuenta? Adelante, cree una pulsando en el banner registro.</p>
-    </div>
-   
 
-</h:body>
+                <h:body>
+
+
+                    <h:graphicImage styleClass="logo" height="200px" value = "./resources/Imagenes/logo.jpg"/> 
+                    <div class=" formularioiniciosesion">
+                        <h3>Error al Iniciar Sesión</h3>
+                        <h:form>
+                            <h3>Usuario o contraseña erróneos.</h3>
+                            <div class="cabeceraformularioregistro">
+
+                            </div>
+                            <div class="cabeceraformularioregistro">
+
+                            </div>
+
+                            <h:commandButton styleClass="botonautenticar" value="Reintentar" action="#{login.reinicio()}"/>
+
+                        </h:form>
+                        <br></br>
+
+                        <hr></hr>
+                        <p class="registro">¿No tiene cuenta? Adelante, cree una pulsando en el banner registro.</p>
+                    </div>
+
+
+                </h:body>
             </c:when>
             <c:otherwise>
                 <p>Debe salir de la aplicación si quiere entrar como otro usuario</p>

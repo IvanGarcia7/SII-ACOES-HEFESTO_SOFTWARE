@@ -9,7 +9,7 @@
     
     <ui:define name="content">
         <c:choose>
-           <c:when test="#{controlAutorizacionAdministracion.empleado.rol == 'ADMINISTRADOR'}">
+           <c:when test="#{controlAutorizacionAdministracion.empleado != null}">
                 <h:graphicImage styleClass="logo" height="200px" value = "./resources/Imagenes/logo1.png"/> 
                 <h1>Escriba un nuevo Paquete:</h1>
 

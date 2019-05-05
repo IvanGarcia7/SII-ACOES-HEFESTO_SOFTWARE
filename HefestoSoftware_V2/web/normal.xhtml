@@ -6,7 +6,7 @@
     <ui:define name="title">Página para el usuario normal</ui:define>
     <ui:define name="content">
         <c:choose>
-            <c:when test="#{controlAutorizacion.usuario.rol == 'NORMAL'}">
+            <c:when test="#{controlAutorizacion.usuario != null}">
                 
                 <h1>¡¡Bienvenido <h:outputText value="#{controlAutorizacion.usuario.usuario}"/>!!</h1>
                 <h:graphicImage styleClass="logo" height="200px" value = "./resources/Imagenes/logo1.png"/> 
