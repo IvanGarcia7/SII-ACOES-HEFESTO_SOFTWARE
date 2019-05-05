@@ -63,14 +63,6 @@ public class Usuario implements Serializable {
         setContraseña(contraseña);
     }
 
-    public Usuario(String usuario, String contraseña, String nombre, String apellidos, String correo) {
-        this.usuario = usuario;
-        this.contraseña = contraseña;
-        this.nombre = nombre;
-        this.apellidos = apellidos;
-        this.correoElectronico = correo;
-    }
-
     public Usuario(String usuario, String contraseña, String nombre, String apellidos, String correo, String direccion, String telefono) {
         this.usuario = usuario;
         this.contraseña = contraseña;
@@ -81,6 +73,21 @@ public class Usuario implements Serializable {
         this.telefono = telefono;
     }
 
+    public Usuario(String usuario, String contraseña, String nombre, String apellidos, String dni, String direccion, String poblacion, Integer codigoPostal, String provincia, String telefono, String correoElectronico, Date fechaAlta) {
+        this.usuario = usuario;
+        this.contraseña = contraseña;
+        this.nombre = nombre;
+        this.apellidos = apellidos;
+        this.dni = dni;
+        this.direccion = direccion;
+        this.poblacion = poblacion;
+        this.codigoPostal = codigoPostal;
+        this.provincia = provincia;
+        this.telefono = telefono;
+        this.correoElectronico = correoElectronico;
+        this.fechaAlta = fechaAlta;
+    }
+    
     public String getDni() {
         return dni;
     }
