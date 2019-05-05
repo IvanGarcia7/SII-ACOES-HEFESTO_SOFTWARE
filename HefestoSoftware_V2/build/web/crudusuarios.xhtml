@@ -1,0 +1,122 @@
+<ui:composition template="/WEB-INF/templates/plantilla.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:p="http://primefaces.org/ui">
+    >
+    <ui:define name="title">CRUD Usuarios</ui:define>
+    <ui:define name="content">
+        <c:choose>
+            <c:when test="#{not empty controlAutorizacion.empleado}">
+
+                <h:head>
+                    <title>Listado de Niños</title>
+                    <h:outputStylesheet name="/css/bootstrap.min.css"/>
+
+
+                </h:head>
+                <h:body>
+                    <h:form>
+                        <center>
+                            <h2><h:outputText value="Listado de Usuarios:"/></h2>
+                        </center>
+                        <p:dataTable value="#{servicioUsuarios.usuarios}" 
+                                     var="usuario"
+                                     editable="true">
+                            <p:ajax event="rowEdit" />
+                            <p:ajax event="rowEditCancel" />
+
+                            <p:column headerText="Usuario">
+                                <p:cellEditor>
+                                    <f:facet name="output"><h:outputText value="#{usuario.usuario}" /></f:facet>
+                                    <f:facet name="input"><p:inputText value="#{usuario.usuario}" style="width:100%"/></f:facet>
+                                </p:cellEditor>
+                            </p:column>
+
+                            <p:column headerText="Nombre">
+                                <p:cellEditor>
+                                    <f:facet name="output"><h:outputText value="#{usuario.nombre}" /></f:facet>
+                                    <f:facet name="input"><p:inputText value="#{usuario.nombre}" style="width:100%"/></f:facet>
+                                </p:cellEditor>
+                            </p:column>
+
+                            <p:column headerText="Apellidos">
+                                <p:cellEditor>
+                                    <f:facet name="output"><h:outputText value="#{usuario.apellidos}" /></f:facet>
+                                    <f:facet name="input"><p:inputText value="#{usuario.apellidos}" style="width:100%"/></f:facet>
+                                </p:cellEditor>
+                            </p:column>
+                            
+                            <p:column headerText="DNI">
+                                <p:cellEditor>
+                                    <f:facet name="output"><h:outputText value="#{usuario.dni}" /></f:facet>
+                                    <f:facet name="input"><p:inputText value="#{usuario.dni}" style="width:100%"/></f:facet>
+                                </p:cellEditor>
+                            </p:column>
+
+                            <p:column headerText="Direccion">
+                                <p:cellEditor>
+                                    <f:facet name="output"><h:outputText value="#{usuario.direccion}" /></f:facet>
+                                    <f:facet name="input"><p:inputText value="#{usuario.direccion}" style="width:100%"/></f:facet>
+                                </p:cellEditor>
+                            </p:column>
+                            <p:column headerText="Poblacion">
+                                <p:cellEditor>
+                                    <f:facet name="output"><h:outputText value="#{usuario.poblacion}" /></f:facet>
+                                    <f:facet name="input"><p:inputText value="#{usuario.poblacion}" style="width:100%"/></f:facet>
+                                </p:cellEditor>
+                            </p:column>
+                            <p:column headerText="Poblacion">
+                                <p:cellEditor>
+                                    <f:facet name="output"><h:outputText value="#{usuario.codigoPostal}" /></f:facet>
+                                    <f:facet name="input"><p:inputText value="#{usuario.codigoPostal}" style="width:100%"/></f:facet>
+                                </p:cellEditor>
+                            </p:column>
+                            <p:column headerText="Provincia">
+                                <p:cellEditor>
+                                    <f:facet name="output"><h:outputText value="#{usuario.provincia}" /></f:facet>
+                                    <f:facet name="input"><p:inputText value="#{usuario.provincia}" style="width:100%"/></f:facet>
+                                </p:cellEditor>
+                            </p:column>
+                            <p:column headerText="Telefono">
+                                <p:cellEditor>
+                                    <f:facet name="output"><h:outputText value="#{usuario.telefono}" /></f:facet>
+                                    <f:facet name="input"><p:inputText value="#{usuario.telefono}" style="width:100%"/></f:facet>
+                                </p:cellEditor>
+                            </p:column>
+                            <p:column headerText="Correo">
+                                <p:cellEditor>
+                                    <f:facet name="output"><h:outputText value="#{usuario.correoElectronico}" /></f:facet>
+                                    <f:facet name="input"><p:inputText value="#{usuario.correoElectronico}" style="width:100%"/></f:facet>
+                                </p:cellEditor>
+                            </p:column>
+                            <p:column headerText="Fecha Alta">
+                                <h:outputText value="#{usuario.fechaAlta}" />
+                            </p:column>
+                            <p:column headerText="Fecha Baja">
+                                <h:outputText value="#{usuario.fechaBaja}" />
+                            </p:column>
+                            <p:column headerText="Descripcion">
+                                <p:cellEditor>
+                                    <f:facet name="output"><h:outputText value="#{usuario.descripcion}" /></f:facet>
+                                    <f:facet name="input"><p:inputText value="#{usuario.descripcion}" style="width:100%"/></f:facet>
+                                </p:cellEditor>
+                            </p:column>
+                            <p:column style="width:35px">
+                                <p:rowEditor />
+                            </p:column>
+                            <p:column>
+                                <p:commandButton action = "#{servicioUsuarios.delete(usuario.usuario)}" value="Delete" update="@form"/>
+                            </p:column>
+                        </p:dataTable>
+                    </h:form>
+                </h:body>
+            </c:when>
+            <c:otherwise>
+                <ui:include src="/WEB-INF/templates/errorAutorizacion.xhtml"/>
+            </c:otherwise>
+        </c:choose>
+    </ui:define>
+</ui:composition>

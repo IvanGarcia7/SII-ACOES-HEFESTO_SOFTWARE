@@ -17,42 +17,36 @@
         <div id="top" class="top">
             <h:form id="menu">
                 <ul class="menulist">
-                    
-                    <c:if test="#{controlAutorizacion.usuario != null}">
+
+                    <c:if test="#{not empty controlAutorizacion.usuario}">
                         <li><h:commandLink action="historial_cartas.xhtml" value="Historial de cartas"/></li>
                         <li><h:commandLink action="escribir_carta.xhtml" value="Escribir carta"/></li>
                         <li><h:commandLink action="Escribir peticion.xhtml" value="Solicitar apadrinamiento"/></li>
+                        <li><h:commandLink action="VisualizarApadrinados.xhtml" value="Consultar apadrinamientos"/></li>
                     </c:if>
-                    <c:if test="#{controlAutorizacionAdministracion.empleado != null}">
+                    <c:if test="#{not empty controlAutorizacion.empleado}">
                         <li><h:commandLink action="administrar_cartas.xhtml" value="Administrar cartas"/></li>
                         <li><h:commandLink action="Historial Peticiones.xhtml" value="Historial de solicitudes"/></li>
-                        
                         <li><h:commandLink action="HistorialPaquetes.xhtml" value="Historial de paquetes"/></li>
                         <li><h:commandLink action="escribirpaquete.xhtml" value="Escribir paquete"/></li>
                         <li><h:commandLink action="HistorialNinos.xhtml" value="Historial de niños"/></li>
                         <li><h:commandLink action="digitalizar_carta.xhtml" value="Digitalizar carta"/></li>
                         <li><h:commandLink action="crudninos.xhtml" value="CRUD niños"/></li>
+                        <li><h:commandLink action="crudusuarios.xhtml" value="CRUD usuarios"/></li>
                     </c:if>
                     <li id="especial"><h:commandLink action="#{controlAutorizacion.home()}" value=""/></li>
-                    
-                    <c:choose>
-                    
-                    <c:when test="#{!empty controlAutorizacion.usuario}">
+
+                    <c:if test="#{controlAutorizacion.logeado}">
                         <li><h:commandLink action="#{controlAutorizacion.logout()}" value="Salir"/></li>
-                    </c:when>
-                        <c:when test="#{!empty controlAutorizacionAdministracion.empleado}">
-                        <li><h:commandLink action="#{controlAutorizacionAdministracion.logout()}" value="Salir"/></li>
-                    </c:when>
-                        
-                    </c:choose>
+                    </c:if>
                 </ul>
             </h:form>
         </div>
-        
-       
+
+
 
         <div id="content" class="center_content">
-            
+
             <ui:insert name="content">Content</ui:insert>
         </div>
     </h:body>

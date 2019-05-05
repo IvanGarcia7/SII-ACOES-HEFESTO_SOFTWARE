@@ -4,20 +4,20 @@
                 xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
                 xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"     
                 xmlns:f="http://xmlns.jcp.org/jsf/core">
-    
-    <ui:define name="title">Escribir Paquete:</ui:define>
-    
+
+    <ui:define name="title">Escribir Paquete</ui:define>
+
     <ui:define name="content">
         <c:choose>
-            <c:when test="#{controlAutorizacionAdministracion.empleado != null}">
-                              <h:graphicImage styleClass="logo" height="200px" value = "./resources/Imagenes/logo1.png"/> 
+            <c:when test="#{not empty controlAutorizacion.empleado}">
+                <h:graphicImage styleClass="logo" height="200px" value = "./resources/Imagenes/logo1.png"/> 
 
 
 
 
-            <h:form id="formularioespecial">
+                <h:form id="formularioespecial">
                     <table style="width: 100%;align-content: center;align-self: center; margin-left: 10%; margin-top: 20px;">
-                         <tr>
+                        <tr>
                             <td>
                                 <pre>
 
@@ -29,14 +29,14 @@
                             <td>
 
                                 <table style="width: 90%;align-self: center;">
-                                     <pre></pre>
+                                    <pre></pre>
                                     Estado:
                                     <hr></hr>
                                     <input type="radio" name="solicitudT" value="pendiente" checked="checked"></input>Pendiente
 
                                     <br></br>
                                     <br></br>
-                                    
+
                                     Destino
                                     <hr></hr>
                                     <input type="radio" name="destinoT" value="Honduras" checked="checked"></input>Honduras
@@ -46,7 +46,7 @@
 
                                     <tr><td>Comentario: </td></tr>
                                     <tr><td><h:inputText style="background: white; min-height: 100px; border: 1px black; border-radius: 3px; vertical-align: top;" value="#{nuevoPaquete.paquete.descripcion}" required="true"/></td></tr>
-                                 <tr><td  id="confirmacion"><h:commandButton class="enviarsolicitud" value="InsertarPaquete"/></td></tr>
+                                    <tr><td  id="confirmacion"><h:commandButton class="enviarsolicitud" value="InsertarPaquete"/></td></tr>
                                 </table>
                             </td>
 

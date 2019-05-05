@@ -6,7 +6,7 @@
     <ui:define name="title">Autenticando</ui:define>
     <ui:define name="content">
         <c:choose>
-            <c:when test="#{empty controlAutorizacionAdministracion.empleado}">
+            <c:when test="#{!controlAutorizacion.logeado}">
 
                 <h:body>
 
@@ -46,7 +46,7 @@
                 </h:body>
             </c:when>
             <c:otherwise>
-                <p>Acceda a funcionalidades extras en la web.</p>
+                <p>Debe salir de la aplicación si quiere entrar como otro usuario</p>
             </c:otherwise>
         </c:choose>
         <h:messages/>

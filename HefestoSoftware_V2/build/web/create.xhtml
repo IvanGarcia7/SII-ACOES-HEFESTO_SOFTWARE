@@ -5,10 +5,10 @@
                 xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
                 xmlns:f="http://xmlns.jcp.org/jsf/core">
     >
-    <ui:define name="title">Página para el usuario administrador</ui:define>
+    <ui:define name="title">Crear nuevo niño</ui:define>
     <ui:define name="content">
         <c:choose>
-            <c:when test="#{controlAutorizacionAdministracion.empleado != null}">
+            <c:when test="#{not empty controlAutorizacion.empleado}">
                 <h:head>    
                     <title>Registra a un nuevo niño:</title>
 

@@ -3,44 +3,44 @@
                 xmlns:h="http://xmlns.jcp.org/jsf/html"
                 xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
                 xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
-                    
+
                 xmlns:f="http://xmlns.jcp.org/jsf/core">
-    
+
     <ui:define name="title">Escribir Petición</ui:define>
-    
+
     <ui:define name="content">
-        
+
         <c:choose>
-            <c:when test="#{controlAutorizacion.usuario != null}">
-                
+            <c:when test="#{not empty controlAutorizacion.usuario}">
+
                 <h:graphicImage styleClass="logo" height="200px" value = "./resources/Imagenes/logo1.png"/> 
                 <h1>Solicita un nuevo Apadrinamiento:</h1>
-              
-                
-                
-            <h:form id="formularioespecial">
+
+
+
+                <h:form id="formularioespecial">
                     <table style="width: 100%;align-content: center;align-self: center; margin-left: 10%; margin-top: 20px">
-                         <tr>
+                        <tr>
                             <td>
                                 <pre>
                                     
                                 </pre>
                             </td>
                         </tr>
-                        
+
                         <tr>
                             <td>
-                               
+
                                 <table style="width: 90%;align-self: center;">
-                                     <pre></pre>
+                                    <pre></pre>
                                     Seleccione el tipo de solicitud:
                                     <hr></hr>
                                     <input type="radio" name="solicitudT" value="Solicitar_Apadrinamientos" checked="checked"></input>Solicitar Apadrinamientos
                                     <input type="radio" name="solicitudT" value="Cancelar_Apadrinamientos"></input>Cancelar Apadrinamientos   
-                
+
                                     <br></br>
                                     <br></br>
-                                   
+
                                     <tr><td>¿Desea añadir un comentario? Adelante:</td></tr>
                                     <tr><td><h:inputText style="background: white; min-height: 100px; border: 1px black; border-radius: 3px; vertical-align: top;" value="#{nuevaCarta.carta.mensaje}" required="true"/></td></tr>
                                 </table>
@@ -50,9 +50,9 @@
                                     <tr><td>Introduzca el número de niños para esta solicitud:</td></tr>
                                     <tr><td>
                                             <input class="areaninos" type="number" name="numeracionniños" value="Solicitar_niños"></input>
-                                    </td></tr>
-                                
-                                <tr><td  id="confirmacion"><h:commandButton class="enviarsolicitud" value="Enviar solicitud"/></td></tr>
+                                        </td></tr>
+
+                                    <tr><td  id="confirmacion"><h:commandButton class="enviarsolicitud" value="Enviar solicitud"/></td></tr>
                                 </table>
                             </td>
                         </tr>
@@ -60,18 +60,18 @@
                             <pre>
                                 
                             </pre>
-    
+
                         </td>
                     </table>
                 </h:form>
-                
-                
-                
+
+
+
             </c:when>
-            
+
             <c:otherwise>
                 <ui:include src="/WEB-INF/templates/errorAutorizacion.xhtml"/>
-            
+
             </c:otherwise>
         </c:choose>
     </ui:define>

@@ -6,9 +6,9 @@
     <ui:define name="title">Página para el administrador</ui:define>
     <ui:define name="content">
         <c:choose>
-            <c:when test="#{controlAutorizacionAdministracion.empleado != null}">
+            <c:when test="#{not empty controlAutorizacion.empleado}">
                 
-                <h1>¡¡Bienvenido <h:outputText value="#{controlAutorizacion.usuario.usuario}"/>!!</h1>
+                <h1>¡¡Bienvenido <h:outputText value="#{controlAutorizacion.empleado.usuario}"/>!!</h1>
                 <h:graphicImage styleClass="logo" height="200px" value = "./resources/Imagenes/logo1.png"/> 
                 <h2>Adelante, seleccione una opción del banner superior.</h2>
                 
