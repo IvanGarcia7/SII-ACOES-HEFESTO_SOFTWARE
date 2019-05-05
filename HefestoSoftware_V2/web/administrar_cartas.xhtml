@@ -58,7 +58,9 @@
                                                     <h:outputText value="#{autorizarCartas.seleccionada.fechaEnvio}"/>  
                                                 </td>
                                                 <td>
-                                                    <h:commandButton value="cerrar" action="#{autorizarCartas.setSeleccionada(null)}"/>
+                                                    <h:commandButton value="cerrar" action="#{autorizarCartas.setSeleccionada(null)}">
+                                                        <f:ajax render="@form"/>
+                                                    </h:commandButton>
                                                 </td>
                                             </tr>
                                             <tr>
