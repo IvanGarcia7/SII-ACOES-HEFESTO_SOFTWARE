@@ -31,7 +31,8 @@ public class NuevoPaquete {
     }
     
     public void enviarCarta(){
-        
+        paquete.setDestino("Honduras");
+        paquete.setEstado("Pendiente");
         paquete.setFechaEnvio(new Date(System.currentTimeMillis()));
         servicio.añadirPaquete(paquete);
     }
