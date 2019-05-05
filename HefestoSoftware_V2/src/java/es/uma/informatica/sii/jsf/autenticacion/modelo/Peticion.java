@@ -32,7 +32,16 @@ public class Peticion implements Serializable {
     private Boolean tipo;
     @ManyToOne
     private Usuario usuario;
+    private String fechaPeticion;
 
+    public Peticion(Usuario usuario, Integer numeroNiños, Long id, String fechaPeticion){
+        this.usuario = usuario;
+        this.numeroNiños = numeroNiños;
+        this.id = id;
+        this.fechaPeticion = fechaPeticion;
+    }
+    
+    
     public Long getId() {
         return id;
     }
@@ -73,6 +82,14 @@ public class Peticion implements Serializable {
         this.usuario = usuario;
     }
 
+    public String getFechaPeticion() {
+        return fechaPeticion;
+    }
+
+    public void setFechaPeticion(String fechaPeticion) {
+        this.fechaPeticion = fechaPeticion;
+    }
+    
     @Override
     public int hashCode() {
         int hash = 0;
