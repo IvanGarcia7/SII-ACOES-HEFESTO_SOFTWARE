@@ -102,11 +102,11 @@ public class Paquete implements Serializable {
         this.empleado = empleado;
     }
     
-    public String getFechaEnvio() {
+    public Date getFechaEnvio() {
         return fechaEnvio;
     }
 
-    public void setFechaEnvio(String fechaEnvio) {
+    public void setFechaEnvio(Date fechaEnvio) {
         this.fechaEnvio = fechaEnvio;
     }
 
