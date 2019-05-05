@@ -48,12 +48,6 @@ public class HistorialPadrinos implements Serializable {
         this.fechaApadrinamiento = Date.valueOf(fechaApadrinamiento);
     }
     
-    
-    public HistorialPadrinos(Niño niño,Usuario usuario){
-        this.niño = niño;
-        this.usuario = usuario;
-    }
-    
     public Long getId() {
         return id;
     }

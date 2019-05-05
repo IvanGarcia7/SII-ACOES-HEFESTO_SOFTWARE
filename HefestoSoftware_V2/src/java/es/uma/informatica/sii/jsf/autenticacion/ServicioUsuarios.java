@@ -27,7 +27,6 @@ public class ServicioUsuarios implements Serializable {
 
         usuarios.add(new Usuario("adela", "qwer", "Adela", "Ramírez Rueda", "adelarr@gmail.com"));
         usuarios.add(new Usuario("alfonso", "qwer", "Alfonso", "Pérez Romero", "alfonsopr@gmail.com"));
-        usuarios.add(new Usuario("manolo", "qwer", "Manolo", "Bonilla", "manolopicacabras@yahoo.com"));
         usuarios.add(new Usuario("pepe", "asdf", "Pepe", "Molina", "pepe@yahoo.com"));
         usuarios.add(new Usuario("angel", "qwer", "Angel", "Villalobos", "angelysaras@yahoo.com"));
 

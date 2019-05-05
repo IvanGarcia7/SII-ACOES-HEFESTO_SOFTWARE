@@ -63,12 +63,6 @@ public class Usuario implements Serializable {
         setContraseña(contraseña);
     }
 
-    public Usuario(String usuario, String contraseña, String correo) {
-        setUsuario(usuario);
-        setContraseña(contraseña);
-        setCorreoElectronico(correo);
-    }
-
     public Usuario(String usuario, String contraseña, String nombre, String apellidos, String correo) {
         this.usuario = usuario;
         this.contraseña = contraseña;

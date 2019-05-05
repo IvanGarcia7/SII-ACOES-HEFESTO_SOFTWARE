@@ -33,12 +33,8 @@ public class VistaApadrinamientos implements Serializable {
     @PostConstruct
     public void init() {
 
-        if (ctrl.getUsuario() == null) {
-            if (ctrl1.getEmpleado() != null) {
-                apadrinamientos = servicio.getApadrinamientos();
-            }
-        } else {
-            apadrinamientos = servicio.obtenerHistorial(ctrl.getUsuario().getUsuario());
+        if (ctrl.getUsuario() == null && ctrl1.getEmpleado() != null) {
+            apadrinamientos = servicio.getApadrinamientos();
         }
 
     }

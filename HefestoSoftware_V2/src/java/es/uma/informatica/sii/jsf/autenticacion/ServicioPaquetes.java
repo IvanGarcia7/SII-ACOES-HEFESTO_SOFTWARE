@@ -30,16 +30,6 @@ public class ServicioPaquetes implements Serializable {
         paquetes.add(new Paquete(new Long(4), "Herramientas enfermería", "2018-11-11", "Aceptado"));
     }
 
-    public List<Paquete> obtenerHistorial(String usuario) {
-        List<Paquete> historial = new ArrayList<>();
-        for (Paquete p : paquetes) {
-            if (usuario.equals(p.getEmpleado())) {
-                historial.add(p);
-            }
-        }
-        return historial;
-    }
-
     public void añadirPaquete(Paquete p) {
         paquetes.add(p);
     }

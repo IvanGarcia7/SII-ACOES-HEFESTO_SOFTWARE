@@ -9,7 +9,6 @@ import es.uma.informatica.sii.jsf.autenticacion.modelo.Empleado;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-
 import java.util.List;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;

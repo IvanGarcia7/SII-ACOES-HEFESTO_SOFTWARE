@@ -5,8 +5,6 @@
  */
 package es.uma.informatica.sii.jsf.autenticacion;
 
-import es.uma.informatica.sii.jsf.autenticacion.modelo.Carta;
-import es.uma.informatica.sii.jsf.autenticacion.modelo.Niño;
 import java.sql.Date;
 import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;

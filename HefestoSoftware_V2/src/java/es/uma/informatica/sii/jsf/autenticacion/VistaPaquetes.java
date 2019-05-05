@@ -27,19 +27,14 @@ public class VistaPaquetes implements Serializable {
     private ServicioPaquetes servicio;
     @Inject
     private ControlAutorizacion ctrl;
-
     @Inject
     private ControlAutorizacionAdministracion ctrl1;
 
     @PostConstruct
     public void init() {
 
-        if (ctrl.getUsuario() == null) {
-            if (ctrl1.getEmpleado() != null) {
-                paquetes = servicio.getPaquetes();
-            }
-        } else {
-            paquetes = servicio.obtenerHistorial(ctrl.getUsuario().getUsuario());
+        if (ctrl.getUsuario() == null && ctrl1.getEmpleado() != null) {
+            paquetes = servicio.getPaquetes();
         }
 
     }

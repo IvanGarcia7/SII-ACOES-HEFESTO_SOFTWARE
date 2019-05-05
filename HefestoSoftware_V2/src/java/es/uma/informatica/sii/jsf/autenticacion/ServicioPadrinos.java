@@ -9,7 +9,6 @@ import es.uma.informatica.sii.jsf.autenticacion.modelo.HistorialPadrinos;
 import es.uma.informatica.sii.jsf.autenticacion.modelo.Niño;
 import es.uma.informatica.sii.jsf.autenticacion.modelo.Usuario;
 import java.io.Serializable;
-import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.PostConstruct;
@@ -56,16 +55,6 @@ public class ServicioPadrinos implements Serializable {
             }
         }
         return apadrinados;
-    }
-
-    public List<HistorialPadrinos> obtenerHistorial(String usuario) {
-        List<HistorialPadrinos> historial = new ArrayList<>();
-        for (HistorialPadrinos a : apadrinamientos) {
-            if (usuario.equals(a.getUsuario().getUsuario())) {
-                historial.add(a);
-            }
-        }
-        return historial;
     }
     
     public List<HistorialPadrinos> getApadrinamientos() {
