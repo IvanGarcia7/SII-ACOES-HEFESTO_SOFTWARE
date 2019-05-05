@@ -7,7 +7,6 @@ package es.uma.informatica.sii.jsf.autenticacion;
 
 import es.uma.informatica.sii.jsf.autenticacion.modelo.Empleado;
 import es.uma.informatica.sii.jsf.autenticacion.modelo.Peticion;
-import es.uma.informatica.sii.jsf.autenticacion.modelo.Usuario.Rol;
 import java.io.Serializable;
 import java.util.List;
 import javax.annotation.PostConstruct;
@@ -35,19 +34,15 @@ public class VistaPeticiones implements Serializable {
 
     @PostConstruct
     public void init() {
-        
-        if(ctrl.getUsuario()==null){
-            if (ctrl1.getEmpleado().getRol() == Empleado.Rol.ADMINISTRADOR) {
-            peticiones = servicio.getPeticiones();
+
+        if (ctrl.getUsuario() == null) {
+            if (ctrl1.getEmpleado() != null) {
+                peticiones = servicio.getPeticiones();
             }
-        }else{
-            if (ctrl.getUsuario().getRol() == Rol.NORMAL) {
+        } else {
             peticiones = servicio.obtenerHistorial(ctrl.getUsuario().getUsuario());
-            } 
         }
-        
-        
-       
+
     }
 
     public List<Peticion> getPeticiones() {
