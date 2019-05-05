@@ -53,6 +53,10 @@ public class ServicioUsuarios implements Serializable {
         }
         return true;
     }
+    
+    public void delete(String usuario){
+        usuarios.removeIf(u -> u.getUsuario().equals(usuario));
+    }
 
     public List<Usuario> getUsuarios() {
         return usuarios;
