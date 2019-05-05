@@ -42,7 +42,7 @@ public class Paquete implements Serializable {
     private String estado;
     @ManyToOne
     @JoinColumn(nullable = false)
-    private Usuario empleado;
+    private Empleado empleado;
 
     public Paquete(Long id, String descripcion, String fechaEnvio, String estado){
         this.id = id;
@@ -94,11 +94,11 @@ public class Paquete implements Serializable {
         this.id = id;
     }
 
-    public Usuario getEmpleado() {
+    public Empleado getEmpleado() {
         return empleado;
     }
 
-    public void setEmpleado(Usuario empleado) {
+    public void setEmpleado(Empleado empleado) {
         this.empleado = empleado;
     }
     
@@ -116,6 +116,14 @@ public class Paquete implements Serializable {
 
     public void setEstado(String estado) {
         this.estado = estado;
+    }
+
+    public Date getFechaEntrega() {
+        return fechaEntrega;
+    }
+
+    public void setFechaEntrega(Date fechaEntrega) {
+        this.fechaEntrega = fechaEntrega;
     }
     
     @Override

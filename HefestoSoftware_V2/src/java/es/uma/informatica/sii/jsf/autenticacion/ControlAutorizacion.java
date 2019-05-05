@@ -25,15 +25,11 @@ public class ControlAutorizacion implements Serializable {
     }
 
     public String home() {
-        String paginaAdireccionar = "errorAutorizacion.xhtml";
         if (usuario == null) {
-            paginaAdireccionar = "login.xhtml";
-        } else if (usuario.getRol() == Usuario.Rol.ADMINISTRADOR) {
-            paginaAdireccionar = "admin.xhtml";
-        } else if (usuario.getRol() == Usuario.Rol.NORMAL) {
-            paginaAdireccionar = "normal.xhtml";
+            return "login.xhtml";
+        } else {
+            return "normal.xhtml";
         }
-        return paginaAdireccionar;
     }
 
     public String logout() {

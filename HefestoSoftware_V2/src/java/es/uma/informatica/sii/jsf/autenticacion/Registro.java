@@ -5,7 +5,6 @@
 package es.uma.informatica.sii.jsf.autenticacion;
 
 import es.uma.informatica.sii.jsf.autenticacion.modelo.Usuario;
-import es.uma.informatica.sii.jsf.autenticacion.modelo.Usuario.Rol;
 import javax.inject.Named;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
@@ -107,7 +106,7 @@ public class Registro {
     
     public String valido() {
         if (servicio.obtenerUsuario(usuario) == null && servicio.correoDisponible(correoele) && contrasenia.equals(contrasenia2)) {
-            Usuario nuevo = new Usuario(usuario,contrasenia,nombre,apellidos,correoele,domicilio,telefono,Rol.NORMAL);
+            Usuario nuevo = new Usuario(usuario,contrasenia,nombre,apellidos,correoele,domicilio,telefono);
             servicio.añadirUsuario(nuevo);
             return "login.xhtml";
         } else {

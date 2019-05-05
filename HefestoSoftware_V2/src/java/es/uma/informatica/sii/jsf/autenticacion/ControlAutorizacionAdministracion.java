@@ -5,8 +5,6 @@
 package es.uma.informatica.sii.jsf.autenticacion;
 
 import es.uma.informatica.sii.jsf.autenticacion.modelo.Empleado;
-import es.uma.informatica.sii.jsf.autenticacion.modelo.Usuario;
-
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
@@ -16,31 +14,29 @@ import javax.faces.context.FacesContext;
 @SessionScoped
 public class ControlAutorizacionAdministracion implements Serializable {
 
-    private Empleado usuario;
-
-    public void setEmpleado(Empleado usuario) {
-        this.usuario = usuario;
-    }
+    private Empleado empleado;
 
     public Empleado getEmpleado() {
-        return usuario;
+        return empleado;
+    }
+
+    public void setEmpleado(Empleado empleado) {
+        this.empleado = empleado;
     }
 
     public String home() {
-        String paginaAdireccionar = "errorAutorizacion.xhtml";
-        if (usuario == null) {
-            paginaAdireccionar = "login.xhtml";
-        } else if (usuario.getRol() == Empleado.Rol.ADMINISTRADOR) {
-            paginaAdireccionar = "admin.xhtml";
+        if (empleado == null) {
+            return "login.xhtml";
+        } else {
+            return "admin.xhtml";
         } 
-        return paginaAdireccionar;
     }
 
     public String logout() {
         // Destruye la sesión (y con ello, el ámbito de este bean)
         FacesContext ctx = FacesContext.getCurrentInstance();
         ctx.getExternalContext().invalidateSession();
-        usuario = null;
+        empleado = null;
         return "login.xhtml";
     }
 

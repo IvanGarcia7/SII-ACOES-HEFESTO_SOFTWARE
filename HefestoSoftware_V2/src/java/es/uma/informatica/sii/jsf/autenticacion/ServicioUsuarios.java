@@ -6,7 +6,6 @@
 package es.uma.informatica.sii.jsf.autenticacion;
 
 import es.uma.informatica.sii.jsf.autenticacion.modelo.Usuario;
-import es.uma.informatica.sii.jsf.autenticacion.modelo.Usuario.Rol;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +14,7 @@ import javax.inject.Named;
 
 /**
  *
- * @author yo
+ * @author Miguel
  */
 @Named(value = "servicioUsuarios")
 @SessionScoped
@@ -26,11 +25,11 @@ public class ServicioUsuarios implements Serializable {
     public ServicioUsuarios() {
         usuarios = new ArrayList<>();
 
-        usuarios.add(new Usuario("adela", "qwer", "Adela", "Ramírez Rueda", "adelarr@gmail.com", Usuario.Rol.NORMAL));
-        usuarios.add(new Usuario("alfonso", "qwer", "Alfonso", "Pérez Romero", "alfonsopr@gmail.com", Usuario.Rol.NORMAL));
-        usuarios.add(new Usuario("manolo", "qwer", "Manolo", "Bonilla", "manolopicacabras@yahoo.com", Rol.ADMINISTRADOR));
-        usuarios.add(new Usuario("pepe", "asdf", "Pepe", "Molina", "pepe@yahoo.com", Rol.NORMAL));
-        usuarios.add(new Usuario("angel", "qwer", "Angel", "Villalobos", "angelysaras@yahoo.com", Rol.NORMAL));
+        usuarios.add(new Usuario("adela", "qwer", "Adela", "Ramírez Rueda", "adelarr@gmail.com"));
+        usuarios.add(new Usuario("alfonso", "qwer", "Alfonso", "Pérez Romero", "alfonsopr@gmail.com"));
+        usuarios.add(new Usuario("manolo", "qwer", "Manolo", "Bonilla", "manolopicacabras@yahoo.com"));
+        usuarios.add(new Usuario("pepe", "asdf", "Pepe", "Molina", "pepe@yahoo.com"));
+        usuarios.add(new Usuario("angel", "qwer", "Angel", "Villalobos", "angelysaras@yahoo.com"));
 
     }
 

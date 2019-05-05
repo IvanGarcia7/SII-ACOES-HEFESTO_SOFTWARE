@@ -5,14 +5,11 @@
  */
 package es.uma.informatica.sii.jsf.autenticacion.modelo;
 
-import es.uma.informatica.sii.jsf.autenticacion.modelo.Usuario;
-import es.uma.informatica.sii.jsf.autenticacion.modelo.Usuario.Rol;
 import java.util.Calendar;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
-import java.util.Date;
 
 /**
  *
@@ -31,7 +28,7 @@ public class HefestoSoftware {
         //Creamos un nuevo niño vacio con los campos obligatorios definidos y forzamos para que se
         //genere el esquema.
 
-        Usuario test = new Usuario("pepe", "asdf",Rol.NORMAL);
+        Usuario test = new Usuario("pepe", "asdf");
         EntityTransaction tx = em.getTransaction();
         tx.begin();
         test.setUsuario("Andrea_99");

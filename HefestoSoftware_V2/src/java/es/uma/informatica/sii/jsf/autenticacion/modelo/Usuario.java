@@ -11,8 +11,6 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
@@ -23,29 +21,26 @@ import javax.persistence.OneToMany;
 @Entity
 public class Usuario implements Serializable {
 
-    public Usuario(String usuario, String contrasenia, Rol rol) {
+    public Usuario(String usuario, String contrasenia) {
         setUsuario(usuario);
         setContrasenia(contrasenia);
-        setRol(rol);
     }
 
-    public Usuario(String usuario, String contrasenia, String correo, Rol rol) {
+    public Usuario(String usuario, String contrasenia, String correo) {
         setUsuario(usuario);
         setContrasenia(contrasenia);
-        setRol(rol);
         setCorreoElectronico(correo);
     }
     
-    public Usuario(String usuario, String contraseña, String nombre, String apellidos, String correo, Rol rol) {
+    public Usuario(String usuario, String contraseña, String nombre, String apellidos, String correo) {
         this.usuario = usuario;
         this.contraseña = contraseña;
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.correoElectronico = correo;
-        this.rol = rol;
     }
 
-    public Usuario(String usuario, String contraseña, String nombre, String apellidos, String correo, String direccion, String telefono, Rol rol) {
+    public Usuario(String usuario, String contraseña, String nombre, String apellidos, String correo, String direccion, String telefono) {
         this.usuario = usuario;
         this.contraseña = contraseña;
         this.nombre = nombre;
@@ -53,13 +48,7 @@ public class Usuario implements Serializable {
         this.correoElectronico = correo;
         this.direccion = direccion;
         this.telefono = telefono;
-        this.rol = rol;
     }
-    
-    public enum Rol {
-      ADMINISTRADOR,
-      NORMAL
-    };
     
     private static final long serialVersionUID = 1L;
     @Id
@@ -93,17 +82,6 @@ public class Usuario implements Serializable {
     private String descripcion;
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
     private Set<Peticion> Peticiones;
-    @Enumerated(EnumType.STRING)
-    private Rol rol;
-
-    
-    public void setRol(Rol rol) {
-        this.rol = rol;
-    }
-
-    public Rol getRol() {
-        return rol;
-    }
     
     public String getDni() {
         return dni;

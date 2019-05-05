@@ -5,9 +5,7 @@
  */
 package es.uma.informatica.sii.jsf.autenticacion;
 
-import es.uma.informatica.sii.jsf.autenticacion.modelo.Empleado;
 import es.uma.informatica.sii.jsf.autenticacion.modelo.HistorialPadrinos;
-import es.uma.informatica.sii.jsf.autenticacion.modelo.Usuario.Rol;
 import java.io.Serializable;
 import java.util.List;
 import javax.annotation.PostConstruct;
@@ -29,26 +27,20 @@ public class VistaSolicitudes implements Serializable {
     private ServicioSolicitudes servicio;
     @Inject
     private ControlAutorizacion ctrl;
-
     @Inject
     private ControlAutorizacionAdministracion ctrl1;
 
-    
     @PostConstruct
     public void init() {
-        
-        if(ctrl.getUsuario()==null){
-            if (ctrl1.getEmpleado().getRol() == Empleado.Rol.ADMINISTRADOR) {
-            solicitudes = servicio.getSolicitudes();
+
+        if (ctrl.getUsuario() == null) {
+            if (ctrl1.getEmpleado() != null) {
+                solicitudes = servicio.getSolicitudes();
             }
-        }else{
-            if (ctrl.getUsuario().getRol() == Rol.NORMAL) {
+        } else {
             solicitudes = servicio.obtenerHistorial(ctrl.getUsuario().getUsuario());
-            } 
         }
-        
-        
-        
+
     }
 
     public List<HistorialPadrinos> getSolicitudes() {
