@@ -24,10 +24,10 @@ public class ServicioPaquetes implements Serializable {
 
     public ServicioPaquetes() {
         paquetes = new ArrayList<>();
-        paquetes.add(new Paquete(new Long(1), "Medicamentos varios", "01/02/2018", "Aceptado"));
-        paquetes.add(new Paquete(new Long(2), "Latas de comida", "11/03/2018", "Aceptado"));
-        paquetes.add(new Paquete(new Long(3), "Tiritas", "23/05/2018", "Aceptado"));
-        paquetes.add(new Paquete(new Long(4), "Herramientas enfermería", "24/08/2018", "Aceptado"));
+        paquetes.add(new Paquete(new Long(1), "Medicamentos varios", "2018-04-29", "Aceptado"));
+        paquetes.add(new Paquete(new Long(2), "Latas de comida", "2018-02-05", "Aceptado"));
+        paquetes.add(new Paquete(new Long(3), "Tiritas", "2018-08-11", "Aceptado"));
+        paquetes.add(new Paquete(new Long(4), "Herramientas enfermería", "2018-11-11", "Aceptado"));
     }
 
     public List<Paquete> obtenerHistorial(String usuario) {
