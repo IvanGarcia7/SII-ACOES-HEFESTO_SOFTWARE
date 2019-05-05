@@ -36,7 +36,7 @@ public class Paquete implements Serializable {
     @Column(length = 100, nullable = false)
     private String destino;
     @Column(nullable = false, name = "fecha_envio")
-    private String fechaEnvio;
+    private Date fechaEnvio;
     @Column(name = "fecha_entrega")
     private Date fechaEntrega;
     private String estado;
@@ -47,7 +47,7 @@ public class Paquete implements Serializable {
     public Paquete(Long id, String descripcion, String fechaEnvio, String estado){
         this.id = id;
         this.descripcion = descripcion;
-        this.fechaEnvio = fechaEnvio;
+        this.fechaEnvio = Date.valueOf(fechaEnvio);
         this.estado = estado;
         
     }
