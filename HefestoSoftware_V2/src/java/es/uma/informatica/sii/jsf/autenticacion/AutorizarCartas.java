@@ -41,6 +41,7 @@ public class AutorizarCartas implements Serializable {
         seleccionada.setAutorizado(true);
         seleccionada = null;
         todas = servicio.cartasPorAutorizar();
+        cartas = (LinkedList<Carta>) todas.clone();
     }
 
     public void aplicarFiltros() {
