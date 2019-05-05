@@ -16,22 +16,22 @@
                     <br></br>
                     <p:dataTable class="table1"
                                  id="lista-solicitudes" 
-                                 value="#{vistaSolicitudes.solicitudes}" 
-                                 var="solicitud"
-                                 rowKey="#{solicitud.id}"
+                                 value="#{vistaPeticiones.peticiones}" 
+                                 var="peticion"
+                                 rowKey="#{peticion.id}"
                                  rows="10"
                                  paginator="true"
                                  paginatorPosition="top"
                                  paginatorTemplate="{FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
                                  rowsPerPageTemplate="5,10,15">
-                        <p:column headerText="Nombre padrino" sortBy="#{solicitud.usuario.usuario}">
-                            <h:outputText value="#{solicitud.usuario.usuario}"/>
+                        <p:column headerText="Nombre solicitante" sortBy="#{peticion.usuario.usuario}">
+                            <h:outputText value="#{peticion.usuario.usuario}"/>
                         </p:column>
-                        <p:column headerText="Id solicitud" sortBy="#{solicitud.id}">
-                            <h:outputText value="#{solicitud.id}"/>
+                        <p:column headerText="Id solicitud" sortBy="#{peticion.id}">
+                            <h:outputText value="#{peticion.id}"/>
                         </p:column>
-                        <p:column headerText="Fecha de la solicitud" sortBy="#{solicitud.fechaApadrinamiento}">
-                            <h:outputText value="#{solicitud.fechaApadrinamiento}"/>
+                        <p:column headerText="Fecha de la solicitud" sortBy="#{peticion.fechaPeticion}">
+                            <h:outputText value="#{peticion.fechaPeticion}"/>
                         </p:column>
                     </p:dataTable>
                 </h:form>

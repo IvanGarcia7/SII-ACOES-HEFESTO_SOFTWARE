@@ -15,27 +15,27 @@
                     <br></br>
                     <br></br>
                     <br></br>
-                    <p:dataTable value="#{vistaSolicitudes.solicitudes}" 
-                                 var="solicitud"
+                    <p:dataTable value="#{vistaApadrinamientos.apadrinamientos}" 
+                                 var="apadrinamiento"
                                  editable="true">
                         <p:ajax event="rowEdit" />
                         <p:ajax event="rowEditCancel" />
                         <p:column headerText="Nombre padrino">
                             <p:cellEditor>
-                                <f:facet name="output"><h:outputText value="#{solicitud.usuario.usuario}" /></f:facet>
-                                <f:facet name="input"><p:inputText value="#{solicitud.usuario.usuario}" style="width:100%"/></f:facet>
+                                <f:facet name="output"><h:outputText value="#{apadrinamiento.usuario.usuario}" /></f:facet>
+                                <f:facet name="input"><p:inputText value="#{apadrinamiento.usuario.usuario}" style="width:100%"/></f:facet>
                             </p:cellEditor>
                         </p:column>
-                        <p:column headerText="Id solicitud">
+                        <p:column headerText="Id apadrinamiento">
                             <p:cellEditor>
-                                <f:facet name="output"><h:outputText value="#{solicitud.id}" /></f:facet>
-                                <f:facet name="input"><p:inputText value="#{solicitud.id}" style="width:100%"/></f:facet>
+                                <f:facet name="output"><h:outputText value="#{apadrinamiento.id}" /></f:facet>
+                                <f:facet name="input"><p:inputText value="#{apadrinamiento.id}" style="width:100%"/></f:facet>
                             </p:cellEditor>
                         </p:column>
-                        <p:column headerText="Fecha de la solicitud">
+                        <p:column headerText="Fecha apadrinamiento">
                             <p:cellEditor>
-                                <f:facet name="output"><h:outputText value="#{solicitud.fechaApadrinamiento}" /></f:facet>
-                                <f:facet name="input"><p:inputText value="#{solicitud.fechaApadrinamiento}" style="width:100%"/></f:facet>
+                                <f:facet name="output"><h:outputText value="#{apadrinamiento.fechaApadrinamiento}" /></f:facet>
+                                <f:facet name="input"><p:inputText value="#{apadrinamiento.fechaApadrinamiento}" style="width:100%"/></f:facet>
                             </p:cellEditor>
                         </p:column>
                         <p:column style="width:35px">
