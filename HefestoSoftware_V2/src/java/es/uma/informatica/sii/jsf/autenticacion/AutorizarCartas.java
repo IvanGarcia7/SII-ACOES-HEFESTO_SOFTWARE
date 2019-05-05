@@ -34,18 +34,18 @@ public class AutorizarCartas implements Serializable {
     @PostConstruct
     public void init() {
         todas = servicio.cartasPorAutorizar();
-        cartas = (LinkedList<Carta>) todas.clone();
+        cartas = new LinkedList<>(todas);
     }
 
     public void autorizarCarta() {
         seleccionada.setAutorizado(true);
         seleccionada = null;
         todas = servicio.cartasPorAutorizar();
-        cartas = (LinkedList<Carta>) todas.clone();
+        aplicarFiltros();
     }
 
     public void aplicarFiltros() {
-        cartas = (LinkedList<Carta>) todas.clone();
+        cartas = new LinkedList<>(todas);
         if (filtroAutor != null) {
             cartas.removeIf(c -> (!c.getEmisor() && !c.getNiño().getNombre().contains(filtroAutor))
                     || (c.getEmisor() && !c.getUsuario().getUsuario().contains(filtroAutor)));
@@ -60,7 +60,7 @@ public class AutorizarCartas implements Serializable {
     }
 
     public void quitarFiltros() {
-        cartas = (LinkedList<Carta>) todas.clone();
+        cartas = new LinkedList<>(todas);
         filtroAutor = null;
         filtroDestinatario = null;
         filtroAsunto = null;
