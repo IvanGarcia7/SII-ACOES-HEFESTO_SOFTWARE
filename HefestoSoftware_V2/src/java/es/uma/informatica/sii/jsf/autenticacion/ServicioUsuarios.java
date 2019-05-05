@@ -26,10 +26,10 @@ public class ServicioUsuarios implements Serializable {
     public ServicioUsuarios() {
         usuarios = new ArrayList<>();
         // Usar el usuario "pepe" para probar, que tiene mas datos
-        usuarios.add(new Usuario("adela", "qwer", "Adela", "Ramírez Rueda","97819599R","Calle Cadiz 18","Fuengirola",29640,"Malaga","712310162","adelarr@gmail.com",Date.valueOf("2017-01-01")));
-        usuarios.add(new Usuario("alfonso", "qwer", "Alfonso", "Pérez Romero","38691438X","Calle Cuenca 14","Fuengirola",29640,"Malaga","629914238" ,"alfonsopr@gmail.com",Date.valueOf("2017-08-21")));
-        usuarios.add(new Usuario("pepe", "asdf", "Pepe", "Molina","37439218W","Calle Lentejas 3","Fuengirola",29640,"Malaga","683278566","pepe@yahoo.com",Date.valueOf("2017-07-01")));
-        usuarios.add(new Usuario("angel", "qwer", "Angel", "Villalobos", "48807199A","Calle Algarrobas 7","Fuengirola",29640,"Malaga","699174081","angelysaras@yahoo.com",Date.valueOf("2017-07-07")));
+        usuarios.add(new Usuario("adela", "qwer", "Adela", "Ramírez Rueda", "97819599R", "Calle Cadiz 18", "Fuengirola", 29640, "Malaga", "712310162", "adelarr@gmail.com", Date.valueOf("2017-01-01")));
+        usuarios.add(new Usuario("alfonso", "qwer", "Alfonso", "Pérez Romero", "38691438X", "Calle Cuenca 14", "Fuengirola", 29640, "Malaga", "629914238", "alfonsopr@gmail.com", Date.valueOf("2017-08-21")));
+        usuarios.add(new Usuario("pepe", "asdf", "Pepe", "Molina", "37439218W", "Calle Lentejas 3", "Fuengirola", 29640, "Malaga", "683278566", "pepe@yahoo.com", Date.valueOf("2017-07-01")));
+        usuarios.add(new Usuario("angel", "qwer", "Angel", "Villalobos", "48807199A", "Calle Algarrobas 7", "Fuengirola", 29640, "Malaga", "699174081", "angelysaras@yahoo.com", Date.valueOf("2017-07-07")));
 
     }
 
@@ -54,8 +54,8 @@ public class ServicioUsuarios implements Serializable {
         }
         return true;
     }
-    
-    public void delete(String usuario){
+
+    public void delete(String usuario) {
         usuarios.removeIf(u -> u.getUsuario().equals(usuario));
     }
 

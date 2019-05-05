@@ -26,11 +26,11 @@ public class ServicioNiños implements Serializable {
 
     public ServicioNiños() {
         niños = new ArrayList<>();
-        añadirNiño("Jose Manuel", "Perez");
-        añadirNiño("Ana Maria", "Jimenez");
-        añadirNiño("Jose Alberto", "Victoria");
-        añadirNiño("Patricia", "Rodriguez");
-        añadirNiño("Alberto", "Macias");
+        niños.add(new Niño("n"+(++numeroNiños),"Jose Manuel","Perez","Calle Pelaez 22","Comayagua",Date.valueOf("2000-01-17"),Date.valueOf("2017-10-22")));
+        niños.add(new Niño("n"+(++numeroNiños),"Ana Maria","Jimenez","Calle Picaso 7","Catacamas",Date.valueOf("2004-11-12"),Date.valueOf("2017-10-24")));
+        niños.add(new Niño("n"+(++numeroNiños),"Jose Alberto","Victoria","Calle España 10","Tela",Date.valueOf("2003-03-07"),Date.valueOf("2017-11-12")));
+        niños.add(new Niño("n"+(++numeroNiños),"Patricia","Rodriguez","Calle Almeria 21","La Ceiba",Date.valueOf("2006-09-24"),Date.valueOf("2017-12-12")));
+        niños.add(new Niño("n"+(++numeroNiños),"Alberto","Macias","Calle America 33","Trujillo",Date.valueOf("2006-05-20"),Date.valueOf("2017-12-27")));
     }
 
     public Niño obtenerNiño(String usuario) {
@@ -40,10 +40,6 @@ public class ServicioNiños implements Serializable {
             }
         }
         return null;
-    }
-    
-    private void añadirNiño(String nombre,String apellidos){
-        niños.add(new Niño("n"+(++numeroNiños),nombre,apellidos));
     }
     
     public void añadirNiño(String nombre,String apellidos,String direccion,String poblacion,Date fechaNacimiento) {
