@@ -4,34 +4,38 @@
                 xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
                 xmlns:p="http://primefaces.org/ui"
                 xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
-    <ui:define name="title">Historial de solicitudes</ui:define>
+    <ui:define name="title">Historial de peticiones</ui:define>
     <ui:define name="content">
         <c:choose>
            <c:when test="#{controlAutorizacionAdministracion.empleado.rol == 'ADMINISTRADOR'}">
                 <h:graphicImage styleClass="logo" height="200px" value = "./resources/Imagenes/logo1.png"/> 
                 <h:form id="form">
-                    <p:inputText style="background-color: white; width: 300px; height: 30px; display:inline-block; float: left;" placeholder="Buscar solicitudes para un niño/a"/>
+                    <p:inputText style="background-color: white; width: 300px; height: 30px; display:inline-block; float: left;" placeholder="Filtrar por nombre de solicitante"/>
+                    <p:inputText style="background-color: white; width: 300px; height: 30px; display:inline-block; float: right;" placeholder="Filtrar por fecha de petición"/>
                     <br></br>
                     <br></br>
                     <br></br>
                     <p:dataTable class="table1"
-                                 id="lista-solicitudes" 
-                                 value="#{vistaSolicitudes.solicitudes}" 
-                                 var="solicitud"
-                                 rowKey="#{solicitud.id}"
+                                 id="lista-peticiones" 
+                                 value="#{vistaPeticiones.peticiones}" 
+                                 var="peticion"
+                                 rowKey="#{peticion.id}"
                                  rows="10"
                                  paginator="true"
                                  paginatorPosition="top"
                                  paginatorTemplate="{FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
                                  rowsPerPageTemplate="5,10,15">
-                        <p:column headerText="Nombre padrino" sortBy="#{solicitud.usuario.usuario}">
-                            <h:outputText value="#{solicitud.usuario.usuario}"/>
+                        <p:column headerText="Nombre solicitante" sortBy="#{peticion.usuario.usuario}">
+                            <h:outputText value="#{peticion.usuario.usuario}"/>
                         </p:column>
-                        <p:column headerText="Id solicitud" sortBy="#{solicitud.id}">
-                            <h:outputText value="#{solicitud.id}"/>
+                        <p:column headerText="Nº de niños solicitados" sortBy="#{peticion.numeroNiños}">
+                            <h:outputText value="#{peticion.numeroNiños}"/>
                         </p:column>
-                        <p:column headerText="Fecha de la solicitud" sortBy="#{solicitud.fechaApadrinamiento}">
-                            <h:outputText value="#{solicitud.fechaApadrinamiento}"/>
+                        <p:column headerText="Id petición" sortBy="#{peticion.id}">
+                            <h:outputText value="#{peticion.id}"/>
+                        </p:column>
+                        <p:column headerText="Fecha de la petición" sortBy="#{peticion.fechaPeticion}">
+                            <h:outputText value="#{peticion.fechaPeticion}"/>
                         </p:column>
                     </p:dataTable>
                 </h:form>
