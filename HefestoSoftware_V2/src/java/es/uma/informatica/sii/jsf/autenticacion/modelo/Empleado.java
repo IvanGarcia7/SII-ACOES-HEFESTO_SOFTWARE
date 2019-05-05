@@ -5,6 +5,7 @@
  */
 package es.uma.informatica.sii.jsf.autenticacion.modelo;
 
+import es.uma.informatica.sii.jsf.autenticacion.modelo.Usuario.Rol;
 import java.io.Serializable;
 import java.sql.Date;
 import javax.persistence.Column;
@@ -31,7 +32,7 @@ public class Empleado implements Serializable {
     @Column(length = 60, nullable = false)
     private String apellidos;
     @Column(nullable = false)
-    private String rol;
+    private Rol rol;
     @Column(length = 9, nullable = false, unique = true)
     private String dni;
     @Column(length = 150, nullable = false)
@@ -50,6 +51,16 @@ public class Empleado implements Serializable {
     private Date fechaAlta;
     @Column(name = "fecha_baja")
     private Date fechaBaja;
+
+    public Empleado(String usuario, String contrasenia, String nombre, String apellido, String correo, Empleado.Rol rol) {
+        setUsuario(usuario);
+        setContraseña(contrasenia);
+        setNombre(nombre);
+        setApellidos(apellido);
+        setCorreoElectronico(correo);
+        setRol(rol);
+    }
+
 
     public String getUsuario() {
         return usuario;
@@ -83,6 +94,13 @@ public class Empleado implements Serializable {
         this.nombre = nombre;
     }
 
+    public enum Rol {
+      ADMINISTRADOR
+      
+    };
+    
+    
+    
     public String getApellidos() {
         return apellidos;
     }
@@ -91,11 +109,11 @@ public class Empleado implements Serializable {
         this.apellidos = apellidos;
     }
 
-    public String getRol() {
+    public Rol getRol() {
         return rol;
     }
 
-    public void setRol(String rol) {
+    public void setRol(Rol rol) {
         this.rol = rol;
     }
 

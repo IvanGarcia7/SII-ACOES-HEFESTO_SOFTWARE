@@ -17,13 +17,13 @@
         <div id="top" class="top">
             <h:form id="menu">
                 <ul class="menulist">
-                    <li><h:commandLink action="#{controlAutorizacion.home()}" value="Inicio"/></li>
+                    
                     <c:if test="#{controlAutorizacion.usuario.rol == 'NORMAL'}">
                         <li><h:commandLink action="historial_cartas.xhtml" value="Historial de cartas"/></li>
                         <li><h:commandLink action="escribir_carta.xhtml" value="Escribir carta"/></li>
                         <li><h:commandLink action="Escribir peticion.xhtml" value="Solicitar apadrinamiento"/></li>
                     </c:if>
-                    <c:if test="#{controlAutorizacion.usuario.rol == 'ADMINISTRADOR'}">
+                    <c:if test="#{controlAutorizacionAdministracion.empleado.rol == 'ADMINISTRADOR'}">
                         <li><h:commandLink action="administrar_cartas.xhtml" value="Administrar cartas"/></li>
                         <li><h:commandLink action="Historial Peticiones.xhtml" value="Historial de solicitudes"/></li>
                         
@@ -34,9 +34,17 @@
                         <li><h:commandLink action="crudninos.xhtml" value="CRUD niños"/></li>
                     </c:if>
                     <li id="especial"><h:commandLink action="#{controlAutorizacion.home()}" value=""/></li>
-                    <c:if test="#{!empty controlAutorizacion.usuario}">
+                    
+                    <c:choose>
+                    
+                    <c:when test="#{!empty controlAutorizacion.usuario}">
                         <li><h:commandLink action="#{controlAutorizacion.logout()}" value="Salir"/></li>
-                    </c:if>
+                    </c:when>
+                        <c:when test="#{!empty controlAutorizacionAdministracion.empleado}">
+                        <li><h:commandLink action="#{controlAutorizacionAdministracion.logout()}" value="Salir"/></li>
+                    </c:when>
+                        
+                    </c:choose>
                 </ul>
             </h:form>
         </div>

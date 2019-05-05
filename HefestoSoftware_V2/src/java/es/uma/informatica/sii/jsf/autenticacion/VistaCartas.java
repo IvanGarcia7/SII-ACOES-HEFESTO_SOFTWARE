@@ -6,6 +6,7 @@
 package es.uma.informatica.sii.jsf.autenticacion;
 
 import es.uma.informatica.sii.jsf.autenticacion.modelo.Carta;
+import es.uma.informatica.sii.jsf.autenticacion.modelo.Empleado;
 import es.uma.informatica.sii.jsf.autenticacion.modelo.Usuario.Rol;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -37,17 +38,28 @@ public class VistaCartas implements Serializable {
     private ServicioCartas servicio;
     @Inject
     private ControlAutorizacion ctrl;
+    
+     @Inject
+    private ControlAutorizacionAdministracion ctrl1;
 
     @PostConstruct
     public void init() {
-        if (ctrl.getUsuario().getRol() == Rol.NORMAL) {
+        
+        
+        if(ctrl.getUsuario()!=null){
+            if (ctrl.getUsuario().getRol() == Rol.NORMAL) {
             cartas = servicio.obtenerHistorial(ctrl.getUsuario().getUsuario());
             obtenerCartasRecibidas();
             obtenerCartasEnviadas();
-        } else if (ctrl.getUsuario().getRol() == Rol.ADMINISTRADOR) {
+            } 
+        }else{
+            if (ctrl1.getEmpleado().getRol() == Empleado.Rol.ADMINISTRADOR) {
             cartas = servicio.cartasPorAutorizar();
             cartasMostradas = (LinkedList<Carta>) cartas.clone();
+            }
         }
+        
+       
     }
 
     public LinkedList<Carta> getCartas() {

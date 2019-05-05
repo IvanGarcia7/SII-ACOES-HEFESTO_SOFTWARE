@@ -8,8 +8,7 @@
     <ui:define name="title">Página para el usuario administrador</ui:define>
     <ui:define name="content">
         <c:choose>
-            <c:when test="#{controlAutorizacion.usuario.rol == 'ADMINISTRADOR'}">
-
+            <c:when test="#{controlAutorizacionAdministracion.empleado.rol == 'ADMINISTRADOR'}">
                 <h:head>    
                     <title>Registra a un nuevo niño:</title>
 
