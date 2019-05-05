@@ -10,7 +10,7 @@
     
     <ui:define name="content">
         <c:choose>
-            <c:when test="#{controlAutorizacionAdministracion.empleado != null}">
+            <c:when test="#{not empty controlAutorizacion.empleado}">
                 <h:graphicImage styleClass="logo" height="200px" value = "./resources/Imagenes/logo1.png"/> 
                 <h1>Digitalize una nueva Carta:</h1>
 

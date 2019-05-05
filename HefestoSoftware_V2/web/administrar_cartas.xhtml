@@ -10,7 +10,7 @@
 
     <ui:define name="content">
         <c:choose>
-            <c:when test="#{controlAutorizacionAdministracion.empleado != null}">
+            <c:when test="#{not empty controlAutorizacion.empleado}">
                 <h:form style="float: left">
                     <p:inputText style="background-color: white" value="#{autorizarCartas.filtroAutor}" placeholder="Filtrar autor"/>
                     <p:inputText style="background-color: white;margin-top: 20px" value="#{autorizarCartas.filtroAsunto}" placeholder="Filtrar asunto"/>

@@ -9,7 +9,7 @@
     
     <ui:define name="content">
         <c:choose>
-            <c:when test="#{controlAutorizacion.usuario != null}">
+            <c:when test="#{not empty controlAutorizacion.usuario}">
                 <h1>Usuario normal</h1>
                 <p>¡¡Bienvenido <h:outputText value="#{controlAutorizacion.usuario.usuario}"/>!!</p>
             </c:when>

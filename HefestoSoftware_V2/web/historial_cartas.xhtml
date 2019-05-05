@@ -10,7 +10,7 @@
 
     <ui:define name="content">
         <c:choose>
-            <c:when test="#{controlAutorizacion.usuario != null}">
+            <c:when test="#{not empty controlAutorizacion.usuario}">
                 <h:graphicImage styleClass="logo" height="200px" value = "./resources/Imagenes/logo1.png"/> 
                 <h:form id="form" class="historial">
                     <p:tabView>

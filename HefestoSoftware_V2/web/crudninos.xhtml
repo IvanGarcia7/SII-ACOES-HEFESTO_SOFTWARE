@@ -9,7 +9,7 @@
     <ui:define name="title">Página para el usuario administrador</ui:define>
     <ui:define name="content">
         <c:choose>
-           <c:when test="#{controlAutorizacionAdministracion.empleado!=null}">
+           <c:when test="#{not empty controlAutorizacion.empleado}">
 
                 <h:head>
                     <title>Listado de Niños</title>

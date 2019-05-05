@@ -8,7 +8,7 @@
     <ui:define name="title">Historial de niños</ui:define>
     <ui:define name="content">
         <c:choose>
-           <c:when test="#{controlAutorizacionAdministracion.empleado != null}">
+           <c:when test="#{not empty controlAutorizacion.empleado}">
                 <h:graphicImage styleClass="logo" height="200px" value = "./resources/Imagenes/logo1.png"/> 
                 <h:form id="form">
                     <p:inputText style="background-color: white; width: 300px; height: 30px; display:inline-block; float: left" placeholder="Buscar apadrinamientos de un niño/a"/>
