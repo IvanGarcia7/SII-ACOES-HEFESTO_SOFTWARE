@@ -64,6 +64,7 @@ public class Login {
         Usuario u = servicio.obtenerUsuario(usuario);
         if (u != null && u.getContraseña().equals(contrasenia)) {
             ctrl.setUsuario(u);
+            ctrl.setLogeado(true);
             return ctrl.home();
         } else {
             return "error.xhtml";

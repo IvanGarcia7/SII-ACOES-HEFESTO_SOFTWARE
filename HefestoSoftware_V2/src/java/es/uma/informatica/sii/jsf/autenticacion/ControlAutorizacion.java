@@ -4,6 +4,7 @@
  */
 package es.uma.informatica.sii.jsf.autenticacion;
 
+import es.uma.informatica.sii.jsf.autenticacion.modelo.Empleado;
 import es.uma.informatica.sii.jsf.autenticacion.modelo.Usuario;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
@@ -15,6 +16,8 @@ import javax.faces.context.FacesContext;
 public class ControlAutorizacion implements Serializable {
 
     private Usuario usuario;
+    private Empleado empleado;
+    private boolean logeado;
 
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
@@ -24,12 +27,31 @@ public class ControlAutorizacion implements Serializable {
         return usuario;
     }
 
+    public Empleado getEmpleado() {
+        return empleado;
+    }
+
+    public void setEmpleado(Empleado empleado) {
+        this.empleado = empleado;
+    }
+
+    public boolean isLogeado() {
+        return logeado;
+    }
+
+    public void setLogeado(boolean logeado) {
+        this.logeado = logeado;
+    }
+
     public String home() {
-        if (usuario == null) {
+        if (!logeado) {
             return "login.xhtml";
-        } else {
+        } else if (usuario != null) {
             return "normal.xhtml";
+        } else if (empleado != null) {
+            return "admin.xhtml";
         }
+        return null;
     }
 
     public String logout() {
@@ -37,6 +59,8 @@ public class ControlAutorizacion implements Serializable {
         FacesContext ctx = FacesContext.getCurrentInstance();
         ctx.getExternalContext().invalidateSession();
         usuario = null;
+        empleado = null;
+        logeado = false;
         return "login.xhtml";
     }
 

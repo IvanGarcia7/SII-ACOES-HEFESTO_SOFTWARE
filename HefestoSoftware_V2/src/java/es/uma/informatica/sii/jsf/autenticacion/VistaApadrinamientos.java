@@ -27,13 +27,11 @@ public class VistaApadrinamientos implements Serializable {
     private ServicioPadrinos servicio;
     @Inject
     private ControlAutorizacion ctrl;
-    @Inject
-    private ControlAutorizacionAdministracion ctrl1;
 
     @PostConstruct
     public void init() {
 
-        if (ctrl.getUsuario() == null && ctrl1.getEmpleado() != null) {
+        if (ctrl.getEmpleado() != null) {
             apadrinamientos = servicio.getApadrinamientos();
         }
 
@@ -62,14 +60,5 @@ public class VistaApadrinamientos implements Serializable {
     public void setCtrl(ControlAutorizacion ctrl) {
         this.ctrl = ctrl;
     }
-
-    public ControlAutorizacionAdministracion getCtrl1() {
-        return ctrl1;
-    }
-
-    public void setCtrl1(ControlAutorizacionAdministracion ctrl1) {
-        this.ctrl1 = ctrl1;
-    }
-
     
 }

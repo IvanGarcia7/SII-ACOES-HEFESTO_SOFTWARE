@@ -27,14 +27,12 @@ public class VistaPeticiones implements Serializable {
     private ServicioPeticiones servicio;
     @Inject
     private ControlAutorizacion ctrl;
-    @Inject
-    private ControlAutorizacionAdministracion ctrl1;
 
     @PostConstruct
     public void init() {
 
         if (ctrl.getUsuario() == null) {
-            if (ctrl1.getEmpleado() != null) {
+            if (ctrl.getEmpleado() != null) {
                 peticiones = servicio.getPeticiones();
             }
         } else {
@@ -65,15 +63,6 @@ public class VistaPeticiones implements Serializable {
 
     public void setCtrl(ControlAutorizacion ctrl) {
         this.ctrl = ctrl;
-    }
-    
-    
-    public ControlAutorizacionAdministracion getCtrl1() {
-        return ctrl1;
-    }
-
-    public void setCtrl(ControlAutorizacionAdministracion ctrl1) {
-        this.ctrl1 = ctrl1;
     }
     
 }

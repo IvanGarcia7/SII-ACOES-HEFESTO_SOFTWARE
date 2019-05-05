@@ -27,13 +27,11 @@ public class VistaPaquetes implements Serializable {
     private ServicioPaquetes servicio;
     @Inject
     private ControlAutorizacion ctrl;
-    @Inject
-    private ControlAutorizacionAdministracion ctrl1;
 
     @PostConstruct
     public void init() {
 
-        if (ctrl.getUsuario() == null && ctrl1.getEmpleado() != null) {
+        if (ctrl.getEmpleado() != null) {
             paquetes = servicio.getPaquetes();
         }
 
@@ -61,14 +59,6 @@ public class VistaPaquetes implements Serializable {
 
     public void setCtrl(ControlAutorizacion ctrl) {
         this.ctrl = ctrl;
-    }
-
-    public ControlAutorizacionAdministracion getCtrl1() {
-        return ctrl1;
-    }
-
-    public void setCtrl(ControlAutorizacionAdministracion ctrl1) {
-        this.ctrl1 = ctrl1;
     }
 
 }

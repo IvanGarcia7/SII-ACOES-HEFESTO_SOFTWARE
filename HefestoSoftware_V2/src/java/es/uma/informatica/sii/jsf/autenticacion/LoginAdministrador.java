@@ -19,7 +19,7 @@ public class LoginAdministrador {
     private String contrasenia;
 
     @Inject
-    private ControlAutorizacionAdministracion ctrl;
+    private ControlAutorizacion ctrl;
     @Inject
     private ServicioAdministrador servicio;
 
@@ -46,14 +46,14 @@ public class LoginAdministrador {
         this.contrasenia = contrasenia;
     }
 
-    public ControlAutorizacionAdministracion getCtrl() {
+    public ControlAutorizacion getCtrl() {
         return ctrl;
     }
 
-    public void setCtrl(ControlAutorizacionAdministracion ctrl) {
+    public void setCtrl(ControlAutorizacion ctrl) {
         this.ctrl = ctrl;
     }
-
+    
     public ServicioAdministrador getServicio() {
         return servicio;
     }
@@ -63,9 +63,10 @@ public class LoginAdministrador {
     }
 
     public String autenticar() {
-        Empleado u = servicio.obtenerAdministrador(empleado);
-        if (u != null && u.getContraseña().equals(contrasenia)) {
-            ctrl.setEmpleado(u);
+        Empleado e = servicio.obtenerAdministrador(empleado);
+        if (e != null && e.getContraseña().equals(contrasenia)) {
+            ctrl.setEmpleado(e);
+            ctrl.setLogeado(true);
             return ctrl.home();
         } else {
             return "error.xhtml";

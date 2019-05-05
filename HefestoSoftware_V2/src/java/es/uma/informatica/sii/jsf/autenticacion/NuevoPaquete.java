@@ -5,7 +5,6 @@
  */
 package es.uma.informatica.sii.jsf.autenticacion;
 
-
 import es.uma.informatica.sii.jsf.autenticacion.modelo.Paquete;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
@@ -14,23 +13,22 @@ import java.sql.Date;
 
 /**
  *
- * 
+ *
  */
-@Named(value="nuevoPaquete")
+@Named(value = "nuevoPaquete")
 @RequestScoped
 public class NuevoPaquete {
+
     private Paquete paquete;
-    
+
     @Inject
     private ServicioPaquetes servicio;
-    @Inject
-    private ControlAutorizacionAdministracion ctrl;
-    
-    public NuevoPaquete(){
+
+    public NuevoPaquete() {
         paquete = new Paquete();
     }
-    
-    public void enviarCarta(){
+
+    public void enviarCarta() {
         paquete.setDestino("Honduras");
         paquete.setEstado("Pendiente");
         paquete.setFechaEnvio(new Date(System.currentTimeMillis()));
@@ -53,12 +51,4 @@ public class NuevoPaquete {
         this.servicio = servicio;
     }
 
-    public ControlAutorizacionAdministracion getCtrl() {
-        return ctrl;
-    }
-
-    public void setCtrl(ControlAutorizacionAdministracion ctrl) {
-        this.ctrl = ctrl;
-    }
-    
 }
