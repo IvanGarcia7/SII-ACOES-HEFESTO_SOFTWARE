@@ -13,6 +13,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import java.sql.Date;
 
 /**
  *
@@ -32,13 +33,13 @@ public class Peticion implements Serializable {
     private Boolean tipo;
     @ManyToOne
     private Usuario usuario;
-    private String fechaPeticion;
+    private Date fechaPeticion;
 
     public Peticion(Usuario usuario, Integer numeroNiños, Long id, String fechaPeticion){
         this.usuario = usuario;
         this.numeroNiños = numeroNiños;
         this.id = id;
-        this.fechaPeticion = fechaPeticion;
+        this.fechaPeticion = Date.valueOf(fechaPeticion);
     }
     
     
