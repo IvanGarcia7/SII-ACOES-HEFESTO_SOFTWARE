@@ -25,8 +25,8 @@ public class ServicioPeticiones implements Serializable {
 
     public ServicioPeticiones() {
         peticiones = new ArrayList<>();
-        Usuario u1 = new Usuario("pepe", "asdf", Usuario.Rol.NORMAL);
-        Usuario u2 = new Usuario("manolo", "qwer", Usuario.Rol.ADMINISTRADOR);
+        Usuario u1 = su.obtenerUsuario("adela");
+        Usuario u2 = su.obtenerUsuario("alfonso");
         Peticion p1 = new Peticion(u1,new Integer(1),new Long(1),"01/02/2018");
         Peticion p2 = new Peticion(u2,new Integer(1),new Long(2),"11/03/2018");
         Peticion p3 = new Peticion(u1,new Integer(1),new Long(3),"23/05/2018");
