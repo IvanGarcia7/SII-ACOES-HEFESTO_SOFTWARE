@@ -33,7 +33,19 @@
                         <p:column headerText="Fecha de la solicitud" sortBy="#{peticion.fechaPeticion}">
                             <h:outputText value="#{peticion.fechaPeticion}"/>
                         </p:column>
+                        
+                        <p:column>
+                                <h:commandButton action = "AccesoPeticion?faces-redirect=true" value="Acceso" class="btn btn-success"></h:commandButton> 
+                        </p:column>
                     </p:dataTable>
+                    
+                    
+                    
+                    
+                    
+                     
+                    
+                    
                 </h:form>
             </c:when>
             <c:otherwise>
