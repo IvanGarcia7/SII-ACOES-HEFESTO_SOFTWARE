@@ -21,35 +21,6 @@ import javax.persistence.OneToMany;
 @Entity
 public class Usuario implements Serializable {
 
-    public Usuario(String usuario, String contraseña) {
-        setUsuario(usuario);
-        setContraseña(contraseña);
-    }
-
-    public Usuario(String usuario, String contraseña, String correo) {
-        setUsuario(usuario);
-        setContraseña(contraseña);
-        setCorreoElectronico(correo);
-    }
-
-    public Usuario(String usuario, String contraseña, String nombre, String apellidos, String correo) {
-        this.usuario = usuario;
-        this.contraseña = contraseña;
-        this.nombre = nombre;
-        this.apellidos = apellidos;
-        this.correoElectronico = correo;
-    }
-
-    public Usuario(String usuario, String contraseña, String nombre, String apellidos, String correo, String direccion, String telefono) {
-        this.usuario = usuario;
-        this.contraseña = contraseña;
-        this.nombre = nombre;
-        this.apellidos = apellidos;
-        this.correoElectronico = correo;
-        this.direccion = direccion;
-        this.telefono = telefono;
-    }
-
     private static final long serialVersionUID = 1L;
     @Id
     @Column(length = 30)
@@ -82,6 +53,39 @@ public class Usuario implements Serializable {
     private String descripcion;
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
     private Set<Peticion> Peticiones;
+
+    public Usuario() {
+
+    }
+
+    public Usuario(String usuario, String contraseña) {
+        setUsuario(usuario);
+        setContraseña(contraseña);
+    }
+
+    public Usuario(String usuario, String contraseña, String correo) {
+        setUsuario(usuario);
+        setContraseña(contraseña);
+        setCorreoElectronico(correo);
+    }
+
+    public Usuario(String usuario, String contraseña, String nombre, String apellidos, String correo) {
+        this.usuario = usuario;
+        this.contraseña = contraseña;
+        this.nombre = nombre;
+        this.apellidos = apellidos;
+        this.correoElectronico = correo;
+    }
+
+    public Usuario(String usuario, String contraseña, String nombre, String apellidos, String correo, String direccion, String telefono) {
+        this.usuario = usuario;
+        this.contraseña = contraseña;
+        this.nombre = nombre;
+        this.apellidos = apellidos;
+        this.correoElectronico = correo;
+        this.direccion = direccion;
+        this.telefono = telefono;
+    }
 
     public String getDni() {
         return dni;

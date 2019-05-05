@@ -44,6 +44,10 @@ public class Paquete implements Serializable {
     @JoinColumn(nullable = false)
     private Empleado empleado;
 
+    public Paquete(){
+        
+    }
+    
     public Paquete(Long id, String descripcion, String fechaEnvio, String estado){
         this.id = id;
         this.descripcion = descripcion;

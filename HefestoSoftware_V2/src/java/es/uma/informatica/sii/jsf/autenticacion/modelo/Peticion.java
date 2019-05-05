@@ -5,7 +5,6 @@
  */
 package es.uma.informatica.sii.jsf.autenticacion.modelo;
 
-import es.uma.informatica.sii.jsf.autenticacion.modelo.Usuario;
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -35,6 +34,10 @@ public class Peticion implements Serializable {
     private Usuario usuario;
     private Date fechaPeticion;
 
+    public Peticion(){
+        
+    }
+    
     public Peticion(Usuario usuario, Integer numeroNiños, Long id, String fechaPeticion){
         this.usuario = usuario;
         this.numeroNiños = numeroNiños;

@@ -49,6 +49,10 @@ public class Empleado implements Serializable {
     @Column(name = "fecha_baja")
     private Date fechaBaja;
 
+    public Empleado(){
+        
+    }
+    
     public Empleado(String usuario, String contrasenia, String nombre, String apellido, String correo) {
         setUsuario(usuario);
         setContraseña(contrasenia);
