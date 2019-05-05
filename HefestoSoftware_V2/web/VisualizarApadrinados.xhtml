@@ -1,0 +1,49 @@
+<ui:composition template="/WEB-INF/templates/plantilla.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+                >
+
+    <ui:define name="title">Consultar niños apadrinados</ui:define>
+
+    <ui:define name="content">
+        <c:choose>
+            <c:when test="#{not empty controlAutorizacion.usuario}">
+                <h:graphicImage styleClass="logo" height="200px" value = "./resources/Imagenes/logo1.png"/> 
+                <p:dataTable class="table1"
+                             id="lista-solicitudes" 
+                             value="#{vistaDestinatarios.destinatarios}" 
+                             var="niño"
+                             rowKey="#{niño.usuario}"
+                             rows="10"
+                             paginator="true"
+                             paginatorPosition="top"
+                             paginatorTemplate="{FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                             rowsPerPageTemplate="5,10,15">
+                    <p:column headerText="Nombre" sortBy="#{niño.nombre}">
+                        <h:outputText value="#{niño.nombre}"/>
+                    </p:column>
+                    <p:column headerText="Apellidos" sortBy="#{niño.apellidos}">
+                        <h:outputText value="#{niño.apellidos}"/>
+                    </p:column>
+                    <p:column headerText="Poblacion" sortBy="#{niño.poblacion}">
+                        <h:outputText value="#{niño.poblacion}"/>
+                    </p:column>
+                    <p:column headerText="Direccion" sortBy="#{niño.direccion}">
+                        <h:outputText value="#{niño.direccion}"/>
+                    </p:column>
+                    <p:column headerText="Fecha de nacimiento" sortBy="#{niño.fechaNacimiento}">
+                        <h:outputText value="#{niño.fechaNacimiento}"/>
+                    </p:column>
+                </p:dataTable>
+            </c:when>
+            <c:otherwise>
+                <ui:include src="/WEB-INF/templates/errorAutorizacion.xhtml"/>
+            </c:otherwise>
+        </c:choose>
+    </ui:define>
+</ui:composition>
+
+
