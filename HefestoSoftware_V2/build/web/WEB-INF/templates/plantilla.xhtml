@@ -18,12 +18,12 @@
             <h:form id="menu">
                 <ul class="menulist">
                     
-                    <c:if test="#{controlAutorizacion.usuario.rol == 'NORMAL'}">
+                    <c:if test="#{controlAutorizacion.usuario != null}">
                         <li><h:commandLink action="historial_cartas.xhtml" value="Historial de cartas"/></li>
                         <li><h:commandLink action="escribir_carta.xhtml" value="Escribir carta"/></li>
                         <li><h:commandLink action="Escribir peticion.xhtml" value="Solicitar apadrinamiento"/></li>
                     </c:if>
-                    <c:if test="#{controlAutorizacionAdministracion.empleado.rol == 'ADMINISTRADOR'}">
+                    <c:if test="#{controlAutorizacionAdministracion.empleado != null}">
                         <li><h:commandLink action="administrar_cartas.xhtml" value="Administrar cartas"/></li>
                         <li><h:commandLink action="Historial Peticiones.xhtml" value="Historial de solicitudes"/></li>
                         

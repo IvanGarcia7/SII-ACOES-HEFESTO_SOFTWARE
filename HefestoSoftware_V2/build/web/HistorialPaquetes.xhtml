@@ -4,11 +4,11 @@
                 xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
                 xmlns:p="http://primefaces.org/ui"
                 xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
-                xmlns:f="http://xmlns.jcp.org/jsf/core">
+                xmlns:f="http://xmlns.jcp.org/jsf/core">>
     <ui:define name="title">Historial de paquetes</ui:define>
     <ui:define name="content">
         <c:choose>
-           <c:when test="#{controlAutorizacionAdministracion.empleado.rol == 'ADMINISTRADOR'}">
+           <c:when test="#{controlAutorizacionAdministracion.empleado != null}">
                 <h:graphicImage styleClass="logo" height="200px" value = "./resources/Imagenes/logo1.png"/> 
                 <h:form id="form">
                     <p:inputText style="background-color: white; width: 300px; height: 30px; display:inline-block; float: left;" placeholder="Filtrar por numero de paquete" />

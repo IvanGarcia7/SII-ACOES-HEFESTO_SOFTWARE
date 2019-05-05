@@ -7,43 +7,43 @@
     <ui:define name="content">
         <c:choose>
             <c:when test="#{empty controlAutorizacion.usuario}">
-                
+
                 <h:body>
-                   
-    
-    <h:graphicImage styleClass="logo" height="200px" value = "./resources/Imagenes/logo.jpg"/> 
-    <div class=" formularioiniciosesion">
-        <h2>Iniciar Sesión:</h2>
-        <h:form>
 
-            <div class="cabeceraformularioregistro">
-                <label>Usuario:</label>
-                <div class="group">
-                    <i class="usuarioinicio"></i>
-                    <h:inputText value="#{login.usuario}" class="form-control" required="required" />
-                    
-                </div>
-            </div>
-            <div class="cabeceraformularioregistro">
-                <label>Contraseña:</label>
-                <div class="group">
-                    <i class="contrasenaregistro"></i>
-                    <h:inputSecret value="#{login.contrasenia}" class="form-control" required="required" />
-                </div>
-            </div>
-            <div class="forgot">
-            </div>
-            <h:commandButton styleClass="botonautenticar" value="Autenticar" action="#{login.autenticar()}"/>
-            
-        </h:form>
-        <br></br>
-        
-        <hr></hr>
-        <p class="registro">¿No tiene cuenta? Adelante, cree una pulsando en el banner registro.</p>
-    </div>
-   
 
-</h:body>
+                    <h:graphicImage styleClass="logo" height="200px" value = "./resources/Imagenes/logo.jpg"/> 
+                    <div class=" formularioiniciosesion">
+                        <h2>Iniciar Sesión:</h2>
+                        <h:form>
+
+                            <div class="cabeceraformularioregistro">
+                                <label>Usuario:</label>
+                                <div class="group">
+                                    <i class="usuarioinicio"></i>
+                                    <h:inputText value="#{login.usuario}" class="form-control" required="required" />
+
+                                </div>
+                            </div>
+                            <div class="cabeceraformularioregistro">
+                                <label>Contraseña:</label>
+                                <div class="group">
+                                    <i class="contrasenaregistro"></i>
+                                    <h:inputSecret value="#{login.contrasenia}" class="form-control" required="required" />
+                                </div>
+                            </div>
+                            <div class="forgot">
+                            </div>
+                            <h:commandButton styleClass="botonautenticar" value="Autenticar" action="#{login.autenticar()}"/>
+
+                        </h:form>
+                        <br></br>
+
+                        <hr></hr>
+                        <p class="registro">¿No tiene cuenta? Adelante, cree una pulsando en el banner registro.</p>
+                    </div>
+
+
+                </h:body>
             </c:when>
             <c:otherwise>
                 <p>Debe salir de la aplicación si quiere entrar como otro usuario</p>

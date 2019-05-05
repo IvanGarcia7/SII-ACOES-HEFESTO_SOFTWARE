@@ -9,41 +9,47 @@
     
     <ui:define name="content">
         <c:choose>
-           <c:when test="#{controlAutorizacionAdministracion.empleado.rol == 'ADMINISTRADOR'}">
-                <h:graphicImage styleClass="logo" height="200px" value = "./resources/Imagenes/logo1.png"/> 
-                <h1>Escriba un nuevo Paquete:</h1>
+            <c:when test="#{controlAutorizacionAdministracion.empleado != null}">
+                              <h:graphicImage styleClass="logo" height="200px" value = "./resources/Imagenes/logo1.png"/> 
 
-                <h:form enctype='multipart/form-data' id="formularioespecial">
+
+
+
+            <h:form id="formularioespecial">
                     <table style="width: 100%;align-content: center;align-self: center; margin-left: 10%; margin-top: 20px;">
-                        <tr>
+                         <tr>
                             <td>
                                 <pre>
-                                    
+
                                 </pre>
                             </td>
                         </tr>
-                        
+
                         <tr>
                             <td>
+
                                 <table style="width: 90%;align-self: center;">
-                                    <tr><td><h:message for="Numero de Paquete" style="color: darkred;"/>Asunto:</td></tr>
-                                    <tr><td><h:inputText id="asunto" style="background: white; border: 1px solid black; border-radius: 3px;" value="#{nuevaCarta.carta.asunto}" required="true" requiredMessage="(*)"/></td></tr>
-                                    <tr><td><h:message for="Contenido" style="color: darkred;"/>Mensaje:</td></tr>
-                                    <tr><td><h:inputText id="mensaje" style="background: white; min-height: 100px; border: 1px solid black; border-radius: 3px;" value="#{nuevaCarta.carta.mensaje}" required="true" requiredMessage="(*)"/></td></tr>
+                                     <pre></pre>
+                                    Estado:
+                                    <hr></hr>
+                                    <input type="radio" name="solicitudT" value="pendiente" checked="checked"></input>Pendiente
+
+                                    <br></br>
+                                    <br></br>
+                                    
+                                    Destino
+                                    <hr></hr>
+                                    <input type="radio" name="destinoT" value="Honduras" checked="checked"></input>Honduras
+
+                                    <br></br>
+                                    <br></br>
+
+                                    <tr><td>Comentario: </td></tr>
+                                    <tr><td><h:inputText style="background: white; min-height: 100px; border: 1px black; border-radius: 3px; vertical-align: top;" value="#{nuevoPaquete.paquete.descripcion}" required="true"/></td></tr>
+                                 <tr><td  id="confirmacion"><h:commandButton class="enviarsolicitud" value="InsertarPaquete"/></td></tr>
                                 </table>
                             </td>
-                            <td>
-                                <table style="width: 90%;">
-                                    <tr><td><h:message for="destinatario" style="color: darkred;"/>Escoge al niño destinatario</td></tr>
-                                    <tr><td>
-                                            <h:selectOneMenu class="textoinput1" id="destinatario" value="#{nuevaCarta.carta.niño}" converter="#{niñoConverter}" required="true" requiredMessage="(*)">
-                                                <f:selectItems value="#{vistaDestinatarios.destinatarios}" var="niño" itemValue="#{niño}" itemLabel="#{niño.nombre} #{niño.apellidos}"/>
-                                            </h:selectOneMenu>
-                                    </td></tr>
-                                    <tr><td><h:inputFile class="textoinput2" value="#{nuevaCarta.carta.adjunto}"/></td></tr>
-                                    <tr><td><h:commandButton class="textoinput2" value="Enviar carta" action="#{nuevaCarta.enviarCarta()}"/></td></tr>
-                                </table>
-                            </td>
+
                         </tr>
                         <td>
                             <pre>
@@ -53,9 +59,14 @@
                         </td>
                     </table>
                 </h:form>
+
+
+
             </c:when>
+
             <c:otherwise>
                 <ui:include src="/WEB-INF/templates/errorAutorizacion.xhtml"/>
+
             </c:otherwise>
         </c:choose>
     </ui:define>
