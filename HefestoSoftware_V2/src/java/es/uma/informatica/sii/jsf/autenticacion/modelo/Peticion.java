@@ -83,11 +83,11 @@ public class Peticion implements Serializable {
         this.usuario = usuario;
     }
 
-    public String getFechaPeticion() {
+    public Date getFechaPeticion() {
         return fechaPeticion;
     }
 
-    public void setFechaPeticion(String fechaPeticion) {
+    public void setFechaPeticion(Date fechaPeticion) {
         this.fechaPeticion = fechaPeticion;
     }
     
