@@ -27,10 +27,10 @@ public class ServicioPeticiones implements Serializable {
         peticiones = new ArrayList<>();
         Usuario u1 = su.obtenerUsuario("adela");
         Usuario u2 = su.obtenerUsuario("alfonso");
-        Peticion p1 = new Peticion(u1,new Integer(1),new Long(1),"01/02/2018");
-        Peticion p2 = new Peticion(u2,new Integer(1),new Long(2),"11/03/2018");
-        Peticion p3 = new Peticion(u1,new Integer(1),new Long(3),"23/05/2018");
-        Peticion p4 = new Peticion(u1,new Integer(2),new Long(4),"24/08/2018");
+        Peticion p1 = new Peticion(u1,new Integer(1),new Long(1),"2018-03-23");
+        Peticion p2 = new Peticion(u2,new Integer(1),new Long(2),"2018-06-01");
+        Peticion p3 = new Peticion(u1,new Integer(1),new Long(3),"2018-01-12");
+        Peticion p4 = new Peticion(u1,new Integer(2),new Long(4),"2018-11-26");
         peticiones.add(p1);
         peticiones.add(p2);
         peticiones.add(p3);
