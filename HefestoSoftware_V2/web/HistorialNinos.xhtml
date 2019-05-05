@@ -3,7 +3,8 @@
                 xmlns:h="http://xmlns.jcp.org/jsf/html"
                 xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
                 xmlns:p="http://primefaces.org/ui"
-                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
     <ui:define name="title">Historial de niños</ui:define>
     <ui:define name="content">
         <c:choose>
@@ -14,32 +15,34 @@
                     <br></br>
                     <br></br>
                     <br></br>
-                    <p:dataTable class="table1"
-                                 id="lista-solicitudes" 
-                                 value="#{vistaSolicitudes.solicitudes}" 
+                    <p:dataTable value="#{vistaSolicitudes.solicitudes}" 
                                  var="solicitud"
-                                 rowKey="#{solicitud.id}"
-                                 rows="10"
-                                 paginator="true"
-                                 paginatorPosition="top"
-                                 paginatorTemplate="{FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
-                                 rowsPerPageTemplate="5,10,15">
-                        <p:column headerText="Nombre padrino" sortBy="#{solicitud.usuario.usuario}">
-                            <h:outputText value="#{solicitud.usuario.usuario}"/>
+                                 editable="true">
+                        <p:ajax event="rowEdit" />
+                        <p:ajax event="rowEditCancel" />
+                        <p:column headerText="Nombre padrino">
+                            <p:cellEditor>
+                                <f:facet name="output"><h:outputText value="#{solicitud.usuario.usuario}" /></f:facet>
+                                <f:facet name="input"><p:inputText value="#{solicitud.usuario.usuario}" style="width:100%"/></f:facet>
+                            </p:cellEditor>
                         </p:column>
-                        <p:column headerText="Id solicitud" sortBy="#{solicitud.id}">
-                            <h:outputText value="#{solicitud.id}"/>
+                        <p:column headerText="Id solicitud">
+                            <p:cellEditor>
+                                <f:facet name="output"><h:outputText value="#{solicitud.id}" /></f:facet>
+                                <f:facet name="input"><p:inputText value="#{solicitud.id}" style="width:100%"/></f:facet>
+                            </p:cellEditor>
                         </p:column>
-                        <p:column headerText="Fecha de la solicitud" sortBy="#{solicitud.fechaApadrinamiento}">
-                            <h:outputText value="#{solicitud.fechaApadrinamiento}"/>
+                        <p:column headerText="Fecha de la solicitud">
+                            <p:cellEditor>
+                                <f:facet name="output"><h:outputText value="#{solicitud.fechaApadrinamiento}" /></f:facet>
+                                <f:facet name="input"><p:inputText value="#{solicitud.fechaApadrinamiento}" style="width:100%"/></f:facet>
+                            </p:cellEditor>
                         </p:column>
                         <p:column style="width:35px">
                             <p:rowEditor />
                         </p:column>
-                        <p:column>
-                            <p:commandButton value="Modificar" update="@form"/>
-                        </p:column>
                     </p:dataTable>
+                    
                 </h:form>
             </c:when>
             <c:otherwise>
