@@ -28,7 +28,7 @@ public class HefestoSoftware {
         //Creamos un nuevo niño vacio con los campos obligatorios definidos y forzamos para que se
         //genere el esquema.
 
-        Usuario test = new Usuario("pepe", "asdf");
+        Usuario test = new Usuario();
         EntityTransaction tx = em.getTransaction();
         tx.begin();
         test.setUsuario("Andrea_99");

@@ -5,115 +5,75 @@
 package es.uma.informatica.sii.jsf.autenticacion;
 
 import es.uma.informatica.sii.jsf.autenticacion.modelo.Usuario;
+import java.util.Calendar;
+import javax.ejb.EJB;
 import javax.inject.Named;
 import javax.enterprise.context.RequestScoped;
-import javax.inject.Inject;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
+
+
 
 @Named(value = "registro")
 @RequestScoped
 public class Registro {
+    
+    @EJB
+    private Negocio negocio;
 
-    private String usuario;
-    private String correoele;
-    private String nombre;
-    private String apellidos;
-    private String domicilio;
-    private String telefono;
-    private String contrasenia;
-    private String contrasenia2;
 
-    @Inject
-    private ServicioUsuarios servicio;
+    private Usuario usuario;
+    private String cuenta;
+    private String repass;
+   
 
     /**
      * Creates a new instance of Registro
+     * @return 
      */
-    public Registro() {
 
+     public String getCuenta() {
+        return cuenta;
     }
 
-    public String getUsuario() {
+    public void setCuenta(String cuenta) {
+        this.cuenta = cuenta;
+    }
+    
+    public Registro() {
+        usuario = new Usuario();
+    }
+    
+    public Usuario getUsuario() {
         return usuario;
     }
-
-    public String getCorreoele() {
-        return correoele;
+    
+    public String getRepass() {
+        return repass;
     }
 
-    public void setCorreoele(String correoele) {
-        this.correoele = correoele;
+    public void setRepass(String repass) {
+        this.repass = repass;
     }
 
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getApellidos() {
-        return apellidos;
-    }
-
-    public void setApellidos(String apellidos) {
-        this.apellidos = apellidos;
-    }
-
-    public String getDomicilio() {
-        return domicilio;
-    }
-
-    public void setDomicilio(String domicilio) {
-        this.domicilio = domicilio;
-    }
-
-    public String getTelefono() {
-        return telefono;
-    }
-
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
-    }
-
-    public String getContrasenia() {
-        return contrasenia;
-    }
-
-    public String getContrasenia2() {
-        return contrasenia2;
-    }
-
-    public void setUsuario(String usuario) {
+    public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
 
-    public void setContrasenia(String contrasenia) {
-        this.contrasenia = contrasenia;
-    }
-
-    public void setContrasenia2(String contrasenia2) {
-        this.contrasenia2 = contrasenia2;
-    }
-
-    public ServicioUsuarios getServicio() {
-        return servicio;
-    }
-
-    public void setServicio(ServicioUsuarios servicio) {
-        this.servicio = servicio;
-    }
-    
-    public String valido() {
-        if (servicio.obtenerUsuario(usuario) == null && servicio.correoDisponible(correoele) && contrasenia.equals(contrasenia2)) {
-            Usuario nuevo = new Usuario(usuario,contrasenia,nombre,apellidos,correoele,domicilio,telefono);
-            servicio.añadirUsuario(nuevo);
+    public String registrarUsuario() throws AcoesException {
+       
+        try{
+            usuario.setFechaAlta(new java.sql.Date(Calendar.getInstance().getTime().getTime()));
+            negocio.registrarUsuario(usuario);
             return "login.xhtml";
-        } else {
-            return "errorregistro.xhtml";
+        }catch(CuentaRepetidaException e){
+            FacesMessage fm = new FacesMessage("Existe un usuario con la misma cuenta, dni o correo electrónico.");
+            FacesContext.getCurrentInstance().addMessage("registro:user", fm);   
         }
+        return null;        
+        
     }
-
+     
     public String reinicio() {
         return "login.xhtml";
     }

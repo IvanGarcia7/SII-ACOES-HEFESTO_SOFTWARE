@@ -10,9 +10,7 @@
             <c:when test="#{!controlAutorizacion.logeado}">
 
                 <h:body>
-
-
-                    <h:graphicImage styleClass="logo" height="200px" value = "./resources/Imagenes/logo.jpg"/> 
+                    <h:graphicImage styleClass="logo" height="100px" value = "./resources/Imagenes/logo.jpg"/> 
                     <div class=" formularioiniciosesion">
                         <h2>Registrese en Acoes:</h2>
                         <h:form>
@@ -21,7 +19,7 @@
                                 <label>Correo:</label>
                                 <div class="group">
                                     <i class="usuarioinicio"></i>
-                                    <h:inputText value="#{registro.correoele}" class="form-control" required="required">
+                                    <h:inputText value="#{registro.usuario.correoElectronico}" class="form-control" required="required">
                                         <f:validateRegex pattern="[0-9a-zA-Z._-]+@[0-9a-zA-Z._-]+(\.[0-9a-zA-Z._-]+)+"/>
                                     </h:inputText>
                                 </div>
@@ -31,7 +29,7 @@
                                 <label>Usuario:</label>
                                 <div class="group">
                                     <i class="contrasenaregistro"></i>
-                                    <h:inputText value="#{registro.usuario}" class="form-control" required="required" />
+                                    <h:inputText value="#{registro.usuario.usuario}" class="form-control" required="required" />
                                 </div>
                             </div>
 
@@ -39,7 +37,7 @@
                                 <label>Nombre:</label>
                                 <div class="group">
                                     <i class="contrasenaregistro"></i>
-                                    <h:inputText value="#{registro.nombre}" class="form-control" required="required" />
+                                    <h:inputText value="#{registro.usuario.nombre}" class="form-control" required="required" />
                                 </div>
                             </div>
 
@@ -47,7 +45,7 @@
                                 <label>Apellidos:</label>
                                 <div class="group">
                                     <i class="contrasenaregistro"></i>
-                                    <h:inputText value="#{registro.apellidos}" class="form-control" required="required" />
+                                    <h:inputText value="#{registro.usuario.apellidos}" class="form-control" required="required" />
                                 </div>
                             </div>
 
@@ -55,7 +53,7 @@
                                 <label>Domicilio:</label>
                                 <div class="group">
                                     <i class="contrasenaregistro"></i>
-                                    <h:inputText value="#{registro.domicilio}" class="form-control" required="required" />
+                                    <h:inputText value="#{registro.usuario.direccion}" class="form-control" required="required" />
                                 </div>
                             </div>
 
@@ -63,39 +61,83 @@
                                 <label>Teléfono de contacto:</label>
                                 <div class="group">
                                     <i class="contrasenaregistro"></i>
-                                    <h:inputText value="#{registro.telefono}" class="form-control" required="required" >
+                                    <h:inputText value="#{registro.usuario.telefono}" class="form-control" required="required" >
                                         <f:validateRegex pattern="[0-9]+"/>
                                     </h:inputText>
                                 </div>
                             </div>
+                            
+                            <div class="cabeceraformularioregistro">
+                                <label>Dni:</label>
+                                <div class="group">
+                                    <i class="contrasenaregistro"></i>
+                                    <h:inputText value="#{registro.usuario.dni}" class="form-control" required="required" >
+                                        
+                                    </h:inputText>
+                                </div>
+                            </div>
+                            
+                            
+                            
 
 
+                            <div class="cabeceraformularioregistro">
+                                <label>Direccion</label>
+                                <div class="group">
+                                    <i class="contrasenaregistro"></i>
+                                    <h:inputText value="#{registro.usuario.direccion}" class="form-control" required="required" >
+                                        <f:validateLength minimum="8" maximum="40"/>
+                                    </h:inputText>
+                                </div>
+                            </div>
+                            
+                            <div class="cabeceraformularioregistro">
+                                <label>Poblacion:</label>
+                                <div class="group">
+                                    <i class="contrasenaregistro"></i>
+                                    <h:inputText value="#{registro.usuario.poblacion}" class="form-control" required="required" >
+                                        
+                                    </h:inputText>
+                                </div>
+                            </div>
+                            
+                            <div class="cabeceraformularioregistro">
+                                <label>Codigo Postal:</label>
+                                <div class="group">
+                                    <i class="contrasenaregistro"></i>
+                                    <h:inputText value="#{registro.usuario.codigoPostal}" class="form-control" required="required" >
+                                        
+                                    </h:inputText>
+                                </div>
+                            </div>
+                            
+                            <div class="cabeceraformularioregistro">
+                                <label>Provincia:</label>
+                                <div class="group">
+                                    <i class="contrasenaregistro"></i>
+                                    <h:inputText value="#{registro.usuario.provincia}" class="form-control" required="required" >
+                                        
+                                    </h:inputText>
+                                </div>
+                            </div>
+                            
+                            
                             <div class="cabeceraformularioregistro">
                                 <label>Contraseña:</label>
                                 <div class="group">
                                     <i class="contrasenaregistro"></i>
-                                    <h:inputSecret value="#{registro.contrasenia}" class="form-control" required="required" >
-                                        <f:validateLength minimum="8" maximum="40"/>
+                                    <h:inputSecret value="#{registro.usuario.contraseña}" class="form-control" required="required" >
+                                        
                                     </h:inputSecret>
                                 </div>
                             </div>
+                            
+                          
 
-                            <div class="cabeceraformularioregistro">
-                                <label>Repita su Contraseña:</label>
-                                <div class="group">
-                                    <i class="contrasenaregistro"></i>
-                                    <h:inputSecret value="#{registro.contrasenia2}" class="form-control" required="required" >
-                                        <f:validateLength minimum="8" maximum="40"/>
-                                    </h:inputSecret>
-                                </div>
-                            </div>
-
-
-
-
+                           
                             <div class="forgot">
                             </div>
-                            <h:commandButton styleClass="botonautenticar" value="Registro" action="#{registro.valido()}"/>
+                            <h:commandButton styleClass="botonautenticar" value="Registro" action="#{registro.registrarUsuario()}"/>
 
                         </h:form>
                         <br></br>

@@ -23,11 +23,11 @@ public class Usuario implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
-    @Column(length = 30)
+    
     private String usuario;
     @Column(length = 30, nullable = false)
     private String contraseña;
-    @Column(length = 30, nullable = false)
+    @Column(length = 30)
     private String nombre;
     @Column(length = 60, nullable = false)
     private String apellidos;
@@ -58,10 +58,7 @@ public class Usuario implements Serializable {
 
     }
 
-    public Usuario(String usuario, String contraseña) {
-        setUsuario(usuario);
-        setContraseña(contraseña);
-    }
+   
 
     public Usuario(String usuario, String contraseña, String nombre, String apellidos, String correo, String direccion, String telefono) {
         this.usuario = usuario;
@@ -87,6 +84,8 @@ public class Usuario implements Serializable {
         this.correoElectronico = correoElectronico;
         this.fechaAlta = fechaAlta;
     }
+    
+    
     
     public String getDni() {
         return dni;
