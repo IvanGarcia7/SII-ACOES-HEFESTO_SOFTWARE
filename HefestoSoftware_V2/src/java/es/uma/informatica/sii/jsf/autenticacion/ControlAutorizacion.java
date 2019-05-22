@@ -61,6 +61,7 @@ public class ControlAutorizacion implements Serializable {
         usuario = null;
         empleado = null;
         logeado = false;
+        
         return "login.xhtml";
     }
 

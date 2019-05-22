@@ -48,6 +48,7 @@ public class Login {
             
             negocio.compruebaLogin(usuario);
             ctrl.setUsuario(usuario);
+            ctrl.setLogeado(true);
             return "normal.xhtml";
             
         } catch (CuentaInexistenteException e) {

@@ -51,6 +51,7 @@ public class LoginAdministrador {
             
             negocio.compruebaLoginEmpleado(empleado);
             ctrl.setEmpleado(empleado);
+            ctrl.setLogeado(true);
             return "admin.xhtml";
             
         } catch (CuentaInexistenteException e) {
