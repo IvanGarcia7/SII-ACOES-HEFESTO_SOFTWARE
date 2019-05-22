@@ -20,7 +20,7 @@
                                 <label>Usuario:</label>
                                 <div class="group">
                                     <i class="usuarioinicio"></i>
-                                    <h:inputText value="#{login.usuario}" class="form-control" required="required" />
+                                    <h:inputText value="#{login.usuario.usuario}" class="form-control" required="required" />
 
                                 </div>
                             </div>
@@ -28,12 +28,12 @@
                                 <label>Contraseña:</label>
                                 <div class="group">
                                     <i class="contrasenaregistro"></i>
-                                    <h:inputSecret value="#{login.contrasenia}" class="form-control" required="required" />
+                                    <h:inputSecret value="#{login.usuario.contraseña}" class="form-control" required="required" />
                                 </div>
                             </div>
                             <div class="forgot">
                             </div>
-                            <h:commandButton styleClass="botonautenticar" value="Autenticar" action="#{login.autenticar()}"/>
+                            <h:commandButton styleClass="botonautenticar" value="Autenticar" action="#{login.entrar()}"/>
 
                         </h:form>
                         <br></br>

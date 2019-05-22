@@ -12,5 +12,6 @@ public class AcoesException extends Exception {
 
     public AcoesException(String msg) {
         super(msg);
+        
     }
 }

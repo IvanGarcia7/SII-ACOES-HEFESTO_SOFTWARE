@@ -12,6 +12,7 @@ package es.uma.informatica.sii.jsf.autenticacion;
 public class CuentaInexistenteException extends AcoesException {
 
     public CuentaInexistenteException() {
+        
     }
     
 }

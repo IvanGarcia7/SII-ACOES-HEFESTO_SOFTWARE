@@ -6,74 +6,68 @@ package es.uma.informatica.sii.jsf.autenticacion;
 
 import es.uma.informatica.sii.jsf.autenticacion.modelo.Empleado;
 
+import javax.ejb.EJB;
+
 
 import javax.inject.Named;
 import javax.enterprise.context.RequestScoped;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 
 @Named(value = "loginadministrador")
 @RequestScoped
 public class LoginAdministrador {
 
-    private String empleado;
-    private String contrasenia;
-
+    @Inject
+    private InfoSesion sesion;
+    
+    @EJB
+    private NegocioAdmin negocio;
+    
+    private Empleado empleado;
+   
     @Inject
     private ControlAutorizacion ctrl;
-    @Inject
-    private ServicioAdministrador servicio;
+    
 
     /**
      * Creates a new instance of Login
      */
     public LoginAdministrador() {
-
+        empleado = new Empleado();
     }
 
-    public String getEmpleado() {
+    public Empleado getEmpleado() {
         return empleado;
     }
 
-    public void setEmpleado(String usuario) {
+    public void setEmpleado(Empleado usuario) {
         this.empleado = usuario;
     }
 
-    public String getContrasenia() {
-        return contrasenia;
-    }
-
-    public void setContrasenia(String contrasenia) {
-        this.contrasenia = contrasenia;
-    }
-
-    public ControlAutorizacion getCtrl() {
-        return ctrl;
-    }
-
-    public void setCtrl(ControlAutorizacion ctrl) {
-        this.ctrl = ctrl;
+    public String entrar() throws AcoesException {
+        try {
+            
+            negocio.compruebaLoginEmpleado(empleado);
+            ctrl.setEmpleado(empleado);
+            return "admin.xhtml";
+            
+        } catch (CuentaInexistenteException e) {
+            FacesMessage fm = new FacesMessage("La cuenta no existe");
+            FacesContext.getCurrentInstance().addMessage("login:user", fm);
+        } catch (ContraseniaInvalidaException e) {
+            FacesMessage fm = new FacesMessage("La contraseña no es correcta");
+            FacesContext.getCurrentInstance().addMessage("login:pass", fm);
+        } catch (AcoesException e) {
+            FacesMessage fm = new FacesMessage("Error: " + e);
+            FacesContext.getCurrentInstance().addMessage(null, fm);
+        }
+        return "error.xhtml";
     }
     
-    public ServicioAdministrador getServicio() {
-        return servicio;
-    }
-
-    public void setServicio(ServicioAdministrador servicio) {
-        this.servicio = servicio;
-    }
-
-    public String autenticar() {
-        Empleado e = servicio.obtenerAdministrador(empleado);
-        if (e != null && e.getContraseña().equals(contrasenia)) {
-            ctrl.setEmpleado(e);
-            ctrl.setLogeado(true);
-            return ctrl.home();
-        } else {
-            return "error.xhtml";
-        }
-    }
-
-    public String reinicio() {
+    public String reinicio(){
         return "login.xhtml";
     }
+
 }

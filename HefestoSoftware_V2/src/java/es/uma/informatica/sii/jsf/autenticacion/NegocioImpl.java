@@ -18,6 +18,8 @@ public class NegocioImpl implements Negocio {
 
     @PersistenceContext(unitName = "HefestoBD")
     private EntityManager em;
+    
+    
 
     @Override
     public void registrarUsuario(Usuario u) throws AcoesException {
@@ -42,16 +44,17 @@ public class NegocioImpl implements Negocio {
         
     }
 
-    
-
-    
-
-    
+    /**
+     *
+     * @param u
+     * @return
+     * @throws AcoesException
+     */
     @Override
     public void compruebaLogin(Usuario u)  throws AcoesException {
         // TODO
         
-        Usuario busqueda = em.find(Usuario.class, u);
+        Usuario busqueda = em.find(Usuario.class, u.getUsuario());
         if(busqueda==null){
             //El usuario no existe dentro de la base de datos
             throw new CuentaInexistenteException();
@@ -59,6 +62,8 @@ public class NegocioImpl implements Negocio {
                 throw new ContraseniaInvalidaException();
             
         }
+        
+        
     }
 
     
@@ -66,8 +71,7 @@ public class NegocioImpl implements Negocio {
     public Usuario refrescarUsuario(Usuario u) throws AcoesException {
         // TODO
         compruebaLogin(u);
-        em.refresh(u);
-        Usuario busquedaUsuario = em.find(Usuario.class, u);
+        Usuario busquedaUsuario = em.find(Usuario.class, u.getUsuario());
         return busquedaUsuario;
     }
 
