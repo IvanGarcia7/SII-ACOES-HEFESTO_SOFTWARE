@@ -10,6 +10,7 @@ import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import java.sql.Date;
+import javax.ejb.EJB;
 
 /**
  *
@@ -20,10 +21,12 @@ import java.sql.Date;
 public class NuevaCarta {
     private Carta carta;
     
-    @Inject
-    private ServicioCartas servicio;
+   
     @Inject
     private ControlAutorizacion ctrl;
+    
+    @EJB
+    private Negocio negocio;
     
     public NuevaCarta(){
         carta = new Carta();
@@ -33,7 +36,7 @@ public class NuevaCarta {
         carta.setUsuario(ctrl.getUsuario());
         carta.setEmisor(true);
         carta.setFechaEnvio(new Date(System.currentTimeMillis()));
-        servicio.añadirCarta(carta);
+        negocio.añadirCarta(carta);
     }
 
     public Carta getCarta() {
@@ -44,13 +47,6 @@ public class NuevaCarta {
         this.carta = carta;
     }
 
-    public ServicioCartas getServicio() {
-        return servicio;
-    }
-
-    public void setServicio(ServicioCartas servicio) {
-        this.servicio = servicio;
-    }
 
     public ControlAutorizacion getCtrl() {
         return ctrl;

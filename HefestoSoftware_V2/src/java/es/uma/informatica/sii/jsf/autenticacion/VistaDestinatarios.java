@@ -9,6 +9,7 @@ import es.uma.informatica.sii.jsf.autenticacion.modelo.Niño;
 import java.io.Serializable;
 import java.util.List;
 import javax.annotation.PostConstruct;
+import javax.ejb.EJB;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -23,14 +24,14 @@ public class VistaDestinatarios implements Serializable {
 
     private List<Niño> destinatarios;
 
-    @Inject
-    private ServicioPadrinos servicio;
+    @EJB
+    private Negocio negocio;
     @Inject
     private ControlAutorizacion ctrl;
 
     @PostConstruct
     public void init() {
-        destinatarios = servicio.obtenerNiñosApadrinados(ctrl.getUsuario());
+        destinatarios = negocio.obtenerNiñosApadrinados(ctrl.getUsuario());
     }
 
     public List<Niño> getDestinatarios() {
@@ -41,13 +42,7 @@ public class VistaDestinatarios implements Serializable {
         this.destinatarios = destinatarios;
     }
 
-    public ServicioPadrinos getServicio() {
-        return servicio;
-    }
-
-    public void setServicio(ServicioPadrinos servicio) {
-        this.servicio = servicio;
-    }
+   
 
     public ControlAutorizacion getCtrl() {
         return ctrl;

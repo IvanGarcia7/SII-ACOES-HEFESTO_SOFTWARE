@@ -6,11 +6,16 @@
 package es.uma.informatica.sii.jsf.autenticacion;
 
 
+import es.uma.informatica.sii.jsf.autenticacion.modelo.Carta;
+import es.uma.informatica.sii.jsf.autenticacion.modelo.Niño;
 import es.uma.informatica.sii.jsf.autenticacion.modelo.Usuario;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 
 @Stateless
@@ -73,6 +78,19 @@ public class NegocioImpl implements Negocio {
         compruebaLogin(u);
         Usuario busquedaUsuario = em.find(Usuario.class, u.getUsuario());
         return busquedaUsuario;
+    }
+
+    @Override
+    public void añadirCarta(Carta carta) {
+        em.persist(carta);
+    }
+
+    @Override
+    public List<Niño> obtenerNiñosApadrinados(Usuario usuario) {
+        
+        Query query = em.createQuery("SELECT c FROM HistorialPadrinos c WHERE c.usuario = :fname");
+        query.setParameter("fname", usuario);
+        return query.getResultList();
     }
 
    

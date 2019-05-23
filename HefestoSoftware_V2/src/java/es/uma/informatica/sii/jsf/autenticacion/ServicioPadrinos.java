@@ -38,7 +38,7 @@ public class ServicioPadrinos implements Serializable {
         Niño n2 = sn.obtenerNiño("n2");
         Niño n3 = sn.obtenerNiño("n3");
         Niño n4 = sn.obtenerNiño("n4");
-        Usuario u1 = su.obtenerUsuario("pepe");
+        Usuario u1 = su.obtenerUsuario("ivan_0");
         Usuario u2 = su.obtenerUsuario("angel");
         apadrinamientos.add(new HistorialPadrinos(new Long(1),n1, u1,"2018-02-01"));
         apadrinamientos.add(new HistorialPadrinos(new Long(2),n2, u1,"2018-03-11"));

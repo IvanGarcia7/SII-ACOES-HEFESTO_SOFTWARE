@@ -12,6 +12,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.Table;
 import javax.persistence.ManyToOne;
 
@@ -35,6 +36,7 @@ public class HistorialPadrinos implements Serializable {
     @ManyToOne
     private Niño niño;
     @ManyToOne
+    @JoinColumn(name="Usuario")
     private Usuario usuario;
     
     public HistorialPadrinos(){
