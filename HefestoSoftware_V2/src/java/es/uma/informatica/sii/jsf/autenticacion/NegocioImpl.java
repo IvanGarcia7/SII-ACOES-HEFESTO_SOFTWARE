@@ -7,9 +7,11 @@ package es.uma.informatica.sii.jsf.autenticacion;
 
 
 import es.uma.informatica.sii.jsf.autenticacion.modelo.Carta;
+import es.uma.informatica.sii.jsf.autenticacion.modelo.HistorialPadrinos;
 import es.uma.informatica.sii.jsf.autenticacion.modelo.Niño;
 import es.uma.informatica.sii.jsf.autenticacion.modelo.Usuario;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import javax.ejb.Stateless;
@@ -88,10 +90,15 @@ public class NegocioImpl implements Negocio {
     @Override
     public List<Niño> obtenerNiñosApadrinados(Usuario usuario) {
         
-        Query query = em.createQuery("SELECT c FROM HistorialPadrinos c WHERE c.usuario = :fname");
+        Query query = em.createQuery("SELECT c.niño FROM HistorialPadrinos c WHERE c.usuario = :fname");
+        
+        
         query.setParameter("fname", usuario);
         return query.getResultList();
     }
+    
+    
+
 
    
 

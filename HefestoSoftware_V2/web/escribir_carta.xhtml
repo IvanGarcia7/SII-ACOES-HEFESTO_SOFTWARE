@@ -12,7 +12,6 @@
             <c:when test="#{not empty controlAutorizacion.usuario}">
                 <h:graphicImage styleClass="logo" height="200px" value = "./resources/Imagenes/logo1.png"/> 
                 <h1>Escriba una nueva Carta:</h1>
-
                 <h:form enctype='multipart/form-data' id="formularioespecial">
                     <table style="width: 100%;align-content: center;align-self: center; margin-left: 10%; margin-top: 20px;">
                         <tr>
@@ -38,11 +37,12 @@
                                     <tr><td><h:message for="destinatario" style="color: darkred;"/>Escoge al niño destinatario</td></tr>
                                     <tr><td>
                                             <h:selectOneMenu class="textoinput1" id="destinatario" value="#{nuevaCarta.carta.niño}" converter="#{niñoConverter}" required="true" requiredMessage="(*)">
-                                                <f:selectItems value="#{vistaDestinatarios.destinatarios}" var="niño" itemValue="#{niño}" itemLabel="#{niño.nombre} #{niño.apellidos}"/>
+                                                <f:selectItems value="#{negocio.obtenerNiñosApadrinados(ctrl.getUsuario())}" var="niño" itemValue="#{niño}" itemLabel="#{niño.nombre} #{niño.apellidos}"/>
                                             </h:selectOneMenu>
                                     </td></tr>
                                     <tr><td><h:inputFile class="textoinput2" value="#{nuevaCarta.carta.adjunto}"/></td></tr>
                                     <tr><td><h:commandButton class="textoinput2" value="Enviar carta" action="#{nuevaCarta.enviarCarta()}"/></td></tr>
+                                   
                                 </table>
                             </td>
                         </tr>

@@ -20,6 +20,7 @@ public interface Negocio {
 
     public List<Niño> obtenerNiñosApadrinados(Usuario usuario);
 
+    
    
 }
 
