@@ -37,7 +37,9 @@ public class NegocioImpl implements Negocio {
         Usuario user1 = em.find(Usuario.class, u.getDni());
         Usuario user2 = em.find(Usuario.class, u.getCorreoElectronico());
         
-        if (user != null || user1.getDni().equals(u.getDni()) || user2.getCorreoElectronico().equals(u.getCorreoElectronico()) ) {
+        if (user != null || user1 != null || user2 != null){
+            
+            
             // El usuario ya existe
             throw new CuentaRepetidaException();
         }else{
