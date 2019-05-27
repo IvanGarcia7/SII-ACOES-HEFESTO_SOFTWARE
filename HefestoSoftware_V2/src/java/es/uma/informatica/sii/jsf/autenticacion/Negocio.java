@@ -5,6 +5,7 @@ package es.uma.informatica.sii.jsf.autenticacion;
 import es.uma.informatica.sii.jsf.autenticacion.modelo.Carta;
 import es.uma.informatica.sii.jsf.autenticacion.modelo.Empleado;
 import es.uma.informatica.sii.jsf.autenticacion.modelo.Niño;
+import es.uma.informatica.sii.jsf.autenticacion.modelo.Peticion;
 import es.uma.informatica.sii.jsf.autenticacion.modelo.Usuario;
 import java.util.List;
 import javax.ejb.Local;
@@ -20,7 +21,7 @@ public interface Negocio {
 
     public List<Niño> obtenerNiñosApadrinados(Usuario usuario);
 
-    
+    public void enviarPeticion(Peticion peticion);
    
 }
 

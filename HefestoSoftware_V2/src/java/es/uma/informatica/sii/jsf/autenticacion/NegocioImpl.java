@@ -9,6 +9,7 @@ package es.uma.informatica.sii.jsf.autenticacion;
 import es.uma.informatica.sii.jsf.autenticacion.modelo.Carta;
 import es.uma.informatica.sii.jsf.autenticacion.modelo.HistorialPadrinos;
 import es.uma.informatica.sii.jsf.autenticacion.modelo.Niño;
+import es.uma.informatica.sii.jsf.autenticacion.modelo.Peticion;
 import es.uma.informatica.sii.jsf.autenticacion.modelo.Usuario;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -37,9 +38,7 @@ public class NegocioImpl implements Negocio {
         Usuario user1 = em.find(Usuario.class, u.getDni());
         Usuario user2 = em.find(Usuario.class, u.getCorreoElectronico());
         
-        if (user != null || user1 != null || user2 != null){
-            
-            
+        if (user != null || user1.getDni().equals(u.getDni()) || user2.getCorreoElectronico().equals(u.getCorreoElectronico()) ) {
             // El usuario ya existe
             throw new CuentaRepetidaException();
         }else{
@@ -99,7 +98,10 @@ public class NegocioImpl implements Negocio {
         return query.getResultList();
     }
     
-    
+    @Override
+    public void enviarPeticion(Peticion peticion){
+        em.persist(peticion);
+    }
 
 
    

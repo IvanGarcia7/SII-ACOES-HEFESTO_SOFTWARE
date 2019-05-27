@@ -3,38 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Users/ivan/Documents/GitHub/SII-ACOES-HEFESTO_SOFTWARE/HefestoSoftware_V2/src/java/es/uma/informatica/sii/jsf/autenticacion/NuevaCarta.java</file>
-            <file>file:/Users/ivan/Documents/GitHub/SII-ACOES-HEFESTO_SOFTWARE/HefestoSoftware_V2/web/login.xhtml</file>
-            <file>file:/Users/ivan/Documents/GitHub/SII-ACOES-HEFESTO_SOFTWARE/HefestoSoftware_V2/web/WEB-INF/web.xml</file>
-            <file>file:/Users/ivan/Documents/GitHub/SII-ACOES-HEFESTO_SOFTWARE/HefestoSoftware_V2/src/java/es/uma/informatica/sii/jsf/autenticacion/NegocioAdmin.java</file>
-            <file>file:/Users/ivan/Documents/GitHub/SII-ACOES-HEFESTO_SOFTWARE/HefestoSoftware_V2/src/conf/persistence.xml</file>
-            <file>file:/Users/ivan/Documents/GitHub/SII-ACOES-HEFESTO_SOFTWARE/HefestoSoftware_V2/web/HistorialNinos.xhtml</file>
-            <file>file:/Users/ivan/Documents/GitHub/SII-ACOES-HEFESTO_SOFTWARE/HefestoSoftware_V2/src/java/es/uma/informatica/sii/jsf/autenticacion/NuevoPaquete.java</file>
-            <file>file:/Users/ivan/Documents/GitHub/SII-ACOES-HEFESTO_SOFTWARE/HefestoSoftware_V2/src/java/es/uma/informatica/sii/jsf/autenticacion/Registro.java</file>
-            <file>file:/Users/ivan/Documents/GitHub/SII-ACOES-HEFESTO_SOFTWARE/HefestoSoftware_V2/web/AccesoPeticion.xhtml</file>
-            <file>file:/Users/ivan/Documents/GitHub/SII-ACOES-HEFESTO_SOFTWARE/HefestoSoftware_V2/src/java/es/uma/informatica/sii/jsf/autenticacion/CuentaRepetidaException.java</file>
-            <file>file:/Users/ivan/Documents/GitHub/SII-ACOES-HEFESTO_SOFTWARE/HefestoSoftware_V2/src/java/es/uma/informatica/sii/jsf/autenticacion/HistorialCartasAdmin.java</file>
-            <file>file:/Users/ivan/Documents/GitHub/SII-ACOES-HEFESTO_SOFTWARE/HefestoSoftware_V2/web/escribir_carta.xhtml</file>
-            <file>file:/Users/ivan/Documents/GitHub/SII-ACOES-HEFESTO_SOFTWARE/HefestoSoftware_V2/src/java/es/uma/informatica/sii/jsf/autenticacion/ServicioNiños.java</file>
-            <file>file:/Users/ivan/Documents/GitHub/SII-ACOES-HEFESTO_SOFTWARE/HefestoSoftware_V2/src/java/es/uma/informatica/sii/jsf/autenticacion/AcoesException.java</file>
-            <file>file:/Users/ivan/Documents/GitHub/SII-ACOES-HEFESTO_SOFTWARE/HefestoSoftware_V2/src/java/es/uma/informatica/sii/jsf/autenticacion/ServicioCartas.java</file>
-            <file>file:/Users/ivan/Documents/GitHub/SII-ACOES-HEFESTO_SOFTWARE/HefestoSoftware_V2/src/java/es/uma/informatica/sii/jsf/autenticacion/modelo/Niño.java</file>
-            <file>file:/Users/ivan/Documents/GitHub/SII-ACOES-HEFESTO_SOFTWARE/HefestoSoftware_V2/web/Registro.xhtml</file>
-            <file>file:/Users/ivan/Documents/GitHub/SII-ACOES-HEFESTO_SOFTWARE/HefestoSoftware_V2/web/WEB-INF/templates/plantilla.xhtml</file>
-            <file>file:/Users/ivan/Documents/GitHub/SII-ACOES-HEFESTO_SOFTWARE/HefestoSoftware_V2/src/java/es/uma/informatica/sii/jsf/autenticacion/modelo/HistorialPadrinos.java</file>
-            <file>file:/Users/ivan/Documents/GitHub/SII-ACOES-HEFESTO_SOFTWARE/HefestoSoftware_V2/src/java/es/uma/informatica/sii/jsf/autenticacion/ControlAutorizacion.java</file>
-            <file>file:/Users/ivan/Documents/GitHub/SII-ACOES-HEFESTO_SOFTWARE/HefestoSoftware_V2/src/java/es/uma/informatica/sii/jsf/autenticacion/modelo/Carta.java</file>
-            <file>file:/Users/ivan/Documents/GitHub/SII-ACOES-HEFESTO_SOFTWARE/HefestoSoftware_V2/src/java/es/uma/informatica/sii/jsf/autenticacion/Login.java</file>
-            <file>file:/Users/ivan/Documents/GitHub/SII-ACOES-HEFESTO_SOFTWARE/HefestoSoftware_V2/src/java/es/uma/informatica/sii/jsf/autenticacion/modelo/HefestoSoftware.java</file>
-            <file>file:/Users/ivan/Documents/GitHub/SII-ACOES-HEFESTO_SOFTWARE/HefestoSoftware_V2/web/HistorialCartasNinos.xhtml</file>
-            <file>file:/Users/ivan/Documents/GitHub/SII-ACOES-HEFESTO_SOFTWARE/HefestoSoftware_V2/web/historial_cartas.xhtml</file>
-            <file>file:/Users/ivan/Documents/GitHub/SII-ACOES-HEFESTO_SOFTWARE/HefestoSoftware_V2/src/java/es/uma/informatica/sii/jsf/autenticacion/VistaDestinatarios.java</file>
-            <file>file:/Users/ivan/Documents/GitHub/SII-ACOES-HEFESTO_SOFTWARE/HefestoSoftware_V2/src/java/es/uma/informatica/sii/jsf/autenticacion/ServicioPadrinos.java</file>
-            <file>file:/Users/ivan/Documents/GitHub/SII-ACOES-HEFESTO_SOFTWARE/HefestoSoftware_V2/src/java/es/uma/informatica/sii/jsf/autenticacion/Negocio.java</file>
-            <file>file:/Users/ivan/Documents/GitHub/SII-ACOES-HEFESTO_SOFTWARE/HefestoSoftware_V2/src/java/es/uma/informatica/sii/jsf/autenticacion/ServicioUsuarios.java</file>
-            <file>file:/Users/ivan/Documents/GitHub/SII-ACOES-HEFESTO_SOFTWARE/HefestoSoftware_V2/src/java/es/uma/informatica/sii/jsf/autenticacion/NegocioImpl.java</file>
-            <file>file:/Users/ivan/Documents/GitHub/SII-ACOES-HEFESTO_SOFTWARE/HefestoSoftware_V2/src/java/es/uma/informatica/sii/jsf/autenticacion/modelo/Usuario.java</file>
-            <file>file:/Users/ivan/Documents/GitHub/SII-ACOES-HEFESTO_SOFTWARE/HefestoSoftware_V2/nbproject/build-impl.xml</file>
+            <file>file:/C:/Users/Antonio%20Manuel/Documents/NetBeans/SII-ACOES-HEFESTO_SOFTWARE-master/HefestoSoftware_V2/src/java/es/uma/informatica/sii/jsf/autenticacion/Registro.java</file>
+            <file>file:/C:/Users/Antonio%20Manuel/Documents/NetBeans/SII-ACOES-HEFESTO_SOFTWARE-master/HefestoSoftware_V2/src/java/es/uma/informatica/sii/jsf/autenticacion/ControlAutorizacion.java</file>
+            <file>file:/C:/Users/Antonio%20Manuel/Documents/NetBeans/SII-ACOES-HEFESTO_SOFTWARE-master/HefestoSoftware_V2/src/java/es/uma/informatica/sii/jsf/autenticacion/modelo/Peticion.java</file>
+            <file>file:/C:/Users/Antonio%20Manuel/Documents/NetBeans/SII-ACOES-HEFESTO_SOFTWARE-master/HefestoSoftware_V2/src/java/es/uma/informatica/sii/jsf/autenticacion/Login.java</file>
+            <file>file:/C:/Users/Antonio%20Manuel/Documents/NetBeans/SII-ACOES-HEFESTO_SOFTWARE-master/HefestoSoftware_V2/src/java/es/uma/informatica/sii/jsf/autenticacion/NuevaCarta.java</file>
+            <file>file:/C:/Users/Antonio%20Manuel/Documents/NetBeans/SII-ACOES-HEFESTO_SOFTWARE-master/HefestoSoftware_V2/src/java/es/uma/informatica/sii/jsf/autenticacion/EscribirPeticion.java</file>
+            <file>file:/C:/Users/Antonio%20Manuel/Documents/NetBeans/SII-ACOES-HEFESTO_SOFTWARE-master/HefestoSoftware_V2/src/java/es/uma/informatica/sii/jsf/autenticacion/NegocioImpl.java</file>
+            <file>file:/C:/Users/Antonio%20Manuel/Documents/NetBeans/SII-ACOES-HEFESTO_SOFTWARE-master/HefestoSoftware_V2/web/Registro.xhtml</file>
+            <file>file:/C:/Users/Antonio%20Manuel/Documents/NetBeans/SII-ACOES-HEFESTO_SOFTWARE-master/HefestoSoftware_V2/web/Escribir%20peticion.xhtml</file>
         </group>
     </open-files>
 </project-private>
