@@ -7,10 +7,12 @@ package es.uma.informatica.sii.jsf.autenticacion;
 
 import es.uma.informatica.sii.jsf.autenticacion.modelo.Carta;
 import es.uma.informatica.sii.jsf.autenticacion.modelo.Niño;
+import es.uma.informatica.sii.jsf.autenticacion.modelo.Peticion;
 import es.uma.informatica.sii.jsf.autenticacion.modelo.Usuario;
 import java.util.List;
 
 import javax.ejb.Stateless;
+import javax.faces.context.FacesContext;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
@@ -101,6 +103,13 @@ public class NegocioImpl implements Negocio {
 
         query.setParameter("fname", usuario);
         return query.getResultList();
+    }
+
+   
+    @Override
+    public void enviarPeticion(Peticion peticion){
+        em.persist(peticion);
+        FacesContext.getCurrentInstance().getApplication().getNavigationHandler().handleNavigation(FacesContext.getCurrentInstance(), null, "normal.xhtml");
     }
     
 }

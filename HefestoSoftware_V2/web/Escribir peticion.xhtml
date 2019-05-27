@@ -4,7 +4,8 @@
                 xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
                 xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
 
-                xmlns:f="http://xmlns.jcp.org/jsf/core">
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:p="http://primefaces.org/ui">
 
     <ui:define name="title">Escribir Petición</ui:define>
 
@@ -35,33 +36,49 @@
                                     <pre></pre>
                                     Seleccione el tipo de solicitud:
                                     <hr></hr>
-                                    <h:selectOneRadio value = "#{escribirPeticion.peticion.tipo}"> 
-                                        <f:selectItem itemValue = "true" itemLabel = "Solicitar Apadrinamientos" /> 
-                                        <f:selectItem itemValue = "false" itemLabel = "Cancelar Apadrinamientos" />
-                                        <f:converter converterId="javax.faces.Boolean"/>
-                                    </h:selectOneRadio>   
+                                    <input type="radio" name="solicitudT" value="#{escribirPeticion.peticion.tipo=true}"></input>Solicitar Apadrinamientos
+                                    <input type="radio" name="solicitudT" value="#{escribirPeticion.peticion.tipo=false}"></input>Cancelar Apadrinamientos   
 
                                     <br></br>
-                                    <br></br>
-
-                                    <tr><td>¿Desea añadir un comentario? Adelante:</td></tr>
-                                    <tr><td><h:inputText style="background: white; min-height: 100px; border: 1px black; border-radius: 3px; vertical-align: top;" value="#{escribirPeticion.peticion.descripcion}" required="true"/></td></tr>
-                                </table>
-                            </td>
-                            <td>
-                                <table style="width: 90%;">
+                                    
                                     <tr><td>Introduzca el número de niños para esta solicitud:</td></tr>
                                     <tr><td>
-                                            <h:inputText class="areaninos" value="#{escribirPeticion.peticion.numeroNiños}" required="true"/>
+                                            <h:inputText class="areaninos2" value="#{escribirPeticion.peticion.numeroNiños}" required="true"/>
                                         </td></tr>
+                                    <br></br>
+                                    <tr>
+                            <td>
+                                <pre>
+                                    
+                                </pre>
+                            </td>
+                        </tr>
 
-                                    <tr><td  id="confirmacion"><h:commandButton class="enviarsolicitud" value="Enviar solicitud" action="#{escribirPeticion.enviarPeticion()}" /></td></tr>
+                                    <tr><td>¿Desea añadir un comentario? Adelante:</td></tr>
+                                    <tr><td><h:inputTextarea class="areatexto" style="background: white; min-height: 100px; border: 1px black; border-radius: 3px; vertical-align: top;" value="#{escribirPeticion.peticion.descripcion}" /></td></tr>
+                                </table>
+                            </td>
+                 
+                            <td>
+                                <table style="width: 90%;">
+                                   
+
+                                    
                                 </table>
                             </td>
                         </tr>
                         <td>
                             <pre>
-                                
+
+                                <tr><td  id="confirmacion"><h:commandButton class="enviarsolicitud" value="Enviar solicitud" action="#{escribirPeticion.enviarPeticion()}" /></td></tr>
+                            
+                            </pre>
+
+                        </td>
+                        
+                        <td>
+                            <pre>
+
                             </pre>
 
                         </td>
@@ -79,5 +96,3 @@
         </c:choose>
     </ui:define>
 </ui:composition>
-
-
