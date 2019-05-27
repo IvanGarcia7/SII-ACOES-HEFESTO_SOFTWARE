@@ -23,7 +23,7 @@ public class HefestoSoftware {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("HefestoSoftwarePU");
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("HefestoBD");
         EntityManager em = emf.createEntityManager();
 
         //Creamos un nuevo niño vacio con los campos obligatorios definidos y forzamos para que se
