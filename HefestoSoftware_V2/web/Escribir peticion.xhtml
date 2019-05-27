@@ -6,6 +6,7 @@
 
                 xmlns:f="http://xmlns.jcp.org/jsf/core"
                 xmlns:p="http://primefaces.org/ui">
+    
 
     <ui:define name="title">Escribir Petición</ui:define>
 
@@ -36,9 +37,12 @@
                                     <pre></pre>
                                     Seleccione el tipo de solicitud:
                                     <hr></hr>
-                                    <input type="radio" name="solicitudT" value="#{escribirPeticion.peticion.tipo=true}"></input>Solicitar Apadrinamientos
-                                    <input type="radio" name="solicitudT" value="#{escribirPeticion.peticion.tipo=false}"></input>Cancelar Apadrinamientos   
-
+                                    <h:selectOneRadio value = "#{escribirPeticion.peticion.tipo}"> 
+                                        <f:selectItem itemValue = "#{true}"  itemLabel = "Solicitar Apadrinamientos" /> 
+                                        <f:selectItem itemValue = "#{false}"  itemLabel = "Cancelar Apadrinamientos" />
+                                    </h:selectOneRadio>   
+                                    
+                                    
                                     <br></br>
                                     
                                     <tr><td>Introduzca el número de niños para esta solicitud:</td></tr>

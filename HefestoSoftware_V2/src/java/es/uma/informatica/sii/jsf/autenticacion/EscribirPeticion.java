@@ -44,7 +44,7 @@ public class EscribirPeticion {
     }
     
     public void enviarPeticion(){
-        peticion.setTipo(Boolean.TRUE);
+        
         peticion.setFechaPeticion(new Date(Calendar.getInstance().getTime().getTime()));
         peticion.setUsuario(ctrl.getUsuario());
         negocio.enviarPeticion(peticion);
