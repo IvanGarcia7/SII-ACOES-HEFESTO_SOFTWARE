@@ -225,7 +225,7 @@ public class Usuario implements Serializable {
 
     @Override
     public String toString() {
-        return "hefestosoftware.Usuario[ usuario=" + usuario + " ]";
+        return usuario;
     }
 
 }

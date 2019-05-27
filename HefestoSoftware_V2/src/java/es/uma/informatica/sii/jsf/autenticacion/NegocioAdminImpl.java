@@ -5,14 +5,14 @@
  */
 package es.uma.informatica.sii.jsf.autenticacion;
 
-
 import es.uma.informatica.sii.jsf.autenticacion.modelo.Empleado;
-
-
+import es.uma.informatica.sii.jsf.autenticacion.modelo.Niño;
+import es.uma.informatica.sii.jsf.autenticacion.modelo.Usuario;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-
+import javax.persistence.Query;
 
 @Stateless
 public class NegocioAdminImpl implements NegocioAdmin {
@@ -27,20 +27,46 @@ public class NegocioAdminImpl implements NegocioAdmin {
      */
     @Override
     public void compruebaLoginEmpleado(Empleado empleado) throws AcoesException {
-       Empleado busqueda = em.find(Empleado.class, empleado.getUsuario());
-        if(busqueda==null){
+        Empleado busqueda = em.find(Empleado.class, empleado.getUsuario());
+        if (busqueda == null) {
             //El usuario no existe dentro de la base de datos
             throw new CuentaInexistenteException();
-        }else if(!empleado.getContraseña().equals(busqueda.getContraseña())){
-                throw new ContraseniaInvalidaException();
-            
+        } else if (!empleado.getContraseña().equals(busqueda.getContraseña())) {
+            throw new ContraseniaInvalidaException();
+
         }
     }
-    
-    
 
+    @Override
+    public List<Niño> obtenerNiños() {
+        Query query = em.createQuery("SELECT * FROM Niño");
+        return query.getResultList();
+    }
 
+    @Override
+    public Usuario obtenerUsuario(String usuario) {
+        return em.find(Usuario.class, usuario);
+    }
 
-    
+    @Override
+    public Niño obtenerNiño(String niño) {
+        return em.find(Niño.class, niño);
+    }
+
+    @Override
+    public void eliminarNiño(Niño niño) {
+        em.remove(em.merge(niño));
+    }
+
+    @Override
+    public List<Usuario> obtenerUsuarios() {
+        Query query = em.createQuery("SELECT * FROM Usuario");
+        return query.getResultList();
+    }
+
+    @Override
+    public void eliminarUsuario(Usuario usuario) {
+        em.remove(em.merge(usuario));
+    }
 
 }
