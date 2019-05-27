@@ -38,6 +38,12 @@ public class NuevaCarta {
         carta.setFechaEnvio(new Date(System.currentTimeMillis()));
         negocio.añadirCarta(carta);
     }
+    
+    public void digitalizarCarta(){
+        carta.setEmisor(false);
+        carta.setFechaEnvio(new Date(System.currentTimeMillis()));
+        negocio.añadirCarta(carta);
+    }
 
     public Carta getCarta() {
         return carta;
