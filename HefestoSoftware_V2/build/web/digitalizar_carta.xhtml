@@ -5,9 +5,9 @@
                 xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"     
                 xmlns:f="http://xmlns.jcp.org/jsf/core"
                 xmlns:p="http://primefaces.org/ui">
-    
+
     <ui:define name="title">Digitalizar</ui:define>
-    
+
     <ui:define name="content">
         <c:choose>
             <c:when test="#{not empty controlAutorizacion.empleado}">
@@ -23,7 +23,7 @@
                                 </pre>
                             </td>
                         </tr>
-                        
+
                         <tr>
                             <td>
                                 <table style="width: 90%;align-self: center;">
@@ -37,23 +37,26 @@
                                 <table style="width: 90%;">
                                     <tr><td><h:message for="emisor" style="color: darkred;"/>Escoge al niño emisor</td></tr>
                                     <tr><td>
-                                           <p:inputText style="background-color: white; width: 300px; height: 30px; display:inline-block; float: left;" placeholder="Introduzca el nombre del niño emisor."/>
-                                    </td></tr>
-                                    
-                                    
+                                            <h:selectOneMenu class="textoinput1" id="emisor" value="#{nuevaCarta.carta.niño}" converter="#{niñoConverter}" required="true" requiredMessage="(*)">
+                                                <f:selectItems value="#{negocio.obtenerNiños}" var="niño" itemValue="#{niño}" itemLabel="#{niño.nombre} #{niño.apellidos}"/>
+                                            </h:selectOneMenu>
+                                        </td></tr>
+
                                     <tr><td><h:message for="destinatario" style="color: darkred;"/>Escoge al padrino destinatario</td></tr>
                                     <tr><td>
-                                           <p:inputText style="background-color: white; width: 300px; height: 30px; display:inline-block; float: left;" placeholder="Introduzca el nombre del padrino destinatario."/>
-                                    </td></tr>
-                                    
-                                     <tr>
-                            <td>
-                                
-                            </td>
-                        </tr>
-                                    
+                                            <h:selectOneMenu class="textoinput1" id="destinatario" value="#{nuevaCarta.carta.usuario}" converter="#{usuarioConverter}" required="true" requiredMessage="(*)">
+                                                <f:selectItems value="#{negocio.obtenerUsuarios}" var="usuario" itemValue="#{usuario}" itemLabel="#{usuario.nombre} #{usuario.apellidos}"/>
+                                            </h:selectOneMenu>
+                                        </td></tr>
+
+                                    <tr>
+                                        <td>
+
+                                        </td>
+                                    </tr>
+
                                     <tr><td><h:inputFile class="textoinput2" value="#{nuevaCarta.carta.adjunto}"/></td></tr>
-                                    <tr><td><h:commandButton class="textoinput2" value="Digitalizar carta" action="#{nuevaCarta.enviarCarta()}"/></td></tr>
+                                    <tr><td><h:commandButton class="textoinput2" value="Digitalizar carta" action="#{nuevaCarta.digitalizarCarta()}"/></td></tr>
                                 </table>
                             </td>
                         </tr>
