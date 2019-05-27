@@ -22,7 +22,7 @@
                         <center>
                             <h2><h:outputText value="Listado de Usuarios:"/></h2>
                         </center>
-                        <p:dataTable value="#{negocioAdmin.obtenerUsuarios}" 
+                        <p:dataTable value="#{servicioUsuarios.usuarios}" 
                                      var="usuario"
                                      editable="true">
                             <p:ajax event="rowEdit" />
@@ -108,7 +108,7 @@
                                 <p:rowEditor />
                             </p:column>
                             <p:column>
-                                <p:commandButton action = "#{negocioAdmin.eliminarUsuario(usuario)}" value="Delete" update="@form"/>
+                                <p:commandButton action = "#{servicioUsuarios.delete(usuario.usuario)}" value="Delete" update="@form"/>
                             </p:column>
                         </p:dataTable>
                     </h:form>

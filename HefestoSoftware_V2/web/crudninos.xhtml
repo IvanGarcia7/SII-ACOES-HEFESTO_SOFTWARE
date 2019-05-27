@@ -9,18 +9,20 @@
     <ui:define name="title">CRUD Niños</ui:define>
     <ui:define name="content">
         <c:choose>
-            <c:when test="#{not empty controlAutorizacion.empleado}">
+           <c:when test="#{not empty controlAutorizacion.empleado}">
 
                 <h:head>
                     <title>Listado de Niños</title>
                     <h:outputStylesheet name="/css/bootstrap.min.css"/>
+
+
                 </h:head>
                 <h:body>
                     <h:form>
                         <center>
                             <h2><h:outputText value="Listado de Niños:"/></h2>
                         </center>
-                        <p:dataTable value="#{negocioAdmin.obtenerNiños}" 
+                        <p:dataTable value="#{servicioNiños.niños}" 
                                      var="niño"
                                      editable="true">
                             <p:ajax event="rowEdit" />
@@ -69,7 +71,7 @@
                                 <p:rowEditor />
                             </p:column>
                             <p:column>
-                                <p:commandButton action = "#{negocioAdmin.eliminarNiño(niño)}" value="Delete" update="@form"/>
+                                <p:commandButton action = "#{servicioNiños.delete(niño.usuario)}" value="Delete" update="@form"/>
                             </p:column>
                         </p:dataTable>
                         <center><h:commandButton action = "create.xhtml?faces-redirect=true" value="Crear un nuevo niño" class="btn btn-success"></h:commandButton> </center>
@@ -82,4 +84,3 @@
         </c:choose>
     </ui:define>
 </ui:composition>
-

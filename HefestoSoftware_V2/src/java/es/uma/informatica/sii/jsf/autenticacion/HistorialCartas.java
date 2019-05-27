@@ -7,17 +7,18 @@ package es.uma.informatica.sii.jsf.autenticacion;
 
 import es.uma.informatica.sii.jsf.autenticacion.modelo.Carta;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.PostConstruct;
-import javax.ejb.EJB;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
+import javax.inject.Named;
 
 /**
  *
  * @author Miguel
  */
-
+@Named
 @ViewScoped
 public class HistorialCartas implements Serializable {
 
@@ -25,23 +26,24 @@ public class HistorialCartas implements Serializable {
     private List<Carta> recibidas;
     private Carta seleccionada;
 
-    @EJB
-    private Negocio negocio;
+    @Inject
+    private ServicioCartas servicio;
     @Inject
     private ControlAutorizacion ctrl;
 
     @PostConstruct
     public void init() {
-        enviadas = negocio.obtenerCartasEnviadas(ctrl.getUsuario());
-        recibidas = negocio.obtenerCartasRecibidas(ctrl.getUsuario());
+        enviadas = new ArrayList<>();
+        recibidas = new ArrayList<>();
+        servicio.obtenerHistorial(ctrl.getUsuario().getUsuario(), enviadas, recibidas);
     }
 
-    public Negocio getNegocio() {
-        return negocio;
+    public ServicioCartas getServicio() {
+        return servicio;
     }
 
-    public void setNegocio(Negocio negocio) {
-        this.negocio = negocio;
+    public void setServicio(ServicioCartas servicio) {
+        this.servicio = servicio;
     }
 
     public Carta getSeleccionada() {

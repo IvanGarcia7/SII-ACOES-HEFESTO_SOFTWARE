@@ -7,9 +7,11 @@
     <class>hefestosoftware.Peticion</class>
     <class>hefestosoftware.Empleado</class>
     <class>hefestosoftware.Carta</class>
+    <class>hefestosoftware.HistorialCartas</class>
     <class>hefestosoftware.HistorialPadrinos</class>
     <class>hefestosoftware.Niño</class>
     <class>hefestosoftware.Paquete</class>
+    <class>hefestosoftware.HistorialPaquetes</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.schema-generation.scripts.action" value="dropcreate"/>
