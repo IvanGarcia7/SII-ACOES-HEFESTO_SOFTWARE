@@ -5,14 +5,10 @@
  */
 package es.uma.informatica.sii.jsf.autenticacion;
 
-
 import es.uma.informatica.sii.jsf.autenticacion.modelo.Carta;
-import es.uma.informatica.sii.jsf.autenticacion.modelo.HistorialPadrinos;
 import es.uma.informatica.sii.jsf.autenticacion.modelo.Niño;
 import es.uma.informatica.sii.jsf.autenticacion.modelo.Peticion;
 import es.uma.informatica.sii.jsf.autenticacion.modelo.Usuario;
-import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 
 import javax.ejb.Stateless;
@@ -20,14 +16,11 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
-
 @Stateless
 public class NegocioImpl implements Negocio {
 
     @PersistenceContext(unitName = "HefestoBD")
     private EntityManager em;
-    
-    
 
     @Override
     public void registrarUsuario(Usuario u) throws AcoesException {
@@ -49,7 +42,6 @@ public class NegocioImpl implements Negocio {
             throw new CuentaRepetidaException();
         }
 
-        
     }
 
     /**
@@ -59,22 +51,20 @@ public class NegocioImpl implements Negocio {
      * @throws AcoesException
      */
     @Override
-    public void compruebaLogin(Usuario u)  throws AcoesException {
+    public void compruebaLogin(Usuario u) throws AcoesException {
         // TODO
-        
+
         Usuario busqueda = em.find(Usuario.class, u.getUsuario());
-        if(busqueda==null){
+        if (busqueda == null) {
             //El usuario no existe dentro de la base de datos
             throw new CuentaInexistenteException();
-        }else if(!u.getContraseña().equals(busqueda.getContraseña())){
-                throw new ContraseniaInvalidaException();
-            
+        } else if (!u.getContraseña().equals(busqueda.getContraseña())) {
+            throw new ContraseniaInvalidaException();
+
         }
-        
-        
+
     }
 
-    
     @Override
     public Usuario refrescarUsuario(Usuario u) throws AcoesException {
         // TODO
@@ -90,10 +80,9 @@ public class NegocioImpl implements Negocio {
 
     @Override
     public List<Niño> obtenerNiñosApadrinados(Usuario usuario) {
-        
+
         Query query = em.createQuery("SELECT c.niño FROM HistorialPadrinos c WHERE c.usuario = :fname");
-        
-        
+
         query.setParameter("fname", usuario);
         return query.getResultList();
     }
@@ -103,10 +92,20 @@ public class NegocioImpl implements Negocio {
         em.persist(peticion);
     }
 
+    @Override
+    public List<Carta> obtenerCartasRecibidas(Usuario usuario) {
+        Query query = em.createQuery("SELECT * FROM Carta c WHERE c.usuario = :fname AND NOT emisor");
 
-   
+        query.setParameter("fname", usuario);
+        return query.getResultList();
+    }
 
+    @Override
+    public List<Carta> obtenerCartasEnviadas(Usuario usuario) {
+        Query query = em.createQuery("SELECT * FROM Carta c WHERE c.usuario = :fname AND emisor");
 
+        query.setParameter("fname", usuario);
+        return query.getResultList();
+    }
     
-
 }
