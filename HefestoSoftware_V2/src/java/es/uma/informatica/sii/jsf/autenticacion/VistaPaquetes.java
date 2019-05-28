@@ -27,8 +27,7 @@ public class VistaPaquetes implements Serializable {
    
     @EJB
     private NegocioAdmin negocioAdmin;
-    @Inject
-    private ServicioPaquetes servicio;
+   
     @Inject
     private ControlAutorizacion ctrl;
 
