@@ -1,6 +1,7 @@
 package es.uma.informatica.sii.jsf.autenticacion;
 
 import es.uma.informatica.sii.jsf.autenticacion.modelo.Empleado;
+import es.uma.informatica.sii.jsf.autenticacion.modelo.HistorialPadrinos;
 import es.uma.informatica.sii.jsf.autenticacion.modelo.Niño;
 import es.uma.informatica.sii.jsf.autenticacion.modelo.Paquete;
 import es.uma.informatica.sii.jsf.autenticacion.modelo.Usuario;
@@ -26,8 +27,7 @@ public interface NegocioAdmin {
     public void escribirPaquete(Paquete paquete);
     
     public List<Paquete> obtenerPaquetes();
-    
-    
+   
     public List<HistorialPadrinos> obtenerApadrinamientos(String niño);
 }
 
