@@ -111,4 +111,21 @@ public class NegocioAdminImpl implements NegocioAdmin {
         }
         return query.getResultList();
     }
+    
+     /**
+     *
+     * @return
+     */
+    @Override
+    public LinkedList<Carta> cartasPorAutorizar() {
+        Query query;
+        query = em.createQuery("SELECT c FROM Carta c where c.autorizado = false");
+        List<Carta> cartas =  query.getResultList();
+        return new LinkedList<>(cartas);
+    }
+    
+    @Override
+    public void autorizarCarta(Carta carta){
+        em.merge(carta);
+    }
 }
