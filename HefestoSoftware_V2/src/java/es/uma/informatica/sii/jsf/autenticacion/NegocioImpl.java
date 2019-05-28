@@ -95,16 +95,14 @@ public class NegocioImpl implements Negocio {
     
     @Override
     public List<Carta> obtenerCartasRecibidas(Usuario usuario) {
-        Query query = em.createQuery("SELECT c FROM Carta c WHERE c.usuario = :fname AND NOT emisor");
-        query.setParameter("fname", usuario);
+        Query query = em.createQuery("SELECT c FROM Carta c");
+        
         return query.getResultList();
     }
 
     @Override
     public List<Carta> obtenerCartasEnviadas(Usuario usuario) {
-        Query query = em.createQuery("SELECT c FROM Carta c WHERE c.usuario = :fname AND emisor");
-
-        query.setParameter("fname", usuario);
+         Query query = em.createQuery("SELECT c FROM Carta c");
         return query.getResultList();
     }
 

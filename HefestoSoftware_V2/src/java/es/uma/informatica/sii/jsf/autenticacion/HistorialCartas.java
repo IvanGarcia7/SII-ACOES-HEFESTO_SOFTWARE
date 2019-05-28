@@ -10,15 +10,18 @@ import java.io.Serializable;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
+import javax.enterprise.context.RequestScoped;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
+import javax.inject.Named;
 
 /**
  *
  * @author Miguel
  */
 
-@ViewScoped
+@Named(value="historialCartas")
+@RequestScoped
 public class HistorialCartas implements Serializable {
 
     private List<Carta> enviadas;
