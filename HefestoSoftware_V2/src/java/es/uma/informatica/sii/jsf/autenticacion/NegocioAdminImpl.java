@@ -78,4 +78,16 @@ public class NegocioAdminImpl implements NegocioAdmin {
         
     }
     
+    @Override
+    public List<HistorialPadrinos> obtenerApadrinamientos(String niño){
+        Query query;
+        if(niño == null || niño.equals("")){
+            query = em.createQuery("SELECT c FROM HistorialPadrinos c where c.fechaCancelacion > CURRENT_DATE");
+        }else{
+            Niño objetoNiño = em.find(Niño.class, niño);
+            query = em.createQuery("SELECT c FROM HistorialPadrinos c where c.niño = :fname and c.fechaCancelacion > CURRENT_DATE");
+            query.setParameter("fname", objetoNiño);
+        }
+        return query.getResultList();
+    }
 }
