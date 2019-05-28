@@ -9,6 +9,7 @@ import es.uma.informatica.sii.jsf.autenticacion.modelo.Carta;
 import java.io.Serializable;
 import java.util.LinkedList;
 import javax.annotation.PostConstruct;
+import javax.ejb.EJB;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -28,19 +29,20 @@ public class AutorizarCartas implements Serializable {
     private String filtroDestinatario;
     private String filtroAsunto;
 
-    @Inject
-    private ServicioCartas servicio;
+    @EJB
+    private NegocioAdmin negocioAdmin;
 
     @PostConstruct
     public void init() {
-        todas = servicio.cartasPorAutorizar();
+        todas = negocioAdmin.cartasPorAutorizar();
         cartas = new LinkedList<>(todas);
     }
 
     public void autorizarCarta() {
         seleccionada.setAutorizado(true);
+        negocioAdmin.autorizarCarta(seleccionada);
         seleccionada = null;
-        todas = servicio.cartasPorAutorizar();
+        todas = negocioAdmin.cartasPorAutorizar();
         aplicarFiltros();
     }
 
@@ -104,14 +106,6 @@ public class AutorizarCartas implements Serializable {
 
     public void setFiltroAsunto(String filtroAsunto) {
         this.filtroAsunto = filtroAsunto;
-    }
-
-    public ServicioCartas getServicio() {
-        return servicio;
-    }
-
-    public void setServicio(ServicioCartas servicio) {
-        this.servicio = servicio;
     }
 
     public Carta getSeleccionada() {
