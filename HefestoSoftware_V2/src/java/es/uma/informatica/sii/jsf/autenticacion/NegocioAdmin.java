@@ -29,5 +29,7 @@ public interface NegocioAdmin {
     public List<Paquete> obtenerPaquetes();
    
     public List<HistorialPadrinos> obtenerApadrinamientos(String niño);
+    
+    public List<Peticion> obtenerPeticiones();
 }
 
