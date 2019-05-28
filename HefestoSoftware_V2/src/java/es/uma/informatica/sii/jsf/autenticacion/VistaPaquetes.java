@@ -9,6 +9,7 @@ import es.uma.informatica.sii.jsf.autenticacion.modelo.Paquete;
 import java.io.Serializable;
 import java.util.List;
 import javax.annotation.PostConstruct;
+import javax.ejb.EJB;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -22,7 +23,8 @@ import javax.inject.Named;
 public class VistaPaquetes implements Serializable {
 
     private List<Paquete> paquetes;
-
+    @EJB
+    private NegocioAdmin negocioAdmin;
     @Inject
     private ServicioPaquetes servicio;
     @Inject
@@ -32,7 +34,7 @@ public class VistaPaquetes implements Serializable {
     public void init() {
 
         if (ctrl.getEmpleado() != null) {
-            paquetes = servicio.getPaquetes();
+            paquetes = negocioAdmin.obtenerPaquetes();
         }
 
     }
