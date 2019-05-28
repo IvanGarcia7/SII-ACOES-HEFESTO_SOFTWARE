@@ -2,10 +2,10 @@ package es.uma.informatica.sii.jsf.autenticacion;
 
 import es.uma.informatica.sii.jsf.autenticacion.modelo.Empleado;
 import es.uma.informatica.sii.jsf.autenticacion.modelo.Niño;
+import es.uma.informatica.sii.jsf.autenticacion.modelo.Paquete;
 import es.uma.informatica.sii.jsf.autenticacion.modelo.Usuario;
 import java.util.List;
 import javax.ejb.Local;
-
 @Local
 public interface NegocioAdmin {
 
