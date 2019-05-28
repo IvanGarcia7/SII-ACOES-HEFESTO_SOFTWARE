@@ -88,6 +88,16 @@ public class NegocioAdminImpl implements NegocioAdmin {
       
     }
     
+       @Override
+    public List<Peticion> obtenerPeticiones() {
+       
+        Query query = em.createQuery("SELECT c FROM Peticion c ");
+       
+        
+        return query.getResultList();
+    }
+        
+    
     
     @Override
     public List<HistorialPadrinos> obtenerApadrinamientos(String niño){
