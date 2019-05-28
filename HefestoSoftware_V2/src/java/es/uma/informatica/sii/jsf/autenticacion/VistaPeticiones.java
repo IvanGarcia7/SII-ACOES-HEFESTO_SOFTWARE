@@ -26,8 +26,7 @@ public class VistaPeticiones implements Serializable {
 
     @EJB
     private NegocioAdmin negocioAdmin;
-    @Inject
-    private ServicioPeticiones servicio;
+    
     @Inject
     private ControlAutorizacion ctrl;
 
@@ -52,13 +51,7 @@ public class VistaPeticiones implements Serializable {
         this.peticiones = peticiones;
     }
 
-    public ServicioPeticiones getServicio() {
-        return servicio;
-    }
-
-    public void setServicio(ServicioPeticiones servicio) {
-        this.servicio = servicio;
-    }
+   
 
     public ControlAutorizacion getCtrl() {
         return ctrl;
