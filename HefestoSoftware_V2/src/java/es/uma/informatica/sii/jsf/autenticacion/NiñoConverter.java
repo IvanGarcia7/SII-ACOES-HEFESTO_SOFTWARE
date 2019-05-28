@@ -10,11 +10,13 @@ import javax.enterprise.context.RequestScoped;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
+import javax.inject.Named;
 
 /**
  *
  * @author Miguel
  */
+@Named(value = "niñoConverter")
 @RequestScoped
 public class NiñoConverter implements Converter {
     

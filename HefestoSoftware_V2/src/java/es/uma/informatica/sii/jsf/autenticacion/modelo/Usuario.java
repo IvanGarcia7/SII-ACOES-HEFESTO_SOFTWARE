@@ -51,14 +51,13 @@ public class Usuario implements Serializable {
     private Date fechaBaja;
     @Column(length = 500)
     private String descripcion;
+    
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
     private Set<Peticion> Peticiones;
 
     public Usuario() {
 
     }
-
-   
 
     public Usuario(String usuario, String contraseña, String nombre, String apellidos, String correo, String direccion, String telefono) {
         this.usuario = usuario;
@@ -206,6 +205,12 @@ public class Usuario implements Serializable {
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
+    
+    
+    public void getHistorialPadrinosActivos(){
+        
+    }
+    
 
     @Override
     public int hashCode() {
