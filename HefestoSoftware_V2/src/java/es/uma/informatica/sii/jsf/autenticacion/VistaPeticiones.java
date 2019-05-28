@@ -9,6 +9,7 @@ import es.uma.informatica.sii.jsf.autenticacion.modelo.Peticion;
 import java.io.Serializable;
 import java.util.List;
 import javax.annotation.PostConstruct;
+import javax.ejb.EJB;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -23,6 +24,8 @@ public class VistaPeticiones implements Serializable {
 
     private List<Peticion> peticiones;
 
+    @EJB
+    private NegocioAdmin negocioAdmin;
     @Inject
     private ServicioPeticiones servicio;
     @Inject
@@ -33,10 +36,10 @@ public class VistaPeticiones implements Serializable {
 
         if (ctrl.getUsuario() == null) {
             if (ctrl.getEmpleado() != null) {
-                peticiones = servicio.getPeticiones();
+                peticiones = negocioAdmin.obtenerPeticiones("");
             }
         } else {
-            peticiones = servicio.obtenerHistorial(ctrl.getUsuario().getUsuario());
+            peticiones = negocioAdmin.obtenerPeticiones(ctrl.getUsuario().getUsuario());
         }
 
     }
@@ -66,3 +69,4 @@ public class VistaPeticiones implements Serializable {
     }
     
 }
+
