@@ -78,6 +78,16 @@ public class NegocioAdminImpl implements NegocioAdmin {
         
     }
     
+       @Override
+    public List<Paquete> obtenerPaquetes() {
+      
+      Query query = em.createQuery("SELECT c FROM Paquete c");
+    
+       return query.getResultList();
+      
+    }
+    
+    
     @Override
     public List<HistorialPadrinos> obtenerApadrinamientos(String niño){
         Query query;
