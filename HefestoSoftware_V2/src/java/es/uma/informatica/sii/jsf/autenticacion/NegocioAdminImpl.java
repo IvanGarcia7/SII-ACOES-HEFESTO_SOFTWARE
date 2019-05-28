@@ -90,14 +90,7 @@ public class NegocioAdminImpl implements NegocioAdmin {
        return query.getResultList();
       
     }
-    
-      
-    
-    public List<Peticion> obtenerPeticiones() {
-       
-        Query query = em.createQuery("SELECT c FROM Peticion c ");
-        return query.getResultList();
-    }
+   
        
         
  @Override
