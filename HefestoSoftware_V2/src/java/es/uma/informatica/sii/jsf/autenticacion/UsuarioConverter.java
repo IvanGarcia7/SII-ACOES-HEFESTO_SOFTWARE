@@ -10,12 +10,13 @@ import javax.enterprise.context.RequestScoped;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
+import javax.inject.Named;
 
 /**
  *
  * @author Miguel
  */
-
+@Named
 @RequestScoped
 public class UsuarioConverter implements Converter {
     

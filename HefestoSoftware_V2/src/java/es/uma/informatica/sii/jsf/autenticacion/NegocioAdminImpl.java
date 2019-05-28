@@ -39,7 +39,7 @@ public class NegocioAdminImpl implements NegocioAdmin {
 
     @Override
     public List<Niño> obtenerNiños() {
-        Query query = em.createQuery("SELECT * FROM Niño");
+        Query query = em.createQuery("SELECT n FROM Niño n");
         return query.getResultList();
     }
 
@@ -60,7 +60,7 @@ public class NegocioAdminImpl implements NegocioAdmin {
 
     @Override
     public List<Usuario> obtenerUsuarios() {
-        Query query = em.createQuery("SELECT * FROM Usuario");
+        Query query = em.createQuery("SELECT u FROM Usuario u");
         return query.getResultList();
     }
 

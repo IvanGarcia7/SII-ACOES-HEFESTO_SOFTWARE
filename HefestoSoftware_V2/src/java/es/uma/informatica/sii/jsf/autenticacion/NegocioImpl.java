@@ -9,7 +9,6 @@ import es.uma.informatica.sii.jsf.autenticacion.modelo.Carta;
 import es.uma.informatica.sii.jsf.autenticacion.modelo.Niño;
 import es.uma.informatica.sii.jsf.autenticacion.modelo.Peticion;
 import es.uma.informatica.sii.jsf.autenticacion.modelo.Usuario;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.ejb.Stateless;
@@ -78,42 +77,30 @@ public class NegocioImpl implements Negocio {
 
     @Override
     public void añadirCarta(Carta carta) {
-        carta.setAutorizado(Boolean.FALSE);
         em.persist(carta);
-         FacesContext.getCurrentInstance().getApplication().getNavigationHandler().handleNavigation(FacesContext.getCurrentInstance(), null, "normal.xhtml");
     }
 
     @Override
     public List<Niño> obtenerNiñosApadrinados(Usuario usuario) {
-        Query query = em.createQuery("SELECT f.niño from HistorialPadrinos f where f.usuario = :fname");
+
+        Query query = em.createQuery("SELECT c.niño FROM HistorialPadrinos c WHERE c.usuario = :fname");
         query.setParameter("fname", usuario);
-        
-        
         return query.getResultList();
     }
 
-    
-    
-    
-    
-    
-    
     @Override
     public List<Carta> obtenerCartasRecibidas(Usuario usuario) {
-        Query query = em.createQuery("SELECT c FROM Carta c WHERE c.usuario = :fname AND c.emisor = :emisor");
-        query.setParameter("fname", usuario);
-        query.setParameter("emisor", false);
+        Query query = em.createQuery("SELECT c FROM Carta c WHERE c.usuario = :usuario AND c.emisor = 0 AND c.autorizado = 1");
+        query.setParameter("usuario",usuario);
         return query.getResultList();
     }
 
     @Override
     public List<Carta> obtenerCartasEnviadas(Usuario usuario) {
-        Query query = em.createQuery("SELECT c FROM Carta c WHERE c.usuario = :fname AND c.emisor = :emisor");
-        query.setParameter("fname", usuario);
-        query.setParameter("emisor", true);
+        Query query = em.createQuery("SELECT c FROM Carta c WHERE c.usuario = :usuario AND c.emisor = 1");
+        query.setParameter("usuario",usuario);
         return query.getResultList();
     }
-    
 
    
     @Override
