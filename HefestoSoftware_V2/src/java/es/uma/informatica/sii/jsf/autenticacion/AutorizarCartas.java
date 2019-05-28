@@ -32,6 +32,9 @@ public class AutorizarCartas implements Serializable {
     @EJB
     private NegocioAdmin negocioAdmin;
 
+    @Inject
+    private ControlAutorizacion ctrl;
+    
     @PostConstruct
     public void init() {
         todas = negocioAdmin.cartasPorAutorizar();
@@ -40,6 +43,7 @@ public class AutorizarCartas implements Serializable {
 
     public void autorizarCarta() {
         seleccionada.setAutorizado(true);
+        seleccionada.setEmpleado(ctrl.getEmpleado());
         negocioAdmin.autorizarCarta(seleccionada);
         seleccionada = null;
         todas = negocioAdmin.cartasPorAutorizar();

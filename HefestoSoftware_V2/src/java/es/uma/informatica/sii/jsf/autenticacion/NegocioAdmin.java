@@ -33,7 +33,7 @@ public interface NegocioAdmin {
    
     public List<HistorialPadrinos> obtenerApadrinamientos(String niño);
     
-    public List<Peticion> obtenerPeticiones();
+    public List<Peticion> obtenerPeticiones(String usuario);
     
     public LinkedList<Carta> cartasPorAutorizar();
 
