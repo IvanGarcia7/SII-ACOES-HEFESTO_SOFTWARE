@@ -77,7 +77,9 @@ public class NegocioImpl implements Negocio {
 
     @Override
     public void añadirCarta(Carta carta) {
+        carta.setAutorizado(Boolean.FALSE);
         em.persist(carta);
+        FacesContext.getCurrentInstance().getApplication().getNavigationHandler().handleNavigation(FacesContext.getCurrentInstance(), null, "normal.xhtml");
     }
 
     @Override

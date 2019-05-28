@@ -20,7 +20,7 @@
                         <center>
                             <h2><h:outputText value="Listado de Niños:"/></h2>
                         </center>
-                        <p:dataTable value="#{negocioAdmin.obtenerNiños}" 
+                        <p:dataTable value="#{vistaNiños.niños}" 
                                      var="niño"
                                      editable="true">
                             <p:ajax event="rowEdit" />
@@ -69,7 +69,7 @@
                                 <p:rowEditor />
                             </p:column>
                             <p:column>
-                                <p:commandButton action = "#{negocioAdmin.eliminarNiño(niño)}" value="Delete" update="@form"/>
+                                <p:commandButton action = "#{vistaNiños.eliminar(niño)}" value="Delete" update="@form"/>
                             </p:column>
                         </p:dataTable>
                         <center><h:commandButton action = "create.xhtml?faces-redirect=true" value="Crear un nuevo niño" class="btn btn-success"></h:commandButton> </center>

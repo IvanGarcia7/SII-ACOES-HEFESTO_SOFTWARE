@@ -12,7 +12,7 @@
             <c:when test="#{not empty controlAutorizacion.empleado}">
 
                 <h:head>
-                    <title>Listado de Niños</title>
+                    <title>Listado de Usuarios</title>
                     <h:outputStylesheet name="/css/bootstrap.min.css"/>
 
 
@@ -22,7 +22,7 @@
                         <center>
                             <h2><h:outputText value="Listado de Usuarios:"/></h2>
                         </center>
-                        <p:dataTable value="#{negocioAdmin.obtenerUsuarios}" 
+                        <p:dataTable value="#{vistaUsuarios.usuarios}" 
                                      var="usuario"
                                      editable="true">
                             <p:ajax event="rowEdit" />
@@ -48,7 +48,7 @@
                                     <f:facet name="input"><p:inputText value="#{usuario.apellidos}" style="width:100%"/></f:facet>
                                 </p:cellEditor>
                             </p:column>
-                            
+
                             <p:column headerText="DNI">
                                 <p:cellEditor>
                                     <f:facet name="output"><h:outputText value="#{usuario.dni}" /></f:facet>
@@ -108,7 +108,7 @@
                                 <p:rowEditor />
                             </p:column>
                             <p:column>
-                                <p:commandButton action = "#{negocioAdmin.eliminarUsuario(usuario)}" value="Delete" update="@form"/>
+                                <p:commandButton action = "#{vistaUsuarios.eliminar(usuario)}" value="Delete" update="@form"/>
                             </p:column>
                         </p:dataTable>
                     </h:form>
