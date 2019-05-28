@@ -75,7 +75,7 @@ public class NegocioAdminImpl implements NegocioAdmin {
          @Override
     public void escribirPaquete(Paquete paquete){
         em.persist(paquete);
-        FacesContext.getCurrentInstance().getApplication().getNavigationHandler().handleNavigation(FacesContext.getCurrentInstance(), null, "normal.xhtml");
+        FacesContext.getCurrentInstance().getApplication().getNavigationHandler().handleNavigation(FacesContext.getCurrentInstance(), null, "admin.xhtml");
         
     }
     

@@ -24,19 +24,20 @@ public class NuevoPaquete {
 
     @EJB
     private NegocioAdmin negocioAdmin;
-    
     @Inject
-    private ServicioPaquetes servicio;
+    private ControlAutorizacion ctrl;
+   
 
     public NuevoPaquete() {
         paquete = new Paquete();
     }
 
-    public void enviarCarta() {
+    public void enviarPaquete() {
+        
         paquete.setDestino("Honduras");
         paquete.setEstado("Pendiente");
         paquete.setFechaEnvio(new Date(System.currentTimeMillis()));
-        servicio.añadirPaquete(paquete);
+        paquete.setEmpleado(ctrl.getEmpleado());
         negocioAdmin.escribirPaquete(paquete);
     }
 
@@ -48,12 +49,6 @@ public class NuevoPaquete {
         this.paquete = paquete;
     }
 
-    public ServicioPaquetes getServicio() {
-        return servicio;
-    }
-
-    public void setServicio(ServicioPaquetes servicio) {
-        this.servicio = servicio;
-    }
+    
 
 }
