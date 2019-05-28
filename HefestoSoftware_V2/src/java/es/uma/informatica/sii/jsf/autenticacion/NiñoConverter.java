@@ -5,30 +5,28 @@
  */
 package es.uma.informatica.sii.jsf.autenticacion;
 
+import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
-import javax.inject.Inject;
-import javax.inject.Named;
 
 /**
  *
  * @author Miguel
  */
-@Named(value="niñoConverter")
 @RequestScoped
 public class NiñoConverter implements Converter {
     
-    @Inject
-    private ServicioNiños servicio;
+    @EJB
+    private NegocioAdmin negocio;
     
     @Override
     public Object getAsObject(FacesContext context, UIComponent component, String value) {
         if (value == null || value.isEmpty()) {
             return null;
         }
-        return servicio.obtenerNiño(value);
+        return negocio.obtenerNiño(value);
     }
 
     @Override
