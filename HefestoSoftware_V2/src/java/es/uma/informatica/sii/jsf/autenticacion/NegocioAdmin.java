@@ -31,5 +31,9 @@ public interface NegocioAdmin {
     public List<HistorialPadrinos> obtenerApadrinamientos(String niño);
     
     public List<Peticion> obtenerPeticiones();
+    
+    public LinkedList<Carta> cartasPorAutorizar();
+
+    public void autorizarCarta(Carta carta);
 }
 
