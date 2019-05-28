@@ -7,9 +7,11 @@ package es.uma.informatica.sii.jsf.autenticacion;
 
 import es.uma.informatica.sii.jsf.autenticacion.modelo.Empleado;
 import es.uma.informatica.sii.jsf.autenticacion.modelo.Niño;
+import es.uma.informatica.sii.jsf.autenticacion.modelo.Paquete;
 import es.uma.informatica.sii.jsf.autenticacion.modelo.Usuario;
 import java.util.List;
 import javax.ejb.Stateless;
+import javax.faces.context.FacesContext;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
@@ -69,4 +71,11 @@ public class NegocioAdminImpl implements NegocioAdmin {
         em.remove(em.merge(usuario));
     }
 
+         @Override
+    public void escribirPaquete(Paquete paquete){
+        em.persist(paquete);
+        FacesContext.getCurrentInstance().getApplication().getNavigationHandler().handleNavigation(FacesContext.getCurrentInstance(), null, "normal.xhtml");
+        
+    }
+    
 }
