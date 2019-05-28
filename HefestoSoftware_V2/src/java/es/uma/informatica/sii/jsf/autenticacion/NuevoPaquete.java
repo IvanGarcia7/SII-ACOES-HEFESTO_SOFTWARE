@@ -10,6 +10,7 @@ import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import java.sql.Date;
+import javax.ejb.EJB;
 
 /**
  *
@@ -21,6 +22,9 @@ public class NuevoPaquete {
 
     private Paquete paquete;
 
+    @EJB
+    private NegocioAdmin negocioAdmin;
+    
     @Inject
     private ServicioPaquetes servicio;
 
@@ -33,6 +37,7 @@ public class NuevoPaquete {
         paquete.setEstado("Pendiente");
         paquete.setFechaEnvio(new Date(System.currentTimeMillis()));
         servicio.añadirPaquete(paquete);
+        negocioAdmin.escribirPaquete(paquete);
     }
 
     public Paquete getPaquete() {
