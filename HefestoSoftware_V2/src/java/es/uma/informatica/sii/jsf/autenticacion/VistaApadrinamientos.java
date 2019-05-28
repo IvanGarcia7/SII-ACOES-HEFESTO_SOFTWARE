@@ -9,6 +9,7 @@ import es.uma.informatica.sii.jsf.autenticacion.modelo.HistorialPadrinos;
 import java.io.Serializable;
 import java.util.List;
 import javax.annotation.PostConstruct;
+import javax.ejb.EJB;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -22,9 +23,12 @@ import javax.inject.Named;
 public class VistaApadrinamientos implements Serializable {
 
     private List<HistorialPadrinos> apadrinamientos;
-
-    @Inject
-    private ServicioPadrinos servicio;
+    private String filtradoNiño;
+    
+    
+    @EJB
+    private NegocioAdmin negocioAdmin;
+    
     @Inject
     private ControlAutorizacion ctrl;
 
@@ -32,25 +36,29 @@ public class VistaApadrinamientos implements Serializable {
     public void init() {
 
         if (ctrl.getEmpleado() != null) {
-            apadrinamientos = servicio.getApadrinamientos();
+            apadrinamientos = negocioAdmin.obtenerApadrinamientos(filtradoNiño);
         }
 
     }
 
+    public void filtrar(){
+        apadrinamientos = negocioAdmin.obtenerApadrinamientos(filtradoNiño);
+    }
+    
+    public String getFiltradoNiño() {
+        return filtradoNiño;
+    }
+
+    public void setFiltradoNiño(String filtradoNiño) {
+        this.filtradoNiño = filtradoNiño;
+    }
+    
     public List<HistorialPadrinos> getApadrinamientos() {
         return apadrinamientos;
     }
 
     public void setApadrinamientos(List<HistorialPadrinos> apadrinamientos) {
         this.apadrinamientos = apadrinamientos;
-    }
-
-    public ServicioPadrinos getServicio() {
-        return servicio;
-    }
-
-    public void setServicio(ServicioPadrinos servicio) {
-        this.servicio = servicio;
     }
 
     public ControlAutorizacion getCtrl() {
