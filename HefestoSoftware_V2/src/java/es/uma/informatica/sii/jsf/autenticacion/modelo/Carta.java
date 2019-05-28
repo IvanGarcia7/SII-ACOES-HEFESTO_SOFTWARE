@@ -38,7 +38,7 @@ public class Carta implements Serializable {
     @JoinColumn(nullable = false)
     private Niño niño;
     @ManyToOne
-    @JoinColumn(nullable = false)
+    @JoinColumn
     private Empleado empleado;
     @ManyToOne
     private Usuario usuario;
