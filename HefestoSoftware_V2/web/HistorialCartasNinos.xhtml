@@ -10,8 +10,8 @@
         <c:choose>
            <c:when test="#{not empty controlAutorizacion.empleado}">
                 <h:graphicImage styleClass="logo" height="200px" value = "./resources/Imagenes/logo1.png"/> 
-                <h:form style="float: left">
-                    <p:inputText style="background-color: white;margin-top: 20px" value="#{autorizarCartas.filtroDestinatario}" placeholder="Filtrar destinatario"/>
+                <h:form class="historial">
+                    <p:inputText style="background-color: white;margin-top: 20px" value="#{VistaCartas.filtroDestinatario}" placeholder="Filtrar destinatario"/>
                         <p:commandButton style="width: 50%;margin-top: 20px" value="Aplicar filtros" action="#{VistaCartas.aplicarFiltros()}" update=":form:lista-cartas"/>
                     <p:commandButton style="width: 50%;margin-top: 20px" value="Quitar filtros" action="#{VistaCartas.quitarFiltros()}" update=":form:lista-cartas @form"/>
                 </h:form>
@@ -22,16 +22,18 @@
                     <table>
                         <tr>
                             <td width="50%">
-                                <p:dataTable id="lista-cartas" 
-                                         class="table1"
-                                 value="#{vistaCartas.cartas}" 
-                                 var="carta"
-                                 rowKey="#{carta.id}"
-                                 rows="10"
-                                 paginator="true"
-                                 paginatorPosition="top"
-                                 paginatorTemplate="{FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
-                                 rowsPerPageTemplate="5,10,15">
+                               
+                                    
+                                 <p:dataTable id="lista-cartas"
+                                             class="table1"
+                                             value="#{vistaCartas.cartas}" 
+                                             var="carta"
+                                             rowKey="#{carta.id}"
+                                             rows="10"
+                                             paginator="true"
+                                             paginatorPosition="top"
+                                             paginatorTemplate="{FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                                             rowsPerPageTemplate="5,10,15">
                                <p:column headerText="nº Carta" sortBy="#{carta.id}">
                             <h:outputText value="#{carta.id}"/>
                         </p:column>
