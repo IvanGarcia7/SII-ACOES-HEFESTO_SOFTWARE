@@ -11,7 +11,8 @@
            <c:when test="#{not empty controlAutorizacion.empleado}">
                 <h:graphicImage styleClass="logo" height="200px" value = "./resources/Imagenes/logo1.png"/> 
                 <h:form id="form">
-                    <p:inputText style="background-color: white; width: 300px; height: 30px; display:inline-block; float: left" placeholder="Buscar apadrinamientos de un niño/a"/>
+                    <p:inputText value="#{vistaApadrinamientos.filtradoNiño}" style="background-color: white; width: 300px; height: 30px; display:inline-block; float: left" placeholder="Buscar apadrinamientos de un niño/a"/>
+                    <h:commandButton class="enviarsolicitud" value="filtrar" action="#{vistaApadrinamientos.filtrar()}"/>
                     <br></br>
                     <br></br>
                     <br></br>
