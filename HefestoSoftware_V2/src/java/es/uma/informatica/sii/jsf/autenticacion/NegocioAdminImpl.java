@@ -44,6 +44,14 @@ public class NegocioAdminImpl implements NegocioAdmin {
     }
 
     @Override
+    public void añadirCarta(Carta carta) {
+        carta.setAutorizado(Boolean.FALSE);
+        em.persist(carta);
+        FacesContext.getCurrentInstance().getApplication().getNavigationHandler().handleNavigation(FacesContext.getCurrentInstance(), null, "admin.xhtml");
+    }
+    
+    
+    @Override
     public List<Niño> obtenerNiños() {
         Query query = em.createQuery("SELECT n FROM Niño n");
         return query.getResultList();

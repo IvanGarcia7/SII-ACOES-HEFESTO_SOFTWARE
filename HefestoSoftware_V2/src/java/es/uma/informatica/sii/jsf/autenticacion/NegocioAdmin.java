@@ -30,6 +30,8 @@ public interface NegocioAdmin {
     public void escribirPaquete(Paquete paquete);
     
     public List<Paquete> obtenerPaquetes();
+    
+    public void añadirCarta(Carta carta);
    
     public List<HistorialPadrinos> obtenerApadrinamientos(String niño);
     

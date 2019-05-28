@@ -81,6 +81,8 @@ public class NegocioImpl implements Negocio {
         em.persist(carta);
         FacesContext.getCurrentInstance().getApplication().getNavigationHandler().handleNavigation(FacesContext.getCurrentInstance(), null, "normal.xhtml");
     }
+    
+   
 
     @Override
     public List<Niño> obtenerNiñosApadrinados(Usuario usuario) {

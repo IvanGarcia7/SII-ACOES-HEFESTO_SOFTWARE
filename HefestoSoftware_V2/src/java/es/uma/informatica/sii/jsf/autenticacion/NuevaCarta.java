@@ -27,6 +27,8 @@ public class NuevaCarta {
     
     @EJB
     private Negocio negocio;
+    @EJB
+    private NegocioAdmin negocioadmin;
     
     public NuevaCarta(){
         carta = new Carta();
@@ -42,7 +44,7 @@ public class NuevaCarta {
     public void digitalizarCarta(){
         carta.setEmisor(false);
         carta.setFechaEnvio(new Date(System.currentTimeMillis()));
-        negocio.añadirCarta(carta);
+        negocioadmin.añadirCarta(carta);
     }
 
     public Carta getCarta() {
