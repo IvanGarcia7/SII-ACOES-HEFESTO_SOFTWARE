@@ -5,11 +5,14 @@
  */
 package es.uma.informatica.sii.jsf.autenticacion;
 
+import es.uma.informatica.sii.jsf.autenticacion.modelo.Carta;
 import es.uma.informatica.sii.jsf.autenticacion.modelo.Empleado;
 import es.uma.informatica.sii.jsf.autenticacion.modelo.HistorialPadrinos;
 import es.uma.informatica.sii.jsf.autenticacion.modelo.Niño;
 import es.uma.informatica.sii.jsf.autenticacion.modelo.Paquete;
+import es.uma.informatica.sii.jsf.autenticacion.modelo.Peticion;
 import es.uma.informatica.sii.jsf.autenticacion.modelo.Usuario;
+import java.util.LinkedList;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.faces.context.FacesContext;
@@ -88,7 +91,8 @@ public class NegocioAdminImpl implements NegocioAdmin {
       
     }
     
-       @Override
+      
+    @Override
     public List<Peticion> obtenerPeticiones() {
        
         Query query = em.createQuery("SELECT c FROM Peticion c ");
@@ -124,7 +128,7 @@ public class NegocioAdminImpl implements NegocioAdmin {
         return new LinkedList<>(cartas);
     }
     
-    @Override
+    
     public void autorizarCarta(Carta carta){
         em.merge(carta);
     }

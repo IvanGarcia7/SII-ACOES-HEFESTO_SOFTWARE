@@ -29,6 +29,9 @@
                         <p:column headerText="nº Paquete" sortBy="#{paquete.id}">
                             <h:outputText value="#{paquete.id}"/>
                         </p:column>
+                        <p:column headerText="Fecha de envio" sortBy="#{paquete.origen}">
+                            <h:outputText value="#{paquete.origen}"/>
+                        </p:column>
                         <p:column headerText="Contenido" sortBy="#{paquete.descripcion}">
                             <h:outputText value="#{paquete.descripcion}"/>
                         </p:column>
