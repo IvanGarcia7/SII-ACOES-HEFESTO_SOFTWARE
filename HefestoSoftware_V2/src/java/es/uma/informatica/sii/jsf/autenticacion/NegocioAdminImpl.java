@@ -143,7 +143,15 @@ public class NegocioAdminImpl implements NegocioAdmin {
     }
     
     
+    @Override
     public void autorizarCarta(Carta carta){
         em.merge(carta);
+    }
+
+    @Override
+    public List<Carta> obtenerCartas() {
+        Query query = em.createQuery("SELECT c FROM Carta c");
+    
+       return query.getResultList();
     }
 }

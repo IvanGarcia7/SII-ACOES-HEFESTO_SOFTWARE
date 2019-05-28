@@ -40,5 +40,7 @@ public interface NegocioAdmin {
     public LinkedList<Carta> cartasPorAutorizar();
 
     public void autorizarCarta(Carta carta);
+
+    public List<Carta> obtenerCartas();
 }
 
