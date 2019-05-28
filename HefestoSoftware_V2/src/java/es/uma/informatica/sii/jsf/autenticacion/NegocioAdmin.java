@@ -23,8 +23,8 @@ public interface NegocioAdmin {
 
     public Niño obtenerNiño(String niño);
     
-     public void escribirPaquete(Paquete paquete);
+    public void escribirPaquete(Paquete paquete);
     
-    
+    public List<HistorialPadrinos> obtenerApadrinamientos(String niño);
 }
 
