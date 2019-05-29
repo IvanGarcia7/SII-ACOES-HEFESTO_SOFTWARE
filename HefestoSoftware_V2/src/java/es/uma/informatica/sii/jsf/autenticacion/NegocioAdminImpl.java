@@ -67,6 +67,11 @@ public class NegocioAdminImpl implements NegocioAdmin {
     }
 
     @Override
+    public void añadirNiño(Niño niño) {
+        em.persist(niño);
+    }
+    
+    @Override
     public void eliminarNiño(Niño niño) {
         em.remove(em.merge(niño));
     }

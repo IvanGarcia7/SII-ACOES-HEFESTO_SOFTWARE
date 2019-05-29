@@ -17,6 +17,8 @@ public interface NegocioAdmin {
 
     public Niño obtenerNiño(String niño);
     
+    public void añadirNiño(Niño niño);
+    
     public void eliminarNiño(Niño niño);
     
     public void modificarNiño(Niño niño);
