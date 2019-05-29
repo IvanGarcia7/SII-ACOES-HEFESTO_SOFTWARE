@@ -35,10 +35,9 @@ public class VistaNiños implements Serializable {
     public void eliminar(Niño niño) {
         negocio.eliminarNiño(niño);
     }
-    
-    public void modificar(RowEditEvent event){
-        Niño niño = (Niño) event.getObject();
-        negocio.modificarNiño(niño);
+
+    public void modificar(RowEditEvent event) {
+        negocio.modificarNiño((Niño) event.getObject());
     }
 
     public List<Niño> getNiños() {

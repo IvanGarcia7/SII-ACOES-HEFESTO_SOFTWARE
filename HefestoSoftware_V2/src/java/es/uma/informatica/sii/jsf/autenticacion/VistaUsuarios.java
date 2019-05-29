@@ -35,10 +35,9 @@ public class VistaUsuarios implements Serializable {
     public void eliminar(Usuario usuario) {
         negocio.eliminarUsuario(usuario);
     }
-    
-    public void modificar(RowEditEvent event){
-        Usuario usuario = (Usuario) event.getObject();
-        negocio.modificarUsuario(usuario);
+
+    public void modificar(RowEditEvent event) {
+        negocio.modificarUsuario((Usuario) event.getObject());
     }
 
     public List<Usuario> getUsuarios() {
