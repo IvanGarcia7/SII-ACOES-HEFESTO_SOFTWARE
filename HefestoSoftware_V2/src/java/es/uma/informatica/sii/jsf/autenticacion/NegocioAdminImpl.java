@@ -5,6 +5,7 @@
  */
 package es.uma.informatica.sii.jsf.autenticacion;
 
+
 import es.uma.informatica.sii.jsf.autenticacion.modelo.Carta;
 import es.uma.informatica.sii.jsf.autenticacion.modelo.Empleado;
 import es.uma.informatica.sii.jsf.autenticacion.modelo.HistorialPadrinos;
@@ -90,7 +91,7 @@ public class NegocioAdminImpl implements NegocioAdmin {
         
     }
     
-       @Override
+    @Override
     public List<Paquete> obtenerPaquetes() {
       
       Query query = em.createQuery("SELECT c FROM Paquete c");
