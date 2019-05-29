@@ -16,9 +16,9 @@ import javax.persistence.Lob;
  *
  * @author Antonio Manuel
  */
-
 @Entity
 public class Niño implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
     @Column(length = 30)
@@ -33,27 +33,17 @@ public class Niño implements Serializable {
     private String poblacion;
     @Lob
     private byte[] fotografia;
-    @Column(name = "fecha_nacimiento",nullable = false)
+    @Column(name = "fecha_nacimiento", nullable = false)
     private Date fechaNacimiento;
-    @Column(name = "fecha_alta",nullable = false)
+    @Column(name = "fecha_alta", nullable = false)
     private Date fechaAlta;
     @Column(name = "fecha_baja")
     private Date fechaBaja;
 
-    public Niño(){
-        
+    public Niño() {
+
     }
 
-    public Niño(String usuario, String nombre, String apellidos, String direccion, String poblacion, Date fechaNacimiento, Date fechaAlta) {
-        this.usuario = usuario;
-        this.nombre = nombre;
-        this.apellidos = apellidos;
-        this.direccion = direccion;
-        this.poblacion = poblacion;
-        this.fechaNacimiento = fechaNacimiento;
-        this.fechaAlta = fechaAlta;
-    }
-    
     public String getNombre() {
         return nombre;
     }
@@ -125,7 +115,7 @@ public class Niño implements Serializable {
     public void setFechaNacimiento(Date fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
     }
-    
+
     @Override
     public int hashCode() {
         int hash = 0;
@@ -146,5 +136,5 @@ public class Niño implements Serializable {
     public String toString() {
         return usuario;
     }
-    
+
 }

@@ -44,19 +44,10 @@ public class Paquete implements Serializable {
     @JoinColumn(nullable = false)
     private Empleado empleado;
 
-    public Paquete(){
-        
+    public Paquete() {
+
     }
-    
-    public Paquete(Long id, String descripcion, String fechaEnvio, String estado){
-        this.id = id;
-        this.descripcion = descripcion;
-        this.fechaEnvio = Date.valueOf(fechaEnvio);
-        this.estado = estado;
-        
-    }
-    
-    
+
     public byte[] getAdjunto() {
         return adjunto;
     }
@@ -89,7 +80,6 @@ public class Paquete implements Serializable {
         this.destino = destino;
     }
 
-    
     public Long getId() {
         return id;
     }
@@ -105,7 +95,7 @@ public class Paquete implements Serializable {
     public void setEmpleado(Empleado empleado) {
         this.empleado = empleado;
     }
-    
+
     public Date getFechaEnvio() {
         return fechaEnvio;
     }
@@ -129,7 +119,7 @@ public class Paquete implements Serializable {
     public void setFechaEntrega(Date fechaEntrega) {
         this.fechaEntrega = fechaEntrega;
     }
-    
+
     @Override
     public int hashCode() {
         int hash = 0;
@@ -153,5 +143,5 @@ public class Paquete implements Serializable {
     public String toString() {
         return "hefestosoftware.Paquete[ id=" + id + " ]";
     }
-    
+
 }

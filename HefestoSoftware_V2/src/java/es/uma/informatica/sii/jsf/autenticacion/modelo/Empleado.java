@@ -49,18 +49,9 @@ public class Empleado implements Serializable {
     @Column(name = "fecha_baja")
     private Date fechaBaja;
 
-    public Empleado(){
-        
-    }
-    
-    public Empleado(String usuario, String contrasenia, String nombre, String apellido, String correo) {
-        setUsuario(usuario);
-        setContraseña(contrasenia);
-        setNombre(nombre);
-        setApellidos(apellido);
-        setCorreoElectronico(correo);
-    }
+    public Empleado() {
 
+    }
 
     public String getUsuario() {
         return usuario;
@@ -92,8 +83,8 @@ public class Empleado implements Serializable {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
-    }   
-    
+    }
+
     public String getApellidos() {
         return apellidos;
     }
@@ -173,7 +164,7 @@ public class Empleado implements Serializable {
     public void setFechaBaja(Date fechaBaja) {
         this.fechaBaja = fechaBaja;
     }
-    
+
     @Override
     public int hashCode() {
         int hash = 0;
@@ -197,5 +188,5 @@ public class Empleado implements Serializable {
     public String toString() {
         return "hefestosoftware.Empleado[ usuario=" + usuario + " ]";
     }
-    
+
 }

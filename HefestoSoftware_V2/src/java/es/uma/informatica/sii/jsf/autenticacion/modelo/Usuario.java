@@ -23,7 +23,6 @@ public class Usuario implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
-    
     private String usuario;
     @Column(length = 30, nullable = false)
     private String contraseña;
@@ -51,7 +50,7 @@ public class Usuario implements Serializable {
     private Date fechaBaja;
     @Column(length = 500)
     private String descripcion;
-    
+
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
     private Set<Peticion> Peticiones;
 
@@ -83,9 +82,7 @@ public class Usuario implements Serializable {
         this.correoElectronico = correoElectronico;
         this.fechaAlta = fechaAlta;
     }
-    
-    
-    
+
     public String getDni() {
         return dni;
     }
@@ -205,12 +202,10 @@ public class Usuario implements Serializable {
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
-    
-    
-    public void getHistorialPadrinosActivos(){
-        
+
+    public void getHistorialPadrinosActivos() {
+
     }
-    
 
     @Override
     public int hashCode() {

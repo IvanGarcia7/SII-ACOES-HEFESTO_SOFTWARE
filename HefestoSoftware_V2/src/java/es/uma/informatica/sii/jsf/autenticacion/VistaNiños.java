@@ -12,6 +12,7 @@ import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.view.ViewScoped;
 import javax.inject.Named;
+import org.primefaces.event.RowEditEvent;
 
 /**
  *
@@ -33,6 +34,11 @@ public class VistaNiños implements Serializable {
 
     public void eliminar(Niño niño) {
         negocio.eliminarNiño(niño);
+    }
+    
+    public void modificar(RowEditEvent event){
+        Niño niño = (Niño) event.getObject();
+        negocio.modificarNiño(niño);
     }
 
     public List<Niño> getNiños() {

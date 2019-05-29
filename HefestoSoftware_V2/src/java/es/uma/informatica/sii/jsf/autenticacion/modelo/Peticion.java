@@ -20,6 +20,7 @@ import java.sql.Date;
  */
 @Entity
 public class Peticion implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -34,18 +35,10 @@ public class Peticion implements Serializable {
     private Usuario usuario;
     private Date fechaPeticion;
 
-    public Peticion(){
-        
+    public Peticion() {
+
     }
-    
-    public Peticion(Usuario usuario, Integer numeroNiños, Long id, String fechaPeticion){
-        this.usuario = usuario;
-        this.numeroNiños = numeroNiños;
-        this.id = id;
-        this.fechaPeticion = Date.valueOf(fechaPeticion);
-    }
-    
-    
+
     public Long getId() {
         return id;
     }
@@ -93,7 +86,7 @@ public class Peticion implements Serializable {
     public void setFechaPeticion(Date fechaPeticion) {
         this.fechaPeticion = fechaPeticion;
     }
-    
+
     @Override
     public int hashCode() {
         int hash = 0;
@@ -114,5 +107,5 @@ public class Peticion implements Serializable {
     public String toString() {
         return "hefestosoftware.Peticion[ id=" + id + " ]";
     }
-    
+
 }
