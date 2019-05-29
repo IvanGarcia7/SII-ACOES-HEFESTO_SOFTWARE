@@ -48,5 +48,8 @@ public interface NegocioAdmin {
     public void autorizarCarta(Carta carta);
 
     public List<Carta> obtenerCartas();
+    
+    public boolean esPadrino(Niño niño, Usuario usuario);
+    
 }
 

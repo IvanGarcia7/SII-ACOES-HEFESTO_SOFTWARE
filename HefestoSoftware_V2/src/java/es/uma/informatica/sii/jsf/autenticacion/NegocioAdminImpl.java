@@ -63,7 +63,7 @@ public class NegocioAdminImpl implements NegocioAdmin {
 
     @Override
     public Niño obtenerNiño(String niño) {
-        return em.find(Niño.class, niño);
+        return em.find(Niño.class, new Long(niño));
     }
 
     @Override
@@ -140,6 +140,15 @@ public class NegocioAdminImpl implements NegocioAdmin {
         return query.getResultList();
     }
 
+    @Override
+    public boolean esPadrino(Niño niño,Usuario usuario){
+        Query query = em.createQuery("SELECT hp FROM HistorialPadrinos hp WHERE hp.niño = :niño AND hp.usuario = :usuario AND hp.fechaCancelacion IS NULL");
+        query.setParameter("niño", niño);
+        query.setParameter("usuario", usuario);
+        return !query.getResultList().isEmpty();
+    }
+    
+    
     /**
      *
      * @return

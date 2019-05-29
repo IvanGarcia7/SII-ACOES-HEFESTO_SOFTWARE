@@ -11,6 +11,8 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import java.sql.Date;
 import javax.ejb.EJB;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 
 /**
  *
@@ -41,10 +43,16 @@ public class NuevaCarta {
         negocio.añadirCarta(carta);
     }
     
-    public void digitalizarCarta(){
-        carta.setEmisor(false);
-        carta.setFechaEnvio(new Date(System.currentTimeMillis()));
-        negocioadmin.añadirCarta(carta);
+    public String digitalizarCarta(){
+        if(negocioadmin.esPadrino(carta.getNiño(), carta.getUsuario())){
+            carta.setEmisor(false);
+            carta.setFechaEnvio(new Date(System.currentTimeMillis()));
+            negocioadmin.añadirCarta(carta);
+            return "digitalizar_carta.xhtml";
+        }else{
+            FacesContext.getCurrentInstance().addMessage("formularioespecial:destinatario", new FacesMessage("Selecciona un destinatario valido"));
+            return null;
+        }
     }
 
     public Carta getCarta() {
