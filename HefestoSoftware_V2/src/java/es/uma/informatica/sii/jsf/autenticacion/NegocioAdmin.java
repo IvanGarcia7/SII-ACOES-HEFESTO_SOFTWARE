@@ -50,6 +50,14 @@ public interface NegocioAdmin {
     public List<Carta> obtenerCartas();
     
     public boolean esPadrino(Niño niño, Usuario usuario);
+
+    public List<Empleado> obtenerEmpleados();
+
+    public void eliminarEmpleado(Empleado empleado);
+
+    public void modificarEmpleado(Empleado empleado);
+
+    public void añadirEmpleado(Empleado empleado);
     
 }
 

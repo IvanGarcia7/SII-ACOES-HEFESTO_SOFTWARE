@@ -1,0 +1,88 @@
+<ui:composition template="/WEB-INF/templates/plantilla.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:p="http://primefaces.org/ui">
+    >
+    <ui:define name="title">CRUD Empleados</ui:define>
+    <ui:define name="content">
+        <c:choose>
+            <c:when test="#{not empty controlAutorizacion.empleado}">
+
+                <h:head>
+                    <title>Listado de Niños</title>
+                    <h:outputStylesheet name="/css/bootstrap.min.css"/>
+                </h:head>
+                <h:body>
+                    <h:form>
+                        <center>
+                            <h2><h:outputText value="Listado de Empleados"/></h2>
+                        </center>
+                        <p:dataTable value="#{vistaEmpleados.empleados}" 
+                                     var="empleado"
+                                     editable="true">
+                            <p:ajax event="rowEdit" listener="#{vistaEmpleados.modificar}" />
+                            <p:ajax event="rowEditCancel" />
+
+                            <p:column headerText="Usuario">
+                                <h:outputText value="#{empleado.usuario}" />
+                            </p:column>
+
+                            <p:column headerText="Nombre">
+                                <p:cellEditor>
+                                    <f:facet name="output"><h:outputText value="#{empleado.nombre}" /></f:facet>
+                                    <f:facet name="input"><p:inputText value="#{empleado.nombre}" style="width:100%"/></f:facet>
+                                </p:cellEditor>
+                            </p:column>
+
+                            <p:column headerText="Apellidos">
+                                <p:cellEditor>
+                                    <f:facet name="output"><h:outputText value="#{empleado.apellidos}" /></f:facet>
+                                    <f:facet name="input"><p:inputText value="#{empleado.apellidos}" style="width:100%"/></f:facet>
+                                </p:cellEditor>
+                            </p:column>
+
+                            <p:column headerText="Correo">
+                                <p:cellEditor>
+                                    <f:facet name="output"><h:outputText value="#{empleado.correoElectronico}" /></f:facet>
+                                    <f:facet name="input"><p:inputText value="#{empleado.correoElectronico}" style="width:100%"/></f:facet>
+                                </p:cellEditor>
+                            </p:column>
+                            <p:column headerText="Poblacion">
+                                <p:cellEditor>
+                                    <f:facet name="output"><h:outputText value="#{empleado.poblacion}" /></f:facet>
+                                    <f:facet name="input"><p:inputText value="#{empleado.poblacion}" style="width:100%"/></f:facet>
+                                </p:cellEditor>
+                            </p:column>
+                            <p:column headerText="Telefono">
+                                <p:cellEditor>
+                                    <f:facet name="output"><h:outputText value="#{empleado.telefono}" /></f:facet>
+                                    <f:facet name="input"><p:inputText value="#{empleado.telefono}" style="width:100%"/></f:facet>
+                                </p:cellEditor>
+                            </p:column>
+                            <p:column headerText="Fecha Alta">
+                                <h:outputText value="#{empleado.fechaAlta}" />
+                            </p:column>
+                             <p:column headerText="Fecha Baja">
+                                <h:outputText value="#{empleado.fechaBaja}" />
+                            </p:column>
+                            <p:column style="width:35px">
+                                <p:rowEditor />
+                            </p:column>
+                            <p:column>
+                                <p:commandButton action = "#{vistaEmpleados.eliminar(empleado)}" value="Delete" update="@form"/>
+                            </p:column>
+                        </p:dataTable>
+                        <center><h:commandButton action = "createEmpleados.xhtml?faces-redirect=true" value="Crear un nuevo empleado" class="btn btn-success"></h:commandButton> </center>
+                    </h:form>
+                </h:body>
+            </c:when>
+            <c:otherwise>
+                <ui:include src="/WEB-INF/templates/errorAutorizacion.xhtml"/>
+            </c:otherwise>
+        </c:choose>
+    </ui:define>
+</ui:composition>
+

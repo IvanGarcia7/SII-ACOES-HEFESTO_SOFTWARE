@@ -176,4 +176,29 @@ public class NegocioAdminImpl implements NegocioAdmin {
         return query.getResultList();
     }
 
+    @Override
+    public List<Empleado> obtenerEmpleados() {
+        Query query = em.createQuery("SELECT n FROM Empleado n");
+        return query.getResultList();
+    }
+
+    @Override
+    public void eliminarEmpleado(Empleado empleado) {
+        em.remove(em.merge(empleado));
+    }
+
+    @Override
+    public void modificarEmpleado(Empleado empleado) {
+        em.merge(empleado);
+    }
+
+    @Override
+    public void añadirEmpleado(Empleado empleado) {
+        em.persist(empleado);
+    }
+    
+    
+    
+    
+
 }
