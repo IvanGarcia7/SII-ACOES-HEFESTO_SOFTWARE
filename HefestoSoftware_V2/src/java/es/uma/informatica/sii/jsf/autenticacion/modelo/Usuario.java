@@ -203,10 +203,6 @@ public class Usuario implements Serializable {
         this.descripcion = descripcion;
     }
 
-    public void getHistorialPadrinosActivos() {
-
-    }
-
     @Override
     public int hashCode() {
         int hash = 0;
