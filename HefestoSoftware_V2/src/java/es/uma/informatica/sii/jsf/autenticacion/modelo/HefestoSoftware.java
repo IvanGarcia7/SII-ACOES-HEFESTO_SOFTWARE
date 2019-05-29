@@ -5,7 +5,6 @@
  */
 package es.uma.informatica.sii.jsf.autenticacion.modelo;
 
-import java.sql.Date;
 import java.util.Calendar;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -28,7 +27,6 @@ public class HefestoSoftware {
 
         //Creamos un nuevo niño vacio con los campos obligatorios definidos y forzamos para que se
         //genere el esquema.
-
         Usuario test = new Usuario();
         EntityTransaction tx = em.getTransaction();
         tx.begin();
@@ -45,40 +43,30 @@ public class HefestoSoftware {
         test.setCorreoElectronico("aa6@hotmail.com");
         java.sql.Date date = new java.sql.Date(Calendar.getInstance().getTime().getTime());
         test.setFechaAlta(date);
-        
+
         em.persist(test);
-        
+
         Niño nn = new Niño();
-        nn.setUsuario("AngelSS");
         nn.setNombre("Angel");
         nn.setApellidos("Sanchez Sanchez");
         nn.setDireccion("Calle Madrid 2");
         nn.setPoblacion("Madrid");
         nn.setFechaNacimiento(date);
         nn.setFechaAlta(date);
-        
+
         em.persist(nn);
-        
-        
+
         HistorialPadrinos inserta = new HistorialPadrinos();
         inserta.setFechaApadrinamiento(date);
         inserta.setDescripcion("Nuevo Apadrinamiento");
         inserta.setNiño(nn);
         inserta.setUsuario(test);
-        
-        
-        
+
         em.persist(inserta);
         tx.commit();
         em.close();
         emf.close();
 
-        
-       
-      
-        
-
-
     }
-    
+
 }

@@ -15,17 +15,23 @@ public interface NegocioAdmin {
 
     public void compruebaLoginEmpleado(Empleado empleado) throws AcoesException;
 
+    public Niño obtenerNiño(String niño);
+    
+    public void añadirNiño(Niño niño);
+    
+    public void eliminarNiño(Niño niño);
+    
+    public void modificarNiño(Niño niño);
+    
     public List<Niño> obtenerNiños();
 
-    public List<Usuario> obtenerUsuarios();
-
-    public void eliminarNiño(Niño niño);
-
-    public void eliminarUsuario(Usuario usuario);
-
     public Usuario obtenerUsuario(String usuario);
-
-    public Niño obtenerNiño(String niño);
+    
+    public void eliminarUsuario(Usuario usuario);
+    
+    public void modificarUsuario(Usuario usuario);
+    
+    public List<Usuario> obtenerUsuarios();
     
     public void escribirPaquete(Paquete paquete);
     
@@ -42,5 +48,8 @@ public interface NegocioAdmin {
     public void autorizarCarta(Carta carta);
 
     public List<Carta> obtenerCartas();
+    
+    public boolean esPadrino(Niño niño, Usuario usuario);
+    
 }
 

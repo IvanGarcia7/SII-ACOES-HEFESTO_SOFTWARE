@@ -23,14 +23,11 @@
                         <p:dataTable value="#{vistaNiños.niños}" 
                                      var="niño"
                                      editable="true">
-                            <p:ajax event="rowEdit" />
+                            <p:ajax event="rowEdit" listener="#{vistaNiños.modificar}" />
                             <p:ajax event="rowEditCancel" />
 
                             <p:column headerText="Usuario">
-                                <p:cellEditor>
-                                    <f:facet name="output"><h:outputText value="#{niño.usuario}" /></f:facet>
-                                    <f:facet name="input"><p:inputText value="#{niño.usuario}" style="width:100%"/></f:facet>
-                                </p:cellEditor>
+                                <h:outputText value="#{niño.usuario}" />
                             </p:column>
 
                             <p:column headerText="Nombre">

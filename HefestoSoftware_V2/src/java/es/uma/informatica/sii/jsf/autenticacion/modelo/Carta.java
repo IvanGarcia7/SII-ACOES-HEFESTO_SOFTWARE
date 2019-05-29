@@ -15,7 +15,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
-import javax.persistence.Transient;
 
 /**
  *
@@ -23,7 +22,7 @@ import javax.persistence.Transient;
  */
 @Entity
 public class Carta implements Serializable {
-    
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -38,9 +37,9 @@ public class Carta implements Serializable {
     @JoinColumn(nullable = false)
     private Niño niño;
     @ManyToOne
-    @JoinColumn
     private Empleado empleado;
     @ManyToOne
+    @JoinColumn(nullable = false)
     private Usuario usuario;
     @Column(nullable = false, name = "fecha_envio")
     private Date fechaEnvio;
@@ -50,36 +49,11 @@ public class Carta implements Serializable {
     private Boolean emisor;
     @Column(nullable = false)
     private Boolean autorizado;
-    @Transient
-    private static int numeroCartas = 0;
 
     public Carta() {
-        autorizado = false;
-        id = new Long(++numeroCartas);
+
     }
-    
-    public Carta(Niño niño,Usuario usuario,String asunto,String mensaje,String fechaEnvio,Boolean emisor) {
-        this.asunto = asunto;
-        this.niño = niño;
-        this.mensaje = mensaje;
-        this.usuario = usuario;
-        this.fechaEnvio = Date.valueOf(fechaEnvio);
-        this.id = new Long(++numeroCartas);
-        this.emisor = emisor;
-        autorizado = false;
-    }
-    
-    public Carta(Niño niño,Usuario usuario,String asunto,String mensaje,String fechaEnvio,Boolean emisor,Boolean autorizado) {
-        this.asunto = asunto;
-        this.niño = niño;
-        this.mensaje = mensaje;
-        this.usuario = usuario;
-        this.fechaEnvio = Date.valueOf(fechaEnvio);
-        this.id = new Long(++numeroCartas);
-        this.emisor = emisor;
-        this.autorizado = autorizado;
-    }
-    
+
     public Long getId() {
         return id;
     }
@@ -167,14 +141,14 @@ public class Carta implements Serializable {
     public void setAutorizado(Boolean autorizado) {
         this.autorizado = autorizado;
     }
-    
+
     @Override
     public int hashCode() {
         int hash = 0;
         hash += (id != null ? id.hashCode() : 0);
         return hash;
     }
-    
+
     @Override
     public boolean equals(Object object) {
         if (!(object instanceof Carta)) {
@@ -191,5 +165,5 @@ public class Carta implements Serializable {
     public String toString() {
         return "hefestosoftware.Carta[ id=" + id + " ]";
     }
-    
+
 }

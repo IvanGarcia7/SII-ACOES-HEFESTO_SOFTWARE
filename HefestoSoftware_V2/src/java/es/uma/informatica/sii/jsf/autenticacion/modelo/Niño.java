@@ -9,6 +9,8 @@ import java.io.Serializable;
 import java.sql.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 
@@ -16,13 +18,13 @@ import javax.persistence.Lob;
  *
  * @author Antonio Manuel
  */
-
 @Entity
 public class Niño implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
-    @Column(length = 30)
-    private String usuario;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long usuario;
     @Column(length = 30, nullable = false)
     private String nombre;
     @Column(length = 60, nullable = false)
@@ -33,27 +35,17 @@ public class Niño implements Serializable {
     private String poblacion;
     @Lob
     private byte[] fotografia;
-    @Column(name = "fecha_nacimiento",nullable = false)
+    @Column(name = "fecha_nacimiento", nullable = false)
     private Date fechaNacimiento;
-    @Column(name = "fecha_alta",nullable = false)
+    @Column(name = "fecha_alta", nullable = false)
     private Date fechaAlta;
     @Column(name = "fecha_baja")
     private Date fechaBaja;
 
-    public Niño(){
-        
+    public Niño() {
+
     }
 
-    public Niño(String usuario, String nombre, String apellidos, String direccion, String poblacion, Date fechaNacimiento, Date fechaAlta) {
-        this.usuario = usuario;
-        this.nombre = nombre;
-        this.apellidos = apellidos;
-        this.direccion = direccion;
-        this.poblacion = poblacion;
-        this.fechaNacimiento = fechaNacimiento;
-        this.fechaAlta = fechaAlta;
-    }
-    
     public String getNombre() {
         return nombre;
     }
@@ -102,11 +94,11 @@ public class Niño implements Serializable {
         this.fechaBaja = fechaBaja;
     }
 
-    public String getUsuario() {
+    public Long getUsuario() {
         return usuario;
     }
 
-    public void setUsuario(String usuario) {
+    public void setUsuario(Long usuario) {
         this.usuario = usuario;
     }
 
@@ -125,7 +117,7 @@ public class Niño implements Serializable {
     public void setFechaNacimiento(Date fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
     }
-    
+
     @Override
     public int hashCode() {
         int hash = 0;
@@ -144,7 +136,7 @@ public class Niño implements Serializable {
 
     @Override
     public String toString() {
-        return usuario;
+        return usuario.toString();
     }
-    
+
 }

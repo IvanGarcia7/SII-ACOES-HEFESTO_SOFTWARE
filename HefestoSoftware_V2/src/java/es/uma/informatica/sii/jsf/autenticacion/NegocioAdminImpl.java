@@ -50,8 +50,7 @@ public class NegocioAdminImpl implements NegocioAdmin {
         em.persist(carta);
         FacesContext.getCurrentInstance().getApplication().getNavigationHandler().handleNavigation(FacesContext.getCurrentInstance(), null, "admin.xhtml");
     }
-    
-    
+
     @Override
     public List<Niño> obtenerNiños() {
         Query query = em.createQuery("SELECT n FROM Niño n");
@@ -65,12 +64,22 @@ public class NegocioAdminImpl implements NegocioAdmin {
 
     @Override
     public Niño obtenerNiño(String niño) {
-        return em.find(Niño.class, niño);
+        return em.find(Niño.class, new Long(niño));
     }
 
     @Override
+    public void añadirNiño(Niño niño) {
+        em.persist(niño);
+    }
+    
+    @Override
     public void eliminarNiño(Niño niño) {
         em.remove(em.merge(niño));
+    }
+
+    @Override
+    public void modificarNiño(Niño niño) {
+        em.merge(niño);
     }
 
     @Override
@@ -84,54 +93,65 @@ public class NegocioAdminImpl implements NegocioAdmin {
         em.remove(em.merge(usuario));
     }
 
-         @Override
-    public void escribirPaquete(Paquete paquete){
+    @Override
+    public void modificarUsuario(Usuario usuario) {
+        em.merge(usuario);
+    }
+
+    @Override
+    public void escribirPaquete(Paquete paquete) {
         em.persist(paquete);
         FacesContext.getCurrentInstance().getApplication().getNavigationHandler().handleNavigation(FacesContext.getCurrentInstance(), null, "admin.xhtml");
-        
+
     }
     
+
     @Override
     public List<Paquete> obtenerPaquetes() {
-      
-      Query query = em.createQuery("SELECT c FROM Paquete c");
-    
-       return query.getResultList();
-      
+
+        Query query = em.createQuery("SELECT c FROM Paquete c");
+
+        return query.getResultList();
+
     }
-   
-       
-        
- @Override
+
+    @Override
     public List<Peticion> obtenerPeticiones(String usuario) {
-         Query query;
-        if(usuario == null || usuario.equals("")){
+        Query query;
+        if (usuario == null || usuario.equals("")) {
             query = em.createQuery("SELECT c FROM Peticion c where c.usuario=:fname");
-        }else{
+        } else {
             Usuario objetoUsuario = em.find(Usuario.class, usuario);
             query = em.createQuery("SELECT c FROM Peticion c where c.usuario = :fname ");
             query.setParameter("fname", objetoUsuario);
         }
         return query.getResultList();
-        
-    
+
     }
-    
-    
+
     @Override
-    public List<HistorialPadrinos> obtenerApadrinamientos(String niño){
+    public List<HistorialPadrinos> obtenerApadrinamientos(String niño) {
         Query query;
-        if(niño == null || niño.equals("")){
+        if (niño == null || niño.equals("")) {
             query = em.createQuery("SELECT c FROM HistorialPadrinos c where c.fechaCancelacion > CURRENT_DATE");
-        }else{
+        } else {
             Niño objetoNiño = em.find(Niño.class, niño);
             query = em.createQuery("SELECT c FROM HistorialPadrinos c where c.niño = :fname and c.fechaCancelacion > CURRENT_DATE");
             query.setParameter("fname", objetoNiño);
         }
         return query.getResultList();
     }
+
+    @Override
+    public boolean esPadrino(Niño niño,Usuario usuario){
+        Query query = em.createQuery("SELECT hp FROM HistorialPadrinos hp WHERE hp.niño = :niño AND hp.usuario = :usuario AND hp.fechaCancelacion IS NULL");
+        query.setParameter("niño", niño);
+        query.setParameter("usuario", usuario);
+        return !query.getResultList().isEmpty();
+    }
     
-     /**
+    
+    /**
      *
      * @return
      */
@@ -139,20 +159,20 @@ public class NegocioAdminImpl implements NegocioAdmin {
     public LinkedList<Carta> cartasPorAutorizar() {
         Query query;
         query = em.createQuery("SELECT c FROM Carta c where c.autorizado = false");
-        List<Carta> cartas =  query.getResultList();
+        List<Carta> cartas = query.getResultList();
         return new LinkedList<>(cartas);
     }
-    
-    
+
     @Override
-    public void autorizarCarta(Carta carta){
+    public void autorizarCarta(Carta carta) {
         em.merge(carta);
     }
 
     @Override
     public List<Carta> obtenerCartas() {
         Query query = em.createQuery("SELECT c FROM Carta c");
-    
-       return query.getResultList();
+
+        return query.getResultList();
     }
+
 }
