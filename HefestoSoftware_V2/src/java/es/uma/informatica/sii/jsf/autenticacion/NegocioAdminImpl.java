@@ -115,18 +115,19 @@ public class NegocioAdminImpl implements NegocioAdmin {
 
     }
 
-    @Override
+     @Override
     public List<Peticion> obtenerPeticiones(String usuario) {
-        Query query;
-        if (usuario == null || usuario.equals("")) {
-            query = em.createQuery("SELECT c FROM Peticion c where c.usuario=:fname");
-        } else {
+         Query query;
+        if(usuario == null || usuario.equals("")){
+            query = em.createQuery("SELECT c FROM Peticion c ");
+        }else{
             Usuario objetoUsuario = em.find(Usuario.class, usuario);
             query = em.createQuery("SELECT c FROM Peticion c where c.usuario = :fname ");
             query.setParameter("fname", objetoUsuario);
         }
         return query.getResultList();
-
+        
+    
     }
 
     @Override
