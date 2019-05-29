@@ -23,7 +23,7 @@
                         <p:dataTable value="#{vistaNiños.niños}" 
                                      var="niño"
                                      editable="true">
-                            <p:ajax event="rowEdit" />
+                            <p:ajax event="rowEdit" listener="#{vistaNiños.modificar}" />
                             <p:ajax event="rowEditCancel" />
 
                             <p:column headerText="Usuario">
