@@ -9,6 +9,8 @@ import java.io.Serializable;
 import java.sql.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 
@@ -21,8 +23,8 @@ public class Niño implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
-    @Column(length = 30)
-    private String usuario;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long usuario;
     @Column(length = 30, nullable = false)
     private String nombre;
     @Column(length = 60, nullable = false)
@@ -92,11 +94,11 @@ public class Niño implements Serializable {
         this.fechaBaja = fechaBaja;
     }
 
-    public String getUsuario() {
+    public Long getUsuario() {
         return usuario;
     }
 
-    public void setUsuario(String usuario) {
+    public void setUsuario(Long usuario) {
         this.usuario = usuario;
     }
 
@@ -134,7 +136,7 @@ public class Niño implements Serializable {
 
     @Override
     public String toString() {
-        return usuario;
+        return usuario.toString();
     }
 
 }

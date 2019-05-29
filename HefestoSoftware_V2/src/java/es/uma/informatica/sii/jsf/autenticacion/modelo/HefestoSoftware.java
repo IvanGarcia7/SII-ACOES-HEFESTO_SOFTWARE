@@ -47,7 +47,6 @@ public class HefestoSoftware {
         em.persist(test);
 
         Niño nn = new Niño();
-        nn.setUsuario("AngelSS");
         nn.setNombre("Angel");
         nn.setApellidos("Sanchez Sanchez");
         nn.setDireccion("Calle Madrid 2");
