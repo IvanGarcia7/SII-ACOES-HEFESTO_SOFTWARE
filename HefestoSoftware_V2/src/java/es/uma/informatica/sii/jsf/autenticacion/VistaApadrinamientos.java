@@ -23,7 +23,7 @@ import javax.inject.Named;
 public class VistaApadrinamientos implements Serializable {
 
     private List<HistorialPadrinos> apadrinamientos;
-    private String filtradoNiño;
+    private long filtradoNiño;
     
     
     @EJB
@@ -45,11 +45,11 @@ public class VistaApadrinamientos implements Serializable {
         apadrinamientos = negocioAdmin.obtenerApadrinamientos(filtradoNiño);
     }
     
-    public String getFiltradoNiño() {
+    public long getFiltradoNiño() {
         return filtradoNiño;
     }
 
-    public void setFiltradoNiño(String filtradoNiño) {
+    public void setFiltradoNiño(long filtradoNiño) {
         this.filtradoNiño = filtradoNiño;
     }
     

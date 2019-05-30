@@ -131,9 +131,9 @@ public class NegocioAdminImpl implements NegocioAdmin {
     }
 
     @Override
-    public List<HistorialPadrinos> obtenerApadrinamientos(String niño) {
+    public List<HistorialPadrinos> obtenerApadrinamientos(long niño) {
         Query query;
-        if (niño == null || niño.equals("")) {
+        if (niño == 0) {
             query = em.createQuery("SELECT c FROM HistorialPadrinos c where c.fechaCancelacion > CURRENT_DATE");
         } else {
             Niño objetoNiño = em.find(Niño.class, niño);

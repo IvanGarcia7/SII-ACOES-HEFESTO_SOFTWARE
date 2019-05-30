@@ -39,7 +39,7 @@ public interface NegocioAdmin {
     
     public void añadirCarta(Carta carta);
    
-    public List<HistorialPadrinos> obtenerApadrinamientos(String niño);
+    public List<HistorialPadrinos> obtenerApadrinamientos(long niño);
     
     public List<Peticion> obtenerPeticiones(String usuario);
     
