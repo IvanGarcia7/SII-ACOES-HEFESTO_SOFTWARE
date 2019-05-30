@@ -94,15 +94,18 @@ public class NegocioImpl implements Negocio {
 
     @Override
     public List<Carta> obtenerCartasRecibidas(Usuario usuario) {
-        Query query = em.createQuery("SELECT c FROM Carta c WHERE c.usuario = :usuario AND c.emisor = 0 AND c.autorizado = 1");
+        Query query = em.createQuery("SELECT c FROM Carta c WHERE c.usuario = :usuario AND c.emisor = :emisor AND c.autorizado = :autorizado");
         query.setParameter("usuario",usuario);
+        query.setParameter("emisor",false);
+        query.setParameter("autorizado",true);
         return query.getResultList();
     }
 
     @Override
     public List<Carta> obtenerCartasEnviadas(Usuario usuario) {
-        Query query = em.createQuery("SELECT c FROM Carta c WHERE c.usuario = :usuario AND c.emisor = 1");
+        Query query = em.createQuery("SELECT c FROM Carta c WHERE c.usuario = :usuario AND c.emisor = :emisor");
         query.setParameter("usuario",usuario);
+        query.setParameter("emisor",true);
         return query.getResultList();
     }
 
