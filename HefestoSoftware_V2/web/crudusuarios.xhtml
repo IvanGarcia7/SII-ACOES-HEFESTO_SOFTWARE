@@ -105,9 +105,13 @@
                                 <p:rowEditor />
                             </p:column>
                             <p:column>
-                                <p:commandButton action = "#{vistaUsuarios.eliminar(usuario)}" value="Delete" update="@form"/>
+                                <p:commandButton action = "#{vistaUsuarios.suspender(usuario)}" value="Delete" update="@form"/>
                             </p:column>
                         </p:dataTable>
+                        Mostrar todos los usuarios: 
+                        <p:selectBooleanCheckbox value ="#{vistaUsuarios.inactivos}">
+                            <p:ajax update="@form" listener="#{vistaUsuarios.actualizar}"/>
+                        </p:selectBooleanCheckbox>
                     </h:form>
                 </h:body>
             </c:when>
