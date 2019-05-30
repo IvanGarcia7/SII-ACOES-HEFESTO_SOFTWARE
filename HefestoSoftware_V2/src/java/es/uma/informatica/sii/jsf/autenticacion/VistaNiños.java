@@ -34,6 +34,7 @@ public class VistaNiños implements Serializable {
 
     public void eliminar(Niño niño) {
         negocio.eliminarNiño(niño);
+        niños = negocio.obtenerNiños();
     }
 
     public void modificar(RowEditEvent event) {

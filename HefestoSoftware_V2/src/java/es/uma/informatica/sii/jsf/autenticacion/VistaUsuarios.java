@@ -23,17 +23,27 @@ import org.primefaces.event.RowEditEvent;
 public class VistaUsuarios implements Serializable {
 
     private List<Usuario> usuarios;
+    private boolean inactivos;
 
     @EJB
     private NegocioAdmin negocio;
 
     @PostConstruct
     public void init() {
-        usuarios = negocio.obtenerUsuarios();
+        actualizar();
     }
 
-    public void eliminar(Usuario usuario) {
-        negocio.eliminarUsuario(usuario);
+    public void actualizar() {
+        if (inactivos) {
+            usuarios = negocio.obtenerUsuarios();
+        } else {
+            usuarios = negocio.obtenerUsuariosActivos();
+        }
+    }
+
+    public void suspender(Usuario usuario) {
+        negocio.suspenderUsuario(usuario);
+        actualizar();
     }
 
     public void modificar(RowEditEvent event) {
@@ -46,6 +56,14 @@ public class VistaUsuarios implements Serializable {
 
     public void setUsuarios(List<Usuario> usuarios) {
         this.usuarios = usuarios;
+    }
+
+    public boolean isInactivos() {
+        return inactivos;
+    }
+
+    public void setInactivos(boolean inactivos) {
+        this.inactivos = inactivos;
     }
 
     public NegocioAdmin getNegocio() {

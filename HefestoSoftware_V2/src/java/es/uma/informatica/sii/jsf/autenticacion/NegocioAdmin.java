@@ -27,11 +27,13 @@ public interface NegocioAdmin {
 
     public Usuario obtenerUsuario(String usuario);
     
-    public void eliminarUsuario(Usuario usuario);
+    public void suspenderUsuario(Usuario usuario);
     
     public void modificarUsuario(Usuario usuario);
     
     public List<Usuario> obtenerUsuarios();
+    
+    public List<Usuario> obtenerUsuariosActivos();
     
     public void escribirPaquete(Paquete paquete);
     

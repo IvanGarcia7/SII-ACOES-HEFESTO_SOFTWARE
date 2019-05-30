@@ -34,6 +34,7 @@ public class VistaEmpleados implements Serializable {
 
     public void eliminar(Empleado empleado) {
         negocio.eliminarEmpleado(empleado);
+        empleados = negocio.obtenerEmpleados();
     }
 
     public void modificar(RowEditEvent event) {

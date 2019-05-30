@@ -13,6 +13,7 @@ import es.uma.informatica.sii.jsf.autenticacion.modelo.Niño;
 import es.uma.informatica.sii.jsf.autenticacion.modelo.Paquete;
 import es.uma.informatica.sii.jsf.autenticacion.modelo.Peticion;
 import es.uma.informatica.sii.jsf.autenticacion.modelo.Usuario;
+import java.sql.Date;
 import java.util.LinkedList;
 import java.util.List;
 import javax.ejb.Stateless;
@@ -84,13 +85,24 @@ public class NegocioAdminImpl implements NegocioAdmin {
 
     @Override
     public List<Usuario> obtenerUsuarios() {
-        Query query = em.createQuery("SELECT u FROM Usuario u");
-        return query.getResultList();
+        return em.createQuery("SELECT u FROM Usuario u").getResultList();
+    }
+    
+    @Override
+    public List<Usuario> obtenerUsuariosActivos() {
+        return em.createQuery("SELECT u FROM Usuario u WHERE u.fechaBaja IS NULL").getResultList();
     }
 
     @Override
-    public void eliminarUsuario(Usuario usuario) {
-        em.remove(em.merge(usuario));
+    public void suspenderUsuario(Usuario usuario) {
+        Query query = em.createQuery("UPDATE HistorialPadrinos hp SET hp.fechaCancelacion = CURRENT_DATE WHERE hp.usuario = :usuario AND hp.fechaCancelacion IS NULL");
+        query.setParameter("usuario", usuario);
+        query.executeUpdate();
+        query = em.createQuery("DELETE FROM Peticion p WHERE p.usuario = :usuario");
+        query.setParameter("usuario", usuario);
+        query.executeUpdate();
+        usuario.setFechaBaja(new Date(System.currentTimeMillis()));
+        em.merge(usuario);
     }
 
     @Override
