@@ -9,10 +9,11 @@
             <file>file:/Users/ivan/Documents/GitHub/SII-ACOES-HEFESTO_SOFTWARE/HefestoSoftware_V2/web/HistorialPaquetes.xhtml</file>
             <file>file:/Users/ivan/Documents/GitHub/SII-ACOES-HEFESTO_SOFTWARE/HefestoSoftware_V2/web/VisualizarApadrinados.xhtml</file>
             <file>file:/Users/ivan/Documents/GitHub/SII-ACOES-HEFESTO_SOFTWARE/HefestoSoftware_V2/src/java/es/uma/informatica/sii/jsf/autenticacion/VistaPeticiones.java</file>
+            <file>file:/Users/ivan/Documents/GitHub/SII-ACOES-HEFESTO_SOFTWARE/HefestoSoftware_V2/src/java/es/uma/informatica/sii/jsf/autenticacion/modelo/Empleado.java</file>
             <file>file:/Users/ivan/Documents/GitHub/SII-ACOES-HEFESTO_SOFTWARE/HefestoSoftware_V2/src/conf/persistence.xml</file>
             <file>file:/Users/ivan/Documents/GitHub/SII-ACOES-HEFESTO_SOFTWARE/HefestoSoftware_V2/web/digitalizar_carta.xhtml</file>
-            <file>file:/Users/ivan/Documents/GitHub/SII-ACOES-HEFESTO_SOFTWARE/HefestoSoftware_V2/src/java/es/uma/informatica/sii/jsf/autenticacion/NuevoPaquete.java</file>
             <file>file:/Users/ivan/Documents/GitHub/SII-ACOES-HEFESTO_SOFTWARE/HefestoSoftware_V2/web/HistorialNinos.xhtml</file>
+            <file>file:/Users/ivan/Documents/GitHub/SII-ACOES-HEFESTO_SOFTWARE/HefestoSoftware_V2/src/java/es/uma/informatica/sii/jsf/autenticacion/NuevoPaquete.java</file>
             <file>file:/Users/ivan/Documents/GitHub/SII-ACOES-HEFESTO_SOFTWARE/HefestoSoftware_V2/src/java/es/uma/informatica/sii/jsf/autenticacion/VistaCartas.java</file>
             <file>file:/Users/ivan/Documents/GitHub/SII-ACOES-HEFESTO_SOFTWARE/HefestoSoftware_V2/web/escribir_carta.xhtml</file>
             <file>file:/Users/ivan/Documents/GitHub/SII-ACOES-HEFESTO_SOFTWARE/HefestoSoftware_V2/src/java/es/uma/informatica/sii/jsf/autenticacion/AutorizarCartas.java</file>
@@ -20,15 +21,20 @@
             <file>file:/Users/ivan/Documents/GitHub/SII-ACOES-HEFESTO_SOFTWARE/HefestoSoftware_V2/web/WEB-INF/templates/plantilla.xhtml</file>
             <file>file:/Users/ivan/Documents/GitHub/SII-ACOES-HEFESTO_SOFTWARE/HefestoSoftware_V2/src/java/es/uma/informatica/sii/jsf/autenticacion/VistaApadrinamientos.java</file>
             <file>file:/Users/ivan/Documents/GitHub/SII-ACOES-HEFESTO_SOFTWARE/HefestoSoftware_V2/src/java/es/uma/informatica/sii/jsf/autenticacion/modelo/Peticion.java</file>
+            <file>file:/Users/ivan/Documents/GitHub/SII-ACOES-HEFESTO_SOFTWARE/HefestoSoftware_V2/src/java/es/uma/informatica/sii/jsf/autenticacion/ControlAutorizacion.java</file>
             <file>file:/Users/ivan/Documents/GitHub/SII-ACOES-HEFESTO_SOFTWARE/HefestoSoftware_V2/web/resources/css/bootstrap.min.css</file>
+            <file>file:/Users/ivan/Documents/GitHub/SII-ACOES-HEFESTO_SOFTWARE/HefestoSoftware_V2/web/createEmpleados.xhtml</file>
             <file>file:/Users/ivan/Documents/GitHub/SII-ACOES-HEFESTO_SOFTWARE/HefestoSoftware_V2/src/java/es/uma/informatica/sii/jsf/autenticacion/modelo/Carta.java</file>
             <file>file:/Users/ivan/Documents/GitHub/SII-ACOES-HEFESTO_SOFTWARE/HefestoSoftware_V2/src/java/es/uma/informatica/sii/jsf/autenticacion/NegocioAdminImpl.java</file>
             <file>file:/Users/ivan/Documents/GitHub/SII-ACOES-HEFESTO_SOFTWARE/HefestoSoftware_V2/src/java/es/uma/informatica/sii/jsf/autenticacion/NiñoConverter.java</file>
             <file>file:/Users/ivan/Documents/GitHub/SII-ACOES-HEFESTO_SOFTWARE/HefestoSoftware_V2/web/administrar_cartas.xhtml</file>
-            <file>file:/Users/ivan/Documents/GitHub/SII-ACOES-HEFESTO_SOFTWARE/HefestoSoftware_V2/web/HistorialCartasNinos.xhtml</file>
             <file>file:/Users/ivan/Documents/GitHub/SII-ACOES-HEFESTO_SOFTWARE/HefestoSoftware_V2/src/java/es/uma/informatica/sii/jsf/autenticacion/HistorialCartas.java</file>
+            <file>file:/Users/ivan/Documents/GitHub/SII-ACOES-HEFESTO_SOFTWARE/HefestoSoftware_V2/src/java/es/uma/informatica/sii/jsf/autenticacion/VistaEmpleados.java</file>
+            <file>file:/Users/ivan/Documents/GitHub/SII-ACOES-HEFESTO_SOFTWARE/HefestoSoftware_V2/web/HistorialCartasNinos.xhtml</file>
+            <file>file:/Users/ivan/Documents/GitHub/SII-ACOES-HEFESTO_SOFTWARE/HefestoSoftware_V2/web/crudEmpleados.xhtml</file>
             <file>file:/Users/ivan/Documents/GitHub/SII-ACOES-HEFESTO_SOFTWARE/HefestoSoftware_V2/web/historial_cartas.xhtml</file>
             <file>file:/Users/ivan/Documents/GitHub/SII-ACOES-HEFESTO_SOFTWARE/HefestoSoftware_V2/src/java/es/uma/informatica/sii/jsf/autenticacion/VistaDestinatarios.java</file>
+            <file>file:/Users/ivan/Documents/GitHub/SII-ACOES-HEFESTO_SOFTWARE/HefestoSoftware_V2/src/java/es/uma/informatica/sii/jsf/autenticacion/NuevoEmpleado.java</file>
             <file>file:/Users/ivan/Documents/GitHub/SII-ACOES-HEFESTO_SOFTWARE/HefestoSoftware_V2/src/java/es/uma/informatica/sii/jsf/autenticacion/LoginAdministrador.java</file>
             <file>file:/Users/ivan/Documents/GitHub/SII-ACOES-HEFESTO_SOFTWARE/HefestoSoftware_V2/src/java/es/uma/informatica/sii/jsf/autenticacion/Negocio.java</file>
             <file>file:/Users/ivan/Documents/GitHub/SII-ACOES-HEFESTO_SOFTWARE/HefestoSoftware_V2/web/resources/css/default.css</file>

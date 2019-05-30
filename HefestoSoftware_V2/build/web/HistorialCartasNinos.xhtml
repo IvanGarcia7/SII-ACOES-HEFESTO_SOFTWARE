@@ -46,8 +46,8 @@
                         <p:column headerText="Mensaje" sortBy="#{carta.mensaje}">
                             <h:outputText value="#{carta.mensaje}"/>
                         </p:column>
-                        <p:column headerText="Validado por" sortBy="#{carta.empleado}">
-                            <h:outputText value="#{carta.empleado}"/>
+                                     <p:column headerText="Validado por" sortBy="#{carta.empleado.usuario}">
+                                         <h:outputText value="#{carta.empleado.usuario}"/>
                         </p:column>
                         <p:column headerText="Fecha de envio" sortBy="#{carta.fechaEnvio}">
                             <h:outputText value="#{carta.fechaEnvio}"/>

@@ -30,13 +30,13 @@ public class NuevoEmpleado {
         empleado = new Empleado();
     }
 
-    public String validarEmpleado() {
+    public void validarEmpleado() {
         try {
             empleado.setFechaAlta(new java.sql.Date(new Date().getTime()));
             negocio.añadirEmpleado(empleado);
-            return "crudEmpleados.xhtml";
+            
         } catch (Exception e) {
-            return null;
+            
         }
     }
 

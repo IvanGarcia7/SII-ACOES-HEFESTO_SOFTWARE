@@ -195,6 +195,7 @@ public class NegocioAdminImpl implements NegocioAdmin {
     @Override
     public void añadirEmpleado(Empleado empleado) {
         em.persist(empleado);
+        FacesContext.getCurrentInstance().getApplication().getNavigationHandler().handleNavigation(FacesContext.getCurrentInstance(), null, "crudEmpleados.xhtml");
     }
     
     
