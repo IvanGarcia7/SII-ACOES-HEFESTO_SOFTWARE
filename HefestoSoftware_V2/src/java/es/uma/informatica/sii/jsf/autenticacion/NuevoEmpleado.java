@@ -6,8 +6,7 @@
 package es.uma.informatica.sii.jsf.autenticacion;
 
 import es.uma.informatica.sii.jsf.autenticacion.modelo.Empleado;
-import java.util.Calendar;
-import java.util.Date;
+import java.sql.Date;
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
@@ -21,7 +20,6 @@ import javax.inject.Named;
 public class NuevoEmpleado {
 
     private Empleado empleado;
-    private Date fechaNacimiento;
 
     @EJB
     private NegocioAdmin negocio;
@@ -31,41 +29,16 @@ public class NuevoEmpleado {
     }
 
     public void validarEmpleado() {
-        try {
-            empleado.setFechaAlta(new java.sql.Date(new Date().getTime()));
-            negocio.añadirEmpleado(empleado);
-            
-        } catch (Exception e) {
-            
-        }
-    }
-
-    public Date fechaNacimientoMinima() {
-        Calendar cal = Calendar.getInstance();
-        cal.setTime(new Date());
-        cal.add(Calendar.YEAR, -18);
-        cal.add(Calendar.DAY_OF_YEAR, 1);
-        return cal.getTime();
-    }
-
-    public Date fechaNacimientoMaxima() {
-        return new Date();
+        empleado.setFechaAlta(new Date(System.currentTimeMillis()));
+        negocio.añadirEmpleado(empleado);
     }
 
     public Empleado getEmpleado() {
         return empleado;
     }
 
-    public void setEmpleado(Empleado niño) {
+    public void setEmpleado(Empleado empleado) {
         this.empleado = empleado;
-    }
-
-    public Date getFechaNacimiento() {
-        return fechaNacimiento;
-    }
-
-    public void setFechaNacimiento(Date fechaNacimiento) {
-        this.fechaNacimiento = fechaNacimiento;
     }
 
     public NegocioAdmin getNegocio() {
