@@ -49,7 +49,7 @@
                         <h:form id="form">
 
                             <div class="cabeceraformularioregistro">
-                                <label>Usuario<h:message for="Usuario" style="color: darkred"/></label>
+                                <label>Usuario<h:message for="usuario" style="color: darkred"/></label>
                                 <div class="group">
                                     <i class="contrasenaregistro"></i>
                                     <h:inputText id="usuario" value="#{nuevoEmpleado.empleado.usuario}" class="form-control" required="true" requiredMessage="*" />
@@ -57,7 +57,7 @@
                             </div>
 
                             <div class="cabeceraformularioregistro">
-                                <label>Contraseña<h:message for="Contraseña" style="color: darkred"/></label>
+                                <label>Contraseña<h:message for="contraseña" style="color: darkred"/></label>
                                 <div class="group">
                                     <i class="contrasenaregistro"></i>
                                     <h:inputSecret id="contraseña" value="#{nuevoEmpleado.empleado.contraseña}" class="form-control" required="true" requiredMessage="*" />
@@ -65,7 +65,7 @@
                             </div>
                             
                             <div class="cabeceraformularioregistro">
-                                <label>numeroEmpleado<h:message for="NumeroEmpleado" style="color: darkred"/></label>
+                                <label>numeroEmpleado<h:message for="numeroEmpleado" style="color: darkred"/></label>
                                 <div class="group">
                                     <i class="contrasenaregistro"></i>
                                     <h:inputText id="numeroEmpleado" value="#{nuevoEmpleado.empleado.numeroEmpleado}" class="form-control" required="true" requiredMessage="*" />
@@ -73,7 +73,7 @@
                             </div>
                             
                             <div class="cabeceraformularioregistro">
-                                <label>Nombre<h:message for="Nombre" style="color: darkred"/></label>
+                                <label>Nombre<h:message for="nombre" style="color: darkred"/></label>
                                 <div class="group">
                                     <i class="contrasenaregistro"></i>
                                     <h:inputText id="nombre" value="#{nuevoEmpleado.empleado.nombre}" class="form-control" required="true" requiredMessage="*" />
@@ -81,7 +81,7 @@
                             </div>
                             
                              <div class="cabeceraformularioregistro">
-                                <label>Apellidos<h:message for="Apellidos" style="color: darkred"/></label>
+                                <label>Apellidos<h:message for="apellidos" style="color: darkred"/></label>
                                 <div class="group">
                                     <i class="contrasenaregistro"></i>
                                     <h:inputText id="apellidos" value="#{nuevoEmpleado.empleado.apellidos}" class="form-control" required="true" requiredMessage="*" />
@@ -89,7 +89,7 @@
                             </div>
                             
                             <div class="cabeceraformularioregistro">
-                                <label>DNI<h:message for="DNI" style="color: darkred"/></label>
+                                <label>DNI<h:message for="dni" style="color: darkred"/></label>
                                 <div class="group">
                                     <i class="contrasenaregistro"></i>
                                     <h:inputText id="dni" value="#{nuevoEmpleado.empleado.dni}" class="form-control" required="true" requiredMessage="*" />
@@ -97,31 +97,47 @@
                             </div>
                             
                             <div class="cabeceraformularioregistro">
-                                <label>Direccion<h:message for="Direccion" style="color: darkred"/></label>
+                                <label>Direccion<h:message for="direccion" style="color: darkred"/></label>
                                 <div class="group">
                                     <i class="contrasenaregistro"></i>
                                     <h:inputText id="direccion" value="#{nuevoEmpleado.empleado.direccion}" class="form-control" required="true" requiredMessage="*" />
                                 </div>
                             </div>
-                            
+
                             <div class="cabeceraformularioregistro">
-                                <label>CP<h:message for="CP" style="color: darkred"/></label>
+                                <label>Población<h:message for="poblacion" style="color: darkred"/></label>
                                 <div class="group">
                                     <i class="contrasenaregistro"></i>
-                                    <h:inputText id="cp" value="#{nuevoEmpleado.empleado.codigoPostal}" class="form-control" required="true" requiredMessage="*" />
+                                    <h:inputText id="poblacion" value="#{nuevoEmpleado.empleado.poblacion}" class="form-control" required="true" requiredMessage="*" />
                                 </div>
                             </div>
                             
                             <div class="cabeceraformularioregistro">
-                                <label>Provincia<h:message for="Provincia" style="color: darkred"/></label>
+                                <label>CP<h:message for="cp" style="color: darkred"/></label>
                                 <div class="group">
                                     <i class="contrasenaregistro"></i>
-                                    <h:inputText id="Provincia" value="#{nuevoEmpleado.empleado.provincia}" class="form-control" required="true" requiredMessage="*" />
+                                    <h:inputText id="cp" value="#{nuevoEmpleado.empleado.codigoPostal}" class="form-control"/>
                                 </div>
                             </div>
                             
                             <div class="cabeceraformularioregistro">
-                                <label>Correo<h:message for="Correo" style="color: darkred"/></label>
+                                <label>Provincia<h:message for="provincia" style="color: darkred"/></label>
+                                <div class="group">
+                                    <i class="contrasenaregistro"></i>
+                                    <h:inputText id="provincia" value="#{nuevoEmpleado.empleado.provincia}" class="form-control" required="true" requiredMessage="*" />
+                                </div>
+                            </div>
+                            
+                            <div class="cabeceraformularioregistro">
+                                <label>Teléfono<h:message for="telefono" style="color: darkred"/></label>
+                                <div class="group">
+                                    <i class="contrasenaregistro"></i>
+                                    <h:inputText id="telefono" value="#{nuevoEmpleado.empleado.telefono}" class="form-control" required="true" requiredMessage="*" />
+                                </div>
+                            </div>
+                            
+                            <div class="cabeceraformularioregistro">
+                                <label>Correo<h:message for="correo" style="color: darkred"/></label>
                                 <div class="group">
                                     <i class="contrasenaregistro"></i>
                                     <h:inputText id="correo" value="#{nuevoEmpleado.empleado.correoElectronico}" class="form-control" required="true" requiredMessage="*" />
