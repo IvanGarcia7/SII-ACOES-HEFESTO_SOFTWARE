@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link href="./resources/css/default.css" rel="stylesheet" type="text/css" />
+        <link href="./resources/css/cssLayout.css" rel="stylesheet" type="text/css" />
+        <title>
+            <ui:insert name="title">Facelets Template</ui:insert>
+        </title>
+    </h:head>
+
+    <h:body>
+        <div id="top" class="top">
+            <h:form id="menu">
+                <ul class="menulist">
+
+                    <c:if test="#{not empty controlAutorizacion.usuario}">
+                        <li><h:commandLink action="historial_cartas.xhtml" value="Historial de cartas"/></li>
+                        <li><h:commandLink action="escribir_carta.xhtml" value="Escribir carta"/></li>
+                        <li><h:commandLink action="Escribir peticion.xhtml" value="Solicitar apadrinamiento"/></li>
+                        <li><h:commandLink action="VisualizarApadrinados.xhtml" value="Consultar apadrinamientos"/></li>
+                    </c:if>
+                    <c:if test="#{not empty controlAutorizacion.empleado}">
+                        <li><h:commandLink action="administrar_cartas.xhtml" value="Administrar cartas"/></li>
+                        <li><h:commandLink action="Historial Peticiones.xhtml" value="Historial de solicitudes"/></li>
+                        <li><h:commandLink action="HistorialPaquetes.xhtml" value="Historial de paquetes"/></li>
+                        <li><h:commandLink action="escribirpaquete.xhtml" value="Escribir paquete"/></li>
+                        <li><h:commandLink action="HistorialNinos.xhtml" value="Historial de niños"/></li>
+                        <li><h:commandLink action="digitalizar_carta.xhtml" value="Digitalizar carta"/></li>
+                        <li><h:commandLink action="HistorialCartasNinos.xhtml" value="Historial Cartas Niños"/></li>
+                        <li><h:commandLink action="crudninos.xhtml" value="CRUD niños"/></li>
+                        <li><h:commandLink action="crudusuarios.xhtml" value="CRUD usuarios"/></li>
+                        <li><h:commandLink action="crudEmpleados.xhtml" value="CRUD empleados"/></li>
+                    </c:if>
+                    <li id="especial"><h:commandLink action="#{controlAutorizacion.home()}" value=""/></li>
+
+                    <c:if test="#{controlAutorizacion.logeado}">
+                        <li><h:commandLink action="#{controlAutorizacion.logout()}" value="Salir"/></li>
+                    </c:if>
+                </ul>
+            </h:form>
+        </div>
+
+
+
+        <div id="content" class="center_content">
+
+            <ui:insert name="content">Content</ui:insert>
+        </div>
+    </h:body>
+
+</html>

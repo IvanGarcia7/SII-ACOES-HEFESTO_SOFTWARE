@@ -1,0 +1,55 @@
+<ui:composition template="/WEB-INF/templates/plantilla.xhtml" 
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <ui:define name="title">Historial de niños</ui:define>
+    <ui:define name="content">
+        <c:choose>
+           <c:when test="#{not empty controlAutorizacion.empleado}">
+                <h:graphicImage styleClass="logo" height="200px" value = "./resources/Imagenes/logo1.png"/> 
+                <h:form id="form">
+                    <p:inputNumber value="#{vistaApadrinamientos.filtradoNiño}" style="background-color: white; width: 300px; height: 30px; display:inline-block; float: left" placeholder="Buscar apadrinamientos de un niño/a"/>
+                    <h:commandButton class="enviarsolicitud" style="font-size: 23px" value="filtrar" action="#{vistaApadrinamientos.filtrar()}"/>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <p:dataTable value="#{vistaApadrinamientos.apadrinamientos}" 
+                                 var="apadrinamiento"
+                                 editable="true">
+                        <p:ajax event="rowEdit" />
+                        <p:ajax event="rowEditCancel" />
+                        <p:column headerText="Nombre padrino">
+                            <p:cellEditor>
+                                <f:facet name="output"><h:outputText value="#{apadrinamiento.usuario.usuario}" /></f:facet>
+                                <f:facet name="input"><p:inputText value="#{apadrinamiento.usuario.usuario}" style="width:100%"/></f:facet>
+                            </p:cellEditor>
+                        </p:column>
+                        <p:column headerText="Id apadrinamiento">
+                            <p:cellEditor>
+                                <f:facet name="output"><h:outputText value="#{apadrinamiento.id}" /></f:facet>
+                                <f:facet name="input"><p:inputText value="#{apadrinamiento.id}" style="width:100%"/></f:facet>
+                            </p:cellEditor>
+                        </p:column>
+                        <p:column headerText="Fecha apadrinamiento">
+                            <p:cellEditor>
+                                <f:facet name="output"><h:outputText value="#{apadrinamiento.fechaApadrinamiento}" /></f:facet>
+                                <f:facet name="input"><p:inputText value="#{apadrinamiento.fechaApadrinamiento}" style="width:100%"/></f:facet>
+                            </p:cellEditor>
+                        </p:column>
+                        <p:column style="width:35px">
+                            <p:rowEditor />
+                        </p:column>
+                    </p:dataTable>
+                    
+                </h:form>
+            </c:when>
+            <c:otherwise>
+                <ui:include src="/WEB-INF/templates/errorAutorizacion.xhtml"/>
+            </c:otherwise>
+        </c:choose>
+        <h:messages/>
+    </ui:define>
+</ui:composition>

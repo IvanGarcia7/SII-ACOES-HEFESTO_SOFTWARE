@@ -1,0 +1,79 @@
+<ui:composition template="/WEB-INF/templates/plantilla.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"     
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:p="http://primefaces.org/ui">
+
+    <ui:define name="title">Digitalizar</ui:define>
+
+    <ui:define name="content">
+        <c:choose>
+            <c:when test="#{not empty controlAutorizacion.empleado}">
+                <h:graphicImage styleClass="logo" height="200px" value = "./resources/Imagenes/logo1.png"/> 
+                <h1>Digitalize una nueva Carta:</h1>
+
+                <h:form enctype='multipart/form-data' id="formularioespecial">
+                    <table style="width: 100%;align-content: center;align-self: center; margin-left: 10%; margin-top: 20px;">
+                        <tr>
+                            <td>
+                                <pre>
+                                    
+                                </pre>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <table style="width: 90%;align-self: center;">
+                                    <tr><td><h:message for="asunto" style="color: darkred;"/>Asunto:</td></tr>
+                                    <tr><td><h:inputText id="asunto" style="background: white; border: 1px solid black; border-radius: 3px; height:30px;" value="#{nuevaCarta.carta.asunto}" required="true" requiredMessage="(*)"/></td></tr>
+                                    <tr><td><h:message for="mensaje" style="color: darkred;"/>Mensaje:</td></tr>
+                                    <tr><td><h:inputTextarea id="mensaje" style="background: white; min-height: 100px; border: 1px solid black; border-radius: 3px;" value="#{nuevaCarta.carta.mensaje}" required="true" requiredMessage="(*)"/></td></tr>
+                                </table> 
+                            </td>
+                            <td>
+                                <table style="width: 90%;">
+                                    <tr><td><h:message for="emisor" style="color: darkred;"/>Escoge al niño emisor</td></tr>
+                                    <tr><td>
+                                            <h:selectOneMenu class="textoinput1" id="emisor" value="#{nuevaCarta.carta.niño}" converter="#{niñoConverter}" required="true" requiredMessage="(*)">
+                                                <f:selectItems value="#{vistaNiños.niños}" var="niño" itemValue="#{niño}" itemLabel="#{niño.nombre} #{niño.apellidos}"/>
+                                            </h:selectOneMenu>
+                                        </td></tr>
+
+                                    <tr><td><h:message for="destinatario" style="color: darkred;"/>Escoge al padrino destinatario</td></tr>
+                                    <tr><td>
+                                            <h:selectOneMenu class="textoinput1" id="destinatario" value="#{nuevaCarta.carta.usuario}" converter="#{usuarioConverter}" required="true" requiredMessage="(*)">
+                                                <f:selectItems value="#{vistaUsuarios.usuarios}" var="usuario" itemValue="#{usuario}" itemLabel="#{usuario.nombre} #{usuario.apellidos}"/>
+                                            </h:selectOneMenu>
+                                        </td></tr>
+
+                                    <tr>
+                                        <td>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr><td><h:inputFile class="textoinput2" value="#{nuevaCarta.carta.adjunto}"/></td></tr>
+                                    <tr><td><h:commandButton class="textoinput2" value="Digitalizar carta" action="#{nuevaCarta.digitalizarCarta()}"/></td></tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <td>
+                            <pre>
+
+                            </pre>
+
+                        </td>
+                    </table>
+                </h:form>
+            </c:when>
+            <c:otherwise>
+                <ui:include src="/WEB-INF/templates/errorAutorizacion.xhtml"/>
+            </c:otherwise>
+        </c:choose>
+    </ui:define>
+</ui:composition>
+
+
