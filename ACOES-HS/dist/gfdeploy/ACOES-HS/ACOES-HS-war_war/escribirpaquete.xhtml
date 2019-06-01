@@ -32,14 +32,18 @@
                                     <pre></pre>
                                     Estado:
                                     <hr></hr>
-                                    <input type="radio" name="solicitudT" value="pendiente" checked="checked"></input>Pendiente
+                                    <h:selectOneRadio value = "#{nuevoPaquete.paquete.estado}"> 
+                                        <f:selectItem itemValue = "Pendiente"  itemLabel = "Pendiente" />
+                                    </h:selectOneRadio> 
 
                                     <br></br>
                                     <br></br>
 
-                                    Destino
+                                    Destino:
                                     <hr></hr>
-                                    <input type="radio" name="destinoT" value="Honduras" checked="checked"></input>Honduras
+                                    <h:selectOneRadio value = "#{nuevoPaquete.paquete.destino}"> 
+                                        <f:selectItem itemValue = "Honduras"  itemLabel = "Honduras" />
+                                    </h:selectOneRadio> 
 
                                     <br></br>
                                     <br></br>
