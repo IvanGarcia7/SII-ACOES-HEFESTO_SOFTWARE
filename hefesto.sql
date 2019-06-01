@@ -1,29 +1,29 @@
 INSERT INTO APP.USUARIO (USUARIO, APELLIDOS, CODIGO_POSTAL, "CONTRASEÑA", CORREO_ELECTRONICO, DESCRIPCION, DIRECCION, DNI, FECHA_ALTA, FECHA_BAJA, NOMBRE, POBLACION, PROVINCIA, TELEFONO) 
 	VALUES ('ambrambr', 'ambrambr', 123123, 'ambrambr', 'ambrambr@ksnf.com', 'ambrambr', 'ambrambr', '12123123', '2019-05-29', '2019-05-29', 'ambrambr', 'ambrambr', 'ambrambr', '124312312');
 INSERT INTO APP.USUARIO (USUARIO, APELLIDOS, CODIGO_POSTAL, "CONTRASEÑA", CORREO_ELECTRONICO, DESCRIPCION, DIRECCION, DNI, FECHA_ALTA, FECHA_BAJA, NOMBRE, POBLACION, PROVINCIA, TELEFONO) 
-	VALUES ('aliciamorales1', 'Morales', 29003, 'contraseña', 'aliciamorales1@gmail.com', NULL, 'Calle Rute n2', '85749356', '2019-05-29', '2019-09-29', 'Alicia', 'Leon', 'Leon', '654234567');
+	VALUES ('aliciamorales1', 'Morales', 29003, 'contraseña', 'aliciamorales1@gmail.com', NULL, 'Calle Rute n2', '85749356', '2019-05-29', NULL, 'Alicia', 'Leon', 'Leon', '654234567');
 INSERT INTO APP.USUARIO (USUARIO, APELLIDOS, CODIGO_POSTAL, "CONTRASEÑA", CORREO_ELECTRONICO, DESCRIPCION, DIRECCION, DNI, FECHA_ALTA, FECHA_BAJA, NOMBRE, POBLACION, PROVINCIA, TELEFONO) 
-	VALUES ('ambroxmr', 'Burgueño', 27663, 'ambroxmr', 'ambroxmr@outlook.es', NULL, 'Avenida Paseo Ronda n3', '39485760', '2019-05-29', '2019-08-29', 'Antonio', 'Barcelona', 'Barcelona', '762384536');
+	VALUES ('ambroxmr', 'Burgueño', 27663, 'ambroxmr', 'ambroxmr@outlook.es', NULL, 'Avenida Paseo Ronda n3', '39485760', '2019-05-29', NULL, 'Antonio', 'Barcelona', 'Barcelona', '762384536');
 INSERT INTO APP.USUARIO (USUARIO, APELLIDOS, CODIGO_POSTAL, "CONTRASEÑA", CORREO_ELECTRONICO, DESCRIPCION, DIRECCION, DNI, FECHA_ALTA, FECHA_BAJA, NOMBRE, POBLACION, PROVINCIA, TELEFONO) 
-	VALUES ('juanito24', 'Romero', 29210, 'pokemoon', 'juanito24@gmail.com', NULL, 'Calle la rosa n2', '18375638', '2019-05-29', '2021-05-29', 'Juan', 'Villareal', 'Villareal', '628395605');
+	VALUES ('juanito24', 'Romero', 29210, 'pokemoon', 'juanito24@gmail.com', NULL, 'Calle la rosa n2', '18375638', '2019-05-29', NULL, 'Juan', 'Villareal', 'Villareal', '628395605');
 INSERT INTO APP.USUARIO (USUARIO, APELLIDOS, CODIGO_POSTAL, "CONTRASEÑA", CORREO_ELECTRONICO, DESCRIPCION, DIRECCION, DNI, FECHA_ALTA, FECHA_BAJA, NOMBRE, POBLACION, PROVINCIA, TELEFONO) 
-	VALUES ('abelcabrera', 'Cabrera', 25834, 'enki123', 'abelcabrera@hotmail.es', NULL, 'Calle Alicia n9', '19828345', '2019-05-29', '2019-12-01', 'Abel', 'Palencia', 'Palencia', '638475643');
+	VALUES ('abelcabrera', 'Cabrera', 25834, 'enki123', 'abelcabrera@hotmail.es', NULL, 'Calle Alicia n9', '19828345', '2019-05-29', NULL, 'Abel', 'Palencia', 'Palencia', '638475643');
 INSERT INTO APP.USUARIO (USUARIO, APELLIDOS, CODIGO_POSTAL, "CONTRASEÑA", CORREO_ELECTRONICO, DESCRIPCION, DIRECCION, DNI, FECHA_ALTA, FECHA_BAJA, NOMBRE, POBLACION, PROVINCIA, TELEFONO) 
-	VALUES ('torresMigos', 'Fernandez', 14678, 'Manolo56', 'torresMigos@gmail.com', NULL, 'Ruta del pescado n1', '19305836', '2019-05-29', '2019-09-30', 'Enrique', 'Valencia', 'Valiencia', '623485495');
+	VALUES ('torresMigos', 'Fernandez', 14678, 'Manolo56', 'torresMigos@gmail.com', NULL, 'Ruta del pescado n1', '19305836', '2019-05-29', NULL, 'Enrique', 'Valencia', 'Valiencia', '623485495');
 INSERT INTO APP.USUARIO (USUARIO, APELLIDOS, CODIGO_POSTAL, "CONTRASEÑA", CORREO_ELECTRONICO, DESCRIPCION, DIRECCION, DNI, FECHA_ALTA, FECHA_BAJA, NOMBRE, POBLACION, PROVINCIA, TELEFONO) 
-	VALUES ('franRosa', 'Rosa', 26874, '12041998Aa.', 'franRosa@hotmail.es', NULL, 'Calle Pascual n4', '09283745', '2019-05-29', '2019-09-29', 'Francisco', 'Cuevas Bajas', 'Mañaga', '637482734');
+	VALUES ('franRosa', 'Rosa', 26874, '12041998Aa.', 'franRosa@hotmail.es', NULL, 'Calle Pascual n4', '09283745', '2019-05-29', NULL, 'Francisco', 'Cuevas Bajas', 'Mañaga', '637482734');
 INSERT INTO APP.USUARIO (USUARIO, APELLIDOS, CODIGO_POSTAL, "CONTRASEÑA", CORREO_ELECTRONICO, DESCRIPCION, DIRECCION, DNI, FECHA_ALTA, FECHA_BAJA, NOMBRE, POBLACION, PROVINCIA, TELEFONO) 
-	VALUES ('unChichoDeCiudad', 'Martinez', 23764, 'puebloPaleta', 'unChicoDeCiudad@gmail.com', NULL, 'Calle revientacostales n5', '18274958', '2019-05-29', '2022-01-03', 'Roberto', 'Madrid', 'Madrid', '692837465');
+	VALUES ('unChichoDeCiudad', 'Martinez', 23764, 'puebloPaleta', 'unChicoDeCiudad@gmail.com', NULL, 'Calle revientacostales n5', '18274958', '2019-05-29', NULL, 'Roberto', 'Madrid', 'Madrid', '692837465');
 INSERT INTO APP.USUARIO (USUARIO, APELLIDOS, CODIGO_POSTAL, "CONTRASEÑA", CORREO_ELECTRONICO, DESCRIPCION, DIRECCION, DNI, FECHA_ALTA, FECHA_BAJA, NOMBRE, POBLACION, PROVINCIA, TELEFONO) 
-	VALUES ('hectorLavoeVive', 'Lavanda', 12467, 'candela4', 'hectorLavoeVive@kike.es', NULL, 'Avenida Ramón Costalero n45', '17283947', '2019-05-29', '2019-12-29', 'Gloria', 'Madrid', 'Madrid', '648273645');
+	VALUES ('hectorLavoeVive', 'Lavanda', 12467, 'candela4', 'hectorLavoeVive@kike.es', NULL, 'Avenida Ramón Costalero n45', '17283947', '2019-05-29', NULL, 'Gloria', 'Madrid', 'Madrid', '648273645');
 INSERT INTO APP.USUARIO (USUARIO, APELLIDOS, CODIGO_POSTAL, "CONTRASEÑA", CORREO_ELECTRONICO, DESCRIPCION, DIRECCION, DNI, FECHA_ALTA, FECHA_BAJA, NOMBRE, POBLACION, PROVINCIA, TELEFONO) 
-	VALUES ('locoRoco', 'Roco', 98340, 'rocoloco', 'locoRoco@hotmail.es', NULL, 'Calle Cristiano Ronaldo n7', '19847563', '2019-05-29', '2019-07-30', 'Irene', 'Sevilla', 'Sevilla', '736459283');
+	VALUES ('locoRoco', 'Roco', 98340, 'rocoloco', 'locoRoco@hotmail.es', NULL, 'Calle Cristiano Ronaldo n7', '19847563', '2019-05-29', NULL, 'Irene', 'Sevilla', 'Sevilla', '736459283');
 INSERT INTO APP.USUARIO (USUARIO, APELLIDOS, CODIGO_POSTAL, "CONTRASEÑA", CORREO_ELECTRONICO, DESCRIPCION, DIRECCION, DNI, FECHA_ALTA, FECHA_BAJA, NOMBRE, POBLACION, PROVINCIA, TELEFONO) 
-	VALUES ('miguelRojo_5', 'Rojo', 12543, 'comunismo', 'miguelRojo_5@gmail.com', NULL, 'Avenida de la barra n39', '19384750', '2019-05-29', '2020-06-29', 'Miguel', 'Cuevas de San Marcos', 'Malaga', '789384756');
+	VALUES ('miguelRojo_5', 'Rojo', 12543, 'comunismo', 'miguelRojo_5@gmail.com', NULL, 'Avenida de la barra n39', '19384750', '2019-05-29', NULL, 'Miguel', 'Cuevas de San Marcos', 'Malaga', '789384756');
 INSERT INTO APP.USUARIO (USUARIO, APELLIDOS, CODIGO_POSTAL, "CONTRASEÑA", CORREO_ELECTRONICO, DESCRIPCION, DIRECCION, DNI, FECHA_ALTA, FECHA_BAJA, NOMBRE, POBLACION, PROVINCIA, TELEFONO) 
-	VALUES ('animalistaTaciturna', 'Lovato', 45876, 'vegetariana', 'vegeatariana23@gmail.com', NULL, 'Avenida Tijuana n1', '17364572', '2019-05-29', '2019-09-29', 'Ramona', 'Villaneblino', 'Leon', '666666543');
+	VALUES ('animalistaTaciturna', 'Lovato', 45876, 'vegetariana', 'vegeatariana23@gmail.com', NULL, 'Avenida Tijuana n1', '17364572', '2019-05-29', NULL, 'Ramona', 'Villaneblino', 'Leon', '666666543');
 INSERT INTO APP.USUARIO (USUARIO, APELLIDOS, CODIGO_POSTAL, "CONTRASEÑA", CORREO_ELECTRONICO, DESCRIPCION, DIRECCION, DNI, FECHA_ALTA, FECHA_BAJA, NOMBRE, POBLACION, PROVINCIA, TELEFONO) 
-	VALUES ('ivanGm98', 'Gomez', 25678, 'gomezmiguel', 'ivanGm98@outlook.es', NULL, '', '29384769', '2019-05-29', '2020-05-29', 'Ivan', 'Málaga', 'Málaga', '765456789');
+	VALUES ('ivanGm98', 'Gomez', 25678, 'gomezmiguel', 'ivanGm98@outlook.es', NULL, '', '29384769', '2019-05-29', NULL, 'Ivan', 'Málaga', 'Málaga', '765456789');
 
 INSERT INTO APP."NIÑO" (USUARIO, APELLIDOS, DIRECCION, FECHA_ALTA, FECHA_BAJA, FECHA_NACIMIENTO, FOTOGRAFIA, NOMBRE, POBLACION) 
 	VALUES (111, 'Ramirez', '', '2019-05-29', '2021-11-27', '2014-05-14', NULL, 'Antonio', 'Huelva');
