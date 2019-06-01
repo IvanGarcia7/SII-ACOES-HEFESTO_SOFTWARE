@@ -2,19 +2,11 @@
 <persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
   <persistence-unit name="HefestoBD" transaction-type="JTA">
     <jta-data-source>jdbc/sample</jta-data-source>
-    <class>hefestosoftware.Usuario</class>
-    <class>hefestosoftware.Registro</class>
-    <class>hefestosoftware.Peticion</class>
-    <class>hefestosoftware.Empleado</class>
-    <class>hefestosoftware.Carta</class>
-    <class>hefestosoftware.HistorialPadrinos</class>
-    <class>hefestosoftware.Niño</class>
-    <class>hefestosoftware.Paquete</class>
-    <exclude-unlisted-classes>true</exclude-unlisted-classes>
+    <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.schema-generation.scripts.action" value="dropcreate"/>
       <property name="javax.persistence.schema-generation.scripts.create-target" value="createoooooo.sql"/>
-      <property name="javax.persistence.schema-generation.database.action" value="create"/>
+      <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
     </properties>
   </persistence-unit>
 </persistence>

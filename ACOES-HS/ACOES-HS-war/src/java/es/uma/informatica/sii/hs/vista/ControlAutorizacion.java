@@ -14,10 +14,11 @@ import javax.faces.bean.ManagedBean;
 
 import javax.faces.context.FacesContext;
 
-@ManagedBean
+@Named(value = "controlAutorizacion")
 @SessionScoped
 public class ControlAutorizacion implements Serializable {
 
+    
     private Usuario usuario;
     private Empleado empleado;
     private boolean logeado;
