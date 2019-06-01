@@ -6,3 +6,11 @@
 /build/
 /HefestoSoftware_V2/dist/
 /ACOES-HS/ACOES-HS-ejb/build/
+/ACOES-HS/build/
+/ACOES-HS/dist/
+/ACOES-HS/ACOES-HS-war/dist/
+/ACOES-HS/ACOES-HS-war/build/
+/ACOES-HS/ACOES-HS-ejb/dist/
+/ACOES-HS/nbproject/private/
+/ACOES-HS/ACOES-HS-war/nbproject/private/
+/ACOES-HS/ACOES-HS-ejb/nbproject/private/

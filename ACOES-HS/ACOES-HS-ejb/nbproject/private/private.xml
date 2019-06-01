@@ -3,24 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Users/ivan/Documents/GitHub/ACOES-HS/ACOES-HS-ejb/src/java/es/uma/informatica/sii/hs/negocio/ContraseniaInvalidaException.java</file>
-            <file>file:/Users/ivan/Documents/GitHub/ACOES-HS/ACOES-HS-ejb/src/java/es/uma/informatica/sii/hs/negocio/AcoesException.java</file>
-            <file>file:/Users/ivan/Documents/GitHub/ACOES-HS/ACOES-HS-ejb/src/java/es/uma/informatica/sii/hs/negocio/NegocioImpl.java</file>
-            <file>file:/Users/ivan/Documents/GitHub/ACOES-HS/ACOES-HS-ejb/src/java/es/uma/informatica/sii/hs/entidades/Usuario.java</file>
-            <file>file:/Users/ivan/Documents/GitHub/ACOES-HS/ACOES-HS-ejb/src/java/es/uma/informatica/sii/hs/entidades/Carta.java</file>
-            <file>file:/Users/ivan/Documents/GitHub/ACOES-HS/ACOES-HS-ejb/src/conf/persistence.xml</file>
-            <file>file:/Users/ivan/Documents/GitHub/ACOES-HS/ACOES-HS-ejb/src/java/es/uma/informatica/sii/hs/entidades/Niño.java</file>
-            <file>file:/Users/ivan/Documents/GitHub/ACOES-HS/ACOES-HS-ejb/src/java/es/uma/informatica/sii/hs/negocio/NegocioAdminImpl.java</file>
-            <file>file:/Users/ivan/Documents/GitHub/ACOES-HS/ACOES-HS-ejb/src/java/es/uma/informatica/sii/hs/negocio/CuentaInexistenteException.java</file>
-            <file>file:/Users/ivan/Documents/GitHub/ACOES-HS/ACOES-HS-ejb/src/java/es/uma/informatica/sii/hs/entidades/Peticion.java</file>
-            <file>file:/Users/ivan/Documents/GitHub/ACOES-HS/ACOES-HS-ejb/src/java/es/uma/informatica/sii/hs/entidades/HefestoSoftware.java</file>
-            <file>file:/Users/ivan/Documents/GitHub/ACOES-HS/ACOES-HS-ejb/src/java/es/uma/informatica/sii/hs/entidades/Empleado.java</file>
-            <file>file:/Users/ivan/Documents/GitHub/ACOES-HS/ACOES-HS-ejb/src/conf/MANIFEST.MF</file>
-            <file>file:/Users/ivan/Documents/GitHub/ACOES-HS/ACOES-HS-ejb/src/java/es/uma/informatica/sii/hs/entidades/HistorialPadrinos.java</file>
-            <file>file:/Users/ivan/Documents/GitHub/ACOES-HS/ACOES-HS-ejb/src/java/es/uma/informatica/sii/hs/entidades/Paquete.java</file>
-            <file>file:/Users/ivan/Documents/GitHub/ACOES-HS/ACOES-HS-ejb/src/java/es/uma/informatica/sii/hs/negocio/Negocio.java</file>
-            <file>file:/Users/ivan/Documents/GitHub/ACOES-HS/ACOES-HS-ejb/src/java/es/uma/informatica/sii/hs/negocio/CuentaRepetidaException.java</file>
-            <file>file:/Users/ivan/Documents/GitHub/ACOES-HS/ACOES-HS-ejb/src/java/es/uma/informatica/sii/hs/negocio/NegocioAdmin.java</file>
+            <file>file:/Users/ivan/Documents/GitHub/SII-ACOES-HEFESTO_SOFTWARE/ACOES-HS/ACOES-HS-ejb/src/conf/persistence.xml</file>
         </group>
     </open-files>
 </project-private>

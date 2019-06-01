@@ -2,37 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/Users/ivan/Documents/GitHub/ACOES-HS/ACOES-HS-war/src/java/es/uma/informatica/sii/hs/vista/Login.java</file>
-            <file>file:/Users/ivan/Documents/GitHub/ACOES-HS/ACOES-HS-war/src/java/es/uma/informatica/sii/hs/vista/InfoSesion.java</file>
-            <file>file:/Users/ivan/Documents/GitHub/ACOES-HS/ACOES-HS-war/src/java/es/uma/informatica/sii/hs/vista/NuevoEmpleado.java</file>
-            <file>file:/Users/ivan/Documents/GitHub/ACOES-HS/ACOES-HS-war/src/java/es/uma/informatica/sii/hs/vista/NuevaCarta.java</file>
-            <file>file:/Users/ivan/Documents/GitHub/ACOES-HS/ACOES-HS-war/src/java/es/uma/informatica/sii/hs/vista/NiñoConverter.java</file>
-            <file>file:/Users/ivan/Documents/GitHub/ACOES-HS/ACOES-HS-war/web/Escribir%20peticion.xhtml</file>
-            <file>file:/Users/ivan/Documents/GitHub/ACOES-HS/ACOES-HS-war/src/java/es/uma/informatica/sii/hs/vista/ControlAutorizacion.java</file>
-            <file>file:/Users/ivan/Documents/GitHub/ACOES-HS/ACOES-HS-war/src/java/es/uma/informatica/sii/hs/vista/VistaNiños.java</file>
-            <file>file:/Users/ivan/Documents/GitHub/ACOES-HS/ACOES-HS-war/src/java/es/uma/informatica/sii/hs/vista/EscribirPeticion.java</file>
-            <file>file:/Users/ivan/Documents/GitHub/ACOES-HS/ACOES-HS-war/src/conf/MANIFEST.MF</file>
-            <file>file:/Users/ivan/Documents/GitHub/ACOES-HS/ACOES-HS-war/web/WEB-INF/web.xml</file>
-            <file>file:/Users/ivan/Documents/GitHub/ACOES-HS/ACOES-HS-war/web/normal.xhtml</file>
-            <file>file:/Users/ivan/Documents/GitHub/ACOES-HS/ACOES-HS-war/src/java/es/uma/informatica/sii/hs/vista/VistaCartas.java</file>
-            <file>file:/Users/ivan/Documents/GitHub/ACOES-HS/ACOES-HS-war/src/java/es/uma/informatica/sii/hs/vista/LoginAdministrador.java</file>
-            <file>file:/Users/ivan/Documents/GitHub/ACOES-HS/ACOES-HS-war/src/java/es/uma/informatica/sii/hs/vista/AutorizarCartas.java</file>
-            <file>file:/Users/ivan/Documents/GitHub/ACOES-HS/ACOES-HS-war/src/java/es/uma/informatica/sii/hs/vista/Registro.java</file>
-            <file>file:/Users/ivan/Documents/GitHub/ACOES-HS/ACOES-HS-war/src/java/es/uma/informatica/sii/hs/vista/NuevoNiño.java</file>
-            <file>file:/Users/ivan/Documents/GitHub/ACOES-HS/ACOES-HS-war/src/java/es/uma/informatica/sii/hs/vista/VistaDestinatarios.java</file>
-            <file>file:/Users/ivan/Documents/GitHub/ACOES-HS/ACOES-HS-war/web/WEB-INF/beans.xml</file>
-            <file>file:/Users/ivan/Documents/GitHub/ACOES-HS/ACOES-HS-war/web/HistorialCartasNinos.xhtml</file>
-            <file>file:/Users/ivan/Documents/GitHub/ACOES-HS/ACOES-HS-war/src/java/es/uma/informatica/sii/hs/vista/VistaPaquetes.java</file>
-            <file>file:/Users/ivan/Documents/GitHub/ACOES-HS/ACOES-HS-war/src/java/es/uma/informatica/sii/hs/vista/UsuarioConverter.java</file>
-            <file>file:/Users/ivan/Documents/GitHub/ACOES-HS/ACOES-HS-war/web/loginAdministrador.xhtml</file>
-            <file>file:/Users/ivan/Documents/GitHub/ACOES-HS/ACOES-HS-war/src/java/es/uma/informatica/sii/hs/vista/VistaUsuarios.java</file>
-            <file>file:/Users/ivan/Documents/GitHub/ACOES-HS/ACOES-HS-war/src/java/es/uma/informatica/sii/hs/vista/HistorialCartas.java</file>
-            <file>file:/Users/ivan/Documents/GitHub/ACOES-HS/ACOES-HS-war/src/java/es/uma/informatica/sii/hs/vista/VistaPeticiones.java</file>
-            <file>file:/Users/ivan/Documents/GitHub/ACOES-HS/ACOES-HS-war/src/java/es/uma/informatica/sii/hs/vista/VistaApadrinamientos.java</file>
-            <file>file:/Users/ivan/Documents/GitHub/ACOES-HS/ACOES-HS-war/src/java/es/uma/informatica/sii/hs/vista/VistaEmpleados.java</file>
-            <file>file:/Users/ivan/Documents/GitHub/ACOES-HS/ACOES-HS-war/web/login.xhtml</file>
-            <file>file:/Users/ivan/Documents/GitHub/ACOES-HS/ACOES-HS-war/src/java/es/uma/informatica/sii/hs/vista/NuevoPaquete.java</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>
