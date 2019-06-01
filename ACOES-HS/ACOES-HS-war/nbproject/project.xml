@@ -8,6 +8,7 @@
             <web-module-libraries>
                 <library dirs="100">
                     <file>${reference.ACOES-HS-ejb.dist}</file>
+                    <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
                 <library dirs="200">
                     <file>${file.reference.primefaces-7.0.jar}</file>

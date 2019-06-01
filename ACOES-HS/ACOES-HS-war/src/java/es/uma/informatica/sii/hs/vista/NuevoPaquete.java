@@ -12,7 +12,6 @@ import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import java.sql.Date;
-import java.util.Calendar;
 import javax.ejb.EJB;
 
 /**
@@ -36,7 +35,10 @@ public class NuevoPaquete {
     }
 
     public void enviarPaquete() {
-        paquete.setFechaEnvio(new Date(Calendar.getInstance().getTime().getTime()));
+        
+        paquete.setDestino("Honduras");
+        paquete.setEstado("Pendiente");
+        paquete.setFechaEnvio(new Date(System.currentTimeMillis()));
         paquete.setEmpleado(ctrl.getEmpleado());
         negocioAdmin.escribirPaquete(paquete);
     }

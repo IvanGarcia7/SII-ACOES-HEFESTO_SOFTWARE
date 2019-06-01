@@ -22,7 +22,6 @@ import javax.inject.Named;
  */
 
 @Named(value = "escribirPeticion")
-@ManagedBean
 @RequestScoped
 public class EscribirPeticion {
     @EJB

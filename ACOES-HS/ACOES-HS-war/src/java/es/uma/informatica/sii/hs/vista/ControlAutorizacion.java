@@ -8,11 +8,13 @@ package es.uma.informatica.sii.hs.vista;
 import es.uma.informatica.sii.hs.entidades.Empleado;
 import es.uma.informatica.sii.hs.entidades.Usuario;
 import javax.inject.Named;
-import javax.enterprise.context.SessionScoped;
+
 import java.io.Serializable;
-import javax.faces.bean.ManagedBean;
+import javax.enterprise.context.SessionScoped;
+
 
 import javax.faces.context.FacesContext;
+
 
 @Named(value = "controlAutorizacion")
 @SessionScoped
